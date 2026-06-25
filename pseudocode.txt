@@ -1,0 +1,6 @@
+Create todo classes to make new tasks.
+todo classes have a constructor for(title, description, dueDate, priority,  notes, checklist)
+make todo append form class projects.
+make module to addNewTodo
+make module to setting todo as complete
+make module for changing todo priority.
