@@ -4,3 +4,9 @@ make todo append form class projects.
 make module to addNewTodo
 make module to setting todo as complete
 make module for changing todo priority.
+
+
+
+UI
+make ui to view all projects
+view all todos in each project.
