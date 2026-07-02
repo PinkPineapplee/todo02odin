@@ -19,7 +19,12 @@
   },
   "homepage": "https://github.com/PinkPineapplee/todo02odin#readme",
   "devDependencies": {
+    "css-loader": "^7.1.4",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.7",
+    "style-loader": "^4.0.0",
     "webpack": "^5.108.3",
-    "webpack-cli": "^7.1.0"
+    "webpack-cli": "^7.1.0",
+    "webpack-dev-server": "^5.2.5"
   }
 }
