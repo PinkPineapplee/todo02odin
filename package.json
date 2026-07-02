@@ -1,0 +1,25 @@
+{
+  "name": "todo02odin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PinkPineapplee/todo02odin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/PinkPineapplee/todo02odin/issues"
+  },
+  "homepage": "https://github.com/PinkPineapplee/todo02odin#readme",
+  "devDependencies": {
+    "webpack": "^5.108.3",
+    "webpack-cli": "^7.1.0"
+  }
+}

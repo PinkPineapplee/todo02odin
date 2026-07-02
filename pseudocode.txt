@@ -9,4 +9,4 @@ make module for changing todo priority.
 
 UI
 make ui to view all projects
-view all todos in each project.
+view all todos in each project. 
