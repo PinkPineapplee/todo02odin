@@ -13,6 +13,7 @@ class Project{
      this.name = name;
      this.todos = [];
      this.isCompleted = false;
+     this.id = toString(this.name);
     }
 
     newProject(){
@@ -27,6 +28,7 @@ class Project{
 class Todo extends Project{
     constructor(title,description,dueDate,priority,notes, projects){
         this.title = title;
+        this.class = "todos";
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
