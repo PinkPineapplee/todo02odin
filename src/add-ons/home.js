@@ -3,7 +3,7 @@ import {Todo, Project} from "./logic.js";
 
 
 
-export default function makeNavBar(){
+export function makeNavBar(){
 /* <nav>
     <ul> Vee 
         <li>Add Task</li>
@@ -20,4 +20,8 @@ export default function makeNavBar(){
     </ul>
     <div>Help & resources</div>
 </nav> */
+}
+
+export function makeDisplayBar(){
+    
 }

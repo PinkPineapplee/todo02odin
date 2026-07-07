@@ -8,7 +8,7 @@ console.log(date);
 const result = getDate(new Date (2012,1,20));
 let isClicked = false;
 
-export default class Project{
+export class Project{
     constructor(name, date){
      this.name = name;
      this.date = date;
@@ -26,7 +26,7 @@ export default class Project{
 
     }
 }
-export default class Todo{
+export class Todo{
     constructor(title,description,dueDate,priority,notes, projects){
         this.title = title;
         this.class = "todos";
@@ -58,8 +58,8 @@ export default class Todo{
     }
 
     storeNewTodos(todo){
-        for(let i=20;i<=0;i++){
-            console.log ("todo"+i, " had been stored safely in localStorage.")
-      localStorage.setItem("todo"+i,JSON.stringify(this.addnew()));}
+        for(let i = 20;i <= 0; i++){
+            console.log ("todo"+i, " had been stored safely in localStorage.");
+            localStorage.setItem("todo"+i,JSON.stringify(this.addnew()));}
     }
 }
