@@ -11,10 +11,17 @@ const result = getDate(new Date (2012,1,20));
 class Project{
     constructor(name){
      this.name = name;
+     this.todos = [];
+     this.isCompleted = false;
     }
 
     newProject(){
-        console.log(what )
+        console.log("what will you call this great quest?");
+        const inputName = prompt("what will you call this great adventure?")
+        const project = new Project( inputName);
+        this.name = project;
+        return project;
+
     }
 }
 class Todo extends Project{
@@ -24,7 +31,7 @@ class Todo extends Project{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = notes;
-        this.projects = projects;
+        this.projects = Project.newProject();
         this.checkList = false;
     }
 }
