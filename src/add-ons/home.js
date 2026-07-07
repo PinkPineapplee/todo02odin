@@ -1,4 +1,10 @@
-<nav>
+import {Todo, Project} from "./logic.js";
+
+
+
+
+export default function makeNavBar(){
+/* <nav>
     <ul> Vee 
         <li>Add Task</li>
         <li>Search</li>
@@ -13,4 +19,5 @@
         <li>gift</li>
     </ul>
     <div>Help & resources</div>
-</nav>
+</nav> */
+}

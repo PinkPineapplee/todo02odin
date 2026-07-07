@@ -8,7 +8,7 @@ console.log(date);
 const result = getDate(new Date (2012,1,20));
 let isClicked = false;
 
-class Project{
+export default class Project{
     constructor(name, date){
      this.name = name;
      this.date = date;
@@ -26,7 +26,7 @@ class Project{
 
     }
 }
-class Todo{
+export default class Todo{
     constructor(title,description,dueDate,priority,notes, projects){
         this.title = title;
         this.class = "todos";
