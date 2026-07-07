@@ -9,8 +9,9 @@ const result = getDate(new Date (2012,1,20));
 
 
 class Project{
-    constructor(name){
+    constructor(name, date){
      this.name = name;
+     this.date = date;
      this.todos = [];
      this.isCompleted = false;
      this.id = toString(this.name);
@@ -36,4 +37,11 @@ class Todo extends Project{
         this.projects = Project.newProject();
         this.checkList = false;
     }
+
+    printTodo(title, due){
+        if(check === false){
+       console.log( due ,title,"&#9744");
+    }else{
+         console.log( due ,title,"&#10005");
+    }};
 }

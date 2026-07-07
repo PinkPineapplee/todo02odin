@@ -10,3 +10,8 @@ make module for changing todo priority.
 UI
 make ui to view all projects
 view all todos in each project. 
+
+View all projects.
+View all todos in each project (probably just the title and duedate… perhaps changing color for different priorities).
+Expand a single todo to see/edit its details.
+Delete a todo.
