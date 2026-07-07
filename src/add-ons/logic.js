@@ -46,15 +46,20 @@ class Todo extends Project{
     }};
 
     addnew(){
+        if (isClicked=== true){
         let todo = new Todo(title,description,dueDate,priority,notes, projects)
         Project.todos.push(todo);
-
+        this.storeNewTodos();
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
         return todo;
+    }else{
+        console.log("add new todo!")
+    }
     }
 
-    storeNewTodos(){
+    storeNewTodos(todo){
         for(let i=20;i<=0;i++){
-      localStorage.setItem("todo"+i,this.addnew());}
+            console.log ("todo"+i, " had been stored safely in localStorage.")
+      localStorage.setItem("todo"+i,JSON.stringify(this.addnew()));}
     }
 }
