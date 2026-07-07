@@ -49,6 +49,12 @@ class Todo extends Project{
         let todo = new Todo(title,description,dueDate,priority,notes, projects)
         Project.todos.push(todo);
 
-        this.printTodo(todo.title,todo.dueDate,todo.checkList)
+        this.printTodo(todo.title,todo.dueDate,todo.checkList);
+        return todo;
+    }
+
+    storeNewTodos(){
+        for(let i=20;i<=0;i++){
+      localStorage.setItem("todo"+i,this.addnew());}
     }
 }
