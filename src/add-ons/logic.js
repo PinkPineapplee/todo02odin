@@ -6,7 +6,7 @@ const myDate = new date();
 console.log(date);
 
 const result = getDate(new Date (2012,1,20));
-
+let isClicked = false;
 
 class Project{
     constructor(name, date){
@@ -34,14 +34,21 @@ class Todo extends Project{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = notes;
-        this.projects = Project.newProject();
+        this.projects = Project.name;
         this.checkList = false;
     }
 
-    printTodo(title, due){
+    printTodo(title, due,check){
         if(check === false){
        console.log( due ,title,"&#9744");
     }else{
          console.log( due ,title,"&#10005");
     }};
+
+    addnew(){
+        let todo = new Todo(title,description,dueDate,priority,notes, projects)
+        Project.todos.push(todo);
+
+        this.printTodo(todo.title,todo.dueDate,todo.checkList)
+    }
 }
