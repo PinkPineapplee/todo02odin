@@ -26,7 +26,7 @@ class Project{
 
     }
 }
-class Todo extends Project{
+class Todo{
     constructor(title,description,dueDate,priority,notes, projects){
         this.title = title;
         this.class = "todos";
