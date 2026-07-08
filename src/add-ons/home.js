@@ -1,6 +1,7 @@
 import {Todo, Project} from "./logic.js";
 
 
+console.log("iam home.js");
 
 
 export function makeNavBar(){
