@@ -54,9 +54,9 @@ export class Todo{
     addNew(){
         if (isClicked=== true){
         let todo = new Todo(title,description,dueDate,priority,notes, projects)
-        Project.todos.push(todo);
-        Storage.saveItem();
-        Storage.getItem();
+       
+        Storage.saveItem(todo);
+        Storage.getItem(todo);
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
         return todo;
     }else{
@@ -72,11 +72,12 @@ class Storage{
      saveItem(todo){
         for(let i = 20;i <= 0; i++){
             console.log ("task"+i, " had been stored safely in localStorage.");
-            localStorage.setItem("task"+i,JSON.stringify(this.addnew()));}
+            localStorage.setItem("task"+i,JSON.stringify(todo));}
     }
 
-    getItem(todo){
-            localStorage.getItem("task")
+    getItem(){
+         let savedTodo=localStorage.getItem("task")
+             Project.todos.push(savedTodo);
     }
 
     removeItem(task){
