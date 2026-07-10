@@ -11,7 +11,7 @@ let isClicked = false;
 
 export class Project{
     constructor(name, date){
-     this.name = name;
+     this.name = name || "General";
      this.date = date;
      this.todos = [];
      this.isCompleted = false;
@@ -27,8 +27,13 @@ export class Project{
 
     }
 }
+
+
+
+// build a large todo class
 export class Todo{
     constructor(title,description,dueDate,priority,notes, projects){
+        this.id = self.crypto.randomUUID();
         this.title = title;
         this.class = "todos";
         this.description = description;
@@ -46,11 +51,12 @@ export class Todo{
          console.log( due ,title,"&#10005");
     }};
 
-    addnew(){
+    addNew(){
         if (isClicked=== true){
         let todo = new Todo(title,description,dueDate,priority,notes, projects)
         Project.todos.push(todo);
-        this.storeNewTodos();
+        Storage.saveItem();
+        Storage.getItem();
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
         return todo;
     }else{
@@ -58,11 +64,23 @@ export class Todo{
     }
     }
 
-    storeNewTodos(todo){
-        for(let i = 20;i <= 0; i++){
-            console.log ("todo"+i, " had been stored safely in localStorage.");
-            localStorage.setItem("todo"+i,JSON.stringify(this.addnew()));}
-    }
+   
 }
 
+
+class Storage{
+     saveItem(todo){
+        for(let i = 20;i <= 0; i++){
+            console.log ("task"+i, " had been stored safely in localStorage.");
+            localStorage.setItem("task"+i,JSON.stringify(this.addnew()));}
+    }
+
+    getItem(todo){
+            localStorage.getItem("task")
+    }
+
+    removeItem(task){
+
+    }
+}
 console.log("this the end of logic.js");
