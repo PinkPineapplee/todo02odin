@@ -4,8 +4,7 @@
  export default merge(common, {
    mode: 'development',
    devtool: "eval-source-map",
-      devServer: {
-      
+      devServer: {   
       watchFiles: ["./src/template.html","webpack-dev-server"],
       },
   
