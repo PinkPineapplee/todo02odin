@@ -1,11 +1,12 @@
 //import {compareAsc, format} from "date-fns";
-console.log("iam logic.js");
+console.log("I am logic.js");
+
 import { getDate } from "date-fns";
 
-const myDate = new date();
-console.log(date);
+//const myDate = new date(2011,1,8);
+//console.log(myDate);
 
-const result = getDate(new Date (2012,1,20));
+//const result = getDate(new Date (2012,1,20));
 let isClicked = false;
 
 export class Project{
@@ -63,3 +64,5 @@ export class Todo{
             localStorage.setItem("todo"+i,JSON.stringify(this.addnew()));}
     }
 }
+
+console.log("this the end of logic.js");

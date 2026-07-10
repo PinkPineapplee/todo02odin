@@ -1,7 +1,9 @@
+console.log("I am home.js");
+
 import {Todo, Project} from "./logic.js";
 
 
-console.log("iam home.js");
+
 
 
 export function makeNavBar(){
@@ -21,8 +23,11 @@ export function makeNavBar(){
     </ul>
     <div>Help & resources</div>
 </nav> */
+console.log("I am making a beautiful nav bar!")
 }
 
 export function makeDisplayBar(){
     
 }
+
+console.log("I am the end to home.js");

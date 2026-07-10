@@ -7,6 +7,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
  const __dirname = path.dirname(__filename);
 
 export default {
+  mode: "none",
   entry: {
     app: "./src/index.js",
   },
