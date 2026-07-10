@@ -1,12 +1,6 @@
 //import {compareAsc, format} from "date-fns";
 console.log("I am logic.js");
 
-import { getDate } from "date-fns";
-
-//const myDate = new date(2011,1,8);
-//console.log(myDate);
-
-//const result = getDate(new Date (2012,1,20));
 let isClicked = false;
 
 export class Project{
@@ -32,7 +26,8 @@ export class Project{
 
 // build a large todo class
 export class Todo{
-    constructor(title,description,dueDate,priority,notes, projects){
+
+    constructor(title ,description ,dueDate ,priority ,notes , projects){
         this.id = self.crypto.randomUUID();
         this.title = title;
         this.class = "todos";
@@ -51,6 +46,7 @@ export class Todo{
          console.log( due ,title,"&#10005");
     }};
 
+    //create new todos 
     addNew(){
         if (isClicked=== true){
         let todo = new Todo(title,description,dueDate,priority,notes, projects)
@@ -65,7 +61,7 @@ export class Todo{
     }
 
    
-}
+};
 
 
 class Storage{
@@ -76,12 +72,12 @@ class Storage{
     }
 
     getItem(){
-         let savedTodo=localStorage.getItem("task")
+         let savedTodo = localStorage.getItem("task");
              Project.todos.push(savedTodo);
     }
 
-    removeItem(task){
-
+    removeItem(todo){
+        localStorage.removeItem(todo)
     }
-}
+};
 console.log("this the end of logic.js");
