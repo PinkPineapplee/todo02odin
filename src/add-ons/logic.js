@@ -1,4 +1,6 @@
 //import {compareAsc, format} from "date-fns";
+import { dateForThings } from "./calender.js";
+
 console.log("I am logic.js");
 
 let isClicked = false;
@@ -25,7 +27,7 @@ export class Project{
 
 
 // build a large todo class
-export class Todo{
+export class Todo extends Project{
 
     constructor(title ,description ,dueDate ,priority ,notes , projects){
         this.id = self.crypto.randomUUID();
@@ -35,7 +37,6 @@ export class Todo{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = notes;
-        this.projects = Project.name;
         this.checkList = false;
     }
 
