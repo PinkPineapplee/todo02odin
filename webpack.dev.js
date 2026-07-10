@@ -5,7 +5,7 @@
    mode: 'development',
    devtool: "eval-source-map",
       devServer: {
-      static: './dist',
+      
       watchFiles: ["./src/template.html","webpack-dev-server"],
       },
   
