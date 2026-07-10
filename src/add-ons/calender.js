@@ -1,6 +1,8 @@
-import { getDate } from "date-fns";
+import { format, startOfDay , isToday, isTomorrow, isYesterday} from "date-fns";
 
-//const myDate = new date(2011,1,8);
-//console.log(myDate);
+const today = new date();
+console.log(today);
 
-//const result = getDate(new Date (2012,1,20));
+const formattedDate = format(new Date(), "yyyy-MM-dd");
+
+const todayStarts = startOfDay(new Date());
