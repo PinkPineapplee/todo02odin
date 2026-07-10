@@ -1,6 +1,6 @@
 // webpack.common.js
 import path from "node:path";
- import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
  const __filename = fileURLToPath(import.meta.url);
@@ -15,13 +15,10 @@ export default {
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
-  // devtool: "eval-source-map",
-  // devServer: {
-  //   watchFiles: ["./src/template.html","webpack-dev-server"],
-  // },
+  
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Production",
+      template: "./src/template.html",
     }),
   ],
   module: {

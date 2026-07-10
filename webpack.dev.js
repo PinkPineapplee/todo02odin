@@ -3,8 +3,10 @@
 
  export default merge(common, {
    mode: 'development',
-   devtool: 'inline-source-map',
-   devServer: {
-     static: './dist',
-   },
+   devtool: "eval-source-map",
+      devServer: {
+      static: './dist',
+      watchFiles: ["./src/template.html","webpack-dev-server"],
+      },
+  
  });
