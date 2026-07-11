@@ -67,9 +67,8 @@ export class Todo extends Project{
 
 class Storage{
      saveItem(todo){
-        for(let i = 20;i <= 0; i++){
-            console.log ("task"+i, " had been stored safely in localStorage.");
-            localStorage.setItem("task"+i,JSON.stringify(todo));}
+          console.log ("task", " had been stored safely in localStorage.");
+            localStorage.setItem("task",JSON.stringify(todo));
     }
 
     getItem(){
@@ -81,4 +80,32 @@ class Storage{
         localStorage.removeItem(todo)
     }
 };
+
+
+let newTask = new todo("remain in the saloon till 1:30am", )
+
+//Create for task form
+
+function creatNewTodoForm(){
+    const formDiv = document.createElement("div");
+    formDiv.className ="formDiv";
+    const form = document.createElement("form");
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log("this the end of logic.js");
