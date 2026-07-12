@@ -41,6 +41,9 @@ export function makeDisplayBar(){
     const h1 = document.createElement("h1");
     const ul = document.createElement("ul");
     const l1 = document.createElement("li"); 
+     const hr = document.createElement("hr");
+    const addnewbtn = document.createElement("button");
+   
 }
 
 
