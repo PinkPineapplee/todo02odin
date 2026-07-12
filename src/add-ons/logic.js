@@ -91,16 +91,30 @@ function creatNewTodoForm(){
     formDiv.className ="formDiv";
     const form = document.createElement("form");
     const titeInput = document.createElement("input");
+            titleInput.type = 'text';
+            titleInput.name = 'title';
+            titleInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+            titleInput.required = true; // Boolean attributes take true/false
+            titleInput.id = 'title';
     const description = document.createElement("input");
+            description.type = 'text';
+            description.name = 'description';
+            description.placeholder = "Description";
+            description.required = false; // Boolean attributes take true/false
+            description.id = 'description';
     const div1 = document.createElement("div");
+          div1.className="div1"
+          div1.textContent= `&#128197 + " today " + &#x1F5D9`;
+          const calendarDiv = document.createElement("div");
+          div1.appendChild(calendarDiv);
     const div2 = document.createElement("div");
     const div3 = document.createElement("div");
     const div4 = document.createElement("div");
-    const div4 = document.createElement("div");
-    const hr = document.createElement("hr");
-    const inboxBtn =document.createElement("button");
-    const cancelBtn =document.createElement("button");
-    const addTasKBtn =document.createElement("button");
+    const options = document.createElement("div");
+    const formHr = document.createElement("hr");
+    const inboxBtn = document.createElement("button");
+    const cancelBtn = document.createElement("button");
+    const addTasKBtn = document.createElement("button");
 
 }
 
