@@ -90,6 +90,17 @@ function creatNewTodoForm(){
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
     const form = document.createElement("form");
+    const titeInput = document.createElement("input");
+    const description = document.createElement("input");
+    const div1 = document.createElement("div");
+    const div2 = document.createElement("div");
+    const div3 = document.createElement("div");
+    const div4 = document.createElement("div");
+    const div4 = document.createElement("div");
+    const hr = document.createElement("hr");
+    const inboxBtn =document.createElement("button");
+    const cancelBtn =document.createElement("button");
+    const addTasKBtn =document.createElement("button");
 
 }
 
