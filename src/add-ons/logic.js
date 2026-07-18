@@ -4,6 +4,7 @@ import { dateForThings } from "./calender.js";
 console.log("I am logic.js");
 
 let isClicked = false;
+const projectBox = []
 
 export class Project{
     constructor(name, date){
@@ -19,12 +20,18 @@ export class Project{
         const inputName = prompt("what will you call this great adventure?")
         const project = new Project( inputName);
         this.name = project;
+        projectBox.push(project)
         return project;
 
     }
-}
 
-
+    finishProject(project){
+        if (this.isCompleted === true){
+         let index = projectBox.findIndex("project");
+         projectBox.pop[index];
+        }
+    }
+};
 
 // build a large todo class
 export class Todo extends Project{
@@ -59,9 +66,7 @@ export class Todo extends Project{
     }else{
         console.log("add new todo!")
     }
-    }
-
-   
+    }  
 };
 
 
@@ -84,5 +89,6 @@ class Storage{
 
 let newTask = new todo("remain in the saloon till 1:30am", )
 
+console.log(newTask);
 
 console.log("this the end of logic.js");
