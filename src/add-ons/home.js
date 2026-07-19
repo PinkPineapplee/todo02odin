@@ -13,6 +13,7 @@ export function makeNavBar(){
     const nav = document.createElement("nav");
     const ul1 = document.createElement("ul");
     ul1.className = "profile";
+    ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`
     const ul2 = document.createElement("ul");
     ul2.className = "myProjects"
     const l1 = document.createElement("li");

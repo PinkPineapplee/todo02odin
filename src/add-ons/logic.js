@@ -23,6 +23,12 @@ export class Project{
         projectBox.push(project)
         return project;
 
+        //create new list in nav
+        const listUi = document.createElement("li");
+        listUi.className = "list";
+        listUi.textContent += project.name;
+
+
     }
 
     isProjectFinished(project){
