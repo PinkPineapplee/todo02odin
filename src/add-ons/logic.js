@@ -25,9 +25,9 @@ export class Project{
 
     }
 
-    finishProject(project){
+    isProjectFinished(project){
         if (this.isCompleted === true){
-         let index = projectBox.findIndex("project");
+         let index = projectBox.findIndex(project);
          projectBox.pop[index];
         }
     }

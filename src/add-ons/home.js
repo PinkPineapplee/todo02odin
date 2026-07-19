@@ -6,10 +6,12 @@ import {Todo, Project} from "./logic.js";
 
 
 
+
 export function makeNavBar(){
     const div = document.createElement("div");
     const nav = document.createElement("nav");
-    const ul = document.createElement("ul");
+    const ul1 = document.createElement("ul");
+    const ul2 = document.createElement("ul");
     const l1 = document.createElement("li");
      const l2 = document.createElement("li");
       const l3 = document.createElement("li");
