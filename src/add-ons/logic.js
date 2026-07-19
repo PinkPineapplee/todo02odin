@@ -7,6 +7,7 @@ let isClicked = false;
 const projectBox = []
 
 export class Project{
+
     constructor(name, date){
      this.name = name || "General";
      this.date = date;
@@ -26,13 +27,14 @@ export class Project{
         //create new list in nav
         const listUi = document.createElement("li");
         listUi.className = "list";
-        listUi.textContent += project.name;
+        listUi.textContent = project.name;
+        ul2.textContent += listUi;                                                                                                                  
 
 
     }
 
     isProjectFinished(project){
-        if (this.isCompleted === true){
+        if (project.isCompleted === true){
          let index = projectBox.findIndex(project);
          projectBox.pop[index];
         }
