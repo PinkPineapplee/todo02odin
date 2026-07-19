@@ -15,17 +15,23 @@ export function makeNavBar(){
     ul1.className = "profile";
     ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`
     const ul2 = document.createElement("ul");
-    ul2.className = "myProjects"
+    ul2.className = "myProjects";
+    ul2.textContent = `Projects`
     const l1 = document.createElement("li");
     l1.className = "Add";
+     ul2.textContent = `Add Task`
      const l2 = document.createElement("li");
      l2.className = "search";
+      ul2.textContent = `Search`
       const l3 = document.createElement("li");
       l3.className = "today";
+       ul2.textContent = `Today`
        const l4 = document.createElement("li");
        l4.className = "week";
+        ul2.textContent = `weekly`
         const l5 = document.createElement("li");
         l5.className = "monthly";
+         ul2.textContent = `Monthly`;
          const l6 = document.createElement("li");
          l6.className = "general";
           const l7 = document.createElement("li");
@@ -126,10 +132,16 @@ function creatNewTodoForm(){
 }
 
 
+function createToday(){
+
+};
+
+function createWeekly(){};
 
 
+function  createMonthly(){
 
-
+}
 
 
 
