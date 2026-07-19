@@ -9,16 +9,26 @@ import {Todo, Project} from "./logic.js";
 
 export function makeNavBar(){
     const div = document.createElement("div");
+    div.className = "navBox";
     const nav = document.createElement("nav");
     const ul1 = document.createElement("ul");
+    ul1.className = "profile";
     const ul2 = document.createElement("ul");
+    ul2.className = "myProjects"
     const l1 = document.createElement("li");
+    l1.className = "Add";
      const l2 = document.createElement("li");
+     l2.className = "search";
       const l3 = document.createElement("li");
+      l3.className = "today";
        const l4 = document.createElement("li");
+       l4.className = "week";
         const l5 = document.createElement("li");
+        l5.className = "monthly";
          const l6 = document.createElement("li");
+         l6.className = "general";
           const l7 = document.createElement("li");
+          l7.className = "search";
 /* <nav>
     <ul> Vee 
         <li>Add Task</li>
