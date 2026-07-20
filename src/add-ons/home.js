@@ -133,17 +133,24 @@ function creatNewTodoForm(){
 
 
 function createToday(){
-   
+  // will have today, yesterday and tomorrow. 
+  const container = document.createElement("div");
+ const header = document.createElement("h1");
+
 };
 
-function createWeekly(){};
-
+function createWeekly(){
+    // tasks will be seperated by days of the week.
+    const container = document.createElement("div");
+ const header = document.createElement("h1");
+};
 
 function  createMonthly(){
+    // tasks will be separated calendar format.
  const container = document.createElement("div");
  const header = document.createElement("h1");
 
- for(let i= 0 ; i<= 11; i++){
+ for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
     const monthHeader = document.createElement("div");
 
@@ -153,7 +160,8 @@ function  createMonthly(){
 
 
 function createSearch(){
-    
+    const container = document.createElement("div");
+ const header = document.createElement("h1");
 }
 
 
