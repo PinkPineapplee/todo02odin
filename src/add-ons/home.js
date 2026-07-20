@@ -9,34 +9,35 @@ import {Todo, Project} from "./logic.js";
 
 export function makeNavBar(){
     const div = document.createElement("div");
-    div.className = "navBox";
+         div.className = "navBox";
     const nav = document.createElement("nav");
     const ul1 = document.createElement("ul");
-    ul1.className = "profile";
-    ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`
-    const ul2 = document.createElement("ul");
-    ul2.className = "myProjects";
-    ul2.textContent = `Projects`
+        ul1.className = "profile";
+        ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`;
     const l1 = document.createElement("li");
-    l1.className = "Add";
-     ul2.textContent = `Add Task`
-     const l2 = document.createElement("li");
-     l2.className = "search";
-      ul2.textContent = `Search`
-      const l3 = document.createElement("li");
-      l3.className = "today";
-       ul2.textContent = `Today`
-       const l4 = document.createElement("li");
-       l4.className = "week";
-        ul2.textContent = `weekly`
-        const l5 = document.createElement("li");
+        l1.className = "Add";
+        ul2.textContent = `Add Task`;
+    const l2 = document.createElement("li");
+        l2.className = "search";
+        ul2.textContent = `Search`;
+    const l3 = document.createElement("li");
+        l3.className = "today";
+        ul2.textContent = `Today`;
+    const l4 = document.createElement("li");
+        l4.className = "week";
+        ul2.textContent = `weekly`;
+    const l5 = document.createElement("li");
         l5.className = "monthly";
-         ul2.textContent = `Monthly`;
-         const l6 = document.createElement("li");
-         l6.className = "general";
-          const l7 = document.createElement("li");
-          l7.className = "search";
+        ul2.textContent = `Monthly`;
+    const l6 = document.createElement("li");
+        l6.className = "general";
+    const l7 = document.createElement("li");
+        l7.className = "search";
 
+
+         const ul2 = document.createElement("ul");
+        ul2.className = "myProjects";
+        ul2.textContent = `Projects`;
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -45,7 +46,7 @@ export function makeDisplayBar(){
     const h1 = document.createElement("h1");
     const ul = document.createElement("ul");
     const l1 = document.createElement("li"); 
-     const hr = document.createElement("hr");
+    const hr = document.createElement("hr");
     const addnewbtn = document.createElement("button");
    
 }
@@ -85,11 +86,12 @@ export function creatNewTodoForm(){
     const div2 = document.createElement("div");
           div2.className = "div2";
           div2.textContent= `Priority`;
-          const priorityDiv = document.createElement("div");
-          const priorityList = document.createElement("ul");
-          const high = document.createElement("li");
-          const medium = document.createElement("li");
-          const low = document.createElement("li");
+          
+    const priorityDiv = document.createElement("div");
+    const priorityList = document.createElement("ul");
+    const high = document.createElement("li");
+    const medium = document.createElement("li");
+    const low = document.createElement("li");
            priorityList.append(high,medium,low);
            priorityDiv.appendChild(priorityList);
 
@@ -101,15 +103,15 @@ export function creatNewTodoForm(){
 
     
     const options = document.createElement("div");
-     options.textContent= `...`
-       const optionsDiv =document.createElement("div");
-       options.appendChild(optionsDiv);
+          options.textContent= `...`
+    const optionsDiv =document.createElement("div");
+          options.appendChild(optionsDiv);
     const formHr = document.createElement("hr");
     const inboxBtn = document.createElement("button");
     const cancelBtn = document.createElement("button");
-          cancelBtn.className="cancelBtn"
-          cancelBtn.textContent= `&#128197 + " Cancel " + &#x1F5D9`;
-          const calendarDiv = document.createElement("div");
+          cancelBtn.className = "cancelBtn";
+          cancelBtn.textContent = `&#128197 + " Cancel " + &#x1F5D9`;
+    const calendarDiv = document.createElement("div");
           cancelBtn.appendChild(calendarDiv);
 
     const addTasKBtn = document.createElement("button");
@@ -129,7 +131,7 @@ export function createWeekly(month,num,day){
     // tasks will be seperated by days of the week.
     const container = document.createElement("div");
     const header = document.createElement("h1");
-    header.textContent = `${month}+ "Week " + ${num} + "."`
+    header.textContent = `${month}+ "Week " + ${num} + "."`;
     const div = document.createElement("div");
 
 };
