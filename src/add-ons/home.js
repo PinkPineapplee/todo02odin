@@ -146,7 +146,7 @@ function  createMonthly(){
  for(let i= 0 ; i<= 11; i++){
     const monthBox = document.createElement("div");
     const monthHeader = document.createElement("div");
-    
+
 
  }
 }
