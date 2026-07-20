@@ -9,8 +9,9 @@ import {Todo, Project} from "./logic.js";
 
 export function makeNavBar(){
     const div = document.createElement("div");
-         div.className = "navBox";
+        div.className = "navBox";
     const nav = document.createElement("nav");
+        nav.className = "nav-container";
     const ul1 = document.createElement("ul");
         ul1.className = "profile";
         ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`;
@@ -123,7 +124,7 @@ export function createToday(){
    // will have today, yesterday and tomorrow. 
   const container = document.createElement("div");
   const header = document.createElement("h1");
-  header.textContent = "Today";
+  header.textContent = ``+"Today";
   const div = document.createElement("div");
 };
 

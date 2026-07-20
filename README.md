@@ -1,5 +1,7 @@
 # todo02odin
+  This is a bunny themed todolist app. Get stuff gone while bunny completes tasks.
 
+  
 
 # Attributes
 <a href="https://www.flaticon.com/free-icons/rabbit" title="rabbit icons">Rabbit icons created by Irfansusanto20 - Flaticon</a>
@@ -14,3 +16,4 @@
           
  <a href="https://unsplash.com/illustrations/pink-checkered-pattern-with-small-bows-sdpeC-aZq9Q?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Illustration</a> by <a href="https://unsplash.com/@pragatichoudhari/illustrations?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pragati Choudhari</a> on <a href="https://unsplash.com/illustrations?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
                
+      
