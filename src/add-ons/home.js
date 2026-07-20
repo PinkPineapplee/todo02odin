@@ -127,6 +127,7 @@ export function createToday(){
   const div = document.createElement("div");
 };
 
+
 export function createWeekly(month,num,day){
     // tasks will be seperated by days of the week.
     const container = document.createElement("div");
@@ -135,6 +136,7 @@ export function createWeekly(month,num,day){
     const div = document.createElement("div");
 
 };
+
 
 export function  createMonthly(){
     // tasks will be separated calendar format.
