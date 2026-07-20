@@ -133,14 +133,22 @@ function creatNewTodoForm(){
 
 
 function createToday(){
-
+   
 };
 
 function createWeekly(){};
 
 
 function  createMonthly(){
+ const container = document.createElement("div");
+ const header = document.createElement("h1");
 
+ for(let i= 0 ; i<= 11; i++){
+    const monthBox = document.createElement("div");
+    const monthHeader = document.createElement("div");
+    
+
+ }
 }
 
 
