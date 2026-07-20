@@ -36,22 +36,7 @@ export function makeNavBar(){
          l6.className = "general";
           const l7 = document.createElement("li");
           l7.className = "search";
-/* <nav>
-    <ul> Vee 
-        <li>Add Task</li>
-        <li>Search</li>
-        <li>Inbox</li>
-        <li>Today</li>
-        <li>Upcoming</li>
-        <li>Filters & Labels</li>
-        <li>Reporting</li>
-    </ul>
-    <ul class="myProjects"> My Projects
-        <li>Copy of Home</li>
-        <li>gift</li>
-    </ul>
-    <div>Help & resources</div>
-</nav> */
+
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -68,7 +53,7 @@ export function makeDisplayBar(){
 
 //Create for task form
 
-function creatNewTodoForm(){
+export function creatNewTodoForm(){
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
     const form = document.createElement("form");
@@ -132,23 +117,28 @@ function creatNewTodoForm(){
 }
 
 
-function createToday(){
-  // will have today, yesterday and tomorrow. 
+export function createToday(){
+   // will have today, yesterday and tomorrow. 
   const container = document.createElement("div");
- const header = document.createElement("h1");
-
+  const header = document.createElement("h1");
+  header.textContent = "Today";
+  const div = document.createElement("div");
 };
 
-function createWeekly(){
+export function createWeekly(month,num,day){
     // tasks will be seperated by days of the week.
     const container = document.createElement("div");
- const header = document.createElement("h1");
+    const header = document.createElement("h1");
+    header.textContent = `${month}+ "Week " + ${num} + "."`
+    const div = document.createElement("div");
+
 };
 
-function  createMonthly(){
+export function  createMonthly(){
     // tasks will be separated calendar format.
- const container = document.createElement("div");
- const header = document.createElement("h1");
+    const container = document.createElement("div");
+    const header = document.createElement("h1");
+    const div = document.createElement("div");
 
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
@@ -159,9 +149,10 @@ function  createMonthly(){
 }
 
 
-function createSearch(){
+export function createSearch(){
     const container = document.createElement("div");
- const header = document.createElement("h1");
+    const header = document.createElement("h1");
+
 }
 
 
