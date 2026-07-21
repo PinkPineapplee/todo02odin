@@ -13,13 +13,9 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-     list-style: none;
-
-   
+      
 }
- a{
-        list-style: none;
-    }
+
 .navBox{
     height: 100%;
     width: 20vw;

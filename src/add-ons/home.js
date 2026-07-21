@@ -20,30 +20,50 @@ export function makeNavBar(){
 
     const l1 = document.createElement("li");
         l1.className = "Add";
-        ul2.textContent = `Add Task`;
+        const addIcon = document.createElement("span");
+        addIcon.className = "material-symbols-outlined";
+        addIcon.innerHTML = "side_navigation";
+        ul1.appendChild(addIcon);
+        l1.textContent = `Add Task`;
+
     const l2 = document.createElement("li");
         l2.className = "search";
-        ul2.textContent = `Search`;
+        const searchIcon = document.createElement("span");
+        searchIcon.className = "material-symbols-outlined";
+        searchIcon.innerHTML = "side_navigation";
+        ul1.appendChild(searchIcon);
+        l2.textContent = `Search`;
+
     const l3 = document.createElement("li");
         l3.className = "today";
-        ul2.textContent = `Today`;
+        const todayIcon = document.createElement("span");
+        todayIcon.className = "material-symbols-outlined";
+        todayIcon.innerHTML = "side_navigation";
+        ul1.appendChild(todayIcon);
+        l3.textContent = `Today`;
+
     const l4 = document.createElement("li");
         l4.className = "week";
-        ul2.textContent = `weekly`;
+        const weekIcon = document.createElement("span");
+        weekIcon.className = "material-symbols-outlined";
+        weekIcon.innerHTML = "side_navigation";
+        ul1.appendChild(weekIcon);
+        l4.textContent = `Weekly`;
+
     const l5 = document.createElement("li");
         l5.className = "monthly";
-        ul2.textContent = `Monthly`;
-    const l6 = document.createElement("li");
-        l6.className = "general";
-    const l7 = document.createElement("li");
-        l7.className = "search";
+        const monthIcon = document.createElement("span");
+        monthIcon.className = "material-symbols-outlined";
+        monthIcon.innerHTML = "side_navigation";
+        ul1.appendChild(monthIcon);
+        l5.textContent = `Monthly`;
 
 
          const ul2 = document.createElement("ul");
         ul2.className = "myProjects";
         ul2.textContent = `Projects`;
 
-        ul1.append(l1,l2,l3,l4,l5,l6,l7);
+        ul1.append(l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
         div.appendChild(nav);
         document.appendChild(div);
@@ -52,7 +72,7 @@ console.log("I am making a beautiful nav bar!")
 
 export function makeDisplayBar(){
     const div = document.createElement("div");
-    const h1 = document.createElement("h1");
+    const header = document.createElement("header");
           const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.innerHTML = "side_navigation";
