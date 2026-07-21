@@ -2,7 +2,7 @@ console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
 
-
+iconNames = ["arrow_drop_down","add"];
 
 export function makeNavBar(){
     const div = document.createElement("div");
@@ -14,7 +14,7 @@ export function makeNavBar(){
         ul1.className = "profile";
         const profileIcon = document.createElement("span");
         profileIcon.className = "material-symbols-outlined";
-        profileIcon.innerHTML = "side_navigation";
+        profileIcon.innerHTML = "man_3";
         ul1.appendChild(profileIcon);
         ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`;
 
@@ -22,7 +22,7 @@ export function makeNavBar(){
         l1.className = "Add";
         const addIcon = document.createElement("span");
         addIcon.className = "material-symbols-outlined";
-        addIcon.innerHTML = "side_navigation";
+        addIcon.innerHTML = "add_circle";
         ul1.appendChild(addIcon);
         l1.textContent = `Add Task`;
 
@@ -30,7 +30,7 @@ export function makeNavBar(){
         l2.className = "search";
         const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
-        searchIcon.innerHTML = "side_navigation";
+        searchIcon.innerHTML = "search";
         ul1.appendChild(searchIcon);
         l2.textContent = `Search`;
 
@@ -38,7 +38,7 @@ export function makeNavBar(){
         l3.className = "today";
         const todayIcon = document.createElement("span");
         todayIcon.className = "material-symbols-outlined";
-        todayIcon.innerHTML = "side_navigation";
+        todayIcon.innerHTML = "today";
         ul1.appendChild(todayIcon);
         l3.textContent = `Today`;
 
@@ -46,7 +46,7 @@ export function makeNavBar(){
         l4.className = "week";
         const weekIcon = document.createElement("span");
         weekIcon.className = "material-symbols-outlined";
-        weekIcon.innerHTML = "side_navigation";
+        weekIcon.innerHTML = "routine";
         ul1.appendChild(weekIcon);
         l4.textContent = `Weekly`;
 
@@ -54,7 +54,7 @@ export function makeNavBar(){
         l5.className = "monthly";
         const monthIcon = document.createElement("span");
         monthIcon.className = "material-symbols-outlined";
-        monthIcon.innerHTML = "side_navigation";
+        monthIcon.innerHTML = "calendar_month";
         ul1.appendChild(monthIcon);
         l5.textContent = `Monthly`;
 
