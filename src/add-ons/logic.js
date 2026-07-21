@@ -95,7 +95,7 @@ class Storage{
 };
 
 
-let newTask = new todo("remain in the saloon till 1:30am", )
+let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
 console.log(newTask);
 

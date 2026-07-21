@@ -4,19 +4,20 @@ import {Todo, Project} from "./logic.js";
 
 
 
-
-//<span class="material-symbols-outlined">
-//side_navigation
-//</span>
-
 export function makeNavBar(){
     const div = document.createElement("div");
         div.className = "navBox";
     const nav = document.createElement("nav");
         nav.className = "nav-container";
+
     const ul1 = document.createElement("ul");
         ul1.className = "profile";
+        const profileIcon = document.createElement("span");
+        profileIcon.className = "material-symbols-outlined";
+        profileIcon.innerHTML = "side_navigation";
+        ul1.appendChild(profileIcon);
         ul1.textContent = `&#128197 + " Profile " + &#x1F5D9`;
+
     const l1 = document.createElement("li");
         l1.className = "Add";
         ul2.textContent = `Add Task`;
@@ -41,12 +42,21 @@ export function makeNavBar(){
          const ul2 = document.createElement("ul");
         ul2.className = "myProjects";
         ul2.textContent = `Projects`;
+
+        ul1.append(l1,l2,l3,l4,l5,l6,l7);
+        nav.append(ul1,ul2);
+        div.appendChild(nav);
+        document.appendChild(div);
 console.log("I am making a beautiful nav bar!")
 }
 
 export function makeDisplayBar(){
     const div = document.createElement("div");
     const h1 = document.createElement("h1");
+          const sideIcon = document.createElement("span");
+        sideIcon.className = "material-symbols-outlined";
+        sideIcon.innerHTML = "side_navigation";
+        ul1.appendChild(sideIcon);
     const ul = document.createElement("ul");
     const l1 = document.createElement("li"); 
     const hr = document.createElement("hr");
