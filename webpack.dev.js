@@ -5,7 +5,7 @@
    mode: 'development',
    devtool: "eval-source-map",
       devServer: {   
-      watchFiles: ["./src/template.html","webpack-dev-server"],
+      watchFiles: ["./src/**.*"], // i can remain the files and it won't break.
       },
   
  });

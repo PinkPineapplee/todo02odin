@@ -5,7 +5,9 @@ import {Todo, Project} from "./logic.js";
 
 
 
-
+//<span class="material-symbols-outlined">
+//side_navigation
+//</span>
 
 export function makeNavBar(){
     const div = document.createElement("div");
@@ -112,8 +114,8 @@ export function creatNewTodoForm(){
     const cancelBtn = document.createElement("button");
           cancelBtn.className = "cancelBtn";
           cancelBtn.textContent = `&#128197 + " Cancel " + &#x1F5D9`;
-    const calendarDiv = document.createElement("div");
-          cancelBtn.appendChild(calendarDiv);
+    const calendarBox = document.createElement("div");
+          cancelBtn.appendChild(calendarBox);
 
     const addTasKBtn = document.createElement("button");
 
