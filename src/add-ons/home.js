@@ -61,12 +61,13 @@ export function makeNavBar(){
 
          const ul2 = document.createElement("ul");
         ul2.className = "myProjects";
-        ul2.textContent = `Projects`;
+        ul2.textContent = ` #  Projects`;
 
         ul1.append(l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
         div.appendChild(nav);
         document.appendChild(div);
+
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -81,7 +82,7 @@ export function makeDisplayBar(){
     const l1 = document.createElement("li"); 
     const hr = document.createElement("hr");
     const addnewbtn = document.createElement("button");
-   
+   console.log("I am making a neat display!")
 }
 
 
@@ -148,7 +149,7 @@ export function creatNewTodoForm(){
           cancelBtn.appendChild(calendarBox);
 
     const addTasKBtn = document.createElement("button");
-
+console.log("I am making a beautiful todo form!")
 }
 
 
@@ -158,6 +159,7 @@ export function createToday(){
   const header = document.createElement("h1");
   header.textContent = ``+"Today";
   const div = document.createElement("div");
+  console.log("Today Bar created!")
 };
 
 
@@ -167,6 +169,7 @@ export function createWeekly(month,num,day){
     const header = document.createElement("h1");
     header.textContent = `${month}+ "Week " + ${num} + "."`;
     const div = document.createElement("div");
+    console.log("Weekly display created!")
 
 };
 
@@ -183,13 +186,15 @@ export function  createMonthly(){
 
 
  }
+
+ console.log("Monthly display created!")
 }
 
 
 export function createSearch(){
     const container = document.createElement("div");
     const header = document.createElement("h1");
-
+console.log("Search Bar created!")
 }
 
 
