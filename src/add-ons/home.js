@@ -82,13 +82,13 @@ export function makeDisplayBar(){
         const logo = document.createElement("img");
         logo.src = "src/images/Adobe Express - file.png";
     const darkMode = document.createElement("span");
-     sideIcon.className = "material-symbols-outlined";
+        sideIcon.className = "material-symbols-outlined";
         sideIcon.innerHTML = "bedtime";
         header.appendChild(sideIcon);
          
-    const l1 = document.createElement("li"); 
-    const hr = document.createElement("hr");
-    const addnewbtn = document.createElement("button");
+   const content = document.createElement("div");
+    content.textContent = createToday();
+    div.append(header, content);
    console.log("I am making a neat display!")
 }
 
