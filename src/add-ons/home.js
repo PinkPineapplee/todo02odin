@@ -2,6 +2,8 @@ console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
 
+import {book} from "src/images/round-icons-bnjMklTnCyc-unsplash.jpg";
+
 iconNames = ["arrow_drop_down","add"];
 
 export function makeNavBar(){
@@ -95,6 +97,7 @@ export function makeDisplayBar(){
 
 //Create for task form
 export function creatNewTodoForm(){
+    const div = document.querySelector(".page-layout");
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
     const form = document.createElement("form");
@@ -158,6 +161,7 @@ export function creatNewTodoForm(){
 
     form.append(titeInput,description,div1,div2,div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
+    div.appendChild(formDiv);
     
 console.log("I am making a beautiful todo form!")
 }
@@ -166,10 +170,20 @@ console.log("I am making a beautiful todo form!")
 export function createToday(){
    // will have today, yesterday and tomorrow. 
   const container = document.createElement("div");
+      container.className = "todayContainer";
   const header = document.createElement("h1");
-  header.textContent = ``+"Today";
-  const div = document.createElement("div");
-  console.log("Today Bar created!")
+      header.className = "todayHeader";
+  header.textContent = book +"Today";
+  const count = document.createElement("p");
+     const span = document.createElement("span");
+        span.className = "material-symbols-outlined";
+        sideIcon.innerHTML = "check";
+        count.textContent= span+ `${counter}` +"task";
+
+
+
+
+  console.log("Today Bar created!");
 };
 
 
