@@ -94,7 +94,6 @@ export function makeDisplayBar(){
 
 
 //Create for task form
-
 export function creatNewTodoForm(){
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
@@ -156,6 +155,10 @@ export function creatNewTodoForm(){
           cancelBtn.appendChild(calendarBox);
 
     const addTasKBtn = document.createElement("button");
+
+    form.append(titeInput,description,div1,div2,div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
+    formDiv.appendChild(form);
+    
 console.log("I am making a beautiful todo form!")
 }
 
