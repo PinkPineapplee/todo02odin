@@ -180,14 +180,29 @@ export function createToday(counter, task){
         sideIcon.innerHTML = "check";
         count.textContent = span + `${counter}` + "task";
  const ul = document.createElement("ul");
+ const dropDown = document.createElement("span");
+        dropDown.className = "material-symbols-outlined";
+        dropDown.id = "dropDown";
+        dropDown.innerHTML = "dropdown";
+       ul.textContent = dropDown + "Overdue" + "Reschedule";
+       
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
+         radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
         sideIcon.innerHTML = "radion-button";
-        todoItem.textContent = task || "Edit Videos and post by 3pm.";
+        todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
-
+         const addTaskBtn = document.createElement("button");
+         addTaskBtn.className = "addTaskBtn";
+     const plusIcon = document.createElement("span");
+        plusIcon.className = "material-symbols-outlined";
+        plusIcon.id = "plusIcon";
+        plusIcon.innerHTML = "plus";    
+         addTaskBtn.textContent = plusIcon + "Add task";
+   const todayHr =document.createElement("hr");     
+  
 
 
   console.log("Today Bar created!");
@@ -195,13 +210,15 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day){
+
     // tasks will be seperated by days of the week.
     const container = document.createElement("div");
     const header = document.createElement("h1");
     header.textContent = `${month}+ "Week " + ${num} + "."`;
     const div = document.createElement("div");
-    console.log("Weekly display created!")
 
+
+    console.log("Weekly display created!");
 };
 
 
