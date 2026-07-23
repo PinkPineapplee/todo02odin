@@ -201,7 +201,7 @@ export function createToday(counter, task){
         plusIcon.id = "plusIcon";
         plusIcon.innerHTML = "plus";    
          addTaskBtn.textContent = plusIcon + "Add task";
-   const todayHr =document.createElement("hr");     
+   const todayHr = ocument.createElement("hr");     
   
 
 
@@ -210,26 +210,22 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day){
+    const week = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 
-    // tasks will be seperated by days of the week.
-    const container = document.createElement("div");
-    const header = document.createElement("h1");
-    header.textContent = `${month}+ "Week " + ${num} + "."`;
-    const div = document.createElement("div");
-     
+    // tasks will be seperated by days of the week.  
     for (let i = 0; i <= 52; i++){
     const container = document.createElement("div");
-      container.className = "todayContainer";
-  const header = document.createElement("h1");
+      container.className = "weekContainer";
+    const header = document.createElement("h1");
       header.className = "todayHeader";
-      header.textContent = book +"Today";
-  const count = document.createElement("p");
+     header.textContent = `${month}+ "Week " + ${num} + "."`;
+    const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         sideIcon.innerHTML = "check";
         count.textContent = span + `${counter}` + "task";
- const ul = document.createElement("ul");
- const dropDown = document.createElement("span");
+    const ul = document.createElement("ul");
+    const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.innerHTML = "dropdown";
