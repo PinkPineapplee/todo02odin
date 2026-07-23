@@ -216,8 +216,43 @@ export function createWeekly(month,num,day){
     const header = document.createElement("h1");
     header.textContent = `${month}+ "Week " + ${num} + "."`;
     const div = document.createElement("div");
-
-
+     
+    for (let i = 0; i <= 52; i++){
+    const container = document.createElement("div");
+      container.className = "todayContainer";
+  const header = document.createElement("h1");
+      header.className = "todayHeader";
+      header.textContent = book +"Today";
+  const count = document.createElement("p");
+     const span = document.createElement("span");
+        span.className = "material-symbols-outlined";
+        sideIcon.innerHTML = "check";
+        count.textContent = span + `${counter}` + "task";
+ const ul = document.createElement("ul");
+ const dropDown = document.createElement("span");
+        dropDown.className = "material-symbols-outlined";
+        dropDown.id = "dropDown";
+        dropDown.innerHTML = "dropdown";
+       ul.textContent = dropDown + "Overdue" + "Reschedule";
+       
+ const todoItem = document.createElement("li");
+       todoItem.id = "todos";
+       const radioBtn = document.createElement("span");
+         radioBtn.id = "radio-button";
+        span.className = "material-symbols-outlined";
+        sideIcon.innerHTML = "radion-button";
+        todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
+        ul.appendChild(todoItem);
+         const addTaskBtn = document.createElement("button");
+         addTaskBtn.className = "addTaskBtn";
+     const plusIcon = document.createElement("span");
+        plusIcon.className = "material-symbols-outlined";
+        plusIcon.id = "plusIcon";
+        plusIcon.innerHTML = "plus";    
+         addTaskBtn.textContent = plusIcon + "Add task";
+   const todayHr =document.createElement("hr");     
+  
+};
     console.log("Weekly display created!");
 };
 
