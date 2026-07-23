@@ -169,6 +169,7 @@ console.log("I am making a beautiful todo form!")
 
 export function createToday(counter, task){
    // will have today, yesterday and tomorrow. 
+    const div = document.querySelector(".page-layout");
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("h1");
@@ -179,6 +180,7 @@ export function createToday(counter, task){
         span.className = "material-symbols-outlined";
         sideIcon.innerHTML = "check";
         count.textContent = span + `${counter}` + "task";
+       
  const ul = document.createElement("ul");
  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
@@ -191,7 +193,7 @@ export function createToday(counter, task){
        const radioBtn = document.createElement("span");
          radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "radion-button";
+        radioBtn.innerHTML = "radion-button";
         todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
          const addTaskBtn = document.createElement("button");
@@ -200,10 +202,12 @@ export function createToday(counter, task){
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.innerHTML = "plus";    
-         addTaskBtn.textContent = plusIcon + "Add task";
+        addTaskBtn.textContent = plusIcon + "Add task";
    const todayHr = ocument.createElement("hr");     
   
-
+    container.append(header, count, ul, plusIcon, todayHr);
+    div.appendChild(container);
+    
 
   console.log("Today Bar created!");
 };
@@ -217,7 +221,7 @@ export function createWeekly(month,num,day){
     const container = document.createElement("div");
       container.className = "weekContainer";
     const header = document.createElement("h1");
-      header.className = "todayHeader";
+      header.className = week[0];
      header.textContent = `${month}+ "Week " + ${num} + "."`;
     const count = document.createElement("p");
      const span = document.createElement("span");
@@ -233,20 +237,20 @@ export function createWeekly(month,num,day){
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
-       const radioBtn = document.createElement("span");
-         radioBtn.id = "radio-button";
+    const radioBtn = document.createElement("span");
+        radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "radion-button";
+        radioBtn.innerHTML = "radion-button";
         todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
-         const addTaskBtn = document.createElement("button");
+    const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
-     const plusIcon = document.createElement("span");
+    const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.innerHTML = "plus";    
          addTaskBtn.textContent = plusIcon + "Add task";
-   const todayHr =document.createElement("hr");     
+   const todayHr = document.createElement("hr");     
   
 };
     console.log("Weekly display created!");
