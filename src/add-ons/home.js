@@ -167,19 +167,26 @@ console.log("I am making a beautiful todo form!")
 }
 
 
-export function createToday(){
+export function createToday(counter, task){
    // will have today, yesterday and tomorrow. 
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("h1");
       header.className = "todayHeader";
-  header.textContent = book +"Today";
+      header.textContent = book +"Today";
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         sideIcon.innerHTML = "check";
-        count.textContent= span+ `${counter}` +"task";
-
+        count.textContent = span + `${counter}` + "task";
+ const ul = document.createElement("ul");
+ const todoItem = document.createElement("li");
+       todoItem.id = "todos";
+       const radioBtn = document.createElement("span");
+        span.className = "material-symbols-outlined";
+        sideIcon.innerHTML = "radion-button";
+        todoItem.textContent = task || "Edit Videos and post by 3pm.";
+        ul.appendChild(todoItem);
 
 
 
