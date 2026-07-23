@@ -2,7 +2,7 @@ console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
 
-import {book} from "src/images/round-icons-bnjMklTnCyc-unsplash.jpg";
+import {book} from "./images/round-icons-bnjMklTnCyc-unsplash.jpg";
 
 iconNames = ["arrow_drop_down","add"];
 
@@ -203,11 +203,11 @@ export function createToday(counter, task){
         plusIcon.id = "plusIcon";
         plusIcon.innerHTML = "plus";    
         addTaskBtn.textContent = plusIcon + "Add task";
-   const todayHr = ocument.createElement("hr");     
+   const todayHr = document.createElement("hr");     
   
     container.append(header, count, ul, plusIcon, todayHr);
     div.appendChild(container);
-    
+
 
   console.log("Today Bar created!");
 };
