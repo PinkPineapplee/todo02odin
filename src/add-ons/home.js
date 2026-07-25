@@ -296,7 +296,12 @@ console.log("Search Bar created!")
 }
 
 
-
+function handleCLickEvent(obj, func){
+    obj.addEventListener("click", func)
+   if(obj.isClicked === true){
+    return func();
+   }
+}
 
 
 
