@@ -289,7 +289,8 @@ export function createSearch(){
             searchInput.required = true; // Boolean attributes take true/false
             searchInput.id = 'search';
 
-
+  container.append(searchIcon, searchInput);
+  document.appendChild(container);
 
 console.log("Search Bar created!")
 }
