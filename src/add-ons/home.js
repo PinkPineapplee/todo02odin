@@ -2,7 +2,7 @@ console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
 
-import {book} from "./images/round-icons-bnjMklTnCyc-unsplash.jpg";
+import {book} from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
 
 iconNames = ["arrow_drop_down","add"];
 
@@ -76,7 +76,7 @@ console.log("I am making a beautiful nav bar!")
 export function makeDisplayBar(){
     const div = document.querySelector(".page-layout");
     const header = document.createElement("header");
-          const sideIcon = document.createElement("span");
+        const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.innerHTML = "side_navigation";
         header.appendChild(sideIcon);
@@ -103,7 +103,7 @@ export function creatNewTodoForm(){
     const form = document.createElement("form");
 
 
-    const titeInput = document.createElement("input");
+    const titleInput = document.createElement("input");
             titleInput.type = 'text';
             titleInput.name = 'title';
             titleInput.placeholder = "Attend Mr Steven's anulguration ceremony";
@@ -159,7 +159,7 @@ export function creatNewTodoForm(){
 
     const addTasKBtn = document.createElement("button");
 
-    form.append(titeInput,description,div1,div2,div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
+    form.append(titleInput,description,div1,div2,div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
     div.appendChild(formDiv);
     
@@ -214,6 +214,7 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day){
+
     const week = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 
     // tasks will be seperated by days of the week.  
@@ -233,7 +234,7 @@ export function createWeekly(month,num,day){
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.innerHTML = "dropdown";
-       ul.textContent = dropDown + "Overdue" + "Reschedule";
+        ul.textContent = dropDown + "Overdue" + "Reschedule";
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -276,7 +277,20 @@ export function  createMonthly(){
 
 export function createSearch(){
     const container = document.createElement("div");
-    const header = document.createElement("h1");
+   const searchIcon = document.createElement("span");
+        searchIcon.className = "material-symbols-outlined";
+        searchIcon.id = "searcgIcon";
+        searchIcon.innerHTML = "search";
+        
+     const searchInput = document.createElement("input");
+            searchInput.type = 'text';
+            searchInput.name = 'search';
+            searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+            searchInput.required = true; // Boolean attributes take true/false
+            searchInput.id = 'search';
+
+
+
 console.log("Search Bar created!")
 }
 
