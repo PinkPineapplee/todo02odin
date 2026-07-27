@@ -45,6 +45,7 @@ export class Project{
 export class Todo extends Project{
 
     constructor(title ,description ,dueDate ,priority ,notes , projects){
+        super();
         this.id = self.crypto.randomUUID();
         this.title = title;
         this.class = "todos";

@@ -2,11 +2,12 @@ console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
 
-import {book} from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
+import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
 
-iconNames = ["arrow_drop_down","add"];
+
 
 export function makeNavBar(){
+     const container = document.querySelector(".page-layout");
     const div = document.createElement("div");
         div.className = "navBox";
     const nav = document.createElement("nav");
@@ -68,7 +69,7 @@ export function makeNavBar(){
         ul1.append(l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
         div.appendChild(nav);
-        document.appendChild(div);
+        container.appendChild(div);
 
 console.log("I am making a beautiful nav bar!")
 }
@@ -276,6 +277,7 @@ export function  createMonthly(){
 
 
 export function createSearch(){
+     const div = document.querySelector(".page-layout");
     const container = document.createElement("div");
    const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
@@ -290,7 +292,7 @@ export function createSearch(){
             searchInput.id = 'search';
 
   container.append(searchIcon, searchInput);
-  document.appendChild(container);
+  div.appendChild(container);
 
 console.log("Search Bar created!")
 }
