@@ -5,6 +5,7 @@ body{
 .page-layout{
      height: 95vh;
      width: 100vw;
+     display: flex;
 }
 
 footer{

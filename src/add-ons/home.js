@@ -179,7 +179,7 @@ export function createToday(counter, task){
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "check";
+        span.innerHTML = "check";
         count.textContent = span + `${counter}` + "task";
        
  const ul = document.createElement("ul");
