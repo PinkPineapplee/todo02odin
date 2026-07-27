@@ -17,9 +17,9 @@ export function makeNavBar(){
         ul1.className = "profile";
         const profileIcon = document.createElement("span");
         profileIcon.className = "material-symbols-outlined";
-        profileIcon.innerHTML = "man_3";
+        profileIcon.textContent = "man_3";
         ul1.appendChild(profileIcon);
-        ul1.textContent += `&#128197 + " Profile " + &#x1F5D9`;
+        ul1.textContent += profileIcon+  " Profile ";
 
     const l1 = document.createElement("li");
         l1.className = "Add";
@@ -27,7 +27,7 @@ export function makeNavBar(){
         addIcon.className = "material-symbols-outlined";
         addIcon.innerHTML = "add_circle";
         ul1.appendChild(addIcon);
-        l1.textContent += `Add Task`;
+        l1.textContent += addIcon+ `Add Task`;
 
     const l2 = document.createElement("li");
         l2.className = "search";
