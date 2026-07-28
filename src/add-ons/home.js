@@ -3,6 +3,7 @@ console.log("I am home.js");
 import {Todo, Project} from "./logic.js";
 
 import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
+import logoIcon from "../images/Adobe Express - file.png";
 import mondayBg from "../images/simple-wallpapers-XPNNqo23w5o-unsplash.jpg";
 import tuesdayBg from "../images/simple-wallpapers-Y9Di8fHq83A-unsplash.jpg";
 import wednesdayBg from "../images/pragati-choudhari-sdpeC-aZq9Q-unsplash.jpg";
@@ -34,7 +35,7 @@ export function makeNavBar(){
         l1.className = "Add";
         const addIcon = document.createElement("span");
         addIcon.className = "material-symbols-outlined";
-        addIcon.innerHTML = "add_circle";
+        addIcon.textContent = "add_circle";
         l1.appendChild(addIcon);
         l1.textContent +=  `Add Task`;
 
@@ -42,7 +43,7 @@ export function makeNavBar(){
         l2.className = "search";
         const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
-        searchIcon.innerHTML = "search";
+        searchIcon.textContent = "search";
         l2.appendChild(searchIcon);
         l2.textContent += `Search`;
 
@@ -50,7 +51,7 @@ export function makeNavBar(){
         l3.className = "today";
         const todayIcon = document.createElement("span");
         todayIcon.className = "material-symbols-outlined";
-        todayIcon.innerHTML = "today";
+        todayIcon.textContent = "today";
         l3.appendChild(todayIcon);
         l3.textContent += `Today`;
 
@@ -58,7 +59,7 @@ export function makeNavBar(){
         l4.className = "week";
         const weekIcon = document.createElement("span");
         weekIcon.className = "material-symbols-outlined";
-        weekIcon.innerHTML = "routine";
+        weekIcon.textContent = "routine";
         l4.appendChild(weekIcon);
         l4.textContent += `Weekly`;
 
@@ -66,7 +67,7 @@ export function makeNavBar(){
         l5.className = "monthly";
         const monthIcon = document.createElement("span");
         monthIcon.className = "material-symbols-outlined";
-        monthIcon.innerHTML = "calendar_month";
+        monthIcon.textContent = "calendar_month";
         l5.appendChild(monthIcon);
         l5.textContent += `Monthly`;
 
@@ -88,14 +89,14 @@ export function makeDisplayBar(){
     const header = document.createElement("header");
         const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "side_navigation";
+        sideIcon.textContent = "side_navigation";
         header.appendChild(sideIcon);
 
         const logo = document.createElement("img");
-        logo.src = "src/images/Adobe Express - file.png";
+        logo.src = logoIcon;
     const darkMode = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "bedtime";
+        sideIcon.textContent = "bedtime";
         header.appendChild(sideIcon);
          
    const content = document.createElement("div");
@@ -184,35 +185,39 @@ export function createToday(counter, task){
       container.className = "todayContainer";
   const header = document.createElement("h1");
       header.className = "todayHeader";
-      header.textContent = book +"Today";
+      header.textContent = book + " Today";
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
-        span.innerHTML = "check";
-        count.textContent = span + `${counter}` + "task";
+        span.textContent = "check";
+        count.appendChild(span);
+        count.textContent +=`${counter}` + "task";
        
  const ul = document.createElement("ul");
  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
-        dropDown.innerHTML = "dropdown";
-       ul.textContent = dropDown + "Overdue" + "Reschedule";
+        dropDown.textContent = "dropdown";
+        ul.appendChild(dropDown);
+       ul.textContent += "  Overdue                               " + "                          Reschedule";
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
-         radioBtn.id = "radio-button";
+        radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
-        radioBtn.innerHTML = "radion-button";
-        todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
+        radioBtn.textContent = "radio_button_unchecked";
+        todoItem.appendChild(radioBtn);
+        todoItem.textContent += (task || " Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
          const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
      const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
-        plusIcon.innerHTML = "plus";    
-        addTaskBtn.textContent = plusIcon + "Add task";
+        plusIcon.textContent = "plus"; 
+        addTaskBtn.appendChild(plusIcon);   
+        addTaskBtn.textContent +=  "Add task";
    const todayHr = document.createElement("hr");     
   
     container.append(header, count, ul, plusIcon, todayHr);
@@ -237,13 +242,13 @@ export function createWeekly(month,num,day){
     const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
-        sideIcon.innerHTML = "check";
+        sideIcon.textContent = "check";
         count.textContent = span + `${counter}` + "task";
     const ul = document.createElement("ul");
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
-        dropDown.innerHTML = "dropdown";
+        dropDown.textContent = "dropdown";
         ul.textContent = dropDown + "Overdue" + "Reschedule";
        
  const todoItem = document.createElement("li");
@@ -251,7 +256,7 @@ export function createWeekly(month,num,day){
     const radioBtn = document.createElement("span");
         radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
-        radioBtn.innerHTML = "radion-button";
+        radioBtn.textContent = "radion-button";
         todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
     const addTaskBtn = document.createElement("button");
@@ -259,7 +264,7 @@ export function createWeekly(month,num,day){
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
-        plusIcon.innerHTML = "plus";    
+        plusIcon.textContent = "plus";    
          addTaskBtn.textContent = plusIcon + "Add task";
    const todayHr = document.createElement("hr");     
   
@@ -291,7 +296,7 @@ export function createSearch(){
    const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.id = "searcgIcon";
-        searchIcon.innerHTML = "search";
+        searchIcon.textContent = "search";
         
      const searchInput = document.createElement("input");
             searchInput.type = 'text';
