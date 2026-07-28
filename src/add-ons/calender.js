@@ -14,7 +14,7 @@ const todayStarts = startOfDay(new Date());
 
 function createCalendar(){
 //check today
-// checks the month
+// checks the month and how many days it has.
 // checks the year
 // return the number of days in that month.
 //creates divs equivalent to the number of days.

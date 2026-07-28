@@ -185,13 +185,17 @@ export function createToday(counter, task){
       container.className = "todayContainer";
   const header = document.createElement("h1");
       header.className = "todayHeader";
-      header.textContent = book + " Today";
+       const bookicon = document.createElement("img");
+        bookicon.className = "book-icon";
+        bookicon.src = book;
+        header.appendChild(bookicon);
+      header.textContent +=" Today";
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check";
         count.appendChild(span);
-        count.textContent +=`${counter}` + "task";
+        count.textContent +=`${ counter}` + " task";
        
  const ul = document.createElement("ul");
  const dropDown = document.createElement("span");
@@ -215,7 +219,7 @@ export function createToday(counter, task){
      const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
-        plusIcon.textContent = "plus"; 
+        plusIcon.textContent = "add_2"; 
         addTaskBtn.appendChild(plusIcon);   
         addTaskBtn.textContent +=  "Add task";
    const todayHr = document.createElement("hr");     
