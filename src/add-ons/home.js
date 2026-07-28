@@ -3,6 +3,15 @@ console.log("I am home.js");
 import {Todo, Project} from "./logic.js";
 
 import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
+import mondayBg from "../images/simple-wallpapers-XPNNqo23w5o-unsplash.jpg";
+import tuesdayBg from "../images/simple-wallpapers-Y9Di8fHq83A-unsplash.jpg";
+import wednesdayBg from "../images/pragati-choudhari-sdpeC-aZq9Q-unsplash.jpg";
+import thursdayBg from "../images/anna-magenta-mmlznoUSZwQ-unsplash.jpg";
+import fridayBg from "../images/silali-banerjee-5MTWsd0p8bo-unsplash.jpg";
+import saturdayBg from "../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg";
+import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
+
+
 
 
 
@@ -26,7 +35,7 @@ export function makeNavBar(){
         const addIcon = document.createElement("span");
         addIcon.className = "material-symbols-outlined";
         addIcon.innerHTML = "add_circle";
-        ul1.appendChild(addIcon);
+        l1.appendChild(addIcon);
         l1.textContent +=  `Add Task`;
 
     const l2 = document.createElement("li");
@@ -34,7 +43,7 @@ export function makeNavBar(){
         const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.innerHTML = "search";
-        ul1.appendChild(searchIcon);
+        l2.appendChild(searchIcon);
         l2.textContent += `Search`;
 
     const l3 = document.createElement("li");
