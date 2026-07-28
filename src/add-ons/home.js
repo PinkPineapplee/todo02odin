@@ -51,7 +51,7 @@ export function makeNavBar(){
         const todayIcon = document.createElement("span");
         todayIcon.className = "material-symbols-outlined";
         todayIcon.innerHTML = "today";
-        ul1.appendChild(todayIcon);
+        l3.appendChild(todayIcon);
         l3.textContent += `Today`;
 
     const l4 = document.createElement("li");
@@ -59,7 +59,7 @@ export function makeNavBar(){
         const weekIcon = document.createElement("span");
         weekIcon.className = "material-symbols-outlined";
         weekIcon.innerHTML = "routine";
-        ul1.appendChild(weekIcon);
+        l4.appendChild(weekIcon);
         l4.textContent += `Weekly`;
 
     const l5 = document.createElement("li");
@@ -67,7 +67,7 @@ export function makeNavBar(){
         const monthIcon = document.createElement("span");
         monthIcon.className = "material-symbols-outlined";
         monthIcon.innerHTML = "calendar_month";
-        ul1.appendChild(monthIcon);
+        l5.appendChild(monthIcon);
         l5.textContent += `Monthly`;
 
 
