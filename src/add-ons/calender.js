@@ -20,7 +20,12 @@ const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday","Satu
 let weekDay = week[day];
 console.log(weekDay,today);
 // checks the month and how many days it has.
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const d = new Date();
+let month = months[d.getMonth()];
 // checks the year
+const year = d.getFullYear();
 // return the number of days in that month.
 //creates divs equivalent to the number of days.
 // number the divs as days
