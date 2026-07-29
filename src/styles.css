@@ -83,3 +83,7 @@ span{
      padding-left: 10vw;
      padding-right: 10vw;
 }
+
+.todayContainer ul li{
+    list-style: none;
+}
