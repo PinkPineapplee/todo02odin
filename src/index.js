@@ -1,7 +1,8 @@
  // index.js
 import "./styles.css";
-import {Project, Todo} from "./add-ons/logic.js";
 import {makeNavBar,makeDisplayBar} from "./add-ons/home.js";
+import {Project, Todo} from "./add-ons/logic.js";
+
 
 import book from "./images/round-icons-bnjMklTnCyc-unsplash.jpg";
 import logoIcon from "./images/Adobe Express - file.png";

@@ -1,7 +1,8 @@
 console.log("I am home.js");
 
+import { createCalendar } from "./calender.js";
 import {Todo, Project} from "./logic.js";
-import { createCalendar } from "./calendar.js";
+
 
 
 import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
@@ -85,12 +86,12 @@ export function makeNavBar(){
         container.appendChild(div);
 
 
-        //handle click event
-        const navEvents ={
-            events:[l1,l2,l3,l4,l5],
-            func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
-        };
-         navEvents.forEach(event => handleCLickEvent(navEvents.events, navEvents.func[0] ))
+        // //handle click event
+        // const navEvents ={
+        //     events:[l1,l2,l3,l4,l5],
+        //     func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
+        // };
+        //  navEvents.forEach(event => handleCLickEvent(navEvents.events, navEvents.func[0] ))
 
 console.log("I am making a beautiful nav bar!")
 }

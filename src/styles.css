@@ -1,30 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 
 body{
-    background-color: rgb(253, 255, 127);
+   margin: 0;
+   padding: 0;
 }
-
-.page-layout{
-     height: 95vh;
-     width: 100vw;
-     display: flex;
-}
-
-footer{
-    height: 5vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-      
-}
-
-.navBox{
-    height: 100%;
-    width: 20vw;
-    background-color: bisque;
-}
-
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -34,7 +13,46 @@ footer{
   'opsz' 24
 }
 
+.page-layout{
+     height: 95vh;
+     width: 100vw;
+     display: flex;
+     margin: 0;
+     
+}
+
+footer{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 255, 169);
+    
+}
+
+footer>a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+
+}
+
+footer>a:hover{
+    color: rgb(165, 112, 59);
+    cursor: pointer;
+}
+.navBox{
+    height: 100%;
+    width: 20vw;
+    background-color: rgb(233, 232, 255);
+    margin: none;
+}
+
+
 span{
     width: 30px;
     height: 30px;
 }
+
+
