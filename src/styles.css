@@ -18,8 +18,6 @@ body{
      width: 100vw;
      display: flex;
      margin: 0;
-     padding-left: 10vw;
-     padding-right: 10vw;
      background-image: url(images/alghozy-Wlq9VEMLMPU-unsplash.jpg);
 }
 
@@ -62,7 +60,8 @@ span{
     height: 40vh;
     width: 100%;
     align-items: center;
-    padding: 0;
+     padding-left: 3vw;
+     padding-right: 3vw;
     margin: 0;
 
 }
@@ -78,4 +77,9 @@ span{
 .profile li:hover , .myProjects li:hover{
     background-color:rgb(242, 242, 252) ;
     cursor: pointer;
+}
+
+.todayContainer{
+     padding-left: 10vw;
+     padding-right: 10vw;
 }
