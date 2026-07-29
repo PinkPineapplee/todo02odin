@@ -1,4 +1,4 @@
-import { format, startOfDay , isToday, isTomorrow, isYesterday} from "date-fns";
+import { format, startOfDay , isToday, isTomorrow, isYesterday, isSunday, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday} from "date-fns";
 
 
 export function dateForThings(){
@@ -13,6 +13,8 @@ const todayStarts = startOfDay(new Date());
 
 
 function createCalendar(){
+   
+    
 //check today
 const todayDate = new Date().getDate();
 const day = new Date.getDay();
@@ -40,21 +42,55 @@ function createCalendarUI(num, today, month, year ){
     const container = document.createElement("div");
     const headers = [" Sun ", " Mon ", " Tues ", " Wed "," Thurs ", " Fri ", " Sat "];
     for(let i = 0; i <= 6; i++){       
-    const dayHeaderDiv = document.createElement("div");
+    const dayHeaderDiv = document.createElement("ul");
     dayHeaderDiv.id = toString(i);
     dayHeaderDiv.textContent = headers[i];
-    };
+
 
     // make day divs
     for(let y = 1 ; y <= num; y++){
-    const dayDivs = document.createElement("div");
+
+    //arrange days of the week
+    const isDaySunday = isSunday(new date (year, month, y));
+    const isDayMonday = isMonday(new date (year, month, y));
+    const isDayTuesday = isTuesday(new date (year, month, y));
+    const isDayWednesday = isWednesday(new date (year, month, y));
+    const isDayThursday = isThursday(new date (year, month, y));
+    const isDayFriday = isFriday(new date (year, month, y));
+    const isDaySaturday = isSaturday(new date (year, month, y));
+
+
+    const dayDivs = document.createElement("li");
+
     dayDivs.className = "dayDivs";
-    
     dayDivs.textContent = y;
+
+       if(isDaySunday === true){
+        dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDayMonday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDayTuesday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDayWednesday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDayThursday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDayFriday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else if( isDaySaturday === true){
+         dayHeaderDiv[i].appendChild(dayDivs)
+       } else{
+        return
+       }
+
+      
+      
+    };
     };
 
-    //arrange daydivs to weekdaydivs
+    
 
+  
 };
 // number the divs as days
 // current day has a highlighter on the background.
