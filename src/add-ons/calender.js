@@ -12,7 +12,7 @@ const todayStarts = startOfDay(new Date());
 };
 
 
-function createCalendar(){
+export function createCalendar(){
    
     
 //check today
@@ -35,8 +35,9 @@ function getDaysInMonthZeroIndexed(year, monthIndex) {
 }
 
 console.log(getDaysInMonthZeroIndexed(2024, 1)); // 28 (February is index 1)
-//creates div equivalent to the number of days.
 
+
+//creates div equivalent to the number of days.
 function createCalendarUI(num, today, month, year ){
  
     const container = document.createElement("div");
@@ -83,14 +84,15 @@ function createCalendarUI(num, today, month, year ){
         return
        }
 
-      
+      container.appendChild(headers);
       
     };
+     return container;
     };
 
     
 
-  
+  return container;
 };
 // number the divs as days
 // current day has a highlighter on the background.
