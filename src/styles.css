@@ -63,7 +63,7 @@ span{
 
 }
 
-.profile li{
+.profile li, .myProjects li{
    height: 2.5rem; 
    width: 100%;
    text-align: center;
@@ -71,3 +71,7 @@ span{
 
 }
 
+.profile li:hover , .myProjects li:hover{
+    background-color:rgb(242, 242, 252) ;
+    cursor: pointer;
+}
