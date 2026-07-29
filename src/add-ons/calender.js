@@ -34,6 +34,19 @@ function getDaysInMonthZeroIndexed(year, monthIndex) {
 
 console.log(getDaysInMonthZeroIndexed(2024, 1)); // 28 (February is index 1)
 //creates div equivalent to the number of days.
+
+function createCalendarUI(num, today, month, year ){
+ 
+    const container = document.createElement("div");
+    const headers = [" Sun ", " Mon ", " Tues ", " Wed "," Thurs ", " Fri ", " Sat "];
+    for(let i = 0; i <= 6; i++){       
+    const dayHeaderDiv = document.createElement("div");
+    dayHeaderDiv.id = toString(i);
+    dayHeaderDiv.textContent = headers[i];
+    };
+
+    
+};
 // number the divs as days
 // current day has a highlighter on the background.
 }
