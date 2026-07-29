@@ -1,7 +1,7 @@
 console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
-import {createCalendar} from "./calendar.js";
+import { createCalendar } from "./calendar.js";
 
 
 import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
@@ -295,7 +295,7 @@ export function  createMonthly(){
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
     const monthDiv = document.createElement("div");
-    monthDiv.style ("backGround" = monthBg );
+    monthDiv.style.backgroundImage.src = monthBg ;
     monthDiv.appendChild(monthHeader)
     const monthHeader = document.createElement("h2");
     monthBox.append(monthDiv, createCalendar());
@@ -308,11 +308,11 @@ export function  createMonthly(){
 
 
 export function createSearch(){
-     const div = document.querySelector(".page-layout");
+    const div = document.querySelector(".page-layout");
     const container = document.createElement("div");
-   const searchIcon = document.createElement("span");
+    const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
-        searchIcon.id = "searcgIcon";
+        searchIcon.id = "searchIcon";
         searchIcon.textContent = "search";
         
      const searchInput = document.createElement("input");
@@ -329,9 +329,9 @@ console.log("Search Bar created!")
 }
 
 
-function handleCLickEvent(obj, func){
-    obj.addEventListener("click", func);
-   if(obj.isClicked === true){
+function handleCLickEvent(elem, func){
+    elem.addEventListener("click", func);
+   if(elem.isClicked === true){
     return func();
    }
 }

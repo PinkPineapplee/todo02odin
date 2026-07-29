@@ -106,3 +106,5 @@ function handleCalendarEvent(day){
 
  })
 }
+
+console.log("Hey I am Calendar.js");
