@@ -42,6 +42,8 @@ footer>a:hover{
     color: rgb(165, 112, 59);
     cursor: pointer;
 }
+
+/* style for createnavBAr */
 .navBox{
     height: 100%;
     width: 20vw;
@@ -78,7 +80,7 @@ span{
     background-color:rgb(242, 242, 252) ;
     cursor: pointer;
 }
-
+ /* styles for createToday */
 .todayContainer{
      padding-left: 10vw;
      padding-right: 10vw;
