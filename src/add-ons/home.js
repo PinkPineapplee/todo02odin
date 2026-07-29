@@ -81,6 +81,14 @@ export function makeNavBar(){
         div.appendChild(nav);
         container.appendChild(div);
 
+
+        //handle click event
+        const navEvents ={
+            events:[l1,l2,l3,l4,l5],
+            func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
+        };
+         navEvents.forEach(event => handleCLickEvent(navEvents.events, navEvents.func[0] ))
+
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -232,9 +240,7 @@ export function createToday(counter, task){
 };
 
 
-export function createWeekly(month,num,day){
-
-    const week = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
+export function createWeekly(month,num,day,counter,task){
 
     // tasks will be seperated by days of the week.  
     for (let i = 0; i <= 52; i++){
@@ -317,7 +323,7 @@ console.log("Search Bar created!")
 
 
 function handleCLickEvent(obj, func){
-    obj.addEventListener("click", func)
+    obj.addEventListener("click", func);
    if(obj.isClicked === true){
     return func();
    }

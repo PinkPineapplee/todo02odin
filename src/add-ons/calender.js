@@ -27,7 +27,13 @@ let month = months[d.getMonth()];
 // checks the year
 const year = d.getFullYear();
 // return the number of days in that month.
-//creates divs equivalent to the number of days.
+
+function getDaysInMonthZeroIndexed(year, monthIndex) {
+  return new Date(year, monthIndex + 1, 0).getDate();
+}
+
+console.log(getDaysInMonthZeroIndexed(2024, 1)); // 28 (February is index 1)
+//creates div equivalent to the number of days.
 // number the divs as days
 // current day has a highlighter on the background.
 }
