@@ -18,7 +18,7 @@ body{
      width: 100vw;
      display: flex;
      margin: 0;
-     
+     background-image: url(images/alghozy-Wlq9VEMLMPU-unsplash.jpg);
 }
 
 footer{
@@ -56,3 +56,17 @@ span{
 }
 
 
+.profile{
+    height: 40vh;
+    width: 100%;
+    align-items: center;
+
+}
+
+.profile li{
+   height: 2.5rem; 
+   width: 100%;
+   text-align: center;
+   list-style: none;
+
+}
