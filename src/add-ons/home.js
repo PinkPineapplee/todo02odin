@@ -1,6 +1,8 @@
 console.log("I am home.js");
 
 import {Todo, Project} from "./logic.js";
+import {createCalendar} from "./calendar.js";
+
 
 import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
 import logoIcon from "../images/Adobe Express - file.png";
@@ -11,6 +13,7 @@ import thursdayBg from "../images/anna-magenta-mmlznoUSZwQ-unsplash.jpg";
 import fridayBg from "../images/silali-banerjee-5MTWsd0p8bo-unsplash.jpg";
 import saturdayBg from "../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg";
 import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
+import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
 
 
 
@@ -291,7 +294,11 @@ export function  createMonthly(){
 
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
-    const monthHeader = document.createElement("div");
+    const monthDiv = document.createElement("div");
+    monthDiv.style ("backGround" = monthBg );
+    monthDiv.appendChild(monthHeader)
+    const monthHeader = document.createElement("h2");
+    monthBox.append(monthDiv, createCalendar());
 
 
  }
