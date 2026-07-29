@@ -62,13 +62,15 @@ span{
     height: 40vh;
     width: 100%;
     align-items: center;
+    padding: 0;
+    margin: 0;
 
 }
 
 .profile li, .myProjects li{
    height: 2.5rem; 
    width: 100%;
-   text-align: center;
+   text-align: start;
    list-style: none;
 
 }
