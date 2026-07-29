@@ -49,9 +49,12 @@ function createCalendarUI(num, today, month, year ){
     for(let y = 1 ; y <= num; y++){
     const dayDivs = document.createElement("div");
     dayDivs.className = "dayDivs";
+    
     dayDivs.textContent = y;
+    };
 
-    }
+    //arrange daydivs to weekdaydivs
+
 };
 // number the divs as days
 // current day has a highlighter on the background.
