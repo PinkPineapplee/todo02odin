@@ -95,3 +95,12 @@ function createCalendarUI(num, today, month, year ){
 // number the divs as days
 // current day has a highlighter on the background.
 }
+
+
+function handleCalendarEvent(day){
+ day.addEventListener("click", ()=>{
+    //open day Schedule
+
+
+ })
+}
