@@ -217,27 +217,39 @@ export function createToday(counter, task){
     const div = document.querySelector(".page-layout");
   const container = document.createElement("div");
       container.className = "todayContainer";
-  const header = document.createElement("h1");
-      header.className = "todayHeader";
+  const header = document.createElement("div");
+      header.className = "todayHeaderdiv";
+
        const bookicon = document.createElement("img");
-        bookicon.className = "book-icon";
-        bookicon.src = book;
-        header.appendChild(bookicon);
-      header.textContent +=" Today";
+       bookicon.src = book;
+       bookicon.className = "book-icon";
+        let text6 = document.createElement("h1");
+        text6.textContent = "Today"
+        header.append(bookicon, text6);
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
-        span.textContent = "check";
-        count.appendChild(span);
-        count.textContent +=`${ counter}` + " task";
+        span.textContent = "check_circle";
+        // count.appendChild(span);
+        // count.textContent +=`${ counter}` + " task";
+
+         let text7 = document.createElement("p");
+          text7.textContent= "Check";
+          count.append(span,`${counter + " "+ text7.textContent }` );
        
  const ul = document.createElement("ul");
  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
-        dropDown.textContent = "dropdown";
-        ul.appendChild(dropDown);
-       ul.textContent += "  Overdue                               " + "                          Reschedule";
+        dropDown.textContent = "arrow_drop_down";
+        // ul.appendChild(dropDown);
+         let text8 = document.createElement("p");
+          text8.textContent= "Overdue";
+          let text9 = document.createElement("p");
+          text9.textContent= "Reschedule"; 
+          text9.style.color = "orange";
+          ul.append(dropDown, text8, text9);
+    //    ul.textContent += "  Overdue                               " + "                          Reschedule";
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -245,8 +257,11 @@ export function createToday(counter, task){
         radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
-        todoItem.appendChild(radioBtn);
-        todoItem.textContent += (task || " Edit Videos and post by 3pm.");
+        
+        let text10 = document.createElement("p");
+          text10.textContent= (task || " Edit Videos and post by 3pm.");
+          todoItem.append(radioBtn, text10);
+        // todoItem.textContent += (task || " Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
          const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
@@ -254,11 +269,14 @@ export function createToday(counter, task){
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2"; 
-        addTaskBtn.appendChild(plusIcon);   
-        addTaskBtn.textContent +=  "Add task";
+        // addTaskBtn.appendChild(plusIcon);   
+        // addTaskBtn.textContent +=  "Add task";
+        let text11 = document.createElement("p");
+          text11.textContent= "Add task";
+          addTaskBtn.append(radioBtn, text11);
    const todayHr = document.createElement("hr");     
   
-    container.append(header, count, ul, plusIcon, todayHr);
+    container.append(header, count, ul, todayHr, plusIcon);
     div.appendChild(container);
 
 
