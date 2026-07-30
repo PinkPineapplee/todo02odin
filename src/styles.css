@@ -102,3 +102,7 @@ header{
     align-items: center;
 
 }
+
+p{
+    display: flex;
+}
