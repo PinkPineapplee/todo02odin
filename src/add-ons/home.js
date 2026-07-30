@@ -32,48 +32,66 @@ export function makeNavBar(){
         const profileIcon = document.createElement("span");
         profileIcon.className = "material-symbols-outlined";
         profileIcon.textContent = "man_3";
-        ul1.appendChild(profileIcon);
-        ul1.textContent +=   " Profile ";
+        //ul1.appendChild(profileIcon);
+       // ul1.textContent +=   " Profile ";
+         let text = document.createElement("h3");
+          text.textContent= "Profile";
+          ul1.append(profileIcon, text);
 
     const l1 = document.createElement("li");
         l1.className = "Add";
         const addIcon = document.createElement("span");
         addIcon.className = "material-symbols-outlined";
         addIcon.textContent = "add_circle";
-        l1.appendChild(addIcon);
-        l1.textContent +=  `Add Task`;
+        // l1.appendChild(addIcon);
+        // l1.textContent +=  `Add Task`;
+        let text1 = document.createElement("p");
+          text1.textContent= "Add Task";
+          l1.append(addIcon, text1);
 
     const l2 = document.createElement("li");
         l2.className = "search";
         const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.textContent = "search";
-        l2.appendChild(searchIcon);
-        l2.textContent += `Search`;
+        // l2.appendChild(searchIcon);
+        // l2.textContent += `Search`;
+        let text2 = document.createElement("p");
+          text2.textContent= "Search";
+          l2.append(searchIcon, text2);
 
     const l3 = document.createElement("li");
         l3.className = "today";
         const todayIcon = document.createElement("span");
         todayIcon.className = "material-symbols-outlined";
         todayIcon.textContent = "today";
-        l3.appendChild(todayIcon);
-        l3.textContent += `Today`;
+        // l3.appendChild(todayIcon);
+        // l3.textContent += `Today`;
+        let text3 = document.createElement("p");
+          text3.textContent= "Today";
+          l3.append(todayIcon, text3);
 
     const l4 = document.createElement("li");
         l4.className = "week";
         const weekIcon = document.createElement("span");
         weekIcon.className = "material-symbols-outlined";
         weekIcon.textContent = "routine";
-        l4.appendChild(weekIcon);
-        l4.textContent += `Weekly`;
+        // l4.appendChild(weekIcon);
+        // l4.textContent += `Weekly`;
+        let text4 = document.createElement("p");
+          text4.textContent= "Weekly";
+          l4.append(weekIcon, text4);
 
     const l5 = document.createElement("li");
         l5.className = "monthly";
         const monthIcon = document.createElement("span");
         monthIcon.className = "material-symbols-outlined";
         monthIcon.textContent = "calendar_month";
-        l5.appendChild(monthIcon);
-        l5.textContent += `Monthly`;
+        // l5.appendChild(monthIcon);
+        // l5.textContent += `Monthly`;
+        let text5 = document.createElement("p");
+          text5.textContent= "Monthly";
+          l5.append(monthIcon, text5);
 
 
          const ul2 = document.createElement("ul");
