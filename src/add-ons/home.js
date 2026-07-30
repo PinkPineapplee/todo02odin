@@ -98,22 +98,25 @@ console.log("I am making a beautiful nav bar!")
 
 export function makeDisplayBar(){
     const div = document.querySelector(".page-layout");
+    const pagediv = document.createElement("div");
+          pagediv.className = "pagedivider";
     const header = document.createElement("header");
         const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.textContent = "side_navigation";
-        header.appendChild(sideIcon);
-
+       
         const logo = document.createElement("img");
         logo.src = logoIcon;
+        logo.className= "logo";
     const darkMode = document.createElement("span");
-        sideIcon.className = "material-symbols-outlined";
-        sideIcon.textContent = "bedtime";
-        header.appendChild(sideIcon);
+        darkMode.className = "material-symbols-outlined";
+        darkMode.textContent = "bedtime";
+        header.append(sideIcon,logo,darkMode);
          
    const content = document.createElement("div");
     content.textContent = createToday();
-    div.append(header, content);
+    pagediv.append(header, content);
+    div.appendChild(pagediv)
    console.log("I am making a neat display!")
 }
 
