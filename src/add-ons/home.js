@@ -115,8 +115,9 @@ export function makeDisplayBar(){
          
    const content = document.createElement("div");
     content.textContent = createToday();
-    pagediv.append(header, content);
-    div.appendChild(pagediv)
+    pagediv.appendChild(header);
+    div.appendChild(pagediv);
+    pagediv.appendChild(content);
    console.log("I am making a neat display!")
 }
 
