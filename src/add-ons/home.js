@@ -17,7 +17,7 @@ import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
 import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
 
 
-
+const div = document.querySelector(".page-layout");
 
 
 export function makeNavBar(){
@@ -36,7 +36,10 @@ export function makeNavBar(){
        // ul1.textContent +=   " Profile ";
          let text = document.createElement("h3");
           text.textContent= "Profile";
-          ul1.append(profileIcon, text);
+        const sideIcon = document.createElement("span");
+        sideIcon.className = "material-symbols-outlined";
+        sideIcon.textContent = "side_navigation";
+          ul1.append(profileIcon, text, sideIcon);
 
     const l1 = document.createElement("li");
         l1.className = "Add";
@@ -115,10 +118,11 @@ console.log("I am making a beautiful nav bar!")
 }
 
 export function makeDisplayBar(){
-    const div = document.querySelector(".page-layout");
+    
     const pagediv = document.createElement("div");
           pagediv.className = "pagedivider";
-    const header = document.createElement("header");
+    const headerDiv = document.createElement("div");
+        headerDiv.className = "headerDiv";
         const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.textContent = "side_navigation";
@@ -129,20 +133,20 @@ export function makeDisplayBar(){
     const darkMode = document.createElement("span");
         darkMode.className = "material-symbols-outlined";
         darkMode.textContent = "bedtime";
-        header.append(sideIcon,logo,darkMode);
+        headerDiv.append(sideIcon,logo,darkMode);
          
-   const content = document.createElement("div");
-    content.textContent = createToday();
-    pagediv.appendChild(header);
+   const contentDiv = document.createElement("div");
+    pagediv.append(headerDiv);   
     div.appendChild(pagediv);
-    pagediv.appendChild(content);
-   console.log("I am making a neat display!")
+    contentDiv.appendChild(createToday());
+  return (contentDiv, pagediv);
+   console.log("I am making a neat display!");
 }
 
 
 //Create for task form
 export function creatNewTodoForm(){
-    const div = document.querySelector(".page-layout");
+   
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
     const form = document.createElement("form");
@@ -212,9 +216,8 @@ console.log("I am making a beautiful todo form!")
 }
 
 
-export function createToday(counter, task){
-   // will have today, yesterday and tomorrow. 
-    const div = document.querySelector(".page-layout");
+export function createToday(counter, task){ 
+    
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -255,12 +258,12 @@ export function createToday(counter, task){
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.id = "radio-button";
-        span.className = "material-symbols-outlined";
+        radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
         let text10 = document.createElement("p");
           text10.textContent= (task || " Edit Videos and post by 3pm.");
-          todoItem.append(radioBtn, text10);
+          todoItem.append(radioBtn,text10);
         // todoItem.textContent += (task || " Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
          const addTaskBtn = document.createElement("button");
@@ -277,7 +280,7 @@ export function createToday(counter, task){
    const todayHr = document.createElement("hr");     
   
     container.append(header, count, ul, todayHr, plusIcon);
-    div.appendChild(container);
+    
 
 
   console.log("Today Bar created!");
@@ -340,8 +343,6 @@ export function  createMonthly(){
     monthDiv.appendChild(monthHeader)
     const monthHeader = document.createElement("h2");
     monthBox.append(monthDiv, createCalendar());
-
-
  }
 
  console.log("Monthly display created!")
@@ -349,7 +350,7 @@ export function  createMonthly(){
 
 
 export function createSearch(){
-    const div = document.querySelector(".page-layout");
+    
     const container = document.createElement("div");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";

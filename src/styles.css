@@ -16,7 +16,7 @@ body{
 .page-layout{
      height: 95vh;
      width: 100vw;
-     display: flex;
+     display:flex;
      margin: 0;
 }
 
@@ -46,7 +46,7 @@ footer>a:hover{
 .navBox{
     height: 100%;
     width: 20vw;
-    background-color: rgb(233, 232, 255);
+    background-color: rgb(223, 233, 252);
     margin: none;
 }
 
@@ -82,7 +82,6 @@ span, img{
  /* styles for createToday */
 
  .pagedivider{
-    display: block;
     background-color: aquamarine;
  }
 .todayContainer{
@@ -90,11 +89,8 @@ span, img{
      width: 100%;
 }
 
-.todayContainer ul li{
-    list-style: none;
-}
 
-header{
+.headerDiv{
     display: flex;
     background-color: pink;
     height: 2.5rem;
@@ -103,6 +99,7 @@ header{
 
 }
 
-p{
+li{
     display: flex;
 }
+
