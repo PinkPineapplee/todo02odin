@@ -135,11 +135,10 @@ export function makeDisplayBar(){
         darkMode.textContent = "bedtime";
         headerDiv.append(sideIcon,logo,darkMode);
          
-   const contentDiv = document.createElement("div");
+  
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
-    contentDiv.appendChild(createToday());
-  return (contentDiv, pagediv);
+  return (pagediv);
    console.log("I am making a neat display!");
 }
 
@@ -281,7 +280,7 @@ export function createToday(counter, task){
   
     container.append(header, count, ul, todayHr, plusIcon);
     
-
+    
 
   console.log("Today Bar created!");
 };
