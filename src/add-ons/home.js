@@ -115,7 +115,13 @@ export function makeNavBar(){
         };
         // map to add eventlisteners to all the lists
         // filter to check clicked and call function for that event.
-
+         
+        handleCLickEvent(l1, creatNewTodoForm);
+        handleCLickEvent(l2, createSearch);
+        handleCLickEvent(l3, createToday);
+        handleCLickEvent(l4, createWeekly);
+        handleCLickEvent(l5, createMonthly);
+       
 console.log("I am making a beautiful nav bar!")
 }
 
