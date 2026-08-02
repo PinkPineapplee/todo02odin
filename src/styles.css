@@ -119,3 +119,10 @@ li{
 .todayContainer ul{
     display: flex;
 }
+
+.formDiv{
+    background-color: white;
+    height: 30vh;
+    width: 75vh;
+    
+}
