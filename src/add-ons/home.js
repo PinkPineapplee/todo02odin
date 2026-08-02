@@ -201,7 +201,7 @@ export function creatNewTodoForm(){
     
     const options = document.createElement("div");
           options.textContent= `...`
-    const optionsDiv =document.createElement("div");
+    const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
     const formHr = document.createElement("hr");
     const inboxBtn = document.createElement("button");
@@ -213,7 +213,7 @@ export function creatNewTodoForm(){
 
     const addTasKBtn = document.createElement("button");
 
-    form.append(titleInput,description,div1,div2,div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
+    form.append(titleInput, description, div1, div2, div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
     div.appendChild(formDiv);
     
@@ -228,7 +228,7 @@ export function createToday(counter, task){
   const header = document.createElement("div");
       header.className = "todayHeaderdiv";
 
-       const bookicon = document.createElement("img");
+  const bookicon = document.createElement("img");
        bookicon.src = book;
        bookicon.className = "book-icon";
         let text6 = document.createElement("h1");
@@ -257,7 +257,7 @@ export function createToday(counter, task){
           text9.textContent= "Reschedule"; 
           text9.style.color = "orange";
           ul.append(dropDown, text8, text9);
-    //    ul.textContent += "  Overdue                               " + "                          Reschedule";
+   
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -321,14 +321,14 @@ export function createWeekly(month,num,day,counter,task){
         todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
         ul.appendChild(todoItem);
     const addTaskBtn = document.createElement("button");
-         addTaskBtn.className = "addTaskBtn";
+        addTaskBtn.className = "addTaskBtn";
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "plus";    
-         addTaskBtn.textContent = plusIcon + "Add task";
-   const todayHr = document.createElement("hr");     
-  
+        addTaskBtn.textContent = plusIcon + "Add task";
+    const todayHr = document.createElement("hr");     
+   pagediv.remove();
     pagediv.append(container);
 };
     console.log("Weekly display created!");
@@ -349,7 +349,7 @@ export function  createMonthly(){
     const monthHeader = document.createElement("h2");
     monthBox.append(monthDiv, createCalendar());
   
-     pagediv.append(container);
+    pagediv.append(container);
  }
 
  console.log("Monthly display created!")
