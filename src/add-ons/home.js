@@ -328,7 +328,7 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.textContent = "plus";    
          addTaskBtn.textContent = plusIcon + "Add task";
    const todayHr = document.createElement("hr");     
-     pagediv.lastElementChild?.remove();
+  
     pagediv.append(container);
 };
     console.log("Weekly display created!");
@@ -348,7 +348,7 @@ export function  createMonthly(){
     monthDiv.appendChild(monthHeader)
     const monthHeader = document.createElement("h2");
     monthBox.append(monthDiv, createCalendar());
-     pagediv.lastElementChild?.remove();
+  
      pagediv.append(container);
  }
 
