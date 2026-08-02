@@ -134,10 +134,10 @@ export function makeDisplayBar(){
         darkMode.textContent = "bedtime";
         headerDiv.append(sideIcon,logo,darkMode);
          
-  
+   
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
-
+     createToday();
    console.log("I am making a neat display!");
 }
 
