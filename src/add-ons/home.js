@@ -18,7 +18,8 @@ import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
 
 
 const div = document.querySelector(".page-layout");
-
+const pagediv = document.createElement("div");
+     pagediv.className = "pagedivider";
 
 export function makeNavBar(){
      const container = document.querySelector(".page-layout");
@@ -118,9 +119,7 @@ console.log("I am making a beautiful nav bar!")
 }
 
 export function makeDisplayBar(){
-    
-    const pagediv = document.createElement("div");
-          pagediv.className = "pagedivider";
+              
     const headerDiv = document.createElement("div");
         headerDiv.className = "headerDiv";
         const sideIcon = document.createElement("span");
@@ -138,7 +137,7 @@ export function makeDisplayBar(){
   
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
-  return (pagediv);
+
    console.log("I am making a neat display!");
 }
 
@@ -280,7 +279,7 @@ export function createToday(counter, task){
   
     container.append(header, count, ul, todayHr, plusIcon);
     
-    
+    pagediv.append(container);
 
   console.log("Today Bar created!");
 };
@@ -323,7 +322,8 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.textContent = "plus";    
          addTaskBtn.textContent = plusIcon + "Add task";
    const todayHr = document.createElement("hr");     
-  
+     pagediv.lastElementChild?.remove();
+    pagediv.append(container);
 };
     console.log("Weekly display created!");
 };
@@ -342,6 +342,8 @@ export function  createMonthly(){
     monthDiv.appendChild(monthHeader)
     const monthHeader = document.createElement("h2");
     monthBox.append(monthDiv, createCalendar());
+     pagediv.lastElementChild?.remove();
+     pagediv.append(container);
  }
 
  console.log("Monthly display created!")
@@ -364,7 +366,8 @@ export function createSearch(){
             searchInput.id = 'search';
 
   container.append(searchIcon, searchInput);
-  div.appendChild(container);
+
+  pagediv.appendChild(container);
 
 console.log("Search Bar created!")
 }
