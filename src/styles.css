@@ -123,6 +123,7 @@ li{
 .formDiv{
     background-color: white;
     height: 30vh;
-    width: 75vh;
-    
+    width: 70vh;
+    border-radius: 5px;
+    border: none;
 }
