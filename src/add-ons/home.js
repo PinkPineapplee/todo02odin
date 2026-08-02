@@ -255,7 +255,6 @@ export function createToday(counter, task){
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
-        radioBtn.id = "radio-button";
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         

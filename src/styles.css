@@ -84,12 +84,22 @@ span, img{
  .pagedivider{
     background-color: aquamarine;
     width: 100%;
+    height: 100%;
+   
+    align-items: center;
+    justify-content: center;
  }
 .todayContainer{
     background-color: beige;
-     width: 100%;
+     width: 80%;    
+     height: 94.1%;
+      display: block;
+      margin: 0 auto;
 }
 
+.todayHeaderdiv{
+    display: flex;
+}
 
 .headerDiv{
     display: flex;
@@ -106,3 +116,6 @@ li{
     display: flex;
 }
 
+.todayContainer ul{
+    display: flex;
+}
