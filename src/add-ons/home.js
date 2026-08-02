@@ -175,7 +175,7 @@ export function creatNewTodoForm(){
 
     const div1 = document.createElement("div");
           div1.className="div1"
-          div1.textContent= `&#128197 + " today " + &#x1F5D9`;
+          div1.textContent= " today ";
           const calendarDiv = document.createElement("div");
           div1.appendChild(calendarDiv);
 
@@ -195,7 +195,7 @@ export function creatNewTodoForm(){
 
     const div3 = document.createElement("div");
           div3.className="div3"
-          div3.textContent= `&#328397 + " Remainders " + &#x3F5D9`;
+          div3.textContent= " Remainders ";
          
 
     
@@ -207,7 +207,7 @@ export function creatNewTodoForm(){
     const inboxBtn = document.createElement("button");
     const cancelBtn = document.createElement("button");
           cancelBtn.className = "cancelBtn";
-          cancelBtn.textContent = `&#128197 + " Cancel " + &#x1F5D9`;
+          cancelBtn.textContent =" Cancel ";
     const calendarBox = document.createElement("div");
           cancelBtn.appendChild(calendarBox);
 
@@ -215,7 +215,7 @@ export function creatNewTodoForm(){
 
     form.append(titleInput, description, div1, div2, div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
-    div.appendChild(formDiv);
+    pagediv.appendChild(formDiv);
     
 console.log("I am making a beautiful todo form!")
 }
@@ -284,8 +284,7 @@ export function createToday(counter, task){
    const todayHr = document.createElement("hr");     
   
     container.append(header, count, ul, todayHr, plusIcon);
-    
-    pagediv.append(container);
+     pagediv.append(container);
 
   console.log("Today Bar created!");
 };
