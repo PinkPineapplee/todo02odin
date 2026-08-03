@@ -182,23 +182,29 @@ export function creatNewTodoForm(){
     const div1 = document.createElement("div");
           div1.className="div1"
          
-          const todayicon = document.createElment("span");
+        const todayIcon = document.createElement("span");
           todayIcon.className = "material-symbols-outlined";
           todayIcon.textContent = "today";
-          const formText = document.createElement(" today ");
+        const formText = document.createElement("p");
+          formText.id = "formText";
+          formText.textContent = " today "
         const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "dropdown";
-        div1.textContent = todayicon + " today " + dropDown;
-          const calendarDiv = document.createElement("div");
-          div1.appendChild(calendarDiv);
+
+        
+        const calendarDiv = document.createElement("div");
+          div1.appendChild(todayIcon,formText,dropDown);
 
 
     const div2 = document.createElement("div");
           div2.className = "div2";
           div2.textContent= `Priority`;
-          
+           const ribbonIcon = document.createElement("span");
+          ribbonIcon.className = "material-symbols-outlined";
+          ribbonIcon.textContent = "book_ribbon";
+          div2.append(ribbonIcon);
     const priorityDiv = document.createElement("div");
     const priorityList = document.createElement("ul");
     const high = document.createElement("li");
@@ -212,7 +218,10 @@ export function creatNewTodoForm(){
           div3.className="div3"
           div3.textContent= " Remainders ";
          
-
+const alarmIcon = document.createElement("span");
+          alarmIcon.className = "material-symbols-outlined";
+          alarmIcon.textContent = "alarm";
+          div3.append(alarmIcon);
     
     const options = document.createElement("div");
           options.textContent= `...`;
