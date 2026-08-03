@@ -182,6 +182,10 @@ export function creatNewTodoForm(){
     const div1 = document.createElement("div");
           div1.className="div1"
           div1.textContent= " today ";
+        const dropDown = document.createElement("span");
+        dropDown.className = "material-symbols-outlined";
+        dropDown.id = "dropDown";
+        dropDown.textContent = "dropdown";
           const calendarDiv = document.createElement("div");
           div1.appendChild(calendarDiv);
 
@@ -261,7 +265,7 @@ export function createToday(counter, task){
  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
-        dropDown.textContent = "arrow_drop_down";
+        dropDown.textContent = "stat_minus_1";
         // ul.appendChild(dropDown);
          let text8 = document.createElement("p");
           text8.textContent= "Overdue";
