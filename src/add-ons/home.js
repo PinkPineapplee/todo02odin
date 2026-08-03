@@ -156,7 +156,9 @@ export function creatNewTodoForm(){
     formDiv.className ="formDiv";
     const form = document.createElement("form");
 
-
+   const inputDiv = document.createElement("div");
+          inputDiv.className = "inputDiv";
+          
     const titleInput = document.createElement("input");
             titleInput.type = 'text';
             titleInput.name = 'title';
@@ -171,8 +173,11 @@ export function creatNewTodoForm(){
             description.placeholder = "Description";
             description.required = false; // Boolean attributes take true/false
             description.id = 'description';
+         inputDiv.append(titleInput,description);
 
-
+    const itemsDiv = document.createElement("div");
+          itemsDiv.className="itemsDiv";
+          
     const div1 = document.createElement("div");
           div1.className="div1"
           div1.textContent= " today ";
@@ -203,6 +208,7 @@ export function creatNewTodoForm(){
           options.textContent= `...`
     const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
+        itemsDiv.append(div1,div2,div3,options)  
     const formHr = document.createElement("hr");
     const inboxBtn = document.createElement("button");
           inboxBtn.className = "inboxBtn";
@@ -217,7 +223,7 @@ export function creatNewTodoForm(){
           addBtn.className = "addBtn";
           addTaskBtn.textContent = " Add Task ";
 
-    form.append(titleInput, description, div1, div2, div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
+    form.append(inputDiv, itemsDiv, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
