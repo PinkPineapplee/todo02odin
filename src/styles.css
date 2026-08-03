@@ -126,4 +126,5 @@ li{
     width: 70vh;
     border-radius: 5px;
     border: none;
+    position: relative;
 }
