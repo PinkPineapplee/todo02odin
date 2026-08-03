@@ -15,7 +15,7 @@ import fridayBg from "../images/silali-banerjee-5MTWsd0p8bo-unsplash.jpg";
 import saturdayBg from "../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg";
 import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
 import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
-
+import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -154,6 +154,7 @@ export function creatNewTodoForm(){
    
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
+   
     const form = document.createElement("form");
 
    const inputDiv = document.createElement("div");
@@ -205,7 +206,8 @@ export function creatNewTodoForm(){
 
     
     const options = document.createElement("div");
-          options.textContent= `...`
+          options.textContent= `...`;
+          options.className= "options";
     const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
         itemsDiv.append(div1,div2,div3,options)  
@@ -337,7 +339,7 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.textContent = "plus";    
         addTaskBtn.textContent = plusIcon + "Add task";
     const todayHr = document.createElement("hr");     
-   pagediv.remove();
+    pagediv.remove();
     pagediv.append(container);
 };
     console.log("Weekly display created!");
