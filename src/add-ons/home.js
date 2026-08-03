@@ -195,7 +195,7 @@ export function creatNewTodoForm(){
 
         
         const calendarDiv = document.createElement("div");
-          div1.appendChild(todayIcon,formText,dropDown);
+          div1.appendChild(todayIcon+ "today"+ dropDown);
 
 
     const div2 = document.createElement("div");
@@ -223,16 +223,21 @@ const alarmIcon = document.createElement("span");
           alarmIcon.textContent = "alarm";
           div3.append(alarmIcon);
     
-    const options = document.createElement("div");
-          options.textContent= `...`;
-          options.className= "options";
+    const options = document.createElement("span");
+          options.textContent= "more_horiz";
+          options.className= "material-symbols-outlined";
     const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
         itemsDiv.append(div1,div2,div3,options)  
     const formHr = document.createElement("hr");
+
     const inboxBtn = document.createElement("button");
           inboxBtn.className = "inboxBtn";
           inboxBtn.textContent =" Inbox ";
+          const inboxIcon = document.createElement("span");
+          inboxIcon.textContent= "inbox_text";
+          inboxIcon.className= "material-symbols-outlined";
+          inboxBtn.append(inboxIcon)
     const cancelBtn = document.createElement("button");
           cancelBtn.className = "cancelBtn";
           cancelBtn.textContent =" Cancel ";
