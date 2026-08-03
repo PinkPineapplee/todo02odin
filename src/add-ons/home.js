@@ -205,13 +205,17 @@ export function creatNewTodoForm(){
           options.appendChild(optionsDiv);
     const formHr = document.createElement("hr");
     const inboxBtn = document.createElement("button");
+          inboxBtn.className = "inboxBtn";
+          inboxBtn.textContent =" Inbox ";
     const cancelBtn = document.createElement("button");
           cancelBtn.className = "cancelBtn";
           cancelBtn.textContent =" Cancel ";
     const calendarBox = document.createElement("div");
           cancelBtn.appendChild(calendarBox);
 
-    const addTasKBtn = document.createElement("button");
+    const addBtn = document.createElement("button");
+          addBtn.className = "addBtn";
+          addTaskBtn.textContent = " Add Task ";
 
     form.append(titleInput, description, div1, div2, div3, options, formHr,inboxBtn, cancelBtn, addTasKBtn)
     formDiv.appendChild(form);
