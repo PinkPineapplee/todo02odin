@@ -126,7 +126,7 @@ nav ul li{
     height: 25vh;
     width: 80vw;
     border-radius: 15px;
-    border: none;
+    border: 1px solid rgb(176, 175, 175);
     position: relative;
     bottom: 60%;
     left: 15%;

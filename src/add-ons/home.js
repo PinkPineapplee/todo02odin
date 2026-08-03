@@ -272,7 +272,7 @@ export function createToday(counter, task){
         // count.textContent +=`${ counter}` + " task";
 
          let text7 = document.createElement("p");
-          text7.textContent= "Check";
+          text7.textContent= "tasks";
           count.append(span,`${counter + " "+ text7.textContent }` );
        
  const ul = document.createElement("ul");
@@ -387,7 +387,7 @@ export function  createMonthly(){
 
 export function createSearch(){
     
-    const container = document.createElement("div");
+    const container = document.createElement("modal");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.id = "searchIcon";
