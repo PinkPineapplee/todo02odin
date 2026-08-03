@@ -181,11 +181,16 @@ export function creatNewTodoForm(){
           
     const div1 = document.createElement("div");
           div1.className="div1"
-          div1.textContent= " today ";
+         
+          const todayicon = document.createElment("span");
+          todayIcon.className = "material-symbols-outlined";
+          todayIcon.textContent = "today";
+          const formText = document.createElement(" today ");
         const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "dropdown";
+        div1.textContent = todayicon + " today " + dropDown;
           const calendarDiv = document.createElement("div");
           div1.appendChild(calendarDiv);
 
