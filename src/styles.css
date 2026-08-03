@@ -124,14 +124,24 @@ nav ul li{
     background-color: white;
     height: 30vh;
     width: 80vh;
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     position: relative;
-    bottom:60%;
+    bottom: 60%;
     left: 15%;
 
 }
 
 form{
+ padding: 1.5rem;
+}
 
+.itemsDiv{
+    display: flex;
+
+}
+
+#title, #description{
+ width: 100%;
+ height: 2rem;
 }

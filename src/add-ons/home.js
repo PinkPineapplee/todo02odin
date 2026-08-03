@@ -221,9 +221,9 @@ export function creatNewTodoForm(){
 
     const addBtn = document.createElement("button");
           addBtn.className = "addBtn";
-          addTaskBtn.textContent = " Add Task ";
+          addBtn.textContent = " Add Task ";
 
-    form.append(inputDiv, itemsDiv, formHr,inboxBtn, cancelBtn, addTasKBtn)
+    form.append(inputDiv, itemsDiv, formHr,inboxBtn, cancelBtn, addBtn)
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
