@@ -195,7 +195,7 @@ export function creatNewTodoForm(){
 
         
         const calendarDiv = document.createElement("div");
-          div1.appendChild(todayIcon+ "today"+ dropDown);
+          div1.appendChild(todayIcon, "today" ,dropDown);
 
 
     const div2 = document.createElement("div");
@@ -226,6 +226,7 @@ const alarmIcon = document.createElement("span");
     const options = document.createElement("span");
           options.textContent= "more_horiz";
           options.className= "material-symbols-outlined";
+          options.id = "optionsIcon"
     const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
         itemsDiv.append(div1,div2,div3,options)  
@@ -298,13 +299,13 @@ export function createToday(counter, task){
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
+        radioBtn.textContent = "radio_button_checked";
         
         let text10 = document.createElement("p");
           text10.textContent= (task || " Edit Videos and post by 3pm.");
           todoItem.append(radioBtn,text10);
         // todoItem.textContent += (task || " Edit Videos and post by 3pm.");
-        ul.appendChild(todoItem);
+       
          const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
      const plusIcon = document.createElement("span");
@@ -318,7 +319,7 @@ export function createToday(counter, task){
           addTaskBtn.append(radioBtn, text11);
    const todayHr = document.createElement("hr");     
   
-    container.append(header, count, ul, todayHr, plusIcon);
+    container.append(header, count, ul,todoItem, todayHr, plusIcon);
      pagediv.append(container);
 
   console.log("Today Bar created!");

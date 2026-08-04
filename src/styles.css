@@ -99,8 +99,15 @@ span, img{
 
 .todayHeaderdiv{
     display: flex;
+    align-items: center;
+   margin-top: 0;
+   
 }
 
+.todayHeaderdiv h1{
+     margin-top: 0;
+     margin-bottom: 0;
+}
 .headerDiv{
     display: flex;
     background-color: pink;
@@ -115,16 +122,26 @@ span, img{
 nav ul li{
     display: flex;
 }
-
-.todayContainer ul{
+.todayContainer p{
+    margin: 0;
     display: flex;
+    align-items: center;
+
+}
+.todayContainer ul{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0;
+     margin: 0;
+     height: 1.5rem;
 }
 
 .formDiv{
     background-color: aliceblue;
     background-image: formBg;
     height: 25vh;
-    width: 80vw;
+    width: 70%;
     border-radius: 15px;
     border: 1px solid rgb(176, 175, 175);
     position: relative;
@@ -149,16 +166,21 @@ form{
  border: none;
  margin: 1px;
 }
+#todos{
+    list-style: none;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    
+}
 
-.div1,.div2,.div3, .options{
-
+.div1,.div2,.div3, #optionsIcon{
     border: 1px solid rgb(176, 176, 176);
     border-radius: 3px;
-    text-align: center;
     font-weight: 600;
     color: rgb(136, 135, 135);
     height: 20px;
     width: 20%;
+    font-size: smaller;
 }
 
 .inboxBtn,.cancelBtn,.addBtn{
@@ -177,4 +199,9 @@ form{
     color: white;
     border: none;
 
+}
+
+#title{
+    height: 30%;
+    color: rgb(90, 90, 90)
 }
