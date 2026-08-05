@@ -82,15 +82,13 @@ span, img{
  /* styles for createToday */
 
  .pagedivider{
-    background-color: aquamarine;
-    width: 100%;
-    height: 100%;
    
+    width: 100%;
+    height: 100%;  
     align-items: center;
     justify-content: center;
  }
 .todayContainer{
-    background-color: beige;
      width: 70%;    
      height: 94.1%;
       display: block;
@@ -110,8 +108,7 @@ span, img{
 }
 .headerDiv{
     display: flex;
-    background-color: pink;
-    height: 2.5rem;
+    height: 2rem;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -138,7 +135,7 @@ nav ul li{
 }
 
 .formDiv{
-    background-color: aliceblue;
+   
     background-image: formBg;
     height: 25vh;
     width: 70%;
@@ -168,8 +165,9 @@ form{
 }
 #todos{
     list-style: none;
-    margin-left: 5rem;
+    margin-left: 3rem;
     margin-top: 1rem;
+    display: flex;
     
 }
 
@@ -204,4 +202,12 @@ form{
 #title{
     height: 30%;
     color: rgb(90, 90, 90)
+}
+
+
+.addTaskBtn{
+    height: 2rem;
+    width: 7rem;
+    display: flex;
+    border:none;
 }

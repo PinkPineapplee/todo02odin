@@ -33,8 +33,7 @@ export function makeNavBar(){
         const profileIcon = document.createElement("span");
         profileIcon.className = "material-symbols-outlined";
         profileIcon.textContent = "man_3";
-        //ul1.appendChild(profileIcon);
-       // ul1.textContent +=   " Profile ";
+    
          let text = document.createElement("h3");
           text.textContent= "Profile";
         const sideIcon = document.createElement("span");
@@ -47,8 +46,7 @@ export function makeNavBar(){
         const addIcon = document.createElement("span");
         addIcon.className = "material-symbols-outlined";
         addIcon.textContent = "add_circle";
-        // l1.appendChild(addIcon);
-        // l1.textContent +=  `Add Task`;
+        
         let text1 = document.createElement("p");
           text1.textContent= "Add Task";
           l1.append(addIcon, text1);
@@ -58,8 +56,7 @@ export function makeNavBar(){
         const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.textContent = "search";
-        // l2.appendChild(searchIcon);
-        // l2.textContent += `Search`;
+        
         let text2 = document.createElement("p");
           text2.textContent= "Search";
           l2.append(searchIcon, text2);
@@ -69,8 +66,7 @@ export function makeNavBar(){
         const todayIcon = document.createElement("span");
         todayIcon.className = "material-symbols-outlined";
         todayIcon.textContent = "today";
-        // l3.appendChild(todayIcon);
-        // l3.textContent += `Today`;
+        
         let text3 = document.createElement("p");
           text3.textContent= "Today";
           l3.append(todayIcon, text3);
@@ -80,8 +76,7 @@ export function makeNavBar(){
         const weekIcon = document.createElement("span");
         weekIcon.className = "material-symbols-outlined";
         weekIcon.textContent = "routine";
-        // l4.appendChild(weekIcon);
-        // l4.textContent += `Weekly`;
+        
         let text4 = document.createElement("p");
           text4.textContent= "Weekly";
           l4.append(weekIcon, text4);
@@ -91,8 +86,7 @@ export function makeNavBar(){
         const monthIcon = document.createElement("span");
         monthIcon.className = "material-symbols-outlined";
         monthIcon.textContent = "calendar_month";
-        // l5.appendChild(monthIcon);
-        // l5.textContent += `Monthly`;
+        
         let text5 = document.createElement("p");
           text5.textContent= "Monthly";
           l5.append(monthIcon, text5);
@@ -113,9 +107,7 @@ export function makeNavBar(){
             events:[l1,l2,l3,l4,l5],
             func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
         };
-        // map to add eventlisteners to all the lists
-        // filter to check clicked and call function for that event.
-         
+        
         handleCLickEvent(l1, creatNewTodoForm);
         handleCLickEvent(l2, createSearch);
         handleCLickEvent(l3, createToday);
@@ -274,8 +266,7 @@ export function createToday(counter, task){
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
-        // count.appendChild(span);
-        // count.textContent +=`${ counter}` + " task";
+       
 
          let text7 = document.createElement("p");
           text7.textContent= "tasks";
@@ -286,25 +277,25 @@ export function createToday(counter, task){
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "stat_minus_1";
-        // ul.appendChild(dropDown);
+        
          let text8 = document.createElement("p");
           text8.textContent= "Overdue";
           let text9 = document.createElement("p");
           text9.textContent= "Reschedule"; 
           text9.style.color = "orange";
+           
           ul.append(dropDown, text8, text9);
    
-       
+       const todayHr1 = document.createElement("hr") ; 
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_checked";
+        radioBtn.textContent = "radio_button_unchecked";
         
         let text10 = document.createElement("p");
           text10.textContent= (task || " Edit Videos and post by 3pm.");
           todoItem.append(radioBtn,text10);
-        // todoItem.textContent += (task || " Edit Videos and post by 3pm.");
        
          const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
@@ -312,14 +303,13 @@ export function createToday(counter, task){
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2"; 
-        // addTaskBtn.appendChild(plusIcon);   
-        // addTaskBtn.textContent +=  "Add task";
+        
         let text11 = document.createElement("p");
           text11.textContent= "Add task";
-          addTaskBtn.append(radioBtn, text11);
-   const todayHr = document.createElement("hr");     
+          addTaskBtn.append(plusIcon , text11);
+    const todayHr = document.createElement("hr") ;   
   
-    container.append(header, count, ul,todoItem, todayHr, plusIcon);
+    container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
 
   console.log("Today Bar created!");
