@@ -69,14 +69,14 @@ span, img{
 
 .profile li, .myProjects li{
    height: 2.5rem; 
-   width: 100%;
+   width: 80%;
    text-align: start;
    list-style: none;
 
 }
 
 .profile li:hover , .myProjects li:hover{
-    background-color:rgb(242, 242, 252) ;
+    background-color:rgb(222, 222, 232) ;
     cursor: pointer;
 }
  /* styles for createToday */
@@ -118,11 +118,14 @@ span, img{
 
 nav ul li{
     display: flex;
+    align-items: center;
+    
 }
 .todayContainer p{
     margin: 0;
     display: flex;
     align-items: center;
+    color: gray;
 
 }
 .todayContainer ul{
@@ -165,7 +168,7 @@ form{
 }
 #todos{
     list-style: none;
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-top: 1rem;
     display: flex;
     
@@ -210,4 +213,5 @@ form{
     width: 7rem;
     display: flex;
     border:none;
+    background-color: white;
 }
