@@ -125,13 +125,19 @@ export function makeDisplayBar(){
         sideIcon.className = "material-symbols-outlined";
         sideIcon.textContent = "side_navigation";
        
+        const hdiv = document.createElement("div");
+        
         const logo = document.createElement("img");
         logo.src = logoIcon;
         logo.className= "logo";
+    const headerText = document.createElement("h3");
+         headerText.className = "headerText";
+         headerText.textContent = "Todo Bunny";
+         hdiv.append(logo,headerText);
     const darkMode = document.createElement("span");
         darkMode.className = "material-symbols-outlined";
         darkMode.textContent = "bedtime";
-        headerDiv.append(sideIcon,logo,darkMode);
+        headerDiv.append(sideIcon,hdiv,darkMode);
          
    
     pagediv.append(headerDiv);   
@@ -330,7 +336,7 @@ export function createWeekly(month,num,day,counter,task){
       header.className = week[0];
      header.textContent = `${month}+ "Week " + ${num} + "."`;
     const count = document.createElement("p");
-     const span = document.createElement("span");
+    const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         sideIcon.textContent = "check";
         count.textContent = span + `${counter}` + "task";

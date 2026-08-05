@@ -106,9 +106,11 @@ span, img{
      margin-top: 0;
      margin-bottom: 0;
 }
+
+
 .headerDiv{
     display: flex;
-    height: 2rem;
+    height: 4rem;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -116,6 +118,30 @@ span, img{
 
 }
 
+.headerDiv div{
+    width: 10rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 30%;
+}
+
+.headerDiv div img{
+  height: 40px;
+  width: 40px;
+}
+
+.headerDiv div .headerText{
+font-family:fantasy;
+ font-weight: 1000;
+position: relative;
+top: 10px; 
+}
+.headerDiv span{
+    position: relative;
+    right: 10%;
+} 
 nav ul li{
     display: flex;
     align-items: center;
