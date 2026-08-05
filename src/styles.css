@@ -45,7 +45,7 @@ footer>a:hover{
 /* style for createnavBAr */
 .navBox{
     height: 100%;
-    width: 20vw;
+    width: 25vw;
     background-color: rgb(223, 233, 252);
     margin: none;
 }
@@ -59,7 +59,7 @@ span, img{
 
 
 .profile{
-    height: 50vh;
+    height: 40vh;
     width: 100%;
     align-items: center;
      padding-left: 2vw;
@@ -84,7 +84,7 @@ span, img{
 }
 
 .profile li:hover , .myProjects li:hover{
-    background-color:rgb(222, 222, 232) ;
+    background-color: rgb(236, 241, 251) ;
     cursor: pointer;
 }
  /* styles for createToday */
@@ -113,6 +113,7 @@ span, img{
 .todayHeaderdiv h1{
      margin-top: 0;
      margin-bottom: 0;
+    
 }
 
 
@@ -125,7 +126,16 @@ span, img{
    
 
 }
-
+#dropDown{
+ position: relative;
+ right: 2.5rem;
+}
+#overdue{
+    color: black;
+    position: relative;
+    right: 40%;
+    font-weight:bolder ;
+}
 .headerDiv div{
     width: 10rem;
     height: 2rem;
@@ -149,6 +159,8 @@ top: 10px;
 .headerDiv span{
     position: relative;
     right: 10%;
+   
+   
 } 
 nav ul li{
     display: flex;
@@ -162,6 +174,13 @@ nav ul li{
     color: gray;
 
 }
+
+.todayContainer p span{
+font-size: medium;
+position: relative;
+top: 7px;
+}
+
 .todayContainer ul{
      display: flex;
      align-items: center;
@@ -171,8 +190,7 @@ nav ul li{
      height: 1.5rem;
 }
 
-.formDiv{
-   
+.formDiv{ 
     background-image: formBg;
     height: 25vh;
     width: 70%;
@@ -207,7 +225,16 @@ form{
     display: flex;
     
 }
+#todos span{
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+}
 
+#todos span:hover{
+    color:rgb(133, 172, 244);
+    cursor:default;
+}
 .div1,.div2,.div3, #optionsIcon{
     border: 1px solid rgb(176, 176, 176);
     border-radius: 3px;
@@ -248,4 +275,19 @@ form{
     display: flex;
     border:none;
     background-color: white;
+    align-items: center;
+}
+
+.addTaskBtn:hover{
+ cursor: pointer;
+}
+
+.addTaskBtn #plusIcon{
+    color: orangered;
+    font-size: medium;
+    position: relative;
+    top: 5px;
+}
+hr{
+    border:1px solid rgb(228, 227, 227) ;
 }

@@ -275,6 +275,8 @@ export function createToday(counter, task){
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
+        
+
        
 
          let text7 = document.createElement("p");
@@ -289,9 +291,10 @@ export function createToday(counter, task){
         
          let text8 = document.createElement("p");
           text8.textContent= "Overdue";
+          text8.id = "overdue";
           let text9 = document.createElement("p");
           text9.textContent= "Reschedule"; 
-          text9.style.color = "orange";
+          text9.style.color = "orangered";
            
           ul.append(dropDown, text8, text9);
    
