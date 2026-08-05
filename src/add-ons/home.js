@@ -312,6 +312,10 @@ export function createToday(counter, task){
     container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
 
+
+      handleCLickEvent(addTaskBtn, creatNewTodoForm);
+       handleCLickEvent(radioBtn, creatNewTodoForm);
+        handleCLickEvent(text9, creatNewTodoForm);
   console.log("Today Bar created!");
 };
 
