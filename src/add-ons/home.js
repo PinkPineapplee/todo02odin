@@ -30,6 +30,9 @@ export function makeNavBar(){
 
     const ul1 = document.createElement("ul");
         ul1.className = "profile";
+        const profilediv = document.createElement("div");
+        profilediv.className= "profilediv";
+        
         const profileIcon = document.createElement("span");
         profileIcon.className = "material-symbols-outlined";
         profileIcon.textContent = "man_3";
@@ -39,7 +42,7 @@ export function makeNavBar(){
         const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.textContent = "side_navigation";
-          ul1.append(profileIcon, text, sideIcon);
+          profilediv.append(profileIcon, text, sideIcon);
 
     const l1 = document.createElement("li");
         l1.className = "Add";
@@ -96,7 +99,7 @@ export function makeNavBar(){
         ul2.className = "myProjects";
         ul2.textContent = ` #  Projects`;
 
-        ul1.append(l1,l2,l3,l4,l5);
+        ul1.append(profilediv,l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
         div.appendChild(nav);
         container.appendChild(div);
