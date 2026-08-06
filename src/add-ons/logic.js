@@ -66,7 +66,8 @@ export class Todo extends Project{
     //create new todos 
     addNew(){
         if (isClicked=== true){
-        let todo = new Todo(title,description,dueDate,priority,notes, projects)
+        let todo = new Todo(title,description,dueDate,priority,notes, projects);
+        
        
         Storage.saveItem(todo);
         Storage.getItem(todo);
@@ -96,9 +97,9 @@ class Storage{
 };
 
 
-let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
+// let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
-console.log(newTask);
+// console.log(newTask);
 
 
 

@@ -280,6 +280,11 @@ export function creatNewTodoForm(){
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
+     
+    handleCLickEvent()
+    handleCLickEvent(inboxBtn, startSend);
+    handleCLickEvent(cancelBtn, startCancelBtn);
+    handleCLickEvent(addBtn, startAddTask);
 console.log("I am making a beautiful todo form!")
 }
 
@@ -456,11 +461,7 @@ function handleCLickEvent(elem, func){
 
 function startAddTask( ){
       // this function creates a new list ui for a newTodo and add it to the page.
-      let task = {
-        title: titleInput.value,
-        description: description.value,
-      }
-      Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects);
+      
       const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -470,10 +471,12 @@ function startAddTask( ){
         
         const listBox = document.createElement("div");
         let title = document.createElement("p");
-          title.textContent= (task || " Edit Videos and post by 3pm.");
         let description = document.createElement("p"); 
         let dateElem = document.createElement("p");
-          todoItem.append(radioBtn,title,description, dateElem);
+         listBox.append(title,description, dateElem);
+         todoItem.append(Hr1, radioBtn,listBox);
+
+       Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects))
 
 };
 
@@ -508,9 +511,9 @@ function getNotes(){
 
 function startCancelBtn(){
    // This function removes todoform from webpage.
-
-   pagediv.remove(creatNewTodoForm);
+   pagediv.remove(formDiv);
 };
+
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
 };
