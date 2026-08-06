@@ -155,7 +155,11 @@ export function creatNewTodoForm(){
    
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
-   
+
+    const formImg = document.createElement("img");
+    formImg.src = formBg;
+    formDiv.style.backgroundColor = "white";
+
     const form = document.createElement("form");
 
    const inputDiv = document.createElement("div");
@@ -219,7 +223,7 @@ export function creatNewTodoForm(){
           div3.className="div3"
           div3.textContent= " Remainders ";
          
-const alarmIcon = document.createElement("span");
+    const alarmIcon = document.createElement("span");
           alarmIcon.className = "material-symbols-outlined";
           alarmIcon.textContent = "alarm";
           div3.append(alarmIcon);
@@ -428,6 +432,16 @@ function handleCLickEvent(elem, func){
 }
 
 
+function startAddTask(){};
+function startCancelBtn(){
+};
+function startReminderBtn(){};
+function startRescheduleBtn(){};
+function startPriorityBtn(){};
+function pressRadioBtn(){
+}
 
-
+function startNewProject(){
+    
+}
 console.log("I am the end to home.js");

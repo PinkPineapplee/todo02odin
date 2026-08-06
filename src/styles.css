@@ -190,14 +190,32 @@ top: 7px;
      height: 1.5rem;
 }
 
+#todos{
+    list-style: none;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    
+}
+#todos span{
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+}
+
+#todos span:hover{
+    color:rgb(133, 172, 244);
+    cursor:default;
+}
+
+/* todo form styles */
 .formDiv{ 
-    background-image: formBg;
     height: 25vh;
     width: 70%;
     border-radius: 15px;
     border: 1px solid rgb(176, 175, 175);
     position: relative;
-    bottom: 60%;
+    bottom: 73%;
     left: 15%;
 
 }
@@ -218,23 +236,7 @@ form{
  border: none;
  margin: 1px;
 }
-#todos{
-    list-style: none;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    display: flex;
-    
-}
-#todos span{
-    font-size: 20px;
-    position: relative;
-    top: 5px;
-}
 
-#todos span:hover{
-    color:rgb(133, 172, 244);
-    cursor:default;
-}
 .div1,.div2,.div3, #optionsIcon{
     border: 1px solid rgb(176, 176, 176);
     border-radius: 3px;
