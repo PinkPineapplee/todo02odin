@@ -488,7 +488,9 @@ function getNotes(){
     const noteP = document.createElement("p");
           noteP.className = "noteP";
     const noteText = document.createElement("textarea");
-          noteText.placeholder= "I think we should launch the campaign.";
+          noteText.placeholder= "I think we should launch that campaign.";
+          noteText.rows = "20";
+          noteText.cols = "60";
     noteP.appendChild(noteText);
     const add = document.createElement("button");
        add.id = "addNotes";
@@ -500,7 +502,7 @@ function getNotes(){
         let content = noteText.textContent;
         return content;
     });
-   
+   return content;
 };
 
 
