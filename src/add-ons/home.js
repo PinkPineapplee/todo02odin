@@ -249,6 +249,10 @@ export function creatNewTodoForm(){
           options.id = "optionsIcon"
     const optionsDiv = document.createElement("div");
           options.appendChild(optionsDiv);
+        const select = document.createElement("select");
+            let selectOptions = document.createElement("option");
+              selectOptions.value = handleCLickEvent(selectOptions, getNotes)
+              selectOptions.text = "notes";
         itemsDiv.append(div1,div2,div3,options)  
     const formHr = document.createElement("hr");
 
