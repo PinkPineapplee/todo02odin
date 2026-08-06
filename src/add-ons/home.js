@@ -432,16 +432,95 @@ function handleCLickEvent(elem, func){
 }
 
 
-function startAddTask(){};
-function startCancelBtn(){
+function startAddTask(){
+   const formInfo = {
+      
+   }
 };
-function startReminderBtn(){};
-function startRescheduleBtn(){};
-function startPriorityBtn(){};
+
+
+
+
+
+
+function startCancelBtn(){
+    // this function creates a new list ui for a newTodo and add it to the page.
+};
+function startReminderBtn(){
+    // this function creates ui for reminder with some reminder functionality.
+};
+function startRescheduleBtn(){
+    // this function creates ui for reschdule icon.and adds date to todos.
+};
+function startPriorityBtn(){
+    // this function creates ui for priority bar and updates todo objects.
+};
 function pressRadioBtn(){
-}
+    // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+};
 
 function startNewProject(){
-    
+   // this function creates ui for new projects and adds projects objects.
+};
+function collasibleDropdown(){
+    // this function handles todolist ui collasping effects.
+};
+function startDarkMode(){
+    // this function handles all darkmode operations for app.
 }
+ 
+function handleMultiplePageDisplay(){
+    // this function stops pages already displaying in webpage to not display more than once.
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log("I am the end to home.js");
