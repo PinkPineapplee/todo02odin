@@ -422,12 +422,12 @@ export function createSearch(){
         searchIcon.id = "searchIcon";
         searchIcon.textContent = "search";
         
-     const searchInput = document.createElement("input");
-            searchInput.type = 'text';
-            searchInput.name = 'search';
-            searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
-            searchInput.required = true; // Boolean attributes take true/false
-            searchInput.id = 'search';
+    const searchInput = document.createElement("input");
+        searchInput.type = 'text';
+        searchInput.name = 'search';
+        searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+        searchInput.required = true; // Boolean attributes take true/false
+        searchInput.id = 'search';
 
   container.append(searchIcon, searchInput);
 
@@ -447,7 +447,7 @@ function handleCLickEvent(elem, func){
 
 function startAddTask( ){
       // this function creates a new list ui for a newTodo and add it to the page.
-      Todo.addNew(title,description.input,dueDate,priorityElem.selected,notes, projects);
+      Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects);
       const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -499,7 +499,9 @@ function handleMultiplePageDisplay(){
 };
 
 
-
+function findSearchItem(){
+    // this function executes search that sort though todo array.
+}
 
 
 
