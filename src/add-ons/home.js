@@ -196,27 +196,8 @@ export function creatNewTodoForm(){
 
           let label = document.createElement("p");
            label.style.fontWeight = "bold";
-           label.textContent= "Priority";
+           label.textContent= "Today";
           div1.append(icon, label);
-         
-        // const todayIcon = document.createElement("span");
-        //   todayIcon.className = "material-symbols-outlined";
-        //   todayIcon.textContent = "today";
-        // const formText = document.createElement("p");
-        //   formText.id = "formText";
-        //   formText.textContent = " Today "
-        // const dropDown = document.createElement("span");
-        // dropDown.className = "material-symbols-outlined";
-        // dropDown.id = "dropDown";
-        // dropDown.textContent = "dropdown";
-       
-        // let label = document.createElement("p");
-        //    label.style.fontWeight = "bold";
-        //    label.textContent= "Today";
-        
-        // const calendarDiv = document.createElement("div");
-        //   div1.appendChild(todayIcon, formText, dropDown );
-
 
     const div2 = document.createElement("div");
           div2.className = "div2";
@@ -290,15 +271,19 @@ export function creatNewTodoForm(){
           cancelBtn.type = "reset";
           cancelBtn.className = "cancelBtn";
           cancelBtn.textContent =" Cancel ";
-    const calendarBox = document.createElement("div");
-          cancelBtn.appendChild(calendarBox);
+    
+          
 
     const addBtn = document.createElement("button");
           addBtn.type = "submit";
           addBtn.className = "addBtn";
           addBtn.textContent = " Add Task ";
 
-    form.append(inputDiv, itemsDiv, formHr,inboxBtn, cancelBtn, addBtn)
+
+    const buttonDiv = document.createElement("div");
+         buttonDiv.className = "buttonDiv";
+         buttonDiv.append(inboxBtn, cancelBtn, addBtn);
+    form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
