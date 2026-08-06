@@ -479,7 +479,29 @@ function startAddTask( ){
 
 
 
+function getNotes(){
+    
+    const noteDiv = document.createElement("div");
+    const notetitle = document.createElement("h5");
+          notetitle.className = "notetitle";
+          notetitle.textContent = "Add notes or comments."
+    const noteP = document.createElement("p");
+          noteP.className = "noteP";
+    const noteText = document.createElement("textarea");
+          noteText.placeholder= "I think we should launch the campaign.";
+    noteP.appendChild(noteText);
+    const add = document.createElement("button");
+       add.id = "addNotes";
+       add.type = "submit";
+     
+    noteDiv.append(notetitle,noteP,add);
 
+    add.addEventListener("click", ()=>{
+        let content = noteText.textContent;
+        return content;
+    });
+   
+};
 
 
 function startCancelBtn(){
