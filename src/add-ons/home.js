@@ -432,10 +432,19 @@ function handleCLickEvent(elem, func){
 }
 
 
-function startAddTask(){
-   const formInfo = {
-      
-   }
+function startAddTask( task){
+      // this function creates a new list ui for a newTodo and add it to the page.
+      const Hr1 = document.createElement("hr") ; 
+     const todoItem = document.createElement("li");
+       todoItem.id = "todos";
+       const radioBtn = document.createElement("span");
+        radioBtn.className = "material-symbols-outlined";
+        radioBtn.textContent = "radio_button_unchecked";
+        
+        let text10 = document.createElement("p");
+          text10.textContent= (task || " Edit Videos and post by 3pm.");
+          todoItem.append(radioBtn,text10);
+
 };
 
 
@@ -444,7 +453,7 @@ function startAddTask(){
 
 
 function startCancelBtn(){
-    // this function creates a new list ui for a newTodo and add it to the page.
+   // This function removes todoform from webpage.
 };
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
