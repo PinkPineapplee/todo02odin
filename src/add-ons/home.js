@@ -194,24 +194,32 @@ export function creatNewTodoForm(){
           todayIcon.textContent = "today";
         const formText = document.createElement("p");
           formText.id = "formText";
-          formText.textContent = " today "
+          formText.textContent = " Today "
         const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "dropdown";
-
+       
+        let label = document.createElement("p");
+           label.style.fontWeight = "bold";
+           label.textContent= "Today";
         
         const calendarDiv = document.createElement("div");
-          div1.appendChild(todayIcon, "today" ,dropDown);
+          div1.appendChild(todayIcon, formText, dropDown );
 
 
     const div2 = document.createElement("div");
           div2.className = "div2";
-          div2.textContent= `Priority`;
+          
            const ribbonIcon = document.createElement("span");
           ribbonIcon.className = "material-symbols-outlined";
           ribbonIcon.textContent = "book_ribbon";
-          div2.append(ribbonIcon);
+
+          let label1 = document.createElement("p");
+           label1.style.fontWeight = "bold";
+           label1.textContent= "Priority";
+          div2.append(ribbonIcon, label1);
+
     const priorityDiv = document.createElement("div");
   
           const high = document.createElement("input");
@@ -230,18 +238,22 @@ export function creatNewTodoForm(){
             low.value = "low"; 
             low.textContent = "Low"; 
 
-           prioritydiv.append(high,medium,low);
+           priorityDiv.append(high,medium,low);
            
 
 
     const div3 = document.createElement("div");
           div3.className="div3"
-          div3.textContent= " Remainders ";
+         
+          let label2 = document.createElement("p");
+           label2.style.fontWeight = "bold";
+           label2.textContent= "Reminder";
+          
          
     const alarmIcon = document.createElement("span");
           alarmIcon.className = "material-symbols-outlined";
           alarmIcon.textContent = "alarm";
-          div3.append(alarmIcon);
+          div3.append(alarmIcon, label2);
     
     const options = document.createElement("span");
           options.textContent= "more_horiz";
@@ -263,7 +275,7 @@ export function creatNewTodoForm(){
           const inboxIcon = document.createElement("span");
           inboxIcon.textContent= "inbox_text";
           inboxIcon.className= "material-symbols-outlined";
-          inboxBtn.append(inboxIcon)
+          inboxBtn.append(inboxIcon);
     const cancelBtn = document.createElement("button");
           cancelBtn.type = "reset";
           cancelBtn.className = "cancelBtn";
@@ -281,10 +293,10 @@ export function creatNewTodoForm(){
     pagediv.appendChild(formDiv);
     
      
-    handleCLickEvent()
-    handleCLickEvent(inboxBtn, startSend);
-    handleCLickEvent(cancelBtn, startCancelBtn);
-    handleCLickEvent(addBtn, startAddTask);
+   
+    // handleCLickEvent(inboxBtn, startSend);
+    // handleCLickEvent(cancelBtn, startCancelBtn(formDiv));
+    // handleCLickEvent(addBtn, startAddTask);
 console.log("I am making a beautiful todo form!")
 }
 
@@ -470,9 +482,12 @@ function startAddTask( ){
         radioBtn.textContent = "radio_button_unchecked";
         
         const listBox = document.createElement("div");
-        let title = document.createElement("p");
-        let description = document.createElement("p"); 
+        let list = document.createElement("p");
+            list.textContent = Todo.title;
+        let listDes = document.createElement("p"); 
+            listDes.textContent = Todo.description;
         let dateElem = document.createElement("p");
+            dateElem.textContent = Todo.dueDate;
          listBox.append(title,description, dateElem);
          todoItem.append(Hr1, radioBtn,listBox);
 
