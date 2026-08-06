@@ -508,6 +508,8 @@ function getNotes(){
 
 function startCancelBtn(){
    // This function removes todoform from webpage.
+
+   pagediv.remove(creatNewTodoForm);
 };
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
