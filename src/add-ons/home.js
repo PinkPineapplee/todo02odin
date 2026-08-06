@@ -185,27 +185,37 @@ export function creatNewTodoForm(){
 
     const itemsDiv = document.createElement("div");
           itemsDiv.className="itemsDiv";
+
+
+          const div1 = document.createElement("div");
+          div1.className = "div1";
           
-    const div1 = document.createElement("div");
-          div1.className="div1"
-         
-        const todayIcon = document.createElement("span");
-          todayIcon.className = "material-symbols-outlined";
-          todayIcon.textContent = "today";
-        const formText = document.createElement("p");
-          formText.id = "formText";
-          formText.textContent = " Today "
-        const dropDown = document.createElement("span");
-        dropDown.className = "material-symbols-outlined";
-        dropDown.id = "dropDown";
-        dropDown.textContent = "dropdown";
-       
-        let label = document.createElement("p");
+           const icon = document.createElement("span");
+          icon.className = "material-symbols-outlined";
+          icon.textContent = "Today";
+
+          let label = document.createElement("p");
            label.style.fontWeight = "bold";
-           label.textContent= "Today";
+           label.textContent= "Priority";
+          div1.append(icon, label);
+         
+        // const todayIcon = document.createElement("span");
+        //   todayIcon.className = "material-symbols-outlined";
+        //   todayIcon.textContent = "today";
+        // const formText = document.createElement("p");
+        //   formText.id = "formText";
+        //   formText.textContent = " Today "
+        // const dropDown = document.createElement("span");
+        // dropDown.className = "material-symbols-outlined";
+        // dropDown.id = "dropDown";
+        // dropDown.textContent = "dropdown";
+       
+        // let label = document.createElement("p");
+        //    label.style.fontWeight = "bold";
+        //    label.textContent= "Today";
         
-        const calendarDiv = document.createElement("div");
-          div1.appendChild(todayIcon, formText, dropDown );
+        // const calendarDiv = document.createElement("div");
+        //   div1.appendChild(todayIcon, formText, dropDown );
 
 
     const div2 = document.createElement("div");
