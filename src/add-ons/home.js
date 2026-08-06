@@ -214,19 +214,24 @@ export function creatNewTodoForm(){
           div2.append(ribbonIcon);
     const priorityDiv = document.createElement("div");
   
-      const priorityElem = document. createElement("select");
-          const high = document.createElement("option");
-            priOptions.value = "high";
-            priOptions.textContent = "High";
-           const medium = document.createElement("option");
-            priOptions.value = "medium";
-            priOptions.textContent = "Medium";
-           const low = document.createElement("option");
-            priOptions.value = "low"; 
-            priOptions.textContent = "Low"; 
+          const high = document.createElement("input");
+            high.name = "priority";
+            high.type = "radio";
+            high.value = "high";
+            high.textContent = "High";
+           const medium = document.createElement("input");
+            medium.name = "priority";
+            medium.type = "radio";
+            medium.value = "medium";
+            medium.textContent = "Medium";
+           const low = document.createElement("input");
+            low.name = "priority";
+            low.type = "radio";
+            low.value = "low"; 
+            low.textContent = "Low"; 
 
-           priorityElem.append(high,medium,low);
-           priorityDiv.appendChild(priorityElem);
+           prioritydiv.append(high,medium,low);
+           
 
 
     const div3 = document.createElement("div");
@@ -447,6 +452,10 @@ function handleCLickEvent(elem, func){
 
 function startAddTask( ){
       // this function creates a new list ui for a newTodo and add it to the page.
+      let task = {
+        title: titleInput.value,
+        description: description.value,
+      }
       Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects);
       const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
@@ -458,8 +467,9 @@ function startAddTask( ){
         const listBox = document.createElement("div");
         let title = document.createElement("p");
           title.textContent= (task || " Edit Videos and post by 3pm.");
-        let description = document.createElement("p");  
-          todoItem.append(radioBtn,title,description);
+        let description = document.createElement("p"); 
+        let dateElem = document.createElement("p");
+          todoItem.append(radioBtn,title,description, dateElem);
 
 };
 
