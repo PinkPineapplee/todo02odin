@@ -161,6 +161,8 @@ export function creatNewTodoForm(){
     formDiv.style.backgroundColor = "white";
 
     const form = document.createElement("form");
+        form.action = " ";
+        form.method = "post";
 
    const inputDiv = document.createElement("div");
           inputDiv.className = "inputDiv";
@@ -211,12 +213,20 @@ export function creatNewTodoForm(){
           ribbonIcon.textContent = "book_ribbon";
           div2.append(ribbonIcon);
     const priorityDiv = document.createElement("div");
-    const priorityList = document.createElement("ul");
-    const high = document.createElement("li");
-    const medium = document.createElement("li");
-    const low = document.createElement("li");
-           priorityList.append(high,medium,low);
-           priorityDiv.appendChild(priorityList);
+  
+      const priorityElem = document. createElement("select");
+          const high = document.createElement("option");
+            priOptions.value = "high";
+            priOptions.textContent = "High";
+           const medium = document.createElement("option");
+            priOptions.value = "medium";
+            priOptions.textContent = "Medium";
+           const low = document.createElement("option");
+            priOptions.value = "low"; 
+            priOptions.textContent = "Low"; 
+
+           priorityElem.append(high,medium,low);
+           priorityDiv.appendChild(priorityElem);
 
 
     const div3 = document.createElement("div");
@@ -238,6 +248,7 @@ export function creatNewTodoForm(){
     const formHr = document.createElement("hr");
 
     const inboxBtn = document.createElement("button");
+          inboxBtn.type = "button";
           inboxBtn.className = "inboxBtn";
           inboxBtn.textContent =" Inbox ";
           const inboxIcon = document.createElement("span");
@@ -245,12 +256,14 @@ export function creatNewTodoForm(){
           inboxIcon.className= "material-symbols-outlined";
           inboxBtn.append(inboxIcon)
     const cancelBtn = document.createElement("button");
+          cancelBtn.type = "reset";
           cancelBtn.className = "cancelBtn";
           cancelBtn.textContent =" Cancel ";
     const calendarBox = document.createElement("div");
           cancelBtn.appendChild(calendarBox);
 
     const addBtn = document.createElement("button");
+          addBtn.type = "submit";
           addBtn.className = "addBtn";
           addBtn.textContent = " Add Task ";
 
@@ -432,8 +445,9 @@ function handleCLickEvent(elem, func){
 }
 
 
-function startAddTask( task){
+function startAddTask( ){
       // this function creates a new list ui for a newTodo and add it to the page.
+      Todo.addNew(title,description.input,dueDate,priorityElem.selected,notes, projects);
       const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -441,9 +455,11 @@ function startAddTask( task){
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
-        let text10 = document.createElement("p");
-          text10.textContent= (task || " Edit Videos and post by 3pm.");
-          todoItem.append(radioBtn,text10);
+        const listBox = document.createElement("div");
+        let title = document.createElement("p");
+          title.textContent= (task || " Edit Videos and post by 3pm.");
+        let description = document.createElement("p");  
+          todoItem.append(radioBtn,title,description);
 
 };
 
