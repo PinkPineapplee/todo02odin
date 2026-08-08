@@ -522,6 +522,7 @@ function getNotes(){
 function startCancelBtn(){
    // This function removes todoform from webpage.
    pagediv.remove(formDiv);
+   form.reset();
 };
 
 function startReminderBtn(){
