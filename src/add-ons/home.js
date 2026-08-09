@@ -527,7 +527,7 @@ function startCancelBtn(){
 
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
-    const RemindDiv = document.createElement("div");
+    const remindDiv = document.createElement("div");
     const selectReminders = document.createElement("select");
       selectReminders.name = "reminders"; 
     const r1 = document.createElement("option");
@@ -542,16 +542,36 @@ function startReminderBtn(){
     const r4 = document.createElement("option");
     r1.value = 3000000;
     r4.textContent = "In 5 hours";
+    selectReminders.append(r1,r2,r3,r4);
+    RemindDiv.appendChild(remindDiv)
 };
 
 function startRescheduleBtn(){
     // this function creates ui for reschdule icon.and adds date to todos.
+     const rescheduleDiv = document.createElement("div");
+    const selectrescheduleers = document.createElement("select");
+      selectrescheduleers.name = "rescheduleers"; 
+    const r1 = document.createElement("option");
+      r1.value = "tomorrow";
+      r1.textContent = "Tomorrow";
+    const r2 = document.createElement("option");
+    r2.value = "2 days";
+    r2.textContent = "In 2 days";
+    const r3 = document.createElement("option");
+    r3.value = "1 week";
+    r3.textContent = "In 1 Week";
+    const r4 = document.createElement("option");
+    r1.value = " ";
+    r4.textContent = createCalendar();
+    selectrescheduleers.append(r1,r2,r3,r4);
+    rescheduleDiv.appendChild(rescheduleDiv)
 };
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
 };
 function pressRadioBtn(){
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+    
 };
 
 function startNewProject(){
