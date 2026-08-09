@@ -592,6 +592,8 @@ function collasibleDropdown(todoItem, todos){
 };
 function startDarkMode(){
     // this function handles all darkmode operations for app.
+    document.style.backgroundColor = "black";
+    
 }
  
 function handleMultiplePageDisplay(){
