@@ -581,8 +581,14 @@ function startNewProject(today){
    // this function creates ui for new projects and adds projects objects.
   Project.newProject(input = "What is the name of your Project?", today);
 };
-function collasibleDropdown(){
+function collasibleDropdown(todoItem, todos){
     // this function handles todolist ui collasping effects.
+    dropDown.textContent = "chevron_right";
+    todoItem.remove();
+    
+    dropDown.addEventListener("click" , ()=>{
+        todoItem.append(todos.todos)
+    })
 };
 function startDarkMode(){
     // this function handles all darkmode operations for app.
