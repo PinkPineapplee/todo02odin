@@ -574,11 +574,12 @@ function startPriorityBtn(){
 function pressRadioBtn(button, todo){
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
      button.textContent = rabbit;
-     todo.isComplete = true;
+     todo.checkList = true;
 };
 
-function startNewProject(){
+function startNewProject(today){
    // this function creates ui for new projects and adds projects objects.
+  Project.newProject(input = "What is the name of your Project?", today);
 };
 function collasibleDropdown(){
     // this function handles todolist ui collasping effects.
