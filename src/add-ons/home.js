@@ -16,6 +16,8 @@ import saturdayBg from "../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg";
 import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
 import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
 import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
+import rabbit from "../images/bunny_1469155.png";
+
 
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -569,9 +571,10 @@ function startRescheduleBtn(){
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
 };
-function pressRadioBtn(){
+function pressRadioBtn(button, todo){
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-    
+     button.textContent = rabbit;
+     todo.isComplete = true;
 };
 
 function startNewProject(){
