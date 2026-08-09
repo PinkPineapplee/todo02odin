@@ -527,7 +527,23 @@ function startCancelBtn(){
 
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
+    const RemindDiv = document.createElement("div");
+    const selectReminders = document.createElement("select");
+      selectReminders.name = "reminders"; 
+    const r1 = document.createElement("option");
+      r1.value = 50000;
+      r1.textContent = "In 5 miniutes";
+    const r2 = document.createElement("option");
+    r2.value = 300000;
+    r2.textContent = "In 30 miniutes";
+    const r3 = document.createElement("option");
+    r3.value = 600000;
+    r3.textContent = "In 1 hour";
+    const r4 = document.createElement("option");
+    r1.value = 3000000;
+    r4.textContent = "In 5 hours";
 };
+
 function startRescheduleBtn(){
     // this function creates ui for reschdule icon.and adds date to todos.
 };
