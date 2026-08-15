@@ -148,6 +148,7 @@ export function makeDisplayBar(){
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
      createToday();
+     handleCLickEvent(darkMode, startDarkMode);
    console.log("I am making a neat display!");
 }
 
