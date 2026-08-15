@@ -318,12 +318,9 @@ export function createToday(counter, task){
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
         
-
-       
-
-         let text7 = document.createElement("p");
-          text7.textContent= "tasks";
-          count.append(span,`${counter + " "+ text7.textContent }` );
+    let text7 = document.createElement("p");
+        text7.textContent= "tasks";
+        count.append(span,`${counter + " "+ text7.textContent }` );
        
  const ul = document.createElement("ul");
  const dropDown = document.createElement("span");
@@ -368,8 +365,7 @@ export function createToday(counter, task){
 
 
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
-       handleCLickEvent(radioBtn, creatNewTodoForm);
-        handleCLickEvent(text9, creatNewTodoForm);
+      handleCLickEvent(text9, createCalendar);
   console.log("Today Bar created!");
 };
 
