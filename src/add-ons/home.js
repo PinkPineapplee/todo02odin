@@ -149,6 +149,7 @@ export function makeDisplayBar(){
     div.appendChild(pagediv);
      createToday();
      handleCLickEvent(darkMode, startDarkMode);
+     handleCLickEvent(radioBtn, pressRadioBtn);
    console.log("I am making a neat display!");
 }
 
