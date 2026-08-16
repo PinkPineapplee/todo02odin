@@ -467,8 +467,8 @@ function handleCLickEvent(elem, func){
 
 
 function startAddTask( ){
-      // this function creates a new list ui for a newTodo and add it to the page.
-      
+
+      // this function creates a new list ui for a newTodo and add it to the page. 
       const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -596,11 +596,13 @@ function startDarkMode(){
  
 function handleMultiplePageDisplay(){
     // this function stops pages already displaying in webpage to not display more than once.
+    
 };
 
 
 function findSearchItem(){
     // this function executes search that sort though todo array.
+    // use sort and regex to search array items.
 }
 
 
