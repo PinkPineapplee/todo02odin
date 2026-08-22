@@ -444,7 +444,7 @@ export function createSearch(){
         searchIcon.textContent = "search";
         
     const searchInput = document.createElement("input");
-        searchInput.type = 'text';
+        searchInput.type = 'search';
         searchInput.name = 'search';
         searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
         searchInput.required = true; // Boolean attributes take true/false
