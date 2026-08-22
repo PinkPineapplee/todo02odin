@@ -19,6 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
+const pages = [makeNavBar,makeDisplayBar, createToday, createMonthly, createSearch, creatNewTodoForm, createWeekly]
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
      pagediv.className = "pagedivider";
@@ -594,9 +595,21 @@ function startDarkMode(){
     
 }
  
-function handleMultiplePageDisplay(){
+function handleMultiplePageDuplicate(pages){
     // this function stops pages already displaying in webpage to not display more than once.
-    
+    let isDuplicate = false;
+   
+    for ( pages of page){
+    page.addEventListener("onFunctionCall", ()=>{
+        isDuplicate= true;
+     
+
+       if (isDuplicate === true){
+            document.remove(page);
+        }
+    })
+
+    }
 };
 
 
