@@ -378,12 +378,12 @@ export function createWeekly(month,num,day,counter,task){
     const container = document.createElement("div");
       container.className = "weekContainer";
     const header = document.createElement("h1");
-      header.className = week[0];
+      header.className = "week";
      header.textContent = `${month}+ "Week " + ${num} + "."`;
     const count = document.createElement("p");
     const span = document.createElement("span");
         span.className = "material-symbols-outlined";
-        sideIcon.textContent = "check";
+        span.textContent = "check";
         count.textContent = span + `${counter}` + "task";
     const ul = document.createElement("ul");
     const dropDown = document.createElement("span");
@@ -424,9 +424,10 @@ export function  createMonthly(){
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
     const monthDiv = document.createElement("div");
-    monthDiv.style.backgroundImage.src = monthBg ;
-    monthDiv.appendChild(monthHeader)
+    monthDiv.style.backgroundImage = monthBg ;
     const monthHeader = document.createElement("h2");
+    monthDiv.appendChild(monthHeader)
+    
     monthBox.append(monthDiv, createCalendar());
   
     pagediv.append(container);
