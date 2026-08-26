@@ -157,7 +157,7 @@ export function makeDisplayBar(){
 
 //Create for task form
 export function creatNewTodoForm(){
-   
+pagediv.textContent="";
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
 
@@ -303,7 +303,7 @@ console.log("I am making a beautiful todo form!")
 
 
 export function createToday(counter, task){ 
-    
+   pagediv.textContent="";
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -365,7 +365,6 @@ export function createToday(counter, task){
     container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
 
-
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
     
@@ -374,7 +373,7 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day,counter,task){
-
+pagediv.textContent="";
     // tasks will be seperated by days of the week.  
     for (let i = 0; i <= 52; i++){
     const container = document.createElement("div");
@@ -410,8 +409,12 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.textContent = "plus";    
         addTaskBtn.textContent = plusIcon + "Add task";
     const todayHr = document.createElement("hr");     
-    pagediv.remove();
-    pagediv.append(container);
+    
+   
+
+    container.append(header, count, ul,todayHr,todoItem, todayHr, addTaskBtn);
+     pagediv.append(container);
+
 };
 
     console.log("Weekly display created!");
@@ -419,6 +422,7 @@ export function createWeekly(month,num,day,counter,task){
 
 
 export function  createMonthly(){
+   pagediv.textContent="";
     // tasks will be separated calendar format.
     const container = document.createElement("div");
     const header = document.createElement("h1");
@@ -441,7 +445,7 @@ export function  createMonthly(){
 
 
 export function createSearch(){
-    
+   pagediv.textContent="";
     const container = document.createElement("modal");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
@@ -470,8 +474,10 @@ function handleCLickEvent(elem, func){
    if(elem.isClicked === true ){
     isDuplicate++;
     if (isDuplicate === 1){
+        
     return func();
     }else{
+      
         return
     }
    }
@@ -499,7 +505,7 @@ function startAddTask( ){
          todoItem.append(Hr1, radioBtn,listBox);
 
        Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects))
-// handleMultiplePageDuplicate(pages);
+
 };
 
 
@@ -527,16 +533,19 @@ function getNotes(){
         let content = noteText.textContent;
         return content;
     });
-    // handleMultiplePageDuplicate(pages);
+   
    return content;
 };
 
+function removePrevious(elem){
+      elem.remove();
+};
 
 function startCancelBtn(){
    // This function removes todoform from webpage.
    pagediv.remove(formDiv);
    form.reset();
-//    handleMultiplePageDuplicate(pages);
+
 };
 
 function startReminderBtn(){
@@ -558,8 +567,13 @@ function startReminderBtn(){
     r4.textContent = "In 5 hours";
     selectReminders.append(r1,r2,r3,r4);
     RemindDiv.appendChild(remindDiv);
-    // handleMultiplePageDuplicate(pages);
+    
 };
+
+function startSend(elem){
+ elem.addEventListener("click", ()=>{})
+};
+
 
 function startRescheduleBtn(){
     // this function creates ui for reschdule icon.and adds date to todos.
@@ -580,7 +594,7 @@ function startRescheduleBtn(){
     r4.textContent = createCalendar();
     selectrescheduleers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(rescheduleDiv);
-    // handleMultiplePageDuplicate(pages);
+    
 };
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
