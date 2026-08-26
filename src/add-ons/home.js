@@ -45,7 +45,7 @@ export function makeNavBar(){
         const sideIcon = document.createElement("span");
         sideIcon.className = "material-symbols-outlined";
         sideIcon.textContent = "side_navigation";
-          profilediv.append(profileIcon, text, sideIcon);
+        profilediv.append(profileIcon, text, sideIcon);
 
     const l1 = document.createElement("li");
         l1.className = "Add";
@@ -294,9 +294,10 @@ export function creatNewTodoForm(){
     
      
    
-    // handleCLickEvent(inboxBtn, startSend);
-    // handleCLickEvent(cancelBtn, startCancelBtn(formDiv));
-    // handleCLickEvent(addBtn, startAddTask);
+     handleCLickEvent(inboxBtn, startSend);
+     handleCLickEvent(cancelBtn, startCancelBtn(formDiv));
+    handleCLickEvent(addBtn, startAddTask);
+    handleMultiplePageDuplicate(pages);
 console.log("I am making a beautiful todo form!")
 }
 
@@ -367,6 +368,7 @@ export function createToday(counter, task){
 
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
+      handleMultiplePageDuplicate(pages);
   console.log("Today Bar created!");
 };
 
@@ -411,6 +413,7 @@ export function createWeekly(month,num,day,counter,task){
     pagediv.remove();
     pagediv.append(container);
 };
+handleMultiplePageDuplicate(pages);
     console.log("Weekly display created!");
 };
 
@@ -432,7 +435,7 @@ export function  createMonthly(){
   
     pagediv.append(container);
  }
-
+handleMultiplePageDuplicate(pages);
  console.log("Monthly display created!")
 }
 
@@ -455,6 +458,7 @@ export function createSearch(){
   container.append(searchIcon, searchInput);
 
   pagediv.appendChild(container);
+  handleMultiplePageDuplicate(pages);
 
 console.log("Search Bar created!")
 }
@@ -489,7 +493,7 @@ function startAddTask( ){
          todoItem.append(Hr1, radioBtn,listBox);
 
        Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects))
-
+handleMultiplePageDuplicate(pages);
 };
 
 
@@ -517,6 +521,7 @@ function getNotes(){
         let content = noteText.textContent;
         return content;
     });
+    handleMultiplePageDuplicate(pages);
    return content;
 };
 
@@ -525,6 +530,7 @@ function startCancelBtn(){
    // This function removes todoform from webpage.
    pagediv.remove(formDiv);
    form.reset();
+   handleMultiplePageDuplicate(pages);
 };
 
 function startReminderBtn(){
@@ -545,7 +551,8 @@ function startReminderBtn(){
     r1.value = 3000000;
     r4.textContent = "In 5 hours";
     selectReminders.append(r1,r2,r3,r4);
-    RemindDiv.appendChild(remindDiv)
+    RemindDiv.appendChild(remindDiv);
+    handleMultiplePageDuplicate(pages);
 };
 
 function startRescheduleBtn(){
@@ -566,7 +573,8 @@ function startRescheduleBtn(){
     r1.value = " ";
     r4.textContent = createCalendar();
     selectrescheduleers.append(r1,r2,r3,r4);
-    rescheduleDiv.appendChild(rescheduleDiv)
+    rescheduleDiv.appendChild(rescheduleDiv);
+    handleMultiplePageDuplicate(pages);
 };
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
@@ -602,7 +610,7 @@ function handleMultiplePageDuplicate(pages){
    
     for ( pages of page){
     page.addEventListener("onFunctionCall", ()=>{
-        isDuplicate= 1++;
+        isDuplicate++;
      
 
        if (isDuplicate > 1){
