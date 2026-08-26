@@ -19,7 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
-const pages = [makeNavBar,makeDisplayBar, createToday, createMonthly, createSearch, creatNewTodoForm, createWeekly]
+ let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
      pagediv.className = "pagedivider";
@@ -119,7 +119,7 @@ export function makeNavBar(){
         handleCLickEvent(l3, createToday);
         handleCLickEvent(l4, createWeekly);
         handleCLickEvent(l5, createMonthly);
-       handleMultiplePageDuplicate(pages);
+    //    handleMultiplePageDuplicate(pages);
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -297,7 +297,7 @@ export function creatNewTodoForm(){
      handleCLickEvent(inboxBtn, startSend);
      handleCLickEvent(cancelBtn, startCancelBtn(formDiv));
     handleCLickEvent(addBtn, startAddTask);
-    handleMultiplePageDuplicate(pages);
+    // handleMultiplePageDuplicate(addBtn,inboxBtn, div1,div2, div3);
 console.log("I am making a beautiful todo form!")
 }
 
@@ -368,7 +368,7 @@ export function createToday(counter, task){
 
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
-      handleMultiplePageDuplicate(pages);
+    
   console.log("Today Bar created!");
 };
 
@@ -413,7 +413,7 @@ export function createWeekly(month,num,day,counter,task){
     pagediv.remove();
     pagediv.append(container);
 };
-handleMultiplePageDuplicate(pages);
+
     console.log("Weekly display created!");
 };
 
@@ -435,7 +435,7 @@ export function  createMonthly(){
   
     pagediv.append(container);
  }
-handleMultiplePageDuplicate(pages);
+
  console.log("Monthly display created!")
 }
 
@@ -458,16 +458,22 @@ export function createSearch(){
   container.append(searchIcon, searchInput);
 
   pagediv.appendChild(container);
-  handleMultiplePageDuplicate(pages);
+ 
 
 console.log("Search Bar created!")
 }
 
 
 function handleCLickEvent(elem, func){
+   
     elem.addEventListener("click", func);
-   if(elem.isClicked === true){
+   if(elem.isClicked === true ){
+    isDuplicate++;
+    if (isDuplicate === 1){
     return func();
+    }else{
+        return
+    }
    }
 }
 
@@ -493,7 +499,7 @@ function startAddTask( ){
          todoItem.append(Hr1, radioBtn,listBox);
 
        Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects))
-handleMultiplePageDuplicate(pages);
+// handleMultiplePageDuplicate(pages);
 };
 
 
@@ -521,7 +527,7 @@ function getNotes(){
         let content = noteText.textContent;
         return content;
     });
-    handleMultiplePageDuplicate(pages);
+    // handleMultiplePageDuplicate(pages);
    return content;
 };
 
@@ -530,7 +536,7 @@ function startCancelBtn(){
    // This function removes todoform from webpage.
    pagediv.remove(formDiv);
    form.reset();
-   handleMultiplePageDuplicate(pages);
+//    handleMultiplePageDuplicate(pages);
 };
 
 function startReminderBtn(){
@@ -552,7 +558,7 @@ function startReminderBtn(){
     r4.textContent = "In 5 hours";
     selectReminders.append(r1,r2,r3,r4);
     RemindDiv.appendChild(remindDiv);
-    handleMultiplePageDuplicate(pages);
+    // handleMultiplePageDuplicate(pages);
 };
 
 function startRescheduleBtn(){
@@ -574,7 +580,7 @@ function startRescheduleBtn(){
     r4.textContent = createCalendar();
     selectrescheduleers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(rescheduleDiv);
-    handleMultiplePageDuplicate(pages);
+    // handleMultiplePageDuplicate(pages);
 };
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
@@ -598,30 +604,35 @@ function collasibleDropdown(todoItem, todos){
         todoItem.append(todos.todos)
     })
 };
+
 function startDarkMode(){
+    const body= document.querySelector("body");
+    
     // this function handles all darkmode operations for app.
-    document.style.backgroundColor = "black";
+    body.style.backgroundColor = "black";
     
 }
  
-function handleMultiplePageDuplicate(pages){
-    // this function stops pages already displaying in webpage to not display more than once.
-    let isDuplicate = 0;
+// function handleMultiplePageDuplicate(...pages){
+//     // this function stops pages already displaying in webpage to not display more than once.
+//     let isDuplicate = 0;
    
-    for ( pages of page){
-    page.addEventListener("onFunctionCall", ()=>{
-        isDuplicate++;
+//    pages.forEach(page => {
+//     page.addEventListener("dblclick", ()=>{
+//         isDuplicate++;
      
 
-       if (isDuplicate > 1){
-            document.remove(page);
-        }else{
-        console.log(page, "is being displayed.")
-    }
-    })
-
-    }
-};
+//        if (isDuplicate > 1){
+//             document.removeChild(page);
+//         }else if(isDuplicate === 1){
+//         console.log(page, "is being displayed.")
+//     }else(
+//         console.log("click on button to display.")
+//     )
+//     })
+// });
+    
+// };
 
 
 function findSearchItem(){
