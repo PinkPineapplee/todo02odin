@@ -119,7 +119,7 @@ export function makeNavBar(){
         handleCLickEvent(l3, createToday);
         handleCLickEvent(l4, createWeekly);
         handleCLickEvent(l5, createMonthly);
-       
+       handleMultiplePageDuplicate(pages);
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -598,16 +598,18 @@ function startDarkMode(){
  
 function handleMultiplePageDuplicate(pages){
     // this function stops pages already displaying in webpage to not display more than once.
-    let isDuplicate = false;
+    let isDuplicate = 0;
    
     for ( pages of page){
     page.addEventListener("onFunctionCall", ()=>{
-        isDuplicate= true;
+        isDuplicate= 1++;
      
 
-       if (isDuplicate === true){
+       if (isDuplicate > 1){
             document.remove(page);
-        }
+        }else{
+        console.log(page, "is being displayed.")
+    }
     })
 
     }
