@@ -19,6 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
+
  let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -288,7 +289,9 @@ pagediv.textContent="";
     const buttonDiv = document.createElement("div");
          buttonDiv.className = "buttonDiv";
          buttonDiv.append(inboxBtn, cancelBtn, addBtn);
+
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
+    formDiv.textContent="";
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
@@ -303,7 +306,7 @@ console.log("I am making a beautiful todo form!")
 
 
 export function createToday(counter, task){ 
-   pagediv.textContent="";
+  
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -361,8 +364,8 @@ export function createToday(counter, task){
           text11.textContent= "Add task";
           addTaskBtn.append(plusIcon , text11);
     const todayHr = document.createElement("hr") ;   
-  
-    container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
+     container.textContent="";
+     container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
 
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
@@ -373,25 +376,29 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day,counter,task){
-pagediv.textContent="";
+
     // tasks will be seperated by days of the week.  
     for (let i = 0; i <= 52; i++){
     const container = document.createElement("div");
       container.className = "weekContainer";
     const header = document.createElement("h1");
       header.className = "week";
-     header.textContent = `${month}+ "Week " + ${num} + "."`;
+     const ht = document.createElement("h2");
+      ht.className = "htWeekly";
+      ht.textContent = "Week";
+      header.append(month, ht, num );
+
     const count = document.createElement("p");
     const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check";
-        count.textContent = span + `${counter}` + "task";
+        count.append(span ,counter,"task");
     const ul = document.createElement("ul");
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "dropdown";
-        ul.textContent = dropDown + "Overdue" + "Reschedule";
+        ul.append(dropDown , "Overdue","Reschedule");
        
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -399,7 +406,7 @@ pagediv.textContent="";
         radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
         radioBtn.textContent = "radion-button";
-        todoItem.textContent = radioBtn + (task || "Edit Videos and post by 3pm.");
+        todoItem.append(radioBtn , (task || "Edit Videos and post by 3pm."));
         ul.appendChild(todoItem);
     const addTaskBtn = document.createElement("button");
         addTaskBtn.className = "addTaskBtn";
@@ -407,11 +414,11 @@ pagediv.textContent="";
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "plus";    
-        addTaskBtn.textContent = plusIcon + "Add task";
+        addTaskBtn.append(plusIcon , "Add task");
     const todayHr = document.createElement("hr");     
     
    
-
+    container.textContent="";
     container.append(header, count, ul,todayHr,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
 
@@ -445,7 +452,7 @@ export function  createMonthly(){
 
 
 export function createSearch(){
-   pagediv.textContent="";
+  
     const container = document.createElement("modal");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
@@ -484,17 +491,17 @@ function handleCLickEvent(elem, func){
 }
 
 
-function startAddTask( ){
+function startAddTask(){
 
       // this function creates a new list ui for a newTodo and add it to the page. 
-      const Hr1 = document.createElement("hr") ; 
+     const Hr1 = document.createElement("hr") ; 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
-        const listBox = document.createElement("div");
+     const listBox = document.createElement("div");
         let list = document.createElement("p");
             list.textContent = Todo.title;
         let listDes = document.createElement("p"); 
