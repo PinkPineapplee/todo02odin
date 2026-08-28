@@ -8,6 +8,8 @@ console.log(today);
 const formattedDate = format(new Date(), "yyyy-MM-dd");
 
 const todayStarts = startOfDay(new Date());
+
+return (formattedDate, todayStarts);
 };
 
 
@@ -90,7 +92,7 @@ function createCalendarUI(num, today, month, year ){
     };
 
     
-
+ createCalendarUI();
   return container;
 };
 // number the divs as days

@@ -146,7 +146,14 @@ export function makeDisplayBar(){
         darkMode.textContent = "bedtime";
         headerDiv.append(sideIcon,hdiv,darkMode);
          
-   
+    const lightMode = document.createElement("span");
+        lightMode.className = "material-symbols-outlined";
+        lightMode.textContent = "light_mode";
+
+        if(darkMode.isClicked === true){
+            headerDiv.removeChild(headerDiv.lastChild);
+            headerDiv.append(lightMode);
+        };
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
      createToday();
