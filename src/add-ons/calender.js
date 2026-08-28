@@ -18,10 +18,10 @@ export function createCalendar(){
     
 //check today
 const todayDate = new Date().getDate();
-const day = new Date.getDay();
+const day = new Date().getDate();
 const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday"];
 let weekDay = week[day];
-console.log(weekDay,today);
+console.log(weekDay,day);
 // checks the month and how many days it has.
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -92,7 +92,7 @@ function createCalendarUI(num, today, month, year ){
     };
 
     
- createCalendarUI();
+
   return container;
 };
 // number the divs as days

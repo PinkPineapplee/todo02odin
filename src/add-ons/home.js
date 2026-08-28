@@ -313,7 +313,8 @@ console.log("I am making a beautiful todo form!")
 
 
 export function createToday(counter, task){ 
-  pagediv.removeChild(pagediv.lastChild);
+ 
+  
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -374,7 +375,7 @@ export function createToday(counter, task){
      container.textContent="";
      container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
-
+      
       handleCLickEvent(radioBtn, pressRadioBtn);
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
@@ -427,27 +428,29 @@ export function createWeekly(month,num,day,counter,task){
     const day1Hr = document.createElement("hr") ; 
     const todoItem = document.createElement("li");
        todoItem.id = "todos";
-     const radioBtn = document.createElement("span");
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
+
+     const radio = document.createElement("span");
+        radio.className = "material-symbols-outlined";
+        radio.textContent = "radio_button_unchecked";
         
        
-        todoItem.append(radioBtn , (task || "Edit Videos and post by 3pm."));
+        todoItem.append(radio , (task || "Edit Videos and post by 3pm."));
         ul.appendChild(todoItem);
-    const addTaskBtn = document.createElement("button");
-        addTaskBtn.className = "addTaskBtn";
+        
+    const TaskBtn = document.createElement("button");
+        TaskBtn.className = "addTaskBtn";
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2";    
-        addTaskBtn.append(plusIcon , "Add task");
+        TaskBtn.append(plusIcon , "Add task");
     const dayHr = document.createElement("hr");     
-    container.append( dayName,ul,day1Hr,todoItem,dayHr, addTaskBtn);
+    container.append( dayName,ul,day1Hr,todoItem,dayHr, TaskBtn);
   
 };
-      //handleCLickEvent(radioBtn, pressRadioBtn);
-      //handleCLickEvent(addTaskBtn, creatNewTodoForm);
-      //handleCLickEvent(text9, createCalendar);
+      handleCLickEvent(radio, pressRadioBtn);
+      handleCLickEvent(TaskBtn, creatNewTodoForm);
+      handleCLickEvent(text9, createCalendar);
    
    
      pagediv.append(container);
