@@ -645,12 +645,17 @@ function collasibleDropdown(todoItem, todos){
     })
 };
 
-function startDarkMode(){
+function startDarkMode(icon){
     const body= document.querySelector("body");
     
     // this function handles all darkmode operations for app.
     body.style.backgroundColor = "black";
     
+    
+      icon.addEventListener("click",()=>{
+       body.style.backgroundColor = "white";
+      });
+         
 }
  
 // function handleMultiplePageDuplicate(...pages){
