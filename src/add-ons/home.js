@@ -120,7 +120,7 @@ export function makeNavBar(){
         handleCLickEvent(l3, createToday);
         handleCLickEvent(l4, createWeekly);
         handleCLickEvent(l5, createMonthly);
-    //    handleMultiplePageDuplicate(pages);
+   
 console.log("I am making a beautiful nav bar!")
 }
 
@@ -436,24 +436,23 @@ export function createWeekly(month,num,day,counter,task){
        
         todoItem.append(radio , (task || "Edit Videos and post by 3pm."));
         ul.appendChild(todoItem);
-        
-    const TaskBtn = document.createElement("button");
-        TaskBtn.className = "addTaskBtn";
+
+    const taskBtn = document.createElement("button");
+        taskBtn.className = "addTaskBtn";
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2";    
-        TaskBtn.append(plusIcon , "Add task");
+        taskBtn.append(plusIcon , "Add task");
     const dayHr = document.createElement("hr");     
-    container.append( dayName,ul,day1Hr,todoItem,dayHr, TaskBtn);
-  
+    container.append( dayName,ul,day1Hr,todoItem,dayHr, taskBtn);
+return (radio,taskBtn,text9);  
 };
+       pagediv.append(container);
       handleCLickEvent(radio, pressRadioBtn);
-      handleCLickEvent(TaskBtn, creatNewTodoForm);
+      handleCLickEvent(taskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
    
-   
-     pagediv.append(container);
     
     console.log("Weekly display created!");
 };
