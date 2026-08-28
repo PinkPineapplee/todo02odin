@@ -378,7 +378,7 @@ export function createToday(counter, task){
 export function createWeekly(month,num,day,counter,task){
 
     // tasks will be seperated by days of the week.  
-    
+   
     const container = document.createElement("div");
       container.className = "weekContainer";
     const header = document.createElement("h2");
@@ -394,7 +394,7 @@ export function createWeekly(month,num,day,counter,task){
         text7.textContent= "tasks";
         count.append(span,`${counter + " "+ text7.textContent }` );
         
-
+        container.append(header, count);
 
     const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   for (let i = 0; i <= days.length; i++){
@@ -415,13 +415,13 @@ export function createWeekly(month,num,day,counter,task){
           text9.style.color = "orangered";
            
           ul.append(dropDown, text8, text9);
-
+ const day1Hr = document.createElement("hr") ; 
  const todoItem = document.createElement("li");
        todoItem.id = "todos";
     const radioBtn = document.createElement("span");
         radioBtn.id = "radio-button";
         span.className = "material-symbols-outlined";
-        radioBtn.textContent = "radion-button";
+        radioBtn.textContent = "radio_button_unchecked";
         todoItem.append(radioBtn , (task || "Edit Videos and post by 3pm."));
         ul.appendChild(todoItem);
     const addTaskBtn = document.createElement("button");
@@ -431,21 +431,21 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2";    
         addTaskBtn.append(plusIcon , "Add task");
-    const todayHr = document.createElement("hr");     
-    
-   
-    container.textContent="";
-    container.append(header, count, ul,todayHr,todoItem, todayHr, addTaskBtn);
-     pagediv.append(container);
-
+    const dayHr = document.createElement("hr");     
+    container.append( dayName,ul,day1Hr,todoItem,dayHr, addTaskBtn);
+  
 };
+ 
+   
+   
+     pagediv.append(container);
 
     console.log("Weekly display created!");
 };
 
 
 export function  createMonthly(){
-    pagediv.textContent="";
+   
 // tasks will be separated calendar format.
     const container = document.createElement("div");
     const header = document.createElement("h1");
