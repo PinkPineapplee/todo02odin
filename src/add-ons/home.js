@@ -149,10 +149,11 @@ export function makeDisplayBar(){
     const lightMode = document.createElement("span");
         lightMode.className = "material-symbols-outlined";
         lightMode.textContent = "light_mode";
+        lightMode.style.colot = "white";
 
         if(darkMode.isClicked === true){
-            headerDiv.removeChild(headerDiv.lastChild);
-            headerDiv.append(lightMode);
+            headerDiv.remove(sideIcon,hdiv,darkMode);
+            headerDiv.append(sideIcon,hdiv,lightMode);
         };
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
@@ -503,18 +504,11 @@ console.log("Search Bar created!")
 }
 
 
-function handleCLickEvent(elem, func){
+function handleCLickEvent(elem, func,arg){
    
     elem.addEventListener("click", func);
    if(elem.isClicked === true ){
-    isDuplicate++;
-    if (isDuplicate === 1){
-        
-    return func();
-    }else{
-      
-        return
-    }
+     return func(arg);       
    }
 }
 
@@ -667,26 +661,6 @@ function startDarkMode(icon){
          
 }
  
-// function handleMultiplePageDuplicate(...pages){
-//     // this function stops pages already displaying in webpage to not display more than once.
-//     let isDuplicate = 0;
-   
-//    pages.forEach(page => {
-//     page.addEventListener("dblclick", ()=>{
-//         isDuplicate++;
-     
-
-//        if (isDuplicate > 1){
-//             document.removeChild(page);
-//         }else if(isDuplicate === 1){
-//         console.log(page, "is being displayed.")
-//     }else(
-//         console.log("click on button to display.")
-//     )
-//     })
-// });
-    
-// };
 
 
 function findSearchItem(){
