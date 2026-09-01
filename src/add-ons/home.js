@@ -312,8 +312,9 @@ export function creatNewTodoForm(){
 
      function startCancelBtn(){
    // This function removes todoform from webpage.
-   pagediv.remove(formDiv);
    form.reset();
+   pagediv.removeChild(formDiv);
+   
 
 };
 
@@ -330,7 +331,7 @@ function startSend(){
      
    
      handleCLickEvent(inboxBtn, startSend);
-     handleCLickEvent(cancelBtn, startCancelBtn());
+     handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
    
 console.log("I am making a beautiful todo form!")
@@ -401,6 +402,14 @@ export function createToday(counter, task){
      container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
       
+    function pressRadioBtn(){
+    // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+    const rabbiticon = document.createElement("img");
+       rabbiticon.src = rabbit;
+       rabbiticon.className = "rabbit-icon";
+       radioBtn.replaceWith(rabbiticon);
+       Todo.checkList = true;
+};
 
       function collasibleDropdown(){
     // this function handles todolist ui collasping effects.
@@ -612,9 +621,7 @@ function getNotes(){
    return content;
 };
 
-function removePrevious(elem){
-      elem.remove();
-};
+
 
 
 
@@ -666,11 +673,7 @@ function startRescheduleBtn(){
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
 };
-function pressRadioBtn(button, todo){
-    // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-     button.textContent = rabbit;
-     todo.checkList = true;
-};
+
 
 function startNewProject(today){
    // this function creates ui for new projects and adds projects objects.
