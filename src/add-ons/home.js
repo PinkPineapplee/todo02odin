@@ -350,7 +350,6 @@ console.log("I am making a beautiful todo form!")
 
 
 export function createToday(counter, task){ 
- 
   
   const container = document.createElement("div");
       container.className = "todayContainer";
@@ -645,16 +644,16 @@ function startReminderBtn(){
       r1.value = 50000;
       r1.textContent = "In 5 miniutes";
     const r2 = document.createElement("option");
-    r2.value = 300000;
-    r2.textContent = "In 30 miniutes";
+      r2.value = 300000;
+      r2.textContent = "In 30 miniutes";
     const r3 = document.createElement("option");
-    r3.value = 600000;
-    r3.textContent = "In 1 hour";
+      r3.value = 600000;
+      r3.textContent = "In 1 hour";
     const r4 = document.createElement("option");
-    r1.value = 3000000;
-    r4.textContent = "In 5 hours";
+     r4.value = 3000000;
+     r4.textContent = "In 5 hours";
     selectReminders.append(r1,r2,r3,r4);
-    RemindDiv.appendChild(remindDiv);
+    pagediv.appendChild(remindDiv);
     
 };
 
