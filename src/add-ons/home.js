@@ -362,6 +362,9 @@ function startReminderBtn(){
     const remindDiv = document.createElement("div");
     const selectReminders = document.createElement("select");
       selectReminders.name = "reminders"; 
+      const r = document.createElement("option");
+      r.value = 0;
+     r.textContent = "Default";
     const r1 = document.createElement("option");
       r1.value = 50000;
       r1.textContent = "In 5 miniutes";
@@ -371,10 +374,9 @@ function startReminderBtn(){
     const r3 = document.createElement("option");
       r3.value = 600000;
       r3.textContent = "In 1 hour";
-    const r4 = document.createElement("option");
-     r4.value = 3000000;
-     r4.textContent = "In 5 hours";
-    selectReminders.append(r1,r2,r3,r4);
+    
+     
+    selectReminders.append(r, r1,r2,r3);
     pagediv.appendChild(remindDiv);
     
 };
