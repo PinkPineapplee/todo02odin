@@ -309,6 +309,14 @@ export function creatNewTodoForm(){
          buttonDiv.className = "buttonDiv";
          buttonDiv.append(inboxBtn, cancelBtn, addBtn);
 
+
+     function startCancelBtn(){
+   // This function removes todoform from webpage.
+   pagediv.remove(formDiv);
+   form.reset();
+
+};
+
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
     formDiv.appendChild(form);
@@ -317,7 +325,7 @@ export function creatNewTodoForm(){
      
    
      handleCLickEvent(inboxBtn, startSend);
-     //handleCLickEvent(cancelBtn, startCancelBtn(formDiv));
+     handleCLickEvent(cancelBtn, startCancelBtn());
     handleCLickEvent(addBtn, startAddTask);
    
 console.log("I am making a beautiful todo form!")
@@ -603,12 +611,7 @@ function removePrevious(elem){
       elem.remove();
 };
 
-function startCancelBtn(){
-   // This function removes todoform from webpage.
-   pagediv.remove(formDiv);
-   form.reset();
 
-};
 
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
