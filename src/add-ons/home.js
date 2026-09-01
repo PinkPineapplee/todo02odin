@@ -327,9 +327,9 @@ function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
     pagediv.appendChild(priorityDiv);
 
-    handleCLickEvent(high,()=>{})
-    handleCLickEvent(medium,()=>{})
-    handleCLickEvent(low,()=>{})
+    // handleCLickEvent(high,()=>{ Todo.priority = "high";});
+    // handleCLickEvent(medium,()=>{Todo.priority = "medium";});
+    // handleCLickEvent(low,()=>{Todo.priority = "low";});
 };
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
@@ -341,6 +341,9 @@ function startPriorityBtn(){
      handleCLickEvent(inboxBtn, startSend);
      handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
+    handleCLickEvent(div2, startPriorityBtn);
+    handleCLickEvent(div3, startReminderBtn);
+    handleCLickEvent(div1, createCalendar);
    
 console.log("I am making a beautiful todo form!")
 }
