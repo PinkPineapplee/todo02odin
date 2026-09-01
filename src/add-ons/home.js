@@ -146,15 +146,26 @@ export function makeDisplayBar(){
         darkMode.textContent = "bedtime";
         headerDiv.append(sideIcon,hdiv,darkMode);
          
+    function startDarkMode(){
+     const body= document.querySelector("body");
+     let mode = "dark";
+    
     const lightMode = document.createElement("span");
         lightMode.className = "material-symbols-outlined";
         lightMode.textContent = "light_mode";
-        lightMode.style.colot = "white";
+        lightMode.style.color = "white";
 
-        if(darkMode.isClicked === true){
-            headerDiv.remove(sideIcon,hdiv,darkMode);
-            headerDiv.append(sideIcon,hdiv,lightMode);
-        };
+         // this function handles all darkmode operations for app.
+             body.style.backgroundColor = "black";
+            darkMode.replaceWith(lightMode);
+       
+      lightMode.addEventListener("click",()=>{
+       body.style.backgroundColor = "";
+       mode="light";
+       lightMode.replaceWith(darkMode);
+      });
+         
+}
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
      createToday();
@@ -638,7 +649,7 @@ function startNewProject(today){
    // this function creates ui for new projects and adds projects objects.
   Project.newProject(input = "What is the name of your Project?", today);
 };
-function collasibleDropdown(todoItem, todos){
+function collasibleDropdown(){
     // this function handles todolist ui collasping effects.
     dropDown.textContent = "chevron_right";
     todoItem.remove();
@@ -648,22 +659,7 @@ function collasibleDropdown(todoItem, todos){
     })
 };
 
-function startDarkMode(prevIcon,icon){
-     const body= document.querySelector("body");
-     let mode = "dark";
-    if (prevIcon.isClicked= true){
-   
-   
-    // this function handles all darkmode operations for app.
-    body.style.backgroundColor = "black";
-     prevIcon.textContent = icon;
-    }
-      icon.addEventListener("click",()=>{
-       body.style.backgroundColor = "white";
-       mode="light";
-      });
-         
-}
+
  
 
 
