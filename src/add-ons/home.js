@@ -388,9 +388,26 @@ export function createToday(counter, task){
      container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
       
+
+      function collasibleDropdown(){
+    // this function handles todolist ui collasping effects.
+    dropDown.textContent = "chevron_right";
+    todoItem.remove();
+    
+    dropDown.addEventListener("click" , ()=>{
+        todoItem.append(todos.todos)
+    })
+};
+
+
+
+
+
+
       handleCLickEvent(radioBtn, pressRadioBtn);
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
+      handleCLickEvent(dropDown, collasibleDropdown);
     
   console.log("Today Bar created!");
 };
@@ -649,15 +666,7 @@ function startNewProject(today){
    // this function creates ui for new projects and adds projects objects.
   Project.newProject(input = "What is the name of your Project?", today);
 };
-function collasibleDropdown(){
-    // this function handles todolist ui collasping effects.
-    dropDown.textContent = "chevron_right";
-    todoItem.remove();
-    
-    dropDown.addEventListener("click" , ()=>{
-        todoItem.append(todos.todos)
-    })
-};
+
 
 
  
