@@ -334,6 +334,10 @@ function startPriorityBtn(){
 
 function startAddTask(){
    
+     let task = Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,ReminderBtn.selected,notes, projects);
+     Project.todos.push(task);
+     console.log(task);
+
       // this function creates a new list ui for a newTodo and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
@@ -344,15 +348,13 @@ function startAddTask(){
         
      const listBox = document.createElement("div");
         let list = document.createElement("p");
-            list.textContent = Todo.title;
+            list.textContent = task.title;
         let listDes = document.createElement("p"); 
-            listDes.textContent = Todo.description;
+            listDes.textContent = task.description;
         let dateElem = document.createElement("p");
-            dateElem.textContent = Todo.dueDate;
+            dateElem.textContent = task.dueDate;
          listBox.append(title,description, dateElem);
          todoItem.append(Hr1, radioBtn,listBox);
-
-       Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,ReminderBtn.selected,notes, projects))
 
 };
 
