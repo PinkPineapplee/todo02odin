@@ -335,7 +335,7 @@ function startPriorityBtn(){
 function startAddTask(){
    
       // this function creates a new list ui for a newTodo and add it to the page. 
-     const Hr1 = document.createElement("hr") ; 
+     const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
@@ -357,6 +357,28 @@ function startAddTask(){
 };
 
 
+function startReminderBtn(){
+    // this function creates ui for reminder with some reminder functionality.
+    const remindDiv = document.createElement("div");
+    const selectReminders = document.createElement("select");
+      selectReminders.name = "reminders"; 
+    const r1 = document.createElement("option");
+      r1.value = 50000;
+      r1.textContent = "In 5 miniutes";
+    const r2 = document.createElement("option");
+      r2.value = 300000;
+      r2.textContent = "In 30 miniutes";
+    const r3 = document.createElement("option");
+      r3.value = 600000;
+      r3.textContent = "In 1 hour";
+    const r4 = document.createElement("option");
+     r4.value = 3000000;
+     r4.textContent = "In 5 hours";
+    selectReminders.append(r1,r2,r3,r4);
+    pagediv.appendChild(remindDiv);
+    
+};
+
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
     formDiv.appendChild(form);
@@ -364,8 +386,8 @@ function startAddTask(){
     
      
    
-     handleCLickEvent(inboxBtn, startSend);
-     handleCLickEvent(cancelBtn, startCancelBtn);
+    handleCLickEvent(inboxBtn, startSend);
+    handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
     handleCLickEvent(div2, startPriorityBtn);
     handleCLickEvent(div3, startReminderBtn);
@@ -412,8 +434,8 @@ export function createToday(counter, task){
            
           ul.append(dropDown, text8, text9);
    
-       const todayHr1 = document.createElement("hr") ; 
-    const todoItem = document.createElement("li");
+       const todayHr1 = document.createElement("hr"); 
+       const todoItem = document.createElement("li");
        todoItem.id = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
@@ -435,7 +457,7 @@ export function createToday(counter, task){
           addTaskBtn.append(plusIcon , text11);
     const todayHr = document.createElement("hr") ;   
      container.textContent="";
-     container.append(header, count, ul,todayHr1,todoItem, todayHr, addTaskBtn);
+     container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
      pagediv.append(container);
       
     function pressRadioBtn(){
@@ -454,15 +476,15 @@ export function createToday(counter, task){
         dropRight.id = "dropRight";
         dropRight.textContent = "chevron_right";
    
-    container.removeChild(todoItem);
-    container.removeChild(todayHr);
+        container.removeChild(todoItem);
+        container.removeChild(todayHr);
+        dropDown.replaceWith(dropRight);
 
-    dropDown.replaceWith(dropRight)
-    dropRight.addEventListener("click" , ()=>{
+        dropRight.addEventListener("click" , ()=>{
         container.removeChild(addTaskBtn);
-        container.append(todoItem, todayHr,addTaskBtn);
+        container.append(todoItem, todayHr, addTaskBtn);
 
-         dropRight.replaceWith(dropDown)
+         dropRight.replaceWith(dropDown);
     })
 };
 
@@ -480,7 +502,6 @@ export function createWeekly(month,num,day,counter,task){
    pagediv.removeChild(pagediv.lastChild);
   
     // tasks will be seperated by days of the week.  
-   
     const container = document.createElement("div");
       container.className = "weekContainer";
     const header = document.createElement("h2");
@@ -639,27 +660,7 @@ function getNotes(){
 
 
 
-function startReminderBtn(){
-    // this function creates ui for reminder with some reminder functionality.
-    const remindDiv = document.createElement("div");
-    const selectReminders = document.createElement("select");
-      selectReminders.name = "reminders"; 
-    const r1 = document.createElement("option");
-      r1.value = 50000;
-      r1.textContent = "In 5 miniutes";
-    const r2 = document.createElement("option");
-      r2.value = 300000;
-      r2.textContent = "In 30 miniutes";
-    const r3 = document.createElement("option");
-      r3.value = 600000;
-      r3.textContent = "In 1 hour";
-    const r4 = document.createElement("option");
-     r4.value = 3000000;
-     r4.textContent = "In 5 hours";
-    selectReminders.append(r1,r2,r3,r4);
-    pagediv.appendChild(remindDiv);
-    
-};
+
 
 
 
