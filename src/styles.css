@@ -326,3 +326,9 @@ form{
 hr{
     border:1px solid rgb(228, 227, 227) ;
 }
+
+#dropRight{
+     cursor: pointer;
+     position: relative;
+     right: 40px;
+}

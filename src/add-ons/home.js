@@ -391,17 +391,22 @@ export function createToday(counter, task){
 
       function collasibleDropdown(){
     // this function handles todolist ui collasping effects.
-    dropDown.textContent = "chevron_right";
-    todoItem.remove();
-    
-    dropDown.addEventListener("click" , ()=>{
-        todoItem.append(todos.todos)
+    const dropRight = document.createElement("span");
+        dropRight.className = "material-symbols-outlined";
+        dropRight.id = "dropRight";
+        dropRight.textContent = "chevron_right";
+   
+    container.removeChild(todoItem);
+    container.removeChild(todayHr);
+
+    dropDown.replaceWith(dropRight)
+    dropRight.addEventListener("click" , ()=>{
+        container.removeChild(addTaskBtn);
+        container.append(todoItem, todayHr,addTaskBtn);
+
+         dropRight.replaceWith(dropDown)
     })
 };
-
-
-
-
 
 
       handleCLickEvent(radioBtn, pressRadioBtn);
