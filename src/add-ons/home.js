@@ -323,6 +323,14 @@ function startSend(){
  
 };
 
+function startPriorityBtn(){
+    // this function creates ui for priority bar and updates todo objects.
+    pagediv.appendChild(priorityDiv);
+
+    handleCLickEvent(high,()=>{})
+    handleCLickEvent(medium,()=>{})
+    handleCLickEvent(low,()=>{})
+};
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
     formDiv.appendChild(form);
@@ -670,12 +678,10 @@ function startRescheduleBtn(){
     rescheduleDiv.appendChild(rescheduleDiv);
     
 };
-function startPriorityBtn(){
-    // this function creates ui for priority bar and updates todo objects.
-};
 
 
-function startNewProject(today){
+
+function startNewProject(){
    // this function creates ui for new projects and adds projects objects.
   Project.newProject(input = "What is the name of your Project?", today);
 };
