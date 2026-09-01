@@ -331,6 +331,32 @@ function startPriorityBtn(){
     // handleCLickEvent(medium,()=>{Todo.priority = "medium";});
     // handleCLickEvent(low,()=>{Todo.priority = "low";});
 };
+
+function startAddTask(){
+   
+      // this function creates a new list ui for a newTodo and add it to the page. 
+     const Hr1 = document.createElement("hr") ; 
+     const todoItem = document.createElement("li");
+       todoItem.id = "todos";
+       const radioBtn = document.createElement("span");
+        radioBtn.className = "material-symbols-outlined";
+        radioBtn.textContent = "radio_button_unchecked";
+        
+     const listBox = document.createElement("div");
+        let list = document.createElement("p");
+            list.textContent = Todo.title;
+        let listDes = document.createElement("p"); 
+            listDes.textContent = Todo.description;
+        let dateElem = document.createElement("p");
+            dateElem.textContent = Todo.dueDate;
+         listBox.append(title,description, dateElem);
+         todoItem.append(Hr1, radioBtn,listBox);
+
+       Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,ReminderBtn.selected,notes, projects))
+
+};
+
+
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
     formDiv.appendChild(form);
@@ -578,29 +604,7 @@ function handleCLickEvent(elem, func,arg){
 }
 
 
-function startAddTask(){
-   
-      // this function creates a new list ui for a newTodo and add it to the page. 
-     const Hr1 = document.createElement("hr") ; 
-     const todoItem = document.createElement("li");
-       todoItem.id = "todos";
-       const radioBtn = document.createElement("span");
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
-        
-     const listBox = document.createElement("div");
-        let list = document.createElement("p");
-            list.textContent = Todo.title;
-        let listDes = document.createElement("p"); 
-            listDes.textContent = Todo.description;
-        let dateElem = document.createElement("p");
-            dateElem.textContent = Todo.dueDate;
-         listBox.append(title,description, dateElem);
-         todoItem.append(Hr1, radioBtn,listBox);
 
-       Project.todos.push(Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,notes, projects))
-
-};
 
 
 
