@@ -317,6 +317,11 @@ export function creatNewTodoForm(){
 
 };
 
+function startSend(){
+   alert("Your tasks have been sent to email, Tuchuss!")
+ 
+};
+
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
     formDiv.textContent="";
     formDiv.appendChild(form);
@@ -635,9 +640,6 @@ function startReminderBtn(){
     
 };
 
-function startSend(elem){
- elem.addEventListener("click", ()=>{})
-};
 
 
 function startRescheduleBtn(){
