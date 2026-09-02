@@ -428,15 +428,19 @@ function startReminderBtn(){
       const r = document.createElement("option");
       r.value = 0;
      r.textContent = "Default";
+     r.id = "reminder";
     const r1 = document.createElement("option");
       r1.value = 50000;
       r1.textContent = "In 5 miniutes";
+      r1.id = "reminder";
     const r2 = document.createElement("option");
       r2.value = 300000;
       r2.textContent = "In 30 miniutes";
+      r2.id = "reminder";
     const r3 = document.createElement("option");
       r3.value = 600000;
       r3.textContent = "In 1 hour";
+      r3.id = "reminder";
     
      
     selectReminders.append(r, r1,r2,r3);
