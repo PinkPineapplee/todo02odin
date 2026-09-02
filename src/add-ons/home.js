@@ -98,16 +98,17 @@ export function makeNavBar(){
           text5.textContent= "Monthly";
           l5.append(monthIcon, text5);
 
+        const plus = document.createElement("span");
+                    plus.className= "material-symbols-outlined";
+                    plus.textContent = "add_2";
+                    plus.id = "project-plus";
 
          const ul2 = document.createElement("ul");
         ul2.className = "myProjects";
-        ul2.textContent = ` #  Projects` + plus;
+        ul2.append(` #  Projects` , plus);
         
 
-        const plus = document.createElement("span");
-            plus.className= "material-symbols-outlined";
-            plus.textContent = "add_2";
-            plus.id = "project-plus";
+       
             
         ul1.append(profilediv,l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
@@ -163,7 +164,15 @@ function startNewProject(){
           addBtn.className = "addProject";
           addBtn.textContent = " Add Project ";
 
-          form.append(title,inputDiv,cancelBtn,addBtn)
+          let project = new Project(nameInput.value,date.value);
+             let projectLi = document.createElement("li");
+               projectLi.id = "projects";
+               projectLi.textContent= project.name;
+               ul2.append(projectLi);
+
+          form.append(title,inputDiv,cancelBtn,addBtn);
+          displayModal.appendChild(form);
+          pagediv.appendChild(displayModal);
 };
         
         handleCLickEvent(l1, creatNewTodoForm);
