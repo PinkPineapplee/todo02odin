@@ -660,6 +660,7 @@ export function  createMonthly(){
 export function createSearch(){
   
     const container = document.createElement("modal");
+    const form = document.createElement("form");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
         searchIcon.id = "searchIcon";
@@ -672,7 +673,10 @@ export function createSearch(){
         searchInput.required = true; // Boolean attributes take true/false
         searchInput.id = 'search';
 
-  container.append(searchIcon, searchInput);
+        const searchBtn = document.createElement("button");
+           searchBtn.type ="submit";
+ form.append(searchIcon, searchInput,searchBtn)
+  container.append(form);
 
   pagediv.appendChild(container);
  
