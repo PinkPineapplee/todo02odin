@@ -675,6 +675,11 @@ export function createSearch(){
 
         const searchBtn = document.createElement("button");
            searchBtn.type ="submit";
+
+        function findSearchItem(){
+    // this function executes search that sort though todo array.
+    // use sort and regex to search array items.
+}   
  form.append(searchIcon, searchInput,searchBtn)
   container.append(form);
 
@@ -762,10 +767,7 @@ function startRescheduleBtn(){
  
 
 
-function findSearchItem(){
-    // this function executes search that sort though todo array.
-    // use sort and regex to search array items.
-}
+
 
 
 
