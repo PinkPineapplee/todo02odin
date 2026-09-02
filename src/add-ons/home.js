@@ -101,13 +101,14 @@ export function makeNavBar(){
 
          const ul2 = document.createElement("ul");
         ul2.className = "myProjects";
-        ul2.textContent = ` #  Projects`;
+        ul2.textContent = ` #  Projects` + plus;
         
 
         const plus = document.createElement("span");
             plus.className= "material-symbols-outlined";
             plus.textContent = "add_2";
             plus.id = "project-plus";
+            
         ul1.append(profilediv,l1,l2,l3,l4,l5);
         nav.append(ul1,ul2);
         div.appendChild(nav);
@@ -170,6 +171,7 @@ function startNewProject(){
         handleCLickEvent(l3, createToday);
         handleCLickEvent(l4, createWeekly);
         handleCLickEvent(l5, createMonthly);
+        handleCLickEvent(plus, startNewProject);
    
 console.log("I am making a beautiful nav bar!")
 }
