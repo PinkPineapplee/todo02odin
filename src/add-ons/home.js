@@ -114,6 +114,51 @@ export function makeNavBar(){
             events:[l1,l2,l3,l4,l5],
             func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
         };
+
+
+
+
+function startNewProject(){
+   // this function creates ui for new projects and adds projects objects.
+    const displayModal = document.createElement("modal");
+    const form = document.createElement("foam");
+    form.action = " ";
+    form.method = "post";
+    const title = document.createElement("h2");
+      title.textContent="Start New Project."
+
+    const inputDiv = document.createElement("div");
+           inputDiv.className = "newProjectDiv";
+    const nameInput = document.createElement("input");
+            nameInput.type = 'text';
+            nameInput.name = 'name';
+            nameInput.placeholder = "Lake House Construction Plans";
+            nameInput.required = true; // Boolean attributes take true/false
+            nameInput.id = 'title';
+
+
+    const date = document.createElement("input");
+            date.type = 'number';
+            date.name = 'date';
+            date.placeholder = "dd/mm/yy";
+            date.required = false; // Boolean attributes take true/false
+            date.id = 'date';
+         inputDiv.append(nameInput,date);
+
+    const cancelBtn = document.createElement("button");
+          cancelBtn.type = "reset";
+          cancelBtn.className = "cancelBtn";
+          cancelBtn.textContent =" Cancel ";
+    
+          
+
+    const addBtn = document.createElement("button");
+          addBtn.type = "submit";
+          addBtn.className = "addProject";
+          addBtn.textContent = " Add Project ";
+
+          form.append(title,inputDiv,cancelBtn,addBtn)
+};
         
         handleCLickEvent(l1, creatNewTodoForm);
         handleCLickEvent(l2, createSearch);
@@ -671,8 +716,8 @@ function getNotes(){
 function startRescheduleBtn(){
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
-    const selectrescheduleers = document.createElement("select");
-      selectrescheduleers.name = "rescheduleers"; 
+    const selectreschedulers = document.createElement("select");
+      selectreschedulers.name = "rescheduleers"; 
     const r1 = document.createElement("option");
       r1.value = "tomorrow";
       r1.textContent = "Tomorrow";
@@ -685,17 +730,12 @@ function startRescheduleBtn(){
     const r4 = document.createElement("option");
     r1.value = " ";
     r4.textContent = createCalendar();
-    selectrescheduleers.append(r1,r2,r3,r4);
+    selectreschedulers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(rescheduleDiv);
     
 };
 
 
-
-function startNewProject(){
-   // this function creates ui for new projects and adds projects objects.
-  Project.newProject(input = "What is the name of your Project?", today);
-};
 
 
 
