@@ -675,10 +675,29 @@ export function createSearch(){
 
         const searchBtn = document.createElement("button");
            searchBtn.type ="submit";
+           searchBtn.className="searchBtn"
+
+
+
+
 
         function findSearchItem(){
     // this function executes search that sort though todo array.
-    // use sort and regex to search array items.
+  
+
+    const todoSearch = document.querySelector(".searchBtn");
+       todoSearch.addEventListener("click", ()=>{
+        let currentValue = searchInput.value.toLocaleLowerCase();
+        console.log(currentValue);
+        let todos = document.querySelectorAll("#todo");
+        todos.forEach(todo =>{
+            if(todo.textContent.toLocaleLowerCase().includes(currentValue)){
+                todo.parentNode.parentNode.style.display = "block";
+            }else{
+                 todo.parentNode.parentNode.style.display = "none";
+            }
+        })
+       })
 }   
  form.append(searchIcon, searchInput,searchBtn)
   container.append(form);
