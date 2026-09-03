@@ -569,7 +569,8 @@ export function createToday(counter, task){
 
 
 export function createWeekly(month,num,day,counter,task){
-   pagediv.removeChild(pagediv.lastChild);
+//    pagediv.removeChild(pagediv.lastChild);
+      console.log("hey!, I am inside weekly func." )
   
     // tasks will be seperated by days of the week.  
     const container = document.createElement("div");
@@ -583,6 +584,7 @@ export function createWeekly(month,num,day,counter,task){
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
         
+       
     let text7 = document.createElement("p");
         text7.textContent= "tasks";
         count.append(span,`${counter + " "+ text7.textContent }` );
@@ -611,8 +613,8 @@ export function createWeekly(month,num,day,counter,task){
     const day1Hr = document.createElement("hr") ; 
     const todoItem = document.createElement("li");
        todoItem.id = "todos";
-
-     const radio = document.createElement("span");
+       
+         const radio = document.createElement("span"); 
         radio.className = "material-symbols-outlined";
         radio.textContent = "radio_button_unchecked";
         
@@ -629,12 +631,23 @@ export function createWeekly(month,num,day,counter,task){
         taskBtn.append(plusIcon , "Add task");
     const dayHr = document.createElement("hr");     
     container.append( dayName,ul,day1Hr,todoItem,dayHr, taskBtn);
-return (radio,taskBtn,text9);  
-};
-       pagediv.append(container);
-      handleCLickEvent(radio, pressRadioBtn);
+
+    handleCLickEvent(radio, pressRadioBtn);
       handleCLickEvent(taskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
+ 
+};
+
+   function pressRadioBtn(){
+    // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+    const rabbiticon = document.createElement("img");
+       rabbiticon.src = rabbit;
+       rabbiticon.className = "rabbit-icon";
+       radioBtn.replaceWith(rabbiticon);
+       Todo.checkList = true;
+};
+      pagediv.lastChild.replaceWith(container);
+      
    
     
     console.log("Weekly display created!");
@@ -642,7 +655,7 @@ return (radio,taskBtn,text9);
 
 
 export function  createMonthly(){
-   pagediv.removeChild(pagediv.lastChild);
+  
 // tasks will be separated calendar format.
     const container = document.createElement("div");
     const header = document.createElement("h1");
@@ -655,9 +668,10 @@ export function  createMonthly(){
     const monthHeader = document.createElement("h2");
     monthDiv.appendChild(monthHeader);
     monthBox.append(monthDiv, createCalendar());
-    pagediv.append(container);
+   div.append(monthBox)
  }
-
+  container.append(header,div);
+   pagediv.lastChild.replaceWith(container);
  console.log("Monthly display created!")
 }
 
