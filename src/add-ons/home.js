@@ -444,6 +444,7 @@ function startReminderBtn(){
     
      
     selectReminders.append(r, r1,r2,r3);
+    remindDiv.append(selectReminders);
     pagediv.appendChild(remindDiv);
     
 };
@@ -779,7 +780,8 @@ function startRescheduleBtn(){
     r1.value = " ";
     r4.textContent = createCalendar();
     selectreschedulers.append(r1,r2,r3,r4);
-    rescheduleDiv.appendChild(rescheduleDiv);
+    rescheduleDiv.appendChild( selectreschedulers);
+    pagediv.append(rescheduleDiv);
     
 };
 
