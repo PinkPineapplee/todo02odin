@@ -528,7 +528,13 @@ export function createToday(counter, task){
     const todayHr = document.createElement("hr") ;   
      container.textContent="";
      container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
-     pagediv.append(container);
+     
+     let numb = pagediv.childElementCount; console.log(numb)
+     if (numb > 1){
+         pagediv.lastChild.replaceWith(container);
+     }else {
+       pagediv.append(container);
+     }
       
     function pressRadioBtn(){
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
@@ -646,8 +652,12 @@ export function createWeekly(month,num,day,counter,task){
        radioBtn.replaceWith(rabbiticon);
        Todo.checkList = true;
 };
-      pagediv.lastChild.replaceWith(container);
-      
+     let numb = pagediv.childElementCount; console.log(numb)
+     if (numb > 1){
+         pagediv.lastChild.replaceWith(container);
+     }else {
+       pagediv.append(container);
+     }
    
     
     console.log("Weekly display created!");
@@ -671,7 +681,12 @@ export function  createMonthly(){
    div.append(monthBox)
  }
   container.append(header,div);
-   pagediv.lastChild.replaceWith(container);
+   let numb = pagediv.childElementCount; console.log(numb)
+     if (numb > 1){
+         pagediv.lastChild.replaceWith(container);
+     }else {
+       pagediv.append(container);
+     }
  console.log("Monthly display created!")
 }
 
@@ -759,6 +774,7 @@ function getNotes(){
        add.type = "submit";
      
     noteDiv.append(notetitle,noteP,add);
+    pagediv.append(noteDiv)
 
     add.addEventListener("click", ()=>{
         let content = noteText.textContent;
