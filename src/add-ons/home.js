@@ -178,6 +178,9 @@ function startNewProject(){
    
 
 };
+
+         handleCLickEvent(cancelBtn, startCancelBtn);
+         handleCLickEvent(addBtn, ()=>{ let newProject = new Project(title.vale, date.value,)});
           form.append(title,inputDiv,cancelBtn,addBtn);
           displayModal.appendChild(form);
           pagediv.appendChild(displayModal);
@@ -189,6 +192,7 @@ function startNewProject(){
         handleCLickEvent(l4, createWeekly);
         handleCLickEvent(l5, createMonthly);
         handleCLickEvent(plus, startNewProject);
+
    
 console.log("I am making a beautiful nav bar!")
 }
