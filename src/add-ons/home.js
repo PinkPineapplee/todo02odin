@@ -386,6 +386,7 @@ function startSend(){
 };
 
 function startRescheduleBtn(){
+
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
@@ -416,6 +417,7 @@ function startRescheduleBtn(){
 };
 
 function startPriorityBtn(){
+   
     // this function creates ui for priority bar and updates todo objects.
     formDiv.appendChild(priorityDiv);
 
@@ -521,7 +523,8 @@ function getNotes(){
     handleCLickEvent(addBtn, startAddTask);
     handleCLickEvent(div2, startPriorityBtn);
     handleCLickEvent(div3, startReminderBtn);
-   handleCLickEvent(div1, startRescheduleBtn);
+    handleCLickEvent(div1, startRescheduleBtn);
+    handleCLickEvent(options, getNotes);
    
 console.log("I am making a beautiful todo form!")
 }
