@@ -298,6 +298,7 @@ export function creatNewTodoForm(){
           div2.append(ribbonIcon, label1);
 
     const priorityDiv = document.createElement("div");
+    priorityDiv.className = "priorityDiv"
   
           const high = document.createElement("input");
             high.name = "priority";
@@ -384,9 +385,34 @@ function startSend(){
  
 };
 
+function startRescheduleBtn(){
+    // this function creates ui for reschdule icon.and adds date to todos.
+     const rescheduleDiv = document.createElement("div");
+         rescheduleDiv.className = "rescheduleDiv";
+
+    const selectreschedulers = document.createElement("select");
+      selectreschedulers.name = "rescheduleers"; 
+    const r1 = document.createElement("option");
+      r1.value = "tomorrow";
+      r1.textContent = "Tomorrow";
+    const r2 = document.createElement("option");
+    r2.value = "2 days";
+    r2.textContent = "In 2 days";
+    const r3 = document.createElement("option");
+    r3.value = "1 week";
+    r3.textContent = "In 1 Week";
+    const r4 = document.createElement("option");
+    r1.value = " ";
+    r4.textContent = createCalendar();
+    selectreschedulers.append(r1,r2,r3,r4);
+    rescheduleDiv.appendChild( selectreschedulers);
+    formDiv.append(rescheduleDiv);
+    
+};
+
 function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
-    pagediv.appendChild(priorityDiv);
+    formDiv.appendChild(priorityDiv);
 
     // handleCLickEvent(high,()=>{ Todo.priority = "high";});
     // handleCLickEvent(medium,()=>{Todo.priority = "medium";});
@@ -423,6 +449,7 @@ function startAddTask(){
 function startReminderBtn(){
     // this function creates ui for reminder with some reminder functionality.
     const remindDiv = document.createElement("div");
+     remindDiv.className = "remindDiv";
     const selectReminders = document.createElement("select");
       selectReminders.name = "reminders"; 
       const r = document.createElement("option");
@@ -445,8 +472,36 @@ function startReminderBtn(){
      
     selectReminders.append(r, r1,r2,r3);
     remindDiv.append(selectReminders);
-    pagediv.appendChild(remindDiv);
+    formDiv.appendChild(remindDiv);
     
+};
+
+function getNotes(){
+     formDiv.lastChild.removeChild();
+    const noteDiv = document.createElement("div");
+    const notetitle = document.createElement("h5");
+          notetitle.className = "notetitle";
+          notetitle.textContent = "Add notes or comments."
+    const noteP = document.createElement("p");
+          noteP.className = "noteP";
+    const noteText = document.createElement("textarea");
+          noteText.placeholder= "I think we should launch that campaign.";
+          noteText.rows = "20";
+          noteText.cols = "60";
+    noteP.appendChild(noteText);
+    const add = document.createElement("button");
+       add.id = "addNotes";
+       add.type = "submit";
+     
+    noteDiv.append(notetitle,noteP,add);
+    formDiv.append(noteDiv);
+
+    add.addEventListener("click", ()=>{
+        let content = noteText.textContent;
+        return content;
+    });
+   
+   return content;
 };
 
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
@@ -461,7 +516,7 @@ function startReminderBtn(){
     handleCLickEvent(addBtn, startAddTask);
     handleCLickEvent(div2, startPriorityBtn);
     handleCLickEvent(div3, startReminderBtn);
-    handleCLickEvent(div1, createCalendar);
+   handleCLickEvent(div1, startRescheduleBtn);
    
 console.log("I am making a beautiful todo form!")
 }
@@ -567,7 +622,7 @@ export function createToday(counter, task){
 
       handleCLickEvent(radioBtn, pressRadioBtn);
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
-      handleCLickEvent(text9, createCalendar);
+      handleCLickEvent(text9, startRescheduleBtn);
       handleCLickEvent(dropDown, collasibleDropdown);
     
   console.log("Today Bar created!");
@@ -598,12 +653,12 @@ export function createWeekly(month,num,day,counter,task){
         container.append(header, count);
 
     const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  for (let i = 0; i <= days.length - 1; i++){
- const dayName = document.createElement("h3"); 
- dayName.className = "dayName";
- dayName.textContent = days[i];    
- const ul = document.createElement("ul");
- const dropDown = document.createElement("span");
+    for (let i = 0; i <= days.length - 1; i++){
+    const dayName = document.createElement("h3"); 
+    dayName.className = "dayName";
+    dayName.textContent = days[i];    
+    const ul = document.createElement("ul");
+    const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "stat_minus_1";
@@ -756,33 +811,6 @@ function handleCLickEvent(elem, func,arg){
 
 
 
-function getNotes(){
-    
-    const noteDiv = document.createElement("div");
-    const notetitle = document.createElement("h5");
-          notetitle.className = "notetitle";
-          notetitle.textContent = "Add notes or comments."
-    const noteP = document.createElement("p");
-          noteP.className = "noteP";
-    const noteText = document.createElement("textarea");
-          noteText.placeholder= "I think we should launch that campaign.";
-          noteText.rows = "20";
-          noteText.cols = "60";
-    noteP.appendChild(noteText);
-    const add = document.createElement("button");
-       add.id = "addNotes";
-       add.type = "submit";
-     
-    noteDiv.append(notetitle,noteP,add);
-    pagediv.append(noteDiv)
-
-    add.addEventListener("click", ()=>{
-        let content = noteText.textContent;
-        return content;
-    });
-   
-   return content;
-};
 
 
 
@@ -792,28 +820,8 @@ function getNotes(){
 
 
 
-function startRescheduleBtn(){
-    // this function creates ui for reschdule icon.and adds date to todos.
-     const rescheduleDiv = document.createElement("div");
-    const selectreschedulers = document.createElement("select");
-      selectreschedulers.name = "rescheduleers"; 
-    const r1 = document.createElement("option");
-      r1.value = "tomorrow";
-      r1.textContent = "Tomorrow";
-    const r2 = document.createElement("option");
-    r2.value = "2 days";
-    r2.textContent = "In 2 days";
-    const r3 = document.createElement("option");
-    r3.value = "1 week";
-    r3.textContent = "In 1 Week";
-    const r4 = document.createElement("option");
-    r1.value = " ";
-    r4.textContent = createCalendar();
-    selectreschedulers.append(r1,r2,r3,r4);
-    rescheduleDiv.appendChild( selectreschedulers);
-    pagediv.append(rescheduleDiv);
-    
-};
+
+
 
 
 

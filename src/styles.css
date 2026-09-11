@@ -332,3 +332,30 @@ hr{
      position: relative;
      right: 40px;
 }
+
+.rescheduleDiv,.remindDiv,.priorityDiv{
+    position: relative;
+}
+
+.rescheduleDiv{
+    height: 30vh;
+    width: 15vw;
+    bottom: 70px;
+    right: 50px;
+    background-color: aqua;
+}
+
+.remindDiv{
+    height: 10vh;
+    width: 10vw;
+    bottom: 70px;
+     background-color: rgb(45, 207, 126);
+}
+
+.priorityDiv{
+    height: 10vh;
+    width: 10vw;
+    bottom: 70px;
+    left: 120px;
+     background-color: rgb(146, 16, 107);
+}
