@@ -128,6 +128,7 @@ export function makeNavBar(){
 function startNewProject(){
    // this function creates ui for new projects and adds projects objects.
     const displayModal = document.createElement("modal");
+    displayModal.className="projectModal";
     const form = document.createElement("foam");
     form.action = " ";
     form.method = "post";
@@ -484,7 +485,7 @@ function startReminderBtn(){
 };
 
 function getNotes(){
-     formDiv.lastChild.removeChild();
+    
     const noteDiv = document.createElement("div");
     const notetitle = document.createElement("h5");
           notetitle.className = "notetitle";

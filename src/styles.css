@@ -340,15 +340,15 @@ hr{
 .rescheduleDiv{
     height: 30vh;
     width: 15vw;
-    bottom: 70px;
-    right: 50px;
+    bottom: 73px;
+    right: 70px;
     background-color: aqua;
 }
 
 .remindDiv{
     height: 10vh;
     width: 10vw;
-    bottom: 70px;
+    bottom: 73px;
      background-color: rgb(45, 207, 126);
 }
 
@@ -358,4 +358,19 @@ hr{
     bottom: 70px;
     left: 120px;
      background-color: rgb(146, 16, 107);
+     
+}
+
+.projectModal{
+    height: 50vh;
+    width: 50vh;
+    position: relative;
+    bottom: 90vh;
+    left:10vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: wheat;
+    border-radius: 5px;
+
 }
