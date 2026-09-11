@@ -361,6 +361,13 @@ hr{
      
 }
 
+.notesDiv{
+     height: 10vh;
+    width: 10vw;
+    bottom: 70px;
+    left: 120px;
+     background-color: rgb(146, 16, 107);
+}
 .projectModal{
     height: 50vh;
     width: 50vh;

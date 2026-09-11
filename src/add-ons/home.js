@@ -129,7 +129,7 @@ function startNewProject(){
    // this function creates ui for new projects and adds projects objects.
     const displayModal = document.createElement("modal");
     displayModal.className="projectModal";
-    const form = document.createElement("foam");
+    const form = document.createElement("form");
     form.action = " ";
     form.method = "post";
     const title = document.createElement("h2");
@@ -171,6 +171,13 @@ function startNewProject(){
                projectLi.textContent= project.name;
                ul2.append(projectLi);
 
+                function startCancelBtn(){
+   // This function removes todoform from webpage.
+   form.reset();
+   pagediv.removeChild(displayModal);
+   
+
+};
           form.append(title,inputDiv,cancelBtn,addBtn);
           displayModal.appendChild(form);
           pagediv.appendChild(displayModal);
@@ -410,7 +417,11 @@ function startRescheduleBtn(){
     r4.textContent = createCalendar();
 
     const time = document.createElement("button");
+     time.id = "time-btn";
+     time.textContent= "time";
     const repeat = document.createElement("button");
+     repeat.id = "repeat-btn";
+     repeat.textContent= "Repeat";
     selectreschedulers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, hr , time, repeat);
     formDiv.append(rescheduleDiv);
@@ -816,7 +827,7 @@ function handleCLickEvent(elem, func,arg){
 }
 
 
-
+ 
 
 
 
