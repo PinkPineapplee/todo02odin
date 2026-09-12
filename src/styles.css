@@ -377,9 +377,17 @@ hr{
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background-color: wheat;
+    background-color: rgb(223, 233, 252);
     border-radius: 5px;
 
+}
+.projectModal #date{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.projectModal #title{
+    margin-top: 2rem;
 }
 
  .addProject, .cancelProject{
