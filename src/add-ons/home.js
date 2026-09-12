@@ -809,6 +809,7 @@ export function  createMonthly(){
 export function createSearch(){
   
     const container = document.createElement("modal");
+    container.className= "searchModal";
     const form = document.createElement("form");
     const searchIcon = document.createElement("span");
         searchIcon.className = "material-symbols-outlined";
@@ -824,7 +825,8 @@ export function createSearch(){
 
         const searchBtn = document.createElement("button");
            searchBtn.type ="submit";
-           searchBtn.className="searchBtn"
+           searchBtn.className="searchBtn";
+           searchBtn.textContent = "Search";
 
 
 

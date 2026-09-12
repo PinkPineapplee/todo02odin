@@ -390,12 +390,17 @@ hr{
     margin-top: 2rem;
 }
 
- .addProject, .cancelProject , .searchModal.searchBtn{
+ .addProject, .cancelProject{
     height: 30px;
     width: 10rem ;
     border-radius: 3px;
  }
 
  .searchModal .searchBtn{
-
+ height: 30px;
+    width: 10rem ;
+    border-radius: 3px;
+    color: rgb(255, 254, 254);
+    background-color: rgb(38, 94, 155);
+    border: none;
  }
