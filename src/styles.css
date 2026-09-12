@@ -368,7 +368,7 @@ hr{
     left: 120px;
      background-color: rgb(146, 16, 107);
 }
-.projectModal{
+.projectModal, .searchModal{
     height: 50vh;
     width: 50vh;
     position: relative;
@@ -390,8 +390,12 @@ hr{
     margin-top: 2rem;
 }
 
- .addProject, .cancelProject{
+ .addProject, .cancelProject , .searchModal.searchBtn{
     height: 30px;
     width: 10rem ;
     border-radius: 3px;
+ }
+
+ .searchModal .searchBtn{
+
  }

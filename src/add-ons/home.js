@@ -753,7 +753,7 @@ export function createWeekly(month,num,day,counter,task){
     const dayHr = document.createElement("hr");     
     container.append( dayName,ul,day1Hr,todoItem,dayHr, taskBtn);
 
-    handleCLickEvent(radio, pressRadioBtn);
+      handleCLickEvent(radio, pressRadioBtn);
       handleCLickEvent(taskBtn, creatNewTodoForm);
       handleCLickEvent(text9, createCalendar);
  
