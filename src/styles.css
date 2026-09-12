@@ -291,7 +291,7 @@ form{
      border: none;
 }
 
-.addBtn{
+.addBtn, .addProject{
     background-color: rgb(220, 67, 67);
     color: white;
     border: none;
@@ -381,3 +381,9 @@ hr{
     border-radius: 5px;
 
 }
+
+ .addProject, .cancelProject{
+    height: 30px;
+    width: 10rem ;
+    border-radius: 3px;
+ }

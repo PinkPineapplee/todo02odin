@@ -155,7 +155,7 @@ function startNewProject(){
 
     const cancelBtn = document.createElement("button");
           cancelBtn.type = "reset";
-          cancelBtn.className = "cancelBtn";
+          cancelBtn.className = "cancelProject";
           cancelBtn.textContent =" Cancel ";
     
           
@@ -180,7 +180,9 @@ function startNewProject(){
 };
 
          handleCLickEvent(cancelBtn, startCancelBtn);
-         handleCLickEvent(addBtn, ()=>{ let newProject = new Project(title.vale, date.value,)});
+         handleCLickEvent(addBtn, ()=>{ 
+            let newProject = new Project(title.vale, date.value)}
+        );
           form.append(title,inputDiv,cancelBtn,addBtn);
           displayModal.appendChild(form);
           pagediv.appendChild(displayModal);
@@ -643,6 +645,40 @@ export function createToday(counter, task){
     })
 };
 
+function startRescheduleBtn(){
+
+    // this function creates ui for reschdule icon.and adds date to todos.
+     const rescheduleDiv = document.createElement("div");
+         rescheduleDiv.className = "rescheduleDiv";
+    const dateNow = document.createElement("p");
+    dateNow.textContent = Date.now();
+    const hr = document.createElement("hr");
+    const selectreschedulers = document.createElement("select");
+      selectreschedulers.name = "rescheduleers"; 
+    const r1 = document.createElement("option");
+      r1.value = "tomorrow";
+      r1.textContent = "Tomorrow";
+    const r2 = document.createElement("option");
+    r2.value = "2 days";
+    r2.textContent = "In 2 days";
+    const r3 = document.createElement("option");
+    r3.value = "1 week";
+    r3.textContent = "In 1 Week";
+    const r4 = document.createElement("option");
+    r1.value = " ";
+    r4.textContent = createCalendar();
+
+    const time = document.createElement("button");
+     time.id = "time-btn";
+     time.textContent= "time";
+    const repeat = document.createElement("button");
+     repeat.id = "repeat-btn";
+     repeat.textContent= "Repeat";
+    selectreschedulers.append(r1,r2,r3,r4);
+    rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, time, repeat);
+    pagediv.append(rescheduleDiv);
+    
+};
 
       handleCLickEvent(radioBtn, pressRadioBtn);
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
