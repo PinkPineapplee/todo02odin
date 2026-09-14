@@ -27,6 +27,7 @@ footer{
     justify-content: center;
     align-items: center;
     background-color: rgb(226, 255, 169);
+    position:fixed;
     
 }
 
@@ -48,6 +49,8 @@ footer>a:hover{
     width: 25vw;
     background-color: rgb(223, 233, 252);
     margin: none;
+    position: sticky;
+   
 }
 
 
@@ -99,8 +102,8 @@ span, img{
 .todayContainer{
      width: 70%;    
      height: 94.1%;
-      display: block;
-      margin: 0 auto;
+     display: block;
+     margin: 0 auto;
 }
 
 .todayHeaderdiv{
@@ -421,5 +424,14 @@ hr{
  }
 
  #searchIcon{
-    background-color: blueviolet;
+    position: relative;
+    top: 7px;
+ }
+
+ .weekContainer{
+    overflow: scroll;
+       width: 70%;    
+     height: 94.1%;
+     display: block;
+     margin: 0 auto;
  }
