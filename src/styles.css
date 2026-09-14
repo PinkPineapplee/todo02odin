@@ -398,9 +398,28 @@ hr{
 
  .searchModal .searchBtn{
  height: 30px;
-    width: 10rem ;
+    width: 5rem ;
     border-radius: 3px;
     color: rgb(255, 254, 254);
     background-color: rgb(38, 94, 155);
     border: none;
+ }
+
+ .searchModal{
+     height: 10vh;
+    width: 60vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+ }
+
+ .searchModal #search{
+    height: 30px;
+    width: 17rem;
+    border: none;
+    
+ }
+
+ #searchIcon{
+    background-color: blueviolet;
  }
