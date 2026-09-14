@@ -428,10 +428,10 @@ hr{
     top: 7px;
  }
 
- .weekContainer{
+ .weekContainer, .monthlyContainer{
     overflow: scroll;
-       width: 70%;    
-     height: 94.1%;
-     display: block;
-     margin: 0 auto;
+    width: 70%;    
+    height: 94.1%;
+    display: block;
+    margin: 0 auto;
  }
