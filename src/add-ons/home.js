@@ -714,12 +714,20 @@ export function createWeekly(month,num,day,counter,task){
 
     const days = [["Sunday", sundayBg],["Monday", mondayBg],["Tuesday", tuesdayBg],["Wednesday", wednesdayBg],["Thursday", thursdayBg],["Friday", fridayBg],["Saturday", saturdayBg]];
     for (let i = 0; i <= days.length - 1; i++){
-        const banner = document.createElement("img");
-        banner.className = "weekBanner";
-        banner.src = days[i][1];
+       
+       
     const dayName = document.createElement("h3"); 
     dayName.className = "dayName";
-    dayName.textContent = days[i];    
+    dayName.textContent = days[i][0]; 
+    
+     const banner = document.createElement("img");
+        banner.className = "weekBanner";
+        banner.src = days[i][1];
+        banner.append(dayName);
+
+     const div = document.createElement("div");
+          div.className= "dayDiv";
+          div.append(banner);  
     const ul = document.createElement("ul");
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
@@ -754,7 +762,7 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.textContent = "add_2";    
         taskBtn.append(plusIcon , "Add task");
     const dayHr = document.createElement("hr");     
-    container.append( dayName,banner,ul,day1Hr,todoItem,dayHr, taskBtn);
+    container.append( div,ul,day1Hr,todoItem,dayHr, taskBtn);
 
       handleCLickEvent(radio, pressRadioBtn);
       handleCLickEvent(taskBtn, creatNewTodoForm);
