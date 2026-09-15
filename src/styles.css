@@ -438,18 +438,47 @@ hr{
 
  .dayDiv{
     display: flex;
-    width: 80vh;
-    height: 10vh;
+    width: 100vh;
+    height: 7vh;
     background-color: blueviolet;
  }
 
  .dayName{
-  background-color: aliceblue;
+  background-color: white;
   height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
   align-items: end;
+  background-color: rgb(223, 233, 252);
+  position: relative;
+  bottom: 19.25px;
  }
 
  .weekBanner{
    width: 100%;
    height: 100%;
+   object-fit: cover;
+   object-position: 0 -185px;
+ }
+
+ .weekContainer ul{
+    display: flex;
+    justify-content: space-around;
+ }
+
+ .weekContainer ul #text9{
+    margin: 0;
+    padding: 0;
+ }
+
+ .weekContainer ul #text8{
+    margin: 0;
+    padding: 0;
+ }
+
+
+ .dayContainer{
+    height: 40vh;
+    width: 100%;
  }

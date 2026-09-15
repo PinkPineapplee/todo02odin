@@ -698,7 +698,7 @@ export function createWeekly(month,num,day,counter,task){
       container.className = "weekContainer";
     const header = document.createElement("h2");
       header.className = "week";
-      header.append(month,"Week", num );
+      header.append(month," Week ", num );
      
      const count = document.createElement("p");
      const span = document.createElement("span");
@@ -710,12 +710,13 @@ export function createWeekly(month,num,day,counter,task){
         text7.textContent= "tasks";
         count.append(span,`${counter + " "+ text7.textContent }` );
         
-        container.append(header, count);
+        container.append(header);
 
-    const days = [["Sunday", sundayBg],["Monday", mondayBg],["Tuesday", tuesdayBg],["Wednesday", wednesdayBg],["Thursday", thursdayBg],["Friday", fridayBg],["Saturday", saturdayBg]];
+    const days = [["Monday", mondayBg],["Tuesday", tuesdayBg],["Wednesday", wednesdayBg],["Thursday", thursdayBg],["Friday", fridayBg],["Saturday", saturdayBg],["Sunday", sundayBg]];
     for (let i = 0; i <= days.length - 1; i++){
        
-       
+      const dayContainer = document.createElement("div");
+        dayContainer.className= "dayContainer"; 
     const dayName = document.createElement("h3"); 
     dayName.className = "dayName";
     dayName.textContent = days[i][0]; 
@@ -723,11 +724,12 @@ export function createWeekly(month,num,day,counter,task){
      const banner = document.createElement("img");
         banner.className = "weekBanner";
         banner.src = days[i][1];
-        banner.append(dayName);
+      
 
      const div = document.createElement("div");
           div.className= "dayDiv";
-          div.append(banner);  
+         div.style.backgroundColor = banner;
+          div.append(dayName,banner);  
     const ul = document.createElement("ul");
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
@@ -736,9 +738,10 @@ export function createWeekly(month,num,day,counter,task){
         
          let text8 = document.createElement("p");
           text8.textContent= "Overdue";
-          text8.id = "overdue";
+          text8.id = "text8";
           let text9 = document.createElement("p");
           text9.textContent= "Reschedule"; 
+          text9.id= "text9";
           text9.style.color = "orangered";
            
           ul.append(dropDown, text8, text9);
@@ -761,8 +764,9 @@ export function createWeekly(month,num,day,counter,task){
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2";    
         taskBtn.append(plusIcon , "Add task");
-    const dayHr = document.createElement("hr");     
-    container.append( div,ul,day1Hr,todoItem,dayHr, taskBtn);
+    const dayHr = document.createElement("hr");  
+    dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
+    container.append( dayContainer);
 
       handleCLickEvent(radio, pressRadioBtn);
       handleCLickEvent(taskBtn, creatNewTodoForm);
