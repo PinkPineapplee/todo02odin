@@ -13,9 +13,7 @@ return (formattedDate, todayStarts);
 };
 
 
-export function createCalendar(){
-   
-    
+export function createCalendar(){   
 //check today
 const todayDate = new Date().getDate();
 const day = new Date().getDate();

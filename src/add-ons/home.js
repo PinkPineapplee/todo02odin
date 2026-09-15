@@ -699,18 +699,24 @@ export function createWeekly(month,num,day,counter,task){
     const header = document.createElement("h2");
       header.className = "week";
       header.append(month," Week ", num );
+
+      const count = document.createElement("p");
+      const span1 = document.createElement("span");
+        span1.className = "material-symbols-outlined";
+        span1.textContent = "first_page";
+        span1.style.display = none;
      
-     const count = document.createElement("p");
-     const span = document.createElement("span");
-        span.className = "material-symbols-outlined";
-        span.textContent = "check_circle";
-        
+     const span2 = document.createElement("span");
+        span2.className = "material-symbols-outlined";
+        span2.textContent = "cruelty_free";
        
-    let text7 = document.createElement("p");
-        text7.textContent= "tasks";
-        count.append(span,`${counter + " "+ text7.textContent }` );
+     const span3 = document.createElement("span");
+        span3.className = "material-symbols-outlined";
+        span3.textContent = "last_page";    
+         span3.style.display = none;
+        count.append(span1, span2, span3);
         
-        container.append(header);
+        container.append(header,count);
 
     const days = [["Monday", mondayBg],["Tuesday", tuesdayBg],["Wednesday", wednesdayBg],["Thursday", thursdayBg],["Friday", fridayBg],["Saturday", saturdayBg],["Sunday", sundayBg]];
     for (let i = 0; i <= days.length - 1; i++){
