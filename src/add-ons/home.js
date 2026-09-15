@@ -807,6 +807,7 @@ export function  createMonthly(){
     container.className = "monthlyContainer";
     const header = document.createElement("h1");
     const div = document.createElement("div");
+    const calendar= createCalendar();
 
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
@@ -818,7 +819,7 @@ export function  createMonthly(){
     monthHeader.textContent= "September";
     monthDiv.append(monthImg, monthHeader);
     monthBox.append(monthDiv);
-   div.append(monthBox)
+   div.append(monthBox,calendar);
  }
   container.append(header,div);
 //    let numb = pagediv.childElementCount; console.log(numb)
