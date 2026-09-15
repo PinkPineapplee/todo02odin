@@ -482,3 +482,7 @@ hr{
     height: 40vh;
     width: 100%;
  }
+
+ .monthDiv{
+    display: flex;
+ }

@@ -704,7 +704,7 @@ export function createWeekly(month,num,day,counter,task){
       const span1 = document.createElement("span");
         span1.className = "material-symbols-outlined";
         span1.textContent = "first_page";
-        span1.style.display = none;
+        span1.style.display = "none";
      
      const span2 = document.createElement("span");
         span2.className = "material-symbols-outlined";
@@ -713,7 +713,7 @@ export function createWeekly(month,num,day,counter,task){
      const span3 = document.createElement("span");
         span3.className = "material-symbols-outlined";
         span3.textContent = "last_page";    
-         span3.style.display = none;
+         span3.style.display = "none";
         count.append(span1, span2, span3);
         
         container.append(header,count);
@@ -811,19 +811,23 @@ export function  createMonthly(){
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
     const monthDiv = document.createElement("div");
-    monthDiv.style.backgroundImage = monthBg ;
+    monthDiv.className= "monthDiv";
+    const monthImg = document.createElement("img");
+    monthImg.src = monthBg;
     const monthHeader = document.createElement("h2");
-    monthDiv.appendChild(monthHeader);
-    monthBox.append(monthDiv, createCalendar());
+    monthHeader.textContent= "September";
+    monthDiv.append(monthImg, monthHeader);
+    monthBox.append(monthDiv);
    div.append(monthBox)
  }
   container.append(header,div);
-   let numb = pagediv.childElementCount; console.log(numb)
-     if (numb > 1){
-         pagediv.lastChild.replaceWith(container);
-     }else {
-       pagediv.append(container);
-     }
+//    let numb = pagediv.childElementCount; console.log(numb)
+//      if (numb > 1){
+//          pagediv.lastChild.replaceWith(container);
+//      }else {
+//        pagediv.append(container);
+//      }
+ pagediv.lastChild.replaceWith(container);
  console.log("Monthly display created!")
 }
 
