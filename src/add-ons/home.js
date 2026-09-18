@@ -819,7 +819,7 @@ export function  createMonthly(){
     monthHeader.textContent= "September";
     monthDiv.append(monthImg, monthHeader);
     monthBox.append(monthDiv);
-   div.append(monthBox,calendar);
+   div.append(monthBox,createCalendar());
  }
   container.append(header,div);
 //    let numb = pagediv.childElementCount; console.log(numb)
