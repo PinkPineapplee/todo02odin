@@ -16,26 +16,27 @@ return (formattedDate, todayStarts);
 export function createCalendar(){   
 //check today
 const todayDate = new Date().getDate();
-const day = new Date().getDate();
-const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday"];
-let weekDay = week[day];
-console.log(weekDay,day);
+const thisDay = new Date().getDay();
+const thisWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday"];
+let weekDay = thisWeek[thisDay]; 
+//console.log("weekDay:"+weekDay,"day:"+todayDate);
 // checks the month and how many days it has.
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 const d = new Date();
-let month = months[d.getMonth()];
+let thisMonth = months[d.getMonth()];
 // checks the year
-const year = d.getFullYear();
+const thisYear = d.getFullYear();
 // return the number of days in that month.
+//console.log("month:"+month,"year:"+year);
 
 function getDaysInMonthZeroIndexed(year, monthIndex) {
   return new Date(year, monthIndex + 1, 0).getDate();
 }
 
-console.log(getDaysInMonthZeroIndexed(2024, 1)); // 28 (February is index 1)
+console.log(getDaysInMonthZeroIndexed(2026, 8)); // 28 (February is index 1)
 
-
+let numOfdays= getDaysInMonthZeroIndexed(thisYear,thisMonth);
 //creates div equivalent to the number of days.
 function createCalendarUI(num, today, month, year ){
  
@@ -61,38 +62,63 @@ function createCalendarUI(num, today, month, year ){
 
 
     const dayDivs = document.createElement("li");
-
     dayDivs.className = "dayDivs";
     dayDivs.textContent = y;
 
        if(isDaySunday === true){
-        dayHeaderDiv[i].appendChild(dayDivs)
+        const daySun = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(daySun)
+
        } else if( isDayMonday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+         const dayMon = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(dayMon)
        } else if( isDayTuesday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+         const dayTues = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(dayTues)
        } else if( isDayWednesday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+          const dayWed = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(dayWed);
        } else if( isDayThursday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+         const dayThurs = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(dayThurs)
        } else if( isDayFriday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+        const dayFri = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(dayFri);
        } else if( isDaySaturday === true){
-         dayHeaderDiv[i].appendChild(dayDivs)
+        const daySat = document.createElement("li");
+        dayDivs.className = "dayDivs";
+        dayDivs.textContent = y;
+        dayHeaderDiv[i].appendChild(daySat);
+
        } else{
         return
        }
 
-      container.appendChild(headers);
+     // container.appendChild(dayHeaderDiv);
       
     };
+    container.appendChild(dayHeaderDiv);
      return container;
     };
 
-    
-
+   
   return container;
 };
+
+ createCalendarUI(numOfdays,thisDay,thisMonth, thisYear);
+  console.log(createCalendarUI(numOfdays,thisDay,thisMonth, thisYear));
 // number the divs as days
 // current day has a highlighter on the background.
 }
