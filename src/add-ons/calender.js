@@ -54,94 +54,94 @@ function createCalendarUI(num, today, month, year ){
      //make week divs
     for(let i = 0; i <= 6; i++){       
     dayHeaderDiv = document.createElement("ul");
-    dayHeaderDiv.id = headers[i];
+    dayHeaderDiv.id = headers[i].replace(/^\s+|\s+$/g, "");
     console.log(dayHeaderDiv.id);
     dayHeaderDiv.textContent = headers[i];
     container.appendChild(dayHeaderDiv);
-    }
+    
     
 
-    // // make day divs
-    // for(let y = 1 ; y <= num; y++){
+    // make day divs
+    for(let y = 1 ; y <= num; y++){
 
-    // //arrange days of the week
-    // let isDaySunday = isSunday(new Date(year, month, y));
-    // let isDayMonday = isMonday(new Date(year, month, y));
-    // let isDayTuesday = isTuesday(new Date(year, month, y));
-    // let isDayWednesday = isWednesday(new Date(year, month, y));
-    // let isDayThursday = isThursday(new Date(year, month, y));
-    // let isDayFriday = isFriday(new Date(year, month, y));
-    // let isDaySaturday = isSaturday(new Date(year, month, y));
+    //arrange days of the week
+    let isDaySunday = isSunday(new Date(year, month, y));
+    let isDayMonday = isMonday(new Date(year, month, y));
+    let isDayTuesday = isTuesday(new Date(year, month, y));
+    let isDayWednesday = isWednesday(new Date(year, month, y));
+    let isDayThursday = isThursday(new Date(year, month, y));
+    let isDayFriday = isFriday(new Date(year, month, y));
+    let isDaySaturday = isSaturday(new Date(year, month, y));
 
 
-    // const dayDivs = document.createElement("li");
-    // dayDivs.className = "dayDivs";
-    // dayDivs.textContent = y;
+    const dayDivs = document.createElement("li");
+    dayDivs.className = "dayDivs";
+    dayDivs.textContent = y;
 
-    //    if(isDaySunday === true){
-    //     const daySun = document.createElement("li");
-    //     daySun.className = "dayDivs";
-    //     daySun.textContent = y;
-    //    let dayHeader = document.querySelector("[id = ' Sun ']");
-    //    dayHeader.appendChild(daySun);
-    //     console.log("hi I am sunday");
+       if(isDaySunday === true){
+        const daySun = document.createElement("li");
+        daySun.className = "dayDivs";
+        daySun.textContent = y;
+       let dayHeader = document.querySelector("[id = ' Sun ']");
+       dayHeader.appendChild(daySun);
+        console.log("hi I am sunday");
 
-    //    } else if( isDayMonday === true){
+       } else if( isDayMonday === true){
 
-    //     const dayMon = document.createElement("li");
-    //     dayMon.className = "dayDivs";
-    //     dayMon.textContent = y;
-    //    let dayHeader = document.querySelector("[id = ' Mon ']");
-    //    dayHeader.appendChild(dayMon);
-    //     console.log("hi I am monday");
+        const dayMon = document.createElement("li");
+        dayMon.className = "dayDivs";
+        dayMon.textContent = y;
+       let dayHeader = document.querySelector("#Mon");
+       dayHeader.appendChild(dayMon);
+        console.log("hi I am monday");
 
-    //    } else if(isDayTuesday === true){
+       } else if(isDayTuesday === true){
 
-    //     const dayTues = document.createElement("li");
-    //     dayTues.className = "dayDivs";
-    //     dayTues.textContent = y;
-    //   let dayHeader = document.querySelector("[id = ' Tues ']")
-    //    dayHeader.appendChild(dayTues);
-    //     console.log("hi I am tuesday");
+        const dayTues = document.createElement("li");
+        dayTues.className = "dayDivs";
+        dayTues.textContent = y;
+      let dayHeader = document.getElementById("Tues");
+       dayHeader.appendChild(dayTues);
+        console.log("hi I am tuesday");
 
-    //    } else if(isDayWednesday === true){
+       } else if(isDayWednesday === true){
 
-    //     const dayWed = document.createElement("li");
-    //     dayWed.className = "dayDivs";
-    //     dayWed.textContent = y;
-    //     let dayHeader = document.querySelector("[id = ' Wed ']");
-    //    dayHeader.appendChild(dayWed);
-    //     console.log("hi I am wednesday");
-    //    } else if(isDayThursday === true){
+        const dayWed = document.createElement("li");
+        dayWed.className = "dayDivs";
+        dayWed.textContent = y;
+        let dayHeader = document.querySelector("#Wed");
+       dayHeader.appendChild(dayWed);
+        console.log("hi I am wednesday");
+       } else if(isDayThursday === true){
 
-    //     const dayThurs = document.createElement("li");
-    //     dayThurs.className = "dayDivs";
-    //     dayThurs.textContent = y;
-    //     let dayHeader = document.querySelector("[id = ' Thurs ']");
-    //    dayHeader.appendChild(dayThurs);
-    //     console.log("hi I am thursday");
-    //    } else if(isDayFriday === true){
+        const dayThurs = document.createElement("li");
+        dayThurs.className = "dayDivs";
+        dayThurs.textContent = y;
+        let dayHeader = document.querySelector("#Thurs");
+       dayHeader.appendChild(dayThurs);
+        console.log("hi I am thursday");
+       } else if(isDayFriday === true){
 
-    //     const dayFri = document.createElement("li");
-    //     dayFri.className = "dayDivs";
-    //     dayFri.textContent = y;
-    //     let dayHeader = document.querySelector("[id = ' Fri ']");
-    //    dayHeader.appendChild(dayFri);
-    //     console.log("hi I am friday");
+        const dayFri = document.createElement("li");
+        dayFri.className = "dayDivs";
+        dayFri.textContent = y;
+        let dayHeader = document.querySelector("#Fri");
+       dayHeader.appendChild(dayFri);
+        console.log("hi I am friday");
 
-    //    } else if(isDaySaturday === true){
+       } else if(isDaySaturday === true){
 
-    //     const daySat = document.createElement("li");
-    //     daySat.className = "dayDivs";
-    //     daySat.textContent = y;
-    //     let dayHeader = document.querySelector("[id = ' Sat ']");
-    //    dayHeader.appendChild(daySat);
-    //     console.log("hi I am saturday");
+        const daySat = document.createElement("li");
+        daySat.className = "dayDivs";
+        daySat.textContent = y;
+        let dayHeader = document.querySelector("#Sat");
+       dayHeader.appendChild(daySat);
+        console.log("hi I am saturday");
 
-    //    } else{
-    //     return
-    //    }   
-    // };
+       } else{
+        return
+       }   
+    };}
    return container;
 }  
      
