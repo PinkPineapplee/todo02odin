@@ -58,9 +58,24 @@ function createCalendarUI(num, today, month, year ){
     console.log(dayHeaderDiv.id);
     dayHeaderDiv.textContent = headers[i];
     container.appendChild(dayHeaderDiv);
-    
+    }
     
 
+   
+   return container;
+}  
+     
+    
+  
+  console.log(createCalendarUI(numOfdays,todayDate,month, thisYear));
+  // return createCalendarUI(numOfdays,todayDate,month, thisYear);
+   return createCalendarUI(numOfdays,todayDate,month, thisYear);
+};
+
+ 
+// number the divs as days
+// current day has a highlighter on the background.
+function makeDayDivs(num , weekNum, year, month){
     // make day divs
     for(let y = 1 ; y <= num; y++){
 
@@ -82,8 +97,7 @@ function createCalendarUI(num, today, month, year ){
         const daySun = document.createElement("li");
         daySun.className = "dayDivs";
         daySun.textContent = y;
-       let dayHeader = document.querySelector("[id = ' Sun ']");
-       dayHeader.appendChild(daySun);
+       weekNum.appendChild(daySun);
         console.log("hi I am sunday");
 
        } else if( isDayMonday === true){
@@ -91,8 +105,7 @@ function createCalendarUI(num, today, month, year ){
         const dayMon = document.createElement("li");
         dayMon.className = "dayDivs";
         dayMon.textContent = y;
-       let dayHeader = document.querySelector("#Mon");
-       dayHeader.appendChild(dayMon);
+       dayNum.appendChild(dayMon);
         console.log("hi I am monday");
 
        } else if(isDayTuesday === true){
@@ -100,33 +113,31 @@ function createCalendarUI(num, today, month, year ){
         const dayTues = document.createElement("li");
         dayTues.className = "dayDivs";
         dayTues.textContent = y;
-      let dayHeader = document.getElementById("Tues");
-       dayHeader.appendChild(dayTues);
+       dayNum.appendChild(dayTues);
         console.log("hi I am tuesday");
 
        } else if(isDayWednesday === true){
 
         const dayWed = document.createElement("li");
         dayWed.className = "dayDivs";
-        dayWed.textContent = y;
-        let dayHeader = document.querySelector("#Wed");
-       dayHeader.appendChild(dayWed);
+        dayWed.textContent = y; 
+       dayNum.appendChild(dayWed);
         console.log("hi I am wednesday");
        } else if(isDayThursday === true){
 
         const dayThurs = document.createElement("li");
         dayThurs.className = "dayDivs";
         dayThurs.textContent = y;
-        let dayHeader = document.querySelector("#Thurs");
-       dayHeader.appendChild(dayThurs);
+         
+       dayNum.appendChild(dayThurs);
         console.log("hi I am thursday");
        } else if(isDayFriday === true){
 
         const dayFri = document.createElement("li");
         dayFri.className = "dayDivs";
         dayFri.textContent = y;
-        let dayHeader = document.querySelector("#Fri");
-       dayHeader.appendChild(dayFri);
+         
+       dayNum.appendChild(dayFri);
         console.log("hi I am friday");
 
        } else if(isDaySaturday === true){
@@ -134,30 +145,19 @@ function createCalendarUI(num, today, month, year ){
         const daySat = document.createElement("li");
         daySat.className = "dayDivs";
         daySat.textContent = y;
-        let dayHeader = document.querySelector("#Sat");
-       dayHeader.appendChild(daySat);
+         
+       dayNum.appendChild(daySat);
         console.log("hi I am saturday");
 
        } else{
         return
        }   
-    };}
-   return container;
-}  
-     
-    
-  
-  console.log(createCalendarUI(numOfdays,todayDate,month, thisYear));
-  // return createCalendarUI(numOfdays,todayDate,month, thisYear);
-   return createCalendarUI(numOfdays,todayDate,month, thisYear);
-};
+    };
+}
 
- 
-// number the divs as days
-// current day has a highlighter on the background.
+function makeWeekDivs(){
 
-
-
+}
 function handleCalendarEvent(day){
  day.addEventListener("click", ()=>{
     //open day Schedule
