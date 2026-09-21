@@ -2,6 +2,7 @@ import { format, startOfDay , isToday, isTomorrow, isYesterday, isSunday, isMond
 
 import {pagediv} from "./home.js";
 
+ 
 export function dateForThings(){
 const today = new date();
 console.log(today);
@@ -49,28 +50,30 @@ console.log(numOfdays);
     const container = document.createElement("div");
     container.className = "calendarDiv";
     const headers = [" Sun ", " Mon ", " Tues ", " Wed "," Thurs ", " Fri ", " Sat "];
-     let dayHeaderDiv;
+   
+const dayHeaderDivs = [];
 
+for(let i = 0; i <= 6; i++){       
+    const dayHeaderDiv = document.createElement("ul");
 
-     //make weekHeader divs
-    for(let i = 0; i <= 6; i++){       
-    dayHeaderDiv = document.createElement("ul");
-    dayHeaderDiv.className= "dayHeaderDiv";
-    dayHeaderDiv.id = headers[i].replace(/^\s+|\s+$/g, "");
-    console.log(dayHeaderDiv.id);
+    dayHeaderDiv.className = "dayHeaderDiv";
+    dayHeaderDiv.id = headers[i].trim();
     dayHeaderDiv.textContent = headers[i];
+
     container.appendChild(dayHeaderDiv);
-    
-    }
+
+    dayHeaderDivs.push(dayHeaderDiv);
+}
+     
     
 
-   makeDayDivs(num,dayHeaderDiv,year,month)
+   makeDayDivs(num,dayHeaderDivs,year,month)
    return container;
 }  
      
     
   
-  console.log(createCalendarUI(numOfdays,todayDate,month, thisYear));
+  
   // return createCalendarUI(numOfdays,todayDate,month, thisYear);
    return createCalendarUI(numOfdays,todayDate,month, thisYear);
 };
@@ -110,7 +113,6 @@ console.log(numOfdays);
         daySun.className = "dayDivs";
         daySun.textContent = y;
         sundayList.push(daySun);
-       
         console.log("hi I am sunday");
 
        } else if( isDayMonday === true){
@@ -127,7 +129,6 @@ console.log(numOfdays);
         dayTues.className = "dayDivs";
         dayTues.textContent = y;
         tuesdayList.push(dayTues);
-       
         console.log("hi I am tuesday");
 
        } else if(isDayWednesday === true){
@@ -136,7 +137,6 @@ console.log(numOfdays);
         dayWed.className = "dayDivs";
         dayWed.textContent = y; 
         wednesdayList.push(dayWed);
-       
         console.log("hi I am wednesday");
        } else if(isDayThursday === true){
 
@@ -144,7 +144,6 @@ console.log(numOfdays);
         dayThurs.className = "dayDivs";
         dayThurs.textContent = y;
         thursdayList.push(dayThurs);
-        
         console.log("hi I am thursday");
        } else if(isDayFriday === true){
 
@@ -152,16 +151,13 @@ console.log(numOfdays);
         dayFri.className = "dayDivs";
         dayFri.textContent = y;
         fridayList.push(dayFri);
-        
         console.log("hi I am friday");
-
        } else if(isDaySaturday === true){
 
         let daySat = document.createElement("li");
         daySat.className = "dayDivs";
         daySat.textContent = y;
         saturdayList.push(daySat);
-       
         console.log("hi I am saturday");
 
        } else{
@@ -169,8 +165,39 @@ console.log(numOfdays);
        }   
     };
      
-   
-    console.log("monday:"+saturdayList)
+   mondayList.forEach((obj)=>{ if (dayHeaderDivs[1] === "Mon"){
+      dayHeaderDivs[1].append(obj);
+   }});
+
+   tuesdayList.forEach((obj)=>{ if (dayHeaderDivs[2] === "Tues"){
+      dayHeaderDivs[2].append(obj);
+   }});
+
+   wednesdayList.forEach((obj)=>{ if (dayHeaderDivs[3] === "Wed"){
+      dayHeaderDivs[3].append(obj);
+   }});
+
+   thursdayList.forEach((obj)=>{ if (dayHeaderDis[4] === "Thurs"){
+      dayHeaderDivs[4].append(obj);
+   }});
+
+   fridayList.forEach((obj)=>{ if (dayHeaderDivs[5] === "Fri"){
+      dayHeaderDivs[5].append(obj);
+   }});
+
+   saturdayList.forEach((obj)=>{ if (dayHeaderDivs[6]=== "Sat"){
+      dayHeaderDivs[6].append(obj);
+   }});
+
+   sundayList.forEach((obj)=>{ if (dayHeaderDivs[0] === "Sun"){
+      dayHeaderDivs[0].append(obj);
+   }});
+
+    console.log("sat:"+saturdayList);
+    console.log("sun:"+sundayList);
+    console.log("mon:"+mondayList);
+    console.log("tues:"+tuesdayList);
+    console.log("wed:"+wednesdayList);
     //return (mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList)
 }
 
