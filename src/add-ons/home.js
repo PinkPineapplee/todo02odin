@@ -1,6 +1,6 @@
 console.log("I am home.js");
 
-import { createCalendar } from "./calender.js";
+import { createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
 import {Todo, Project} from "./logic.js";
 
 
@@ -822,6 +822,11 @@ export function  createMonthly(){
    div.append(monthBox,createCalendar());
  }
   container.append(header,div);
+
+  //  saturdayList.forEach((day)=>{
+  //     let satUl = document.querySelector("#Sat");
+  //     satUl.append(day)
+  //   });
 //    let numb = pagediv.childElementCount; console.log(numb)
 //      if (numb > 1){
 //          pagediv.lastChild.replaceWith(container);

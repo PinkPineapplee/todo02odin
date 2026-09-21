@@ -44,24 +44,27 @@ console.log(numOfdays);
 
 
 //creates div equivalent to the number of days.
-function createCalendarUI(num, today, month, year ){
+ function createCalendarUI(num, today, month, year ){
  
     const container = document.createElement("div");
+    container.className = "calendarDiv";
     const headers = [" Sun ", " Mon ", " Tues ", " Wed "," Thurs ", " Fri ", " Sat "];
      let dayHeaderDiv;
 
 
-     //make week divs
+     //make weekHeader divs
     for(let i = 0; i <= 6; i++){       
     dayHeaderDiv = document.createElement("ul");
+    dayHeaderDiv.className= "dayHeaderDiv";
     dayHeaderDiv.id = headers[i].replace(/^\s+|\s+$/g, "");
     console.log(dayHeaderDiv.id);
     dayHeaderDiv.textContent = headers[i];
     container.appendChild(dayHeaderDiv);
+    
     }
     
 
-   
+   makeDayDivs(num,dayHeaderDiv,year,month)
    return container;
 }  
      
@@ -75,7 +78,15 @@ function createCalendarUI(num, today, month, year ){
  
 // number the divs as days
 // current day has a highlighter on the background.
-function makeDayDivs(num , weekNum, year, month){
+ function makeDayDivs(num , weekNum, year, month){
+    let mondayList =[];
+    let tuesdayList = [];
+    let wednesdayList = [];
+    let thursdayList = [];
+    let fridayList = [];
+    let saturdayList = [];
+    let sundayList =[];
+
     // make day divs
     for(let y = 1 ; y <= num; y++){
 
@@ -88,71 +99,79 @@ function makeDayDivs(num , weekNum, year, month){
     let isDayFriday = isFriday(new Date(year, month, y));
     let isDaySaturday = isSaturday(new Date(year, month, y));
 
+    
 
-    const dayDivs = document.createElement("li");
-    dayDivs.className = "dayDivs";
-    dayDivs.textContent = y;
+   //  const dayDivs = document.createElement("li");
+   //  dayDivs.className = "dayDivs";
+   //  dayDivs.textContent = y;
 
        if(isDaySunday === true){
-        const daySun = document.createElement("li");
+        let daySun = document.createElement("li");
         daySun.className = "dayDivs";
         daySun.textContent = y;
-       weekNum.appendChild(daySun);
+        sundayList.push(daySun);
+       
         console.log("hi I am sunday");
 
        } else if( isDayMonday === true){
 
-        const dayMon = document.createElement("li");
+        let dayMon = document.createElement("li");
         dayMon.className = "dayDivs";
         dayMon.textContent = y;
-       dayNum.appendChild(dayMon);
+        mondayList.push(dayMon);
         console.log("hi I am monday");
 
        } else if(isDayTuesday === true){
 
-        const dayTues = document.createElement("li");
+        let dayTues = document.createElement("li");
         dayTues.className = "dayDivs";
         dayTues.textContent = y;
-       dayNum.appendChild(dayTues);
+        tuesdayList.push(dayTues);
+       
         console.log("hi I am tuesday");
 
        } else if(isDayWednesday === true){
 
-        const dayWed = document.createElement("li");
+        let dayWed = document.createElement("li");
         dayWed.className = "dayDivs";
         dayWed.textContent = y; 
-       dayNum.appendChild(dayWed);
+        wednesdayList.push(dayWed);
+       
         console.log("hi I am wednesday");
        } else if(isDayThursday === true){
 
-        const dayThurs = document.createElement("li");
+        let dayThurs = document.createElement("li");
         dayThurs.className = "dayDivs";
         dayThurs.textContent = y;
-         
-       dayNum.appendChild(dayThurs);
+        thursdayList.push(dayThurs);
+        
         console.log("hi I am thursday");
        } else if(isDayFriday === true){
 
-        const dayFri = document.createElement("li");
+        let dayFri = document.createElement("li");
         dayFri.className = "dayDivs";
         dayFri.textContent = y;
-         
-       dayNum.appendChild(dayFri);
+        fridayList.push(dayFri);
+        
         console.log("hi I am friday");
 
        } else if(isDaySaturday === true){
 
-        const daySat = document.createElement("li");
+        let daySat = document.createElement("li");
         daySat.className = "dayDivs";
         daySat.textContent = y;
-         
-       dayNum.appendChild(daySat);
+        saturdayList.push(daySat);
+       
         console.log("hi I am saturday");
 
        } else{
         return
        }   
     };
+     
+   
+    console.log("monday:"+saturdayList)
+    //return (mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList)
 }
 
 function makeWeekDivs(){

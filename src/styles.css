@@ -486,3 +486,11 @@ hr{
  .monthDiv{
     display: flex;
  }
+
+ .calendarDiv{
+    display:flex;
+ }
+
+ .dayHeaderDiv#Mon li{
+    background-color: aqua;
+ }
