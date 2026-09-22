@@ -15,7 +15,7 @@ return (formattedDate, todayStarts);
 };
 
 
-export function createCalendar(){   
+export function createCalendar(monthNum){   
 //check today
 const todayDate = new Date().getDate();
 const thisDay = new Date().getDay();
@@ -27,11 +27,11 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 const d = new Date();
 let month = d.getMonth()
-let thisMonth = months[month];
+let thisMonth = months[monthNum];
 // checks the year
 const thisYear = d.getFullYear();
 // return the number of days in that month.
-console.log("month:"+ thisMonth,"year:"+ thisYear);
+console.log("month:"+ month,"year:"+ thisYear);
 
 function getDaysInMonthZeroIndexed(year, monthIndex) {
   return new Date(year, monthIndex + 1, 0).getDate();
@@ -39,7 +39,7 @@ function getDaysInMonthZeroIndexed(year, monthIndex) {
 console.log(thisMonth)
 console.log(thisYear)
 
-let numOfdays= getDaysInMonthZeroIndexed(thisYear,d.getMonth());
+let numOfdays= getDaysInMonthZeroIndexed(thisYear,monthNum);
 console.log(numOfdays);
 
 
@@ -67,12 +67,12 @@ for(let i = 0; i <= 6; i++){
      
     
 
-   makeDayDivs(num,dayHeaderDivs,year,month)
+   makeDayDivs(num,dayHeaderDivs,year,monthNum)
    return container;
 }  
       
   // return createCalendarUI(numOfdays,todayDate,month, thisYear);
-   return createCalendarUI(numOfdays,todayDate,month, thisYear);
+   return createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
 };
 
  
@@ -104,7 +104,7 @@ for(let i = 0; i <= 6; i++){
         let daySun = document.createElement("li");
         daySun.className = "dayDivs";
         daySun.textContent = y;
-        sundayList.push(daySun);
+        sundayList.push(y);
         weekNum[0].append(daySun)
         console.log("hi I am sunday");
 
@@ -113,7 +113,7 @@ for(let i = 0; i <= 6; i++){
         let dayMon = document.createElement("li");
         dayMon.className = "dayDivs";
         dayMon.textContent = y;
-        mondayList.push(dayMon);
+        mondayList.push(y);
         weekNum[1].append(dayMon)
         console.log("hi I am monday");
 
@@ -122,7 +122,7 @@ for(let i = 0; i <= 6; i++){
         let dayTues = document.createElement("li");
         dayTues.className = "dayDivs";
         dayTues.textContent = y;
-        tuesdayList.push(dayTues);
+        tuesdayList.push(y);
         weekNum[2].append(dayTues)
         console.log("hi I am tuesday");
 
@@ -131,7 +131,7 @@ for(let i = 0; i <= 6; i++){
         let dayWed = document.createElement("li");
         dayWed.className = "dayDivs";
         dayWed.textContent = y; 
-        wednesdayList.push(dayWed);
+        wednesdayList.push(y);
         weekNum[3].append(dayWed)
         console.log("hi I am wednesday");
        } else if(isDayThursday === true){
@@ -139,7 +139,7 @@ for(let i = 0; i <= 6; i++){
         let dayThurs = document.createElement("li");
         dayThurs.className = "dayDivs";
         dayThurs.textContent = y;
-        thursdayList.push(dayThurs);
+        thursdayList.push(y);
         weekNum[4].append(dayThurs)
         console.log("hi I am thursday");
        } else if(isDayFriday === true){
@@ -147,7 +147,7 @@ for(let i = 0; i <= 6; i++){
         let dayFri = document.createElement("li");
         dayFri.className = "dayDivs";
         dayFri.textContent = y;
-        fridayList.push(dayFri);
+        fridayList.push(y);
         weekNum[5].append(dayFri)
         console.log("hi I am friday");
 
@@ -156,45 +156,22 @@ for(let i = 0; i <= 6; i++){
         let daySat = document.createElement("li");
         daySat.className = "dayDivs";
         daySat.textContent = y;
-        saturdayList.push(daySat);
+        saturdayList.push(y);
         weekNum[6].append(daySat)
         console.log("hi I am saturday");
 
        } else{
-         const emptyDivs = document.createElement("li");
-          emptyDivs.className = "dayDivs";
-          emptyDivs.textContent = "";
-          dayHeaderDiv.append(emptyDivs);
+         return;
        }   
     };
      
-   // mondayList.forEach((obj)=>{ if (weekNum[1] === "Mon"){
-   //    weekNum[1].append(obj);
-   // }});
-
-   // tuesdayList.forEach((obj)=>{ if (weekNum[2] === "Tues"){
-   //    weekNum[2].append(obj);
-   // }});
-
-   // wednesdayList.forEach((obj)=>{ if (weekNum[3] === "Wed"){
-   //    weekNum[3].append(obj);
-   // }});
-
-   // thursdayList.forEach((obj)=>{ if (weekNum[4] === "Thurs"){
-   //    weekNum[4].append(obj);
-   // }});
-
-   // fridayList.forEach((obj)=>{ if (weekNum[5] === "Fri"){
-   //    weekNum[5].append(obj);
-   // }});
-
-   // saturdayList.forEach((obj)=>{ if (weekNum[6]=== "Sat"){
-   //    weekNum[6].append(obj);
-   // }});
-
-   // sundayList.forEach((obj)=>{ if (weekNum[0] === "Sun"){
-   //    weekNum[0].append(obj);
-   // }});
+    if (weekNum[0][0] !== 1){
+      let daydiv = document.createElement("li");
+      daydiv.textContent = "";
+      weekNum[0]= sundayList;
+      weekNum[0].unshift(daydiv);
+      weekNum.push(...sundayList);
+    }
 
     //return (mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList)
 }

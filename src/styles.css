@@ -485,12 +485,37 @@ hr{
 
  .monthDiv{
     display: flex;
+    background-color: bisque;
+    height: 5rem;
  }
-
+.monthDiv img{
+    width: 15%;
+    height: 100%;
+}
+.monthDiv .header{
+    background-color: aliceblue;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+    bottom: 20px;
+}
  .calendarDiv{
     display:flex;
  }
 
+ .calendarDiv li{
+   height: 2rem ;
+   width: 2rem;
+ }
+
+ .dayHeaderDiv{
+    list-style: none;
+    text-align: center;
+   
+ }
  .dayHeaderDiv#Mon li{
     background-color: aqua;
  }

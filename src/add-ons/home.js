@@ -808,6 +808,9 @@ export function  createMonthly(){
     const header = document.createElement("h1");
     const div = document.createElement("div");
    
+    // checks the month and how many days it has.
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
@@ -816,10 +819,11 @@ export function  createMonthly(){
     const monthImg = document.createElement("img");
     monthImg.src = monthBg;
     const monthHeader = document.createElement("h2");
-    monthHeader.textContent= "September";
+    monthHeader.className = "header";
+    monthHeader.textContent= months[i];
     monthDiv.append(monthImg, monthHeader);
     monthBox.append(monthDiv);
-   div.append(monthBox,createCalendar());
+   div.append(monthBox,createCalendar(i));
  }
   container.append(header,div);
 
