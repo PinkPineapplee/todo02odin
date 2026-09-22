@@ -99,9 +99,7 @@ for(let i = 0; i <= 6; i++){
     let isDayFriday = isFriday(new Date(year, month, y));
     let isDaySaturday = isSaturday(new Date(year, month, y));
 
-   //  const dayDivs = document.createElement("li");
-   //  dayDivs.className = "dayDivs";
-   //  dayDivs.textContent = y;
+   
        if(isDaySunday === true){
         let daySun = document.createElement("li");
         daySun.className = "dayDivs";
@@ -163,7 +161,10 @@ for(let i = 0; i <= 6; i++){
         console.log("hi I am saturday");
 
        } else{
-        return
+         const emptyDivs = document.createElement("li");
+          emptyDivs.className = "dayDivs";
+          emptyDivs.textContent = "";
+          dayHeaderDiv.append(emptyDivs);
        }   
     };
      
