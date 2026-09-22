@@ -120,7 +120,8 @@ export function makeNavBar(){
         const navEvents ={
             events:[l1,l2,l3,l4,l5],
             func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
-        };
+      
+          };
 
 
 
@@ -165,23 +166,26 @@ function startNewProject(){
           addBtn.className = "addProject";
           addBtn.textContent = " Add Project ";
 
-          let project = new Project(nameInput.value,date.value);
-             let projectLi = document.createElement("li");
-               projectLi.id = "projects";
-               projectLi.textContent= project.name;
-               ul2.append(projectLi);
-
-                function startCancelBtn(){
+   function startCancelBtn(){
    // This function removes todoform from webpage.
    form.reset();
    pagediv.removeChild(displayModal);
-   
-
-};
+   };
 
          handleCLickEvent(cancelBtn, startCancelBtn);
          handleCLickEvent(addBtn, ()=>{ 
-            let newProject = new Project(title.vale, date.value)}
+             let projectLi = document.createElement("li");
+               projectLi.id = "projects";
+               
+               ul2.append(projectLi);
+                 let project = new Project(nameInput.value,date.value);
+                 project.saveProject();
+               
+                 const projectImg = document.createElement("img");
+                 projectImg.src = book;
+
+                 projectLi.textContent= projectImg + project.name;
+                }
         );
           form.append(title,inputDiv,cancelBtn,addBtn);
           displayModal.appendChild(form);
@@ -195,7 +199,10 @@ function startNewProject(){
         handleCLickEvent(l5, createMonthly);
         handleCLickEvent(plus, startNewProject);
 
-   
+        const projectPage = document.querySelector("#projects");
+            handleCLickEvent(projectPage, projectPage.createPage());
+                 projectPage.isProjectFinished();
+  return ul2; 
 console.log("I am making a beautiful nav bar!")
 }
 

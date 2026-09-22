@@ -3,6 +3,8 @@
 
  import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
 
+ //import { ul2, createNavBar} from "./home.js";
+
 console.log("I am logic.js");
 
 let isClicked = false;
@@ -24,18 +26,10 @@ export class Project{
 
     saveProject(obj){
         projectBox.push(obj);
-       
-
-        //create new list in nav
-        const listUi = document.createElement("li");
-        listUi.className = "list";
-        listUi.textContent = project.name;
-        ul2.textContent += listUi;                                                                                                                  
+                                                                                                                       
     }
     
-    createProjectPage(counter, task){
-     
-          
+    createPage(counter, task,obj){        
           const container = document.createElement("div");
               container.className = "todayContainer";
           const header = document.createElement("div");
@@ -45,7 +39,7 @@ export class Project{
                bookicon.src = book;
                bookicon.className = "book-icon";
                 let text6 = document.createElement("h1");
-                text6.textContent = "Today"
+                text6.textContent = obj.name;
                 header.append(bookicon, text6);
           const count = document.createElement("p");
              const span = document.createElement("span");
