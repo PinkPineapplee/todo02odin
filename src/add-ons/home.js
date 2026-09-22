@@ -185,6 +185,10 @@ function startNewProject(){
                  projectImg.src = book;
 
                  projectLi.textContent= projectImg + project.name;
+
+                  const projectPage = document.querySelector("#projects");
+                 handleCLickEvent(projectPage, projectPage.createPage())
+                 projectPage.isProjectFinished();
                 }
         );
           form.append(title,inputDiv,cancelBtn,addBtn);
@@ -199,9 +203,7 @@ function startNewProject(){
         handleCLickEvent(l5, createMonthly);
         handleCLickEvent(plus, startNewProject);
 
-        const projectPage = document.querySelector("#projects");
-            handleCLickEvent(projectPage, projectPage.createPage());
-                 projectPage.isProjectFinished();
+       
   return ul2; 
 console.log("I am making a beautiful nav bar!")
 }
