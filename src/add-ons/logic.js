@@ -1,10 +1,16 @@
 //import {compareAsc, format} from "date-fns";
  import { dateForThings } from "./calender.js";
 
+ import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
+
 console.log("I am logic.js");
 
 let isClicked = false;
 const projectBox = []
+
+const general = {
+
+};
 
 export class Project{
 
@@ -16,13 +22,9 @@ export class Project{
      this.id = toString(this.name);
     }
 
-    newProject(){
-        console.log("what will you call this great quest?");
-        const inputName = prompt("what will you call this great adventure?")
-        const project = new Project( inputName);
-        this.name = project;
-        projectBox.push(project)
-        return project;
+    saveProject(obj){
+        projectBox.push(obj);
+       
 
         //create new list in nav
         const listUi = document.createElement("li");

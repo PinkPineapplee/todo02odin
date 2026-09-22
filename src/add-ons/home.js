@@ -479,8 +479,8 @@ function startReminderBtn(){
       selectReminders.name = "reminders"; 
       const r = document.createElement("option");
       r.value = 0;
-     r.textContent = "Default";
-     r.id = "reminder";
+      r.textContent = "Default";
+      r.id = "reminder";
     const r1 = document.createElement("option");
       r1.value = 50000;
       r1.textContent = "In 5 miniutes";
@@ -814,6 +814,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
  for(let i= 0 ; i <= 11; i++){
     const monthBox = document.createElement("div");
+    monthBox.className = "monthBox";
     const monthDiv = document.createElement("div");
     monthDiv.className= "monthDiv";
     const monthImg = document.createElement("img");
