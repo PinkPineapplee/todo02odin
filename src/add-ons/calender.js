@@ -4,7 +4,7 @@ import {pagediv} from "./home.js";
 
  
 export function dateForThings(){
-const today = new date();
+const today = new Date();
 console.log(today);
 
 const formattedDate = format(new Date(), "yyyy-MM-dd");

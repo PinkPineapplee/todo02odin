@@ -1,6 +1,6 @@
 console.log("I am home.js");
 
-import { createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
+import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
 import {Todo, Project} from "./logic.js";
 
 
@@ -410,12 +410,13 @@ function startSend(){
 };
 
 function startRescheduleBtn(){
-     const chooseDate = new Date.getDate();
+  
+  
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-        dateNow.textContent = "Thursday";
+        dateNow.textContent = dateForThings();
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
       selectreschedulers.name = "rescheduleers"; 
@@ -430,7 +431,7 @@ function startRescheduleBtn(){
     r3.textContent = "In 1 Week";
     const r4 = document.createElement("option");
     r1.value = " ";
-    r4.textContent = createCalendar();
+    r4.textContent = calendar;
 
     const time = document.createElement("button");
      time.id = "time-btn";
@@ -441,7 +442,7 @@ function startRescheduleBtn(){
     selectreschedulers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, hr , time, repeat);
     formDiv.append(rescheduleDiv);
-    return chooseDate;
+    
 };
 
 function startPriorityBtn(){
