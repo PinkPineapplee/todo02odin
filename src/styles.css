@@ -358,6 +358,18 @@ hr{
     background-color: orange;
     overflow-y: scroll;
 }
+
+#time-btn, #repeat-btn{
+    width: 95%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    border: 0;
+    margin: 3px;
+    background-color: white;
+}
 .remindDiv{
     height: 10vh;
     width: 10vw;
