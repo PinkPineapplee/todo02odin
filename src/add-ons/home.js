@@ -430,9 +430,12 @@ function startRescheduleBtn(){
     r3.value = "1 week";
     r3.textContent = "In 1 Week";
     const r4 = document.createElement("option");
-    r1.value = " ";
-    r4.textContent = calendar;
-
+    r1.value = createCalendar(8);
+    r4.append(calendarDiv);
+     
+    const calendarDiv = document.createElement("div");
+      calendarDiv.append(calendar);
+      r4.append(calendarDiv);
     const time = document.createElement("button");
      time.id = "time-btn";
      time.textContent= "time";
