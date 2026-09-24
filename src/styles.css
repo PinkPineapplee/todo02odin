@@ -341,11 +341,13 @@ hr{
 }
 
 .rescheduleDiv{
-    height: 30vh;
-    width: 15vw;
-    bottom: 73px;
-    right: 70px;
-    background-color: aqua;
+    height: 60vh;
+    width: 20vw;
+    bottom: 100px;
+    left: 70px;
+    border-radius: 5px;
+    box-shadow: 2px 1px;
+    
 }
 
 .remindDiv{

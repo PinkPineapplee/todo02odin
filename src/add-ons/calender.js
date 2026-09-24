@@ -174,7 +174,7 @@ for(let i = 0; i <= 6; i++){
       weekNum.push(...sundayList);
     }
 
-    //return (mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList)
+    return (weekDay,todayDate, thisMonth,thisYear);
 }
 
 function makeWeekDivs(){
