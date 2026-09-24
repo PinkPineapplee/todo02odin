@@ -429,21 +429,22 @@ function startRescheduleBtn(){
     const r3 = document.createElement("option");
     r3.value = "1 week";
     r3.textContent = "In 1 Week";
-    const r4 = document.createElement("option");
-    r1.value = createCalendar(8);
+    const hr4 = document.createElement("hr");
+
     
      
     const calendarDiv = document.createElement("div");
+    calendarDiv.className = "rescheduleCalendar"
       calendarDiv.append(calendar);
-      r4.append(calendarDiv);
+     
     const time = document.createElement("button");
      time.id = "time-btn";
      time.textContent= "time";
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
-    selectreschedulers.append(r1,r2,r3,r4);
-    rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, hr , time, repeat);
+    selectreschedulers.append(r1,r2,r3);
+    rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv, time, repeat);
     formDiv.append(rescheduleDiv);
     
 };
