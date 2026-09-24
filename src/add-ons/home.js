@@ -19,7 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
- const calendar= createCalendar();
+ const calendar= createCalendar(8);
  let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -431,7 +431,7 @@ function startRescheduleBtn(){
     r3.textContent = "In 1 Week";
     const r4 = document.createElement("option");
     r1.value = createCalendar(8);
-    r4.append(calendarDiv);
+    
      
     const calendarDiv = document.createElement("div");
       calendarDiv.append(calendar);
