@@ -202,13 +202,36 @@ export class Todo extends Project{
        
         let todo = new Todo(title,description,dueDate,priority,notes, projects);  
         Storage.saveItem(todo);
-        Storage.getItem(todo);
-        this.printTodo(todo.title,todo.dueDate,todo.checkList);
+        
         return todo;
     
         console.log("added new todo!")
     
     }  
+
+    updateTodoUI(){
+        let task = Storage.getItem(todo);
+        this.printTodo(todo.title,todo.dueDate,todo.checkList);
+
+       // this function creates a new list ui for a newTodo and add it to the page. 
+     const Hr1 = document.createElement("hr"); 
+     const todoItem = document.createElement("li");
+       todoItem.id = "todos";
+       const radioBtn = document.createElement("span");
+        radioBtn.className = "material-symbols-outlined";
+        radioBtn.textContent = "radio_button_unchecked";
+        
+     const listBox = document.createElement("div");
+        let list = document.createElement("p");
+            list.textContent = task.title;
+        let listDes = document.createElement("p"); 
+            listDes.textContent = task.description;
+        let dateElem = document.createElement("p");
+            dateElem.textContent = task.dueDate;
+            listBox.append(title,description, dateElem);
+            todoItem.append(Hr1, radioBtn,listBox);
+
+    }
 };
 
 
