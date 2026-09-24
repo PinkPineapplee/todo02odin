@@ -19,7 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
- const calendar= createCalendar(8);
+ const {calendar, time}= createCalendar(8);
  let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");

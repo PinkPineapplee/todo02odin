@@ -73,7 +73,7 @@ for(let i = 0; i <= 6; i++){
 }  
       
   // return createCalendarUI(numOfdays,todayDate,month, thisYear);
-   return createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
+   return container, createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
 };
 
  
@@ -163,7 +163,8 @@ for(let i = 0; i <= 6; i++){
 
        } else{
          return;
-       }   
+       } 
+       
     };
      
     if (weekNum[0][0] !== 1){
