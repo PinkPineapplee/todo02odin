@@ -385,7 +385,8 @@ export function creatNewTodoForm(){
           
 
     const addBtn = document.createElement("button");
-          addBtn.type = "submit";
+          addBtn.type = "button";
+          addBtn.id = "submit";
           addBtn.className = "addBtn";
           addBtn.textContent = " Add Task ";
 
@@ -409,12 +410,12 @@ function startSend(){
 };
 
 function startRescheduleBtn(){
-
+     const chooseDate = new Date.getDate();
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-    dateNow.textContent = "Thursday";
+        dateNow.textContent = "Thursday";
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
       selectreschedulers.name = "rescheduleers"; 
@@ -440,7 +441,7 @@ function startRescheduleBtn(){
     selectreschedulers.append(r1,r2,r3,r4);
     rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, hr , time, repeat);
     formDiv.append(rescheduleDiv);
-    
+    return chooseDate;
 };
 
 function startPriorityBtn(){
