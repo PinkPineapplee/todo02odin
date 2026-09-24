@@ -414,7 +414,7 @@ function startRescheduleBtn(){
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-    dateNow.textContent = date.now();
+    dateNow.textContent = "Thursday";
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
       selectreschedulers.name = "rescheduleers"; 
@@ -448,9 +448,6 @@ function startPriorityBtn(){
     // this function creates ui for priority bar and updates todo objects.
     formDiv.appendChild(priorityDiv);
 
-    // handleCLickEvent(high,()=>{ Todo.priority = "high";});
-    // handleCLickEvent(medium,()=>{Todo.priority = "medium";});
-    // handleCLickEvent(low,()=>{Todo.priority = "low";});
 };
 
 function startAddTask(){
@@ -474,8 +471,8 @@ function startAddTask(){
             listDes.textContent = task.description;
         let dateElem = document.createElement("p");
             dateElem.textContent = task.dueDate;
-         listBox.append(title,description, dateElem);
-         todoItem.append(Hr1, radioBtn,listBox);
+            listBox.append(title,description, dateElem);
+            todoItem.append(Hr1, radioBtn,listBox);
 
 };
 

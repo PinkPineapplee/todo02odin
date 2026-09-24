@@ -21,15 +21,14 @@ export class Project{
      this.date = date;
      this.todos = [];
      this.isCompleted = false;
-     this.id = toString(this.name);
-    }
+     this.id = "projects";}
 
     saveProject(obj){
         projectBox.push(obj);
                                                                                                                        
     }
     
-    createPage(counter, task,obj){        
+    createPage(counter, task, obj){        
           const container = document.createElement("div");
               container.className = "todayContainer";
           const header = document.createElement("div");
@@ -125,8 +124,7 @@ export class Project{
             })
         };
         
-        function startRescheduleBtn(){
-        
+        function startRescheduleBtn(){      
             // this function creates ui for reschdule icon.and adds date to todos.
              const rescheduleDiv = document.createElement("div");
                  rescheduleDiv.className = "rescheduleDiv";
@@ -201,15 +199,15 @@ export class Todo extends Project{
 
     //create new todos 
     addNew(){
-        if (isClicked=== true){
+       
         let todo = new Todo(title,description,dueDate,priority,notes, projects);  
         Storage.saveItem(todo);
         Storage.getItem(todo);
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
         return todo;
-    }else{
-        console.log("add new todo!")
-    }
+    
+        console.log("added new todo!")
+    
     }  
 };
 

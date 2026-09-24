@@ -36,6 +36,7 @@ console.log("month:"+ month,"year:"+ thisYear);
 function getDaysInMonthZeroIndexed(year, monthIndex) {
   return new Date(year, monthIndex + 1, 0).getDate();
 }
+console.log(monthNum);
 console.log(thisMonth)
 console.log(thisYear)
 
