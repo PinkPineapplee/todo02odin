@@ -19,7 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
- const calendar= createCalendar();
+
  let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -410,13 +410,14 @@ function startSend(){
 };
 
 function startRescheduleBtn(){
-  
+   let {formattedDate, monthNum}= dateForThings();
+   console.log(formattedDate, monthNum);
   
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-        dateNow.textContent = dateForThings();
+        dateNow.textContent = formattedDate;
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
       selectreschedulers.name = "rescheduleers"; 
@@ -435,7 +436,7 @@ function startRescheduleBtn(){
      
     const calendarDiv = document.createElement("div");
     calendarDiv.className = "rescheduleCalendar"
-      calendarDiv.append(calendar);
+      calendarDiv.append(createCalendar(monthNum));
      
     const time = document.createElement("button");
      time.id = "time-btn";

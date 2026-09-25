@@ -356,7 +356,7 @@ hr{
     height: 60%;
     width: 100%;
     background-color: orange;
-    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 #time-btn, #repeat-btn{

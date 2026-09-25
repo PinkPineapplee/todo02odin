@@ -1,17 +1,19 @@
 import { format, startOfDay , isToday, isTomorrow, isYesterday, isSunday, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday} from "date-fns";
 
 import {pagediv} from "./home.js";
+import { monthsInQuarter } from "date-fns/constants";
 
  
 export function dateForThings(){
+
 const today = new Date();
-console.log(today);
+let month = today.getMonth();
 
 const formattedDate = format(new Date(), "yyyy-MM-dd");
-
+console.log(formattedDate,monthsInQuarter);
 const todayStarts = startOfDay(new Date());
 
-return (formattedDate, todayStarts);
+return (formattedDate, month);
 };
 
 
