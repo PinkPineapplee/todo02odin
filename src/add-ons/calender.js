@@ -9,11 +9,11 @@ export function dateForThings(){
 const today = new Date();
 let month = today.getMonth();
 
-const formattedDate = format(new Date(), "yyyy-MM-dd");
-console.log(formattedDate,monthsInQuarter);
-const todayStarts = startOfDay(new Date());
+let formattedDate = format(new Date(), "yyyy-MM-dd");
 
-return (formattedDate, month);
+let todayStarts = startOfDay(new Date());
+
+return formattedDate;
 };
 
 

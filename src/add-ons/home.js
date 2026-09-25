@@ -409,9 +409,12 @@ function startSend(){
  
 };
 
+
+  let formattedDate= dateForThings();
+   console.log(formattedDate);
+
 function startRescheduleBtn(){
-   let {formattedDate, monthNum}= dateForThings();
-   console.log(formattedDate, monthNum);
+ 
   
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
@@ -436,7 +439,7 @@ function startRescheduleBtn(){
      
     const calendarDiv = document.createElement("div");
     calendarDiv.className = "rescheduleCalendar"
-      calendarDiv.append(createCalendar(monthNum));
+      calendarDiv.append(createCalendar(8));
      
     const time = document.createElement("button");
      time.id = "time-btn";
