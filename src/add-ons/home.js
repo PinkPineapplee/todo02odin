@@ -19,7 +19,7 @@ import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
 import rabbit from "../images/bunny_1469155.png";
 
 
- const {calendar, time}= createCalendar(8);
+ const calendar= createCalendar();
  let isDuplicate = 0;
 const div = document.querySelector(".page-layout");
 const pagediv = document.createElement("div");
@@ -822,17 +822,6 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
    div.append(monthBox,createCalendar(i));
  }
   container.append(header,div);
-
-  //  saturdayList.forEach((day)=>{
-  //     let satUl = document.querySelector("#Sat");
-  //     satUl.append(day)
-  //   });
-//    let numb = pagediv.childElementCount; console.log(numb)
-//      if (numb > 1){
-//          pagediv.lastChild.replaceWith(container);
-//      }else {
-//        pagediv.append(container);
-//      }
  pagediv.lastChild.replaceWith(container);
  console.log("Monthly display created!")
 }
@@ -865,10 +854,8 @@ export function createSearch(){
 
 
         function findSearchItem(){
-    // this function executes search that sort though todo array.
-  
-
-    const todoSearch = document.querySelector(".searchBtn");
+       // this function executes search that sort though todo array.
+      const todoSearch = document.querySelector(".searchBtn");
        todoSearch.addEventListener("click", ()=>{
         let currentValue = searchInput.value.toLocaleLowerCase();
         console.log(currentValue);
@@ -881,7 +868,7 @@ export function createSearch(){
             }
         })
        })
-}   
+      }   
  form.append(searchIcon, searchInput,searchBtn)
   container.append(form);
 

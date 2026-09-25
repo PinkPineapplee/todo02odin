@@ -43,7 +43,6 @@ console.log(thisYear)
 let numOfdays= getDaysInMonthZeroIndexed(thisYear,monthNum);
 console.log(numOfdays);
 
- return (weekDay,todayDate, thisMonth,thisYear);
 
 //creates div equivalent to the number of days.
  function createCalendarUI(num, today, month, year ){
@@ -73,7 +72,7 @@ for(let i = 0; i <= 6; i++){
 }  
       
   // return createCalendarUI(numOfdays,todayDate,month, thisYear);
-   return container, createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
+   return createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
 };
 
  
