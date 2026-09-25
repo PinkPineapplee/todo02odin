@@ -13,7 +13,7 @@ let formattedDate = format(new Date(), "yyyy-MM-dd");
 
 let todayStarts = startOfDay(new Date());
 
-return formattedDate;
+return todayStarts;
 };
 
 

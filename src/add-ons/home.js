@@ -420,9 +420,11 @@ function startRescheduleBtn(){
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
+       dateNow.className = "formatDateNow"
         dateNow.textContent = formattedDate;
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
+      selectreschedulers.className = "rescheduleers"; 
       selectreschedulers.name = "rescheduleers"; 
     const r1 = document.createElement("option");
       r1.value = "tomorrow";
@@ -448,7 +450,7 @@ function startRescheduleBtn(){
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
     selectreschedulers.append(r1,r2,r3);
-    rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv, time, repeat);
+    rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
     formDiv.append(rescheduleDiv);
     
 };
