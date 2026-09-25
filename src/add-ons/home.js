@@ -449,10 +449,13 @@ function startRescheduleBtn(){
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
-    selectreschedulers.append(r1,r2,r3);
-    rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
-    formDiv.append(rescheduleDiv);
+     selectreschedulers.append(r1,r2,r3);
+     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
+     formDiv.append(rescheduleDiv);
     
+     pagediv.addEventListener("click", ()=>{
+      formDiv.remove(rescheduleDiv)
+     } )
 };
 
 function startPriorityBtn(){

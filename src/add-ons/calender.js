@@ -51,7 +51,7 @@ console.log(numOfdays);
  
     const container = document.createElement("div");
     container.className = "calendarDiv";
-    const headers = [" Sun ", " Mon ", " Tues ", " Wed "," Thurs ", " Fri ", " Sat "];
+    const headers = [" Sun ", " Mon ", " Tue ", " Wed "," Thu ", " Fri ", " Sat "];
    
 const dayHeaderDivs = [];
 
