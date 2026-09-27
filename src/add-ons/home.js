@@ -262,6 +262,8 @@ export function makeDisplayBar(){
 //Create for task form
 export function creatNewTodoForm(){
    let dueDate;
+   let priority;
+   let notes;
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
 
@@ -517,7 +519,7 @@ function startPriorityBtn(){
 
 function startAddTask(){
    
-     let task = Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,ReminderBtn.selected,notes, projects);
+     let task = Todo.addNew(titleInput.value,description.value,dueDate,priority,reminder,notes, projects);
      Project.todos.push(task);
      console.log(task);
 
@@ -604,10 +606,10 @@ function getNotes(){
     handleCLickEvent(inboxBtn, startSend);
     handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
-    handleCLickEvent(div2, startPriorityBtn);
+    handleCLickEvent(div2, ()=>{ priority = startPriorityBtn()});
     handleCLickEvent(div3, startReminderBtn);
     handleCLickEvent(div1, ()=>{  dueDate= startRescheduleBtn()});
-    handleCLickEvent(options, getNotes);
+    handleCLickEvent(options, ()=>{ notes = getNotes});
    
 console.log("I am making a beautiful todo form!")
 }
