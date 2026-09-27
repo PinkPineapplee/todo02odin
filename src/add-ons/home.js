@@ -264,6 +264,7 @@ export function creatNewTodoForm(){
    let dueDate;
    let priority;
    let notes;
+   let reminder;
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
 
@@ -519,7 +520,7 @@ function startPriorityBtn(){
 
 function startAddTask(){
    
-     let task = Todo.addNew(titleInput.value,description.value,dueDate,priority,reminder,notes, projects);
+     let task = Todo.addNew(titleInput.value,description.value,dueDate,priority,reminder,notes, projects= "general");
      Project.todos.push(task);
      console.log(task);
 
