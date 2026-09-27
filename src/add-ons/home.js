@@ -395,7 +395,15 @@ function startSend(){
    console.log(formattedDate);
 
 function startRescheduleBtn(){
- 
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const twoDays = new Date(today);
+    twoDays.setDate(today.getDate() + 2);
+
+     const oneWeek = new Date(today);
+    oneWeek.setDate(today.getDate() + 7);
   
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
@@ -439,7 +447,16 @@ function startRescheduleBtn(){
          formDiv.removeChild(rescheduleDiv);
        })
       
-     
+  if (selectreschedulers.value === "tomorrow"){
+    return tomorrow;
+  } else if (selectreschedulers.value === "2 days"){
+   return twoDays;
+  }else if (selectreschedulers.value === "1 week"){
+   return oneWeek;
+  }else{
+    return today;
+  }
+
 };
 
 function startPriorityBtn(){
@@ -500,7 +517,7 @@ function startPriorityBtn(){
 
 function startAddTask(){
    
-     let task = Todo.addNew(titleInput.value,description.value,dueDate,priorityElem.selected,ReminderBtn.selected,notes, projects);
+     let task = Todo.addNew(titleInput.value,description.value,dueDate.value,priorityElem.selected,ReminderBtn.selected,notes, projects);
      Project.todos.push(task);
      console.log(task);
 
@@ -572,11 +589,9 @@ function getNotes(){
         content = noteText.textContent;
         formDiv.removeChild(noteDiv);
         return content;
-    });
-   
-   
+    });   
 
-   return  content;
+   return content;
 };
 
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
