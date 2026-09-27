@@ -320,26 +320,7 @@ export function creatNewTodoForm(){
            label1.textContent= "Priority";
           div2.append(ribbonIcon, label1);
 
-    const priorityDiv = document.createElement("div");
-    priorityDiv.className = "priorityDiv"
-  
-          const high = document.createElement("input");
-            high.name = "priority";
-            high.type = "radio";
-            high.value = "high";
-            high.textContent = "High";
-           const medium = document.createElement("input");
-            medium.name = "priority";
-            medium.type = "radio";
-            medium.value = "medium";
-            medium.textContent = "Medium";
-           const low = document.createElement("input");
-            low.name = "priority";
-            low.type = "radio";
-            low.value = "low"; 
-            low.textContent = "Low"; 
-
-           priorityDiv.append(high,medium,low);
+   
            
 
 
@@ -453,15 +434,67 @@ function startRescheduleBtn(){
      rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
      formDiv.append(rescheduleDiv);
     
-     pagediv.addEventListener("click", ()=>{
-      formDiv.remove(rescheduleDiv)
-     } )
+     
+       rescheduleDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(rescheduleDiv);
+       })
+      
+     
 };
 
 function startPriorityBtn(){
    
+
     // this function creates ui for priority bar and updates todo objects.
-    formDiv.appendChild(priorityDiv);
+
+     const priorityDiv = document.createElement("div");
+    priorityDiv.className = "priorityDiv";
+
+    let div = document.createElement("div");
+         const highP= document.createElement("p");
+            
+          const high = document.createElement("input");
+            high.name = "priority";
+            high.id = "high";
+            high.type = "radio";
+            high.value = "high";
+            high.textContent = "High";
+            highP.append(high);
+            highP.textContent ="High";
+           div.append(high, highP);
+           
+ let div1 = document.createElement("div");
+            const mediumP= document.createElement("p");
+           const medium = document.createElement("input");
+            medium.name = "priority";
+            medium.id = "medium";
+            medium.type = "radio";
+            medium.value = "medium";
+            medium.textContent = "Medium";
+             mediumP.append(medium);
+            mediumP.textContent="Medium";
+            div1.append(medium, mediumP);
+      
+             let div2 = document.createElement("div");
+            const lowP= document.createElement("p");
+           const low = document.createElement("input");
+            low.name = "priority";
+            low.id = "low";
+            low.type = "radio";
+            low.value = "low"; 
+            low.textContent = "Low"; 
+            lowP.append(low);
+            lowP.textContent = "Low";
+            div2.append(low,lowP);
+
+           priorityDiv.append(div,div1,div2);
+
+            formDiv.appendChild(priorityDiv);
+
+      
+       priorityDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(priorityDiv);
+       })
 
 };
 
