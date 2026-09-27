@@ -553,7 +553,19 @@ function startReminderBtn(){
       r3.textContent = "In 1 hour";
       r3.id = "reminder";
        
-    
+    if(selectReminders.selected === r1){
+        setTimeout( ()=>{ alert("it's time to do your tasks");
+           return r1.textContent, r1.value})
+    } else if(selectReminders.selected === r2){
+      ()=>{ alert("it's time to do your tasks")
+        return r2.textContent, r2.value}
+    } else if(selectReminders.selected === r3){
+      ()=>{ alert("it's time to do your tasks");
+         return r3.textContent, r3.value}
+    }else {selectReminders.selected = "default";
+      return;
+
+    }
      
     selectReminders.append(r, r1,r2,r3);
     remindDiv.append(selectReminders);
@@ -563,6 +575,7 @@ function startReminderBtn(){
          formDiv.removeChild(remindDiv);
        })
     
+      
 };
 
 function getNotes(){
