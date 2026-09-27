@@ -198,19 +198,19 @@ export class Todo extends Project{
     }};
 
     //create new todos 
-    addNew(){
-       
-        let todo = new Todo(title,description,dueDate,priority,notes, projects);  
-        Storage.saveItem(todo);
+    addNew(todo){
+       let storageItem = new Storage.saveItem(todo);
         
-        return todo;
+       
+        
+         updateTodoUI(storageItem);
     
         console.log("added new todo!")
     
     }  
 
     updateTodoUI(){
-        let task = Storage.getItem(todo);
+        let getTask = new Storage.getItem(todo);
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
 
        // this function creates a new list ui for a newTodo and add it to the page. 

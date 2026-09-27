@@ -521,7 +521,7 @@ function startPriorityBtn(){
 function startAddTask(){
    
      let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
-       task.addNe();
+       task.addNew(task);
      Project.todos.push(task);
      console.log(task);
 
