@@ -520,11 +520,13 @@ function startPriorityBtn(){
 
 function startAddTask(){
    
-     let task = Todo.addNew(titleInput.value,description.value,dueDate,priority,reminder,notes, projects= "general");
+     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
+       task.addNe();
      Project.todos.push(task);
      console.log(task);
 
       task.updateTodoUI();
+      formDiv.remove();
 };
 
 
