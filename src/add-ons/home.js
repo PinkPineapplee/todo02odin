@@ -547,7 +547,7 @@ function startReminderBtn(){
 };
 
 function getNotes(){
-    
+    let content ;
     const noteDiv = document.createElement("div");
           noteDiv.className = "notesDiv";
     const notetitle = document.createElement("h5");
@@ -569,11 +569,14 @@ function getNotes(){
     formDiv.append(noteDiv);
 
     add.addEventListener("click", ()=>{
-        let content = noteText.textContent;
+        content = noteText.textContent;
+        formDiv.removeChild(noteDiv);
         return content;
     });
    
-   return content;
+   
+
+   return  content;
 };
 
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
