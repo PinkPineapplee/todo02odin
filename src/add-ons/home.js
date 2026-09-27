@@ -518,29 +518,38 @@ function startReminderBtn(){
       r.value = 0;
       r.textContent = "Default";
       r.id = "reminder";
+      
     const r1 = document.createElement("option");
       r1.value = 50000;
       r1.textContent = "In 5 miniutes";
       r1.id = "reminder";
+        
     const r2 = document.createElement("option");
       r2.value = 300000;
       r2.textContent = "In 30 miniutes";
       r2.id = "reminder";
+       
     const r3 = document.createElement("option");
       r3.value = 600000;
       r3.textContent = "In 1 hour";
       r3.id = "reminder";
+       
     
      
     selectReminders.append(r, r1,r2,r3);
     remindDiv.append(selectReminders);
     formDiv.appendChild(remindDiv);
+
+      remindDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(remindDiv);
+       })
     
 };
 
 function getNotes(){
     
     const noteDiv = document.createElement("div");
+          noteDiv.className = "notesDiv";
     const notetitle = document.createElement("h5");
           notetitle.className = "notetitle";
           notetitle.textContent = "Add notes or comments."
@@ -548,12 +557,13 @@ function getNotes(){
           noteP.className = "noteP";
     const noteText = document.createElement("textarea");
           noteText.placeholder= "I think we should launch that campaign.";
-          noteText.rows = "20";
-          noteText.cols = "60";
+          noteText.rows = "10";
+          noteText.cols = "30";
     noteP.appendChild(noteText);
     const add = document.createElement("button");
        add.id = "addNotes";
        add.type = "submit";
+       add.textContent = "Submit";
      
     noteDiv.append(notetitle,noteP,add);
     formDiv.append(noteDiv);

@@ -399,15 +399,20 @@ color: gray;
     height: 5vh;
     width: 10vw;
     bottom: 73px;
-    left: 200px;
+    left: 330px;
     background-color: white;    
      border-radius: 10px;
      border: 1px solid rgb(179, 177, 177);
-    box-shadow: 2px 1px 10px rgb(185, 183, 183);
- 
-   
+    box-shadow: 2px 1px 10px rgb(185, 183, 183); 
 }
 
+
+.remindDiv option{
+    width: 100%;
+    border: none;
+    color: gray;
+
+}
 .priorityDiv{
     height: 20vh;
     width: 20vh;
@@ -432,12 +437,20 @@ color: gray;
     height: 20px;
 }
 .notesDiv{
-     height: 10vh;
-    width: 10vw;
+   
     bottom: 70px;
     left: 120px;
-     background-color: rgb(146, 16, 107);
+     background-color: white;
 }
+
+.notesDiv button{
+    height: 2rem;
+    width: 4rem;
+    background-color: rgb(227, 56, 56);
+    border: none;
+    border-radius: 3px;
+}
+
 .projectModal, .searchModal{
     height: 50vh;
     width: 50vh;
