@@ -199,7 +199,7 @@ export class Todo extends Project{
 
     //create new todos 
     addNew(todo){
-       let storageItem = new Storage.saveItem(todo);
+       let storageItem = Storage.saveItem(todo);
         
        
         
@@ -210,7 +210,7 @@ export class Todo extends Project{
     }  
 
     updateTodoUI(){
-        let getTask = new Storage.getItem(todo);
+        let getTask =  Storage.getItem(todo);
         this.printTodo(todo.title,todo.dueDate,todo.checkList);
 
        // this function creates a new list ui for a newTodo and add it to the page. 
