@@ -197,17 +197,7 @@ export class Todo extends Project{
          console.log( due ,title,"&#10005");
     }};
 
-    //create new todos 
-    addNew(todo){
-       let storageItem = Storage.saveItem(todo);
-        
-       
-        
-         updateTodoUI(storageItem);
     
-        console.log("added new todo!")
-    
-    }  
 
     updateTodoUI(){
         let getTask =  Storage.getItem(todo);
@@ -232,13 +222,30 @@ export class Todo extends Project{
             todoItem.append(Hr1, radioBtn,listBox);
 
     }
+
+    //create new todos 
+    addNew(todo){
+       let storageItem = new Storage(todo);
+         storageItem.saveItem(storageItem);
+       
+        
+        todo.updateTodoUI(storageItem);
+    
+        console.log("added new todo!")
+    
+    };  
 };
 
 
 class Storage{
+     constructor(todo){
+     this.todo = todo;
+     }
      saveItem(todo){
-          console.log ("task", " had been stored safely in localStorage.");
+        
             localStorage.setItem("task",JSON.stringify(todo));
+
+              console.log ("task", " had been stored safely in localStorage.");
     }
 
     getItem(){
