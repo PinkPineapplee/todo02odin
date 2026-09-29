@@ -625,7 +625,7 @@ function getNotes(){
     handleCLickEvent(div2, ()=>{ priority = startPriorityBtn()});
     handleCLickEvent(div3, startReminderBtn);
     handleCLickEvent(div1, ()=>{  dueDate= startRescheduleBtn()});
-    handleCLickEvent(options, ()=>{ notes = getNotes});
+    handleCLickEvent(options, ()=>{ notes = getNotes()});
    
 console.log("I am making a beautiful todo form!")
 }

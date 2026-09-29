@@ -225,8 +225,8 @@ export class Todo extends Project{
 
     //create new todos 
     addNew(todo){
-      setTodoStorage(todo)
-       getTodoStorage(todo);
+      let savedItem = setTodoStorage(todo);
+       getTodoStorage(savedItem);
         
        
     
@@ -237,7 +237,7 @@ export class Todo extends Project{
 
 
 function setTodoStorage(todo){
-     localStorage.setItem("task",JSON.stringify(todo));
+      return localStorage.setItem("task",JSON.stringify(todo));
       console.log ("task", " had been stored safely in localStorage.");
 };
 
@@ -249,19 +249,9 @@ function getTodoStorage(task){
          return savedTodo;
 };
 
-function removeStorageItem(){
-     let tasks = document.querySelectorAll(".todos");
-
-     tasks.forEach((task)=>{
-        task.addEventListener("click", (e)=>{
-            
-        })
-      let task = e.target;
-      localStorage.removeItem(task)
-
-     });
-    
-
+function removeStorageItem(task){   
+localStorage.removeItem(task);
+ console.log(task , " has been sucessfully removed from storage.")
 };  
 
    
