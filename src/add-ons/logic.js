@@ -200,10 +200,10 @@ export class Todo extends Project{
     
 
     updateTodoUI(){
-        let getTask =  Storage.getItem(todo);
-        this.printTodo(todo.title,todo.dueDate,todo.checkList);
+        let getTask = getTodoStorage();
+        this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
 
-       // this function creates a new list ui for a newTodo and add it to the page. 
+       // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
        todoItem.id = "todos";
@@ -221,15 +221,14 @@ export class Todo extends Project{
             listBox.append(title,description, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
 
-    }
+    }  
 
     //create new todos 
     addNew(todo){
-       let storageItem = new Storage(todo);
-         storageItem.saveItem(storageItem);
+      setTodoStorage(todo)
        
         
-        todo.updateTodoUI(storageItem);
+        todo.updateTodoUI();
     
         console.log("added new todo!")
     
@@ -237,7 +236,7 @@ export class Todo extends Project{
 };
 
 
-function setTodoStorage(){
+function setTodoStorage(todo){
      localStorage.setItem("task",JSON.stringify(todo));
       console.log ("task", " had been stored safely in localStorage.");
 };
