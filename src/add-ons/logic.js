@@ -237,26 +237,24 @@ export class Todo extends Project{
 };
 
 
-class Storage{
-     constructor(todo){
-     this.todo = todo;
-     }
-     saveItem(todo){
-        
-            localStorage.setItem("task",JSON.stringify(todo));
-
-              console.log ("task", " had been stored safely in localStorage.");
-    }
-
-    getItem(){
-         let savedTodo = localStorage.getItem("task");
-             Project.todos.push(savedTodo);
-    }
-
-    removeItem(todo){
-        localStorage.removeItem(todo)
-    }
+function setTodoStorage(){
+     localStorage.setItem("task",JSON.stringify(todo));
+      console.log ("task", " had been stored safely in localStorage.");
 };
+
+function getTodoStorage(){
+     let savedTodo = localStorage.getItem("task");
+             Project.todos.push(savedTodo);
+
+             return savedTodo;
+};
+
+function removeStorageItem(todo){
+     localStorage.removeItem(todo)
+
+};  
+
+   
 
 
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
