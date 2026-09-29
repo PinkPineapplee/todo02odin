@@ -525,7 +525,7 @@ function startAddTask(){
      Project.todos.push(task);
      console.log(task);
 
-      task.updateTodoUI();
+      task.updateTodoUI(task);
       formDiv.remove();
 };
 

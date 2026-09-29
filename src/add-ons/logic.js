@@ -200,7 +200,7 @@ export class Todo extends Project{
     
 
     updateTodoUI(todo){
-        let getTask = todo
+        let getTask = todo;
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
 
        // this function creates a new list ui for a newgetTask and add it to the page. 
@@ -228,7 +228,7 @@ export class Todo extends Project{
       setTodoStorage(todo)
        getTodoStorage(todo);
         
-        todo.updateTodoUI(todo);
+       
     
         console.log("added new todo!")
     
@@ -243,10 +243,10 @@ function setTodoStorage(todo){
 
 function getTodoStorage(task){
    
-     let savedTodo = localStorage.getItem(task);
-             Project.todos.push(savedTodo);
+     let savedTodo = localStorage.getItem(JSON.parse(task));
+         Project.todos.push(savedTodo);
 
-             return savedTodo;
+         return savedTodo;
 };
 
 function removeStorageItem(){
