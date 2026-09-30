@@ -188,7 +188,7 @@ export class Todo extends Project{
         this.checkList = false;
     }
 
-    printTodo(title, due,check){
+    printTodo(title, due, check){
         if(check === false){
        console.log( due ,title,"&#9744");
     }else{
@@ -212,11 +212,11 @@ export class Todo extends Project{
         
      const listBox = document.createElement("div");
         let list = document.createElement("p");
-            list.textContent =todo.title;
+            list.textContent = todo.title;
         let listDes = document.createElement("p"); 
-            listDes.textContent =todo.description;
+            listDes.textContent = todo.description;
         let dateElem = document.createElement("p");
-            dateElem.textContent =todo.dueDate;
+            dateElem.textContent = todo.dueDate;
             listBox.append(title,description, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
             relem.after(todoItem);

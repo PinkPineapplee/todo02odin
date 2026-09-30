@@ -522,8 +522,9 @@ function startAddTask(){
    
      let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
        task.addNew(task);
-     Project.todos.push(task);
-     console.log(task);
+       let newProject = new Project(task.Project,task.dueDate);
+       newProject.todos.push(task);
+       console.log(task);
 
       task.updateTodoUI(task);
       formDiv.remove();
