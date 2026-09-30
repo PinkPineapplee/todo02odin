@@ -200,7 +200,7 @@ export class Todo extends Project{
     updateTodoUI(todo){
         let getTask = todo;
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
-
+        getTodoStorage(task);
         const relem = document.querySelector("#todos");
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
@@ -228,7 +228,10 @@ export class Todo extends Project{
        setTodoStorage(todo.id,todo);
         console.log("added new todo!")
     
-    };  
+    }; 
+    
+    
+    
 };
 
 
