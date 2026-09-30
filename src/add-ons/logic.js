@@ -8,11 +8,7 @@
 console.log("I am logic.js");
 
 let isClicked = false;
-const projectBox = []
-
-const general = {
-
-};
+const projectBox = [];
 
 export class Project{
 
@@ -21,7 +17,9 @@ export class Project{
      this.date = date;
      this.todos = [];
      this.isCompleted = false;
-     this.id = "projects";}
+     this.id = "projects";
+     
+    }
 
     saveProject(obj){
         projectBox.push(obj);
@@ -38,7 +36,7 @@ export class Project{
                bookicon.src = book;
                bookicon.className = "book-icon";
                 let text6 = document.createElement("h1");
-                text6.textContent = obj.name;
+                text6.textContent = this.name;
                 header.append(bookicon, text6);
           const count = document.createElement("p");
              const span = document.createElement("span");
@@ -203,33 +201,31 @@ export class Todo extends Project{
         let getTask = todo;
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
 
+        const relem = document.querySelector("#todos");
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
-       todoItem.id = "todos";
+       todoItem.className = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
      const listBox = document.createElement("div");
         let list = document.createElement("p");
-            list.textContent = task.title;
+            list.textContent =todo.title;
         let listDes = document.createElement("p"); 
-            listDes.textContent = task.description;
+            listDes.textContent =todo.description;
         let dateElem = document.createElement("p");
-            dateElem.textContent = task.dueDate;
+            dateElem.textContent =todo.dueDate;
             listBox.append(title,description, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
+            relem.after(todoItem);
 
     }  
 
     //create new todos 
     addNew(todo){
-      let savedItem = setTodoStorage(todo);
-       getTodoStorage(savedItem);
-        
-       
-    
+       setTodoStorage(todo);
         console.log("added new todo!")
     
     };  
@@ -238,6 +234,7 @@ export class Todo extends Project{
 
 function setTodoStorage(todo){
       return localStorage.setItem("task",JSON.stringify(todo));
+       getTodoStorage("task");
       console.log ("task", " had been stored safely in localStorage.");
 };
 
