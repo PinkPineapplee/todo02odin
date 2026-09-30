@@ -217,7 +217,7 @@ export class Todo extends Project{
             listDes.textContent = todo.description;
         let dateElem = document.createElement("p");
             dateElem.textContent = todo.dueDate;
-            listBox.append(title,description, dateElem);
+            listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
             relem.after(todoItem);
 

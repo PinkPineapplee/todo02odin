@@ -524,6 +524,7 @@ function startAddTask(){
        task.addNew(task);
        let newProject = new Project(task.Project,task.dueDate);
        newProject.todos.push(task);
+       newProject.saveProject(newProject);
        console.log(task);
 
       task.updateTodoUI(task);
