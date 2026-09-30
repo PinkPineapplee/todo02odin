@@ -225,17 +225,17 @@ export class Todo extends Project{
 
     //create new todos 
     addNew(todo){
-       setTodoStorage(todo);
+       setTodoStorage(todo.id,todo);
         console.log("added new todo!")
     
     };  
 };
 
 
-function setTodoStorage(todo){
-      return localStorage.setItem("task",JSON.stringify(todo));
-       getTodoStorage("task");
-      console.log ("task", " had been stored safely in localStorage.");
+function setTodoStorage(id,todo){
+      return localStorage.setItem(id,JSON.stringify(todo));
+       getTodoStorage(id);
+      console.log (id, " had been stored safely in localStorage.");
 };
 
 function getTodoStorage(task){
