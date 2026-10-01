@@ -250,6 +250,7 @@ export function makeDisplayBar(){
       });
          
 }
+ 
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
      createToday();
@@ -519,7 +520,7 @@ function startPriorityBtn(){
 };
 
 function startAddTask(){
-   
+    
      let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
        task.addNew(task);
        let newProject = new Project(task.Project,task.dueDate);
@@ -633,8 +634,11 @@ console.log("I am making a beautiful todo form!")
 }
 
 
-export function createToday(counter, task){ 
+export function createToday(){ 
+  let counter = 1;
+  let formattedDate= dateForThings();
   
+
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -678,7 +682,7 @@ export function createToday(counter, task){
         radioBtn.textContent = "radio_button_unchecked";
         
         let text10 = document.createElement("p");
-          text10.textContent= (task || " Edit Videos and post by 3pm.");
+          text10.textContent= ( " Edit Videos and post by 3pm.");
           todoItem.append(radioBtn,text10);
        
          const addTaskBtn = document.createElement("button");
@@ -700,8 +704,8 @@ export function createToday(counter, task){
          pagediv.lastChild.replaceWith(container);
      }else {
        pagediv.append(container);
-     }
-      
+     };
+     
     function pressRadioBtn(){
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
     const rabbiticon = document.createElement("img");
@@ -731,14 +735,25 @@ export function createToday(counter, task){
 };
 
 function startRescheduleBtn(){
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
 
+    const twoDays = new Date(today);
+    twoDays.setDate(today.getDate() + 2);
+
+     const oneWeek = new Date(today);
+    oneWeek.setDate(today.getDate() + 7);
+  
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-    dateNow.textContent = Date.now();
+       dateNow.className = "formatDateNow"
+        dateNow.textContent = formattedDate;
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
+      selectreschedulers.className = "rescheduleers"; 
       selectreschedulers.name = "rescheduleers"; 
     const r1 = document.createElement("option");
       r1.value = "tomorrow";
@@ -749,20 +764,39 @@ function startRescheduleBtn(){
     const r3 = document.createElement("option");
     r3.value = "1 week";
     r3.textContent = "In 1 Week";
-    const r4 = document.createElement("option");
-    r1.value = " ";
-    r4.textContent = createCalendar();
+    const hr4 = document.createElement("hr");
 
+    
+     
+    const calendarDiv = document.createElement("div");
+    calendarDiv.className = "rescheduleCalendar"
+      calendarDiv.append(createCalendar(8));
+     
     const time = document.createElement("button");
      time.id = "time-btn";
      time.textContent= "time";
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
-    selectreschedulers.append(r1,r2,r3,r4);
-    rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, time, repeat);
-    pagediv.append(rescheduleDiv);
+     selectreschedulers.append(r1,r2,r3);
+     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
+     container.append(rescheduleDiv);
     
+     
+       rescheduleDiv.addEventListener("mouseleave",()=>{
+         container.removeChild(rescheduleDiv);
+       })
+      
+  if (selectreschedulers.value === "tomorrow"){
+    return tomorrow;
+  } else if (selectreschedulers.value === "2 days"){
+   return twoDays;
+  }else if (selectreschedulers.value === "1 week"){
+   return oneWeek;
+  }else{
+    return today;
+  }
+
 };
 
       handleCLickEvent(radioBtn, pressRadioBtn);

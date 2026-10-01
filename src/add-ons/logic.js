@@ -223,14 +223,14 @@ export class Todo extends Project{
             dateElem.textContent = todo.dueDate;
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
-            relem.after(todoItem);
+            relem.after(todoItem);            
 
     }  
 
     //create new todos 
     addNew(todo){
        setTodoStorage(todo.id,todo);
-        console.log("added new todo!")
+        console.log("added new todo in localStorage!")
     
     }; 
     
