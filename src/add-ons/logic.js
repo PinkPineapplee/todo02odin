@@ -225,37 +225,37 @@ export class Todo extends Project{
             dateElem.textContent = todo.dueDate;
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
-                       
-dayContainerul.forEach((ul)=>{
-    dayContainerBtn.forEach((button)=>{
-        button.addEventListener("click",(e)=>{
-          let btn = e.target;
-          let btnid = btn.id;
-          return btnid;
-        })
-        return btnid;
-    })
+             relem.after(todoItem);          
+// dayContainerul.forEach((ul)=>{
+//     dayContainerBtn.forEach((button)=>{
+//         button.addEventListener("click",(e)=>{
+//           let btn = e.target;
+//           let btnid = btn.id;
+//           return btnid;
+//         })
+//         return btnid;
+//     })
        
-       if (ul.id === "Monday" && btnid === "Monday"){
-              ul.after(todoItem);  
-          } else if (ul.id === "Tuesday" && btnid === "Monday"){
-             ul.after(todoItem); 
-          } else if (ul.id === "Wednesday" && btnid === "Monday"){
-              ul.after(todoItem); 
-          } else if (ul.id === "Thursday" && btnid === "Monday"){
-              ul.after(todoItem); 
-          }else if (ul.id === "Friday" && btnid === "Monday"){
-              ul.after(todoItem);
-          }else if (ul.id === "Saturday" && btnid === "Monday"){
-              ul.after(todoItem);  
-          }else if (ul.id === "Sunday" && btnid === "Monday"){
-              ul.after(todoItem);
-          }else{
-            relem.after(todoItem);
-            console.log("I found no matches")
-            return;
-          }   
-    })
+//        if (ul.id === "Monday" && btnid === "Monday"){
+//               ul.after(todoItem);  
+//           } else if (ul.id === "Tuesday" && btnid === "Tuesday"){
+//              ul.after(todoItem); 
+//           } else if (ul.id === "Wednesday" && btnid === "Wednesday"){
+//               ul.after(todoItem); 
+//           } else if (ul.id === "Thursday" && btnid === "Thursday"){
+//               ul.after(todoItem); 
+//           }else if (ul.id === "Friday" && btnid === "Friday"){
+//               ul.after(todoItem);
+//           }else if (ul.id === "Saturday" && btnid === "Saturday"){
+//               ul.after(todoItem);  
+//           }else if (ul.id === "Sunday" && btnid === "Sunday"){
+//               ul.after(todoItem);
+//           }else{
+            
+//             console.log("I found no matches")
+//             return;
+//           }   
+//     })
 
          
 }  
