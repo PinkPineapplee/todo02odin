@@ -842,6 +842,7 @@ export function createWeekly(month,num,day,counter,task){
        
       const dayContainer = document.createElement("div");
         dayContainer.className= "dayContainer"; 
+         dayContainer.id = days[i][0];
     const dayName = document.createElement("h3"); 
     dayName.className = "dayName";
     dayName.textContent = days[i][0]; 
@@ -856,6 +857,8 @@ export function createWeekly(month,num,day,counter,task){
          div.style.backgroundColor = banner;
           div.append(dayName,banner);  
     const ul = document.createElement("ul");
+        ul.className= "ul";
+        ul.id = days[i][0];
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
@@ -884,6 +887,7 @@ export function createWeekly(month,num,day,counter,task){
 
     const taskBtn = document.createElement("button");
         taskBtn.className = "addTaskBtn";
+        taskBtn.id = days[i][0];
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";

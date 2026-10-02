@@ -206,6 +206,8 @@ export class Todo extends Project{
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
         
         const relem = document.querySelector("#todos");
+        const dayContainerul = document.querySelectorAll(".ul");
+        const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
@@ -223,9 +225,40 @@ export class Todo extends Project{
             dateElem.textContent = todo.dueDate;
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
-            relem.after(todoItem);            
+                       
+dayContainerul.forEach((ul)=>{
+    dayContainerBtn.forEach((button)=>{
+        button.addEventListener("click",(e)=>{
+          let btn = e.target;
+          let btnid = btn.id;
+          return btnid;
+        })
+        return btnid;
+    })
+       
+       if (ul.id === "Monday" && btnid === "Monday"){
+              ul.after(todoItem);  
+          } else if (ul.id === "Tuesday" && btnid === "Monday"){
+             ul.after(todoItem); 
+          } else if (ul.id === "Wednesday" && btnid === "Monday"){
+              ul.after(todoItem); 
+          } else if (ul.id === "Thursday" && btnid === "Monday"){
+              ul.after(todoItem); 
+          }else if (ul.id === "Friday" && btnid === "Monday"){
+              ul.after(todoItem);
+          }else if (ul.id === "Saturday" && btnid === "Monday"){
+              ul.after(todoItem);  
+          }else if (ul.id === "Sunday" && btnid === "Monday"){
+              ul.after(todoItem);
+          }else{
+            relem.after(todoItem);
+            console.log("I found no matches")
+            return;
+          }   
+    })
 
-    }  
+         
+}  
 
     //create new todos 
     addNew(todo){
