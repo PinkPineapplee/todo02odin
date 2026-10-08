@@ -123,7 +123,11 @@ export function makeNavBar(){
       
           };
 
-
+function removeSideBar(){
+      
+       delete window.makeNavBar;
+       console.log("navbar was removed.")
+    };
 
 
 function startNewProject(){
@@ -199,9 +203,10 @@ function startNewProject(){
         handleCLickEvent(l1, creatNewTodoForm);
         handleCLickEvent(l2, createSearch);
         handleCLickEvent(l3, createToday);
-        handleCLickEvent(l4, createWeekly);
+        handleCLickEvent(l4, ()=>{ createWeekly()});
         handleCLickEvent(l5, createMonthly);
         handleCLickEvent(plus, startNewProject);
+        handleCLickEvent(sideIcon, removeSideBar);
 
        
   return ul2; 
@@ -229,6 +234,16 @@ export function makeDisplayBar(){
         darkMode.className = "material-symbols-outlined";
         darkMode.textContent = "bedtime";
         headerDiv.append(sideIcon,hdiv,darkMode);
+
+    function makeSideBar(){
+      
+        if (window.makeNavBar() === false){
+            makeNavBar();
+        }else{
+         
+           sideIcon.style.display= "hidden";
+        }
+    };
          
     function startDarkMode(){
      const body= document.querySelector("body");
@@ -254,6 +269,7 @@ export function makeDisplayBar(){
     pagediv.append(headerDiv);   
     div.appendChild(pagediv);
      createToday();
+     handleCLickEvent(sideIcon, makeSideBar);
      handleCLickEvent(darkMode, startDarkMode);
     
    console.log("I am making a neat display!");

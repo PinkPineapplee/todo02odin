@@ -194,9 +194,9 @@ export class Todo extends Project{
 
     printTodo(title, due, check){
         if(check === false){
-       console.log( due ,title,"&#9744");
+       console.log( due ,title);
     }else{
-         console.log( due ,title,"&#10005");
+         console.log( due ,title);
     }};
 
     
@@ -263,6 +263,8 @@ export class Todo extends Project{
     //create new todos 
     addNew(todo){
        setTodoStorage(todo.id,todo);
+        let savedTask = getTodoStorage(todo.id);
+       console.log(getTodoStorage(todo.id));
         console.log("added new todo in localStorage!")
     
     }; 
@@ -273,9 +275,10 @@ export class Todo extends Project{
 
 
 function setTodoStorage(id,todo){
-      return localStorage.setItem(id,JSON.stringify(todo));
-       getTodoStorage(id);
-      console.log (id, " had been stored safely in localStorage.");
+     localStorage.setItem(id, JSON.stringify(todo));
+      
+       console.log (id, " had been stored safely in localStorage.");
+       return savedTask;
 };
 
 function getTodoStorage(task){
