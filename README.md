@@ -1,6 +1,9 @@
 # todo02odin
   This is a bunny themed todolist app. Get stuff gone while bunny completes tasks.
 
+  # objective
+  Use date-fns library and localStorage to make items persist in app.
+
   
 
 # Attributes

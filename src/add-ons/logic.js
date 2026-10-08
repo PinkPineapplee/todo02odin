@@ -266,10 +266,8 @@ export class Todo extends Project{
         let savedTask = getTodoStorage(todo.id);
        console.log(getTodoStorage(todo.id));
         console.log("added new todo in localStorage!")
-    
+        return savedTask;
     }; 
-    
-    
 
 };
 
@@ -278,7 +276,7 @@ function setTodoStorage(id,todo){
      localStorage.setItem(id, JSON.stringify(todo));
       
        console.log (id, " had been stored safely in localStorage.");
-       return savedTask;
+       
 };
 
 function getTodoStorage(task){
