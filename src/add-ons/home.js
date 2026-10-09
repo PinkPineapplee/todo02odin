@@ -966,11 +966,12 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
    div.append(monthBox,createCalendar(i));
  }
 
+ const dayDivs = document.querySelector(".calendarDiv li");
  function makeMonthForm(){
 
   const monthModal = document.createElement("modal");
   monthModal.className = "monthModal";
-  
+
    let dueDate;
    let priority;
    let notes;
@@ -1330,7 +1331,7 @@ function getNotes(){
     monthModal.appendChild(formDiv);
     
      
-   
+   handleCLickEvent(dayDivs, makeMonthForm)
     handleCLickEvent(inboxBtn, startSend);
     handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
