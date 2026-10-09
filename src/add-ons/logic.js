@@ -107,7 +107,7 @@ export class Project{
                Todo.checkList = true;
         };
         
-              function collasibleDropdown(){
+              function collapsibleDropdown(){
             // this function handles todolist ui collasping effects.
             const dropRight = document.createElement("span");
                 dropRight.className = "material-symbols-outlined";
@@ -293,8 +293,16 @@ localStorage.removeItem(task);
 };  
 
    
+function clearLocal(){
+    localStorage.clear();
+}clearLocal();
 
-
+function getAllStorage(){
+    let allTodos = [];
+    for (var i = 0 ; i<localStorage.length; i++){
+        allTodos = localStorage.getItem(localStorage.key(i));
+    }
+}
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
 // console.log(newTask);

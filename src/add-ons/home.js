@@ -237,11 +237,11 @@ export function makeDisplayBar(){
 
     function makeSideBar(){
       
-        if (window.makeNavBar() === false){
+        if (window.makeNavBar === false){
             makeNavBar();
         }else{
          
-           sideIcon.style.display= "hidden";
+           sideIcon.display= "hidden";
         }
     };
          
@@ -731,7 +731,7 @@ export function createToday(){
        Todo.checkList = true;
 };
 
-      function collasibleDropdown(){
+      function collapsibleDropdown(){
     // this function handles todolist ui collasping effects.
     const dropRight = document.createElement("span");
         dropRight.className = "material-symbols-outlined";
@@ -818,7 +818,7 @@ function startRescheduleBtn(){
       handleCLickEvent(radioBtn, pressRadioBtn);
       handleCLickEvent(addTaskBtn, creatNewTodoForm);
       handleCLickEvent(text9, startRescheduleBtn);
-      handleCLickEvent(dropDown, collasibleDropdown);
+      handleCLickEvent(dropDown, collapsibleDropdown);
     
   console.log("Today Bar created!");
 };
@@ -965,6 +965,385 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
     monthBox.append(monthDiv);
    div.append(monthBox,createCalendar(i));
  }
+
+ function makeMonthForm(){
+
+  const monthModal = document.createElement("modal");
+  monthModal.className = "monthModal";
+  
+   let dueDate;
+   let priority;
+   let notes;
+   let reminder;
+    const formDiv = document.createElement("div");
+    formDiv.className ="formDiv";
+
+    const formImg = document.createElement("img");
+    formImg.src = formBg;
+    formDiv.style.backgroundColor = "white";
+
+    const form = document.createElement("form");
+        form.action = " ";
+        form.method = "post";
+
+   const inputDiv = document.createElement("div");
+          inputDiv.className = "inputDiv";
+          
+    const titleInput = document.createElement("input");
+            titleInput.type = 'text';
+            titleInput.name = 'title';
+            titleInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+            titleInput.required = true; // Boolean attributes take true/false
+            titleInput.id = 'title';
+
+
+    const description = document.createElement("input");
+            description.type = 'text';
+            description.name = 'description';
+            description.placeholder = "Description";
+            description.required = false; // Boolean attributes take true/false
+            description.id = 'description';
+         inputDiv.append(titleInput,description);
+
+    const itemsDiv = document.createElement("div");
+          itemsDiv.className="itemsDiv";
+
+
+          const div1 = document.createElement("div");
+          div1.className = "div1";
+          
+           const icon = document.createElement("span");
+          icon.className = "material-symbols-outlined";
+          icon.textContent = "Today";
+
+          let label = document.createElement("p");
+           label.style.fontWeight = "bold";
+           label.textContent= "Today";
+          div1.append(icon, label);
+
+    const div2 = document.createElement("div");
+          div2.className = "div2";
+          
+           const ribbonIcon = document.createElement("span");
+          ribbonIcon.className = "material-symbols-outlined";
+          ribbonIcon.textContent = "book_ribbon";
+
+          let label1 = document.createElement("p");
+           label1.style.fontWeight = "bold";
+           label1.textContent= "Priority";
+          div2.append(ribbonIcon, label1);
+
+   
+           
+
+
+    const div3 = document.createElement("div");
+          div3.className="div3"
+         
+          let label2 = document.createElement("p");
+           label2.style.fontWeight = "bold";
+           label2.textContent= "Reminder";
+          
+         
+    const alarmIcon = document.createElement("span");
+          alarmIcon.className = "material-symbols-outlined";
+          alarmIcon.textContent = "alarm";
+          div3.append(alarmIcon, label2);
+    
+    const options = document.createElement("span");
+          options.textContent= "more_horiz";
+          options.className= "material-symbols-outlined";
+          options.id = "optionsIcon"
+    const optionsDiv = document.createElement("div");
+          options.appendChild(optionsDiv);
+        const select = document.createElement("select");
+            let selectOptions = document.createElement("option");
+              selectOptions.value = handleCLickEvent(selectOptions, getNotes)
+              selectOptions.text = "notes";
+        itemsDiv.append(div1,div2,div3,options)  
+    const formHr = document.createElement("hr");
+
+    const inboxBtn = document.createElement("button");
+          inboxBtn.type = "button";
+          inboxBtn.className = "inboxBtn";
+          inboxBtn.textContent =" Inbox ";
+          const inboxIcon = document.createElement("span");
+          inboxIcon.textContent= "inbox_text";
+          inboxIcon.className= "material-symbols-outlined";
+          inboxBtn.append(inboxIcon);
+    const cancelBtn = document.createElement("button");
+          cancelBtn.type = "reset";
+          cancelBtn.className = "cancelBtn";
+          cancelBtn.textContent =" Cancel ";
+    
+          
+
+    const addBtn = document.createElement("button");
+          addBtn.type = "button";
+          addBtn.id = "submit";
+          addBtn.className = "addBtn";
+          addBtn.textContent = " Add Task ";
+
+
+    const buttonDiv = document.createElement("div");
+         buttonDiv.className = "buttonDiv";
+         buttonDiv.append(inboxBtn, cancelBtn, addBtn);
+
+
+     function startCancelBtn(){
+   // This function removes todoform from webpage.
+   form.reset();
+   pagediv.removeChild(monthModal);
+   
+
+};
+
+function startSend(){
+   alert("Your tasks have been sent to email, Tuchuss!")
+ 
+};
+
+
+  let formattedDate= dateForThings();
+   console.log(formattedDate);
+
+function startRescheduleBtn(){
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const twoDays = new Date(today);
+    twoDays.setDate(today.getDate() + 2);
+
+     const oneWeek = new Date(today);
+    oneWeek.setDate(today.getDate() + 7);
+  
+    // this function creates ui for reschdule icon.and adds date to todos.
+     const rescheduleDiv = document.createElement("div");
+         rescheduleDiv.className = "rescheduleDiv";
+    const dateNow = document.createElement("p");
+       dateNow.className = "formatDateNow"
+        dateNow.textContent = formattedDate;
+    const hr = document.createElement("hr");
+    const selectreschedulers = document.createElement("select");
+      selectreschedulers.className = "rescheduleers"; 
+      selectreschedulers.name = "rescheduleers"; 
+    const r1 = document.createElement("option");
+      r1.value = "tomorrow";
+      r1.textContent = "Tomorrow";
+    const r2 = document.createElement("option");
+    r2.value = "2 days";
+    r2.textContent = "In 2 days";
+    const r3 = document.createElement("option");
+    r3.value = "1 week";
+    r3.textContent = "In 1 Week";
+    const hr4 = document.createElement("hr");
+
+    
+     
+    const calendarDiv = document.createElement("div");
+    calendarDiv.className = "rescheduleCalendar"
+      calendarDiv.append(createCalendar(8));
+     
+    const time = document.createElement("button");
+     time.id = "time-btn";
+     time.textContent= "time";
+    const repeat = document.createElement("button");
+     repeat.id = "repeat-btn";
+     repeat.textContent= "Repeat";
+     selectreschedulers.append(r1,r2,r3);
+     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
+     formDiv.append(rescheduleDiv);
+    
+     
+       rescheduleDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(rescheduleDiv);
+       })
+      
+  if (selectreschedulers.value === "tomorrow"){
+    return tomorrow;
+  } else if (selectreschedulers.value === "2 days"){
+   return twoDays;
+  }else if (selectreschedulers.value === "1 week"){
+   return oneWeek;
+  }else{
+    return today;
+  }
+
+};
+
+function startPriorityBtn(){
+   
+
+    // this function creates ui for priority bar and updates todo objects.
+
+     const priorityDiv = document.createElement("div");
+    priorityDiv.className = "priorityDiv";
+
+    let div = document.createElement("div");
+         const highP= document.createElement("p");
+            
+          const high = document.createElement("input");
+            high.name = "priority";
+            high.id = "high";
+            high.type = "radio";
+            high.value = "high";
+            high.textContent = "High";
+            highP.append(high);
+            highP.textContent ="High";
+           div.append(high, highP);
+           
+ let div1 = document.createElement("div");
+            const mediumP= document.createElement("p");
+           const medium = document.createElement("input");
+            medium.name = "priority";
+            medium.id = "medium";
+            medium.type = "radio";
+            medium.value = "medium";
+            medium.textContent = "Medium";
+             mediumP.append(medium);
+            mediumP.textContent="Medium";
+            div1.append(medium, mediumP);
+      
+             let div2 = document.createElement("div");
+            const lowP= document.createElement("p");
+           const low = document.createElement("input");
+            low.name = "priority";
+            low.id = "low";
+            low.type = "radio";
+            low.value = "low"; 
+            low.textContent = "Low"; 
+            lowP.append(low);
+            lowP.textContent = "Low";
+            div2.append(low,lowP);
+
+           priorityDiv.append(div,div1,div2);
+
+            formDiv.appendChild(priorityDiv);
+
+      
+       priorityDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(priorityDiv);
+       })
+
+};
+
+function startAddTask(){
+    
+     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
+       task.addNew(task);
+       let newProject = new Project(task.Project,task.dueDate);
+       newProject.todos.push(task);
+       newProject.saveProject(newProject);
+       console.log(task);
+
+      task.updateTodoUI(task);
+      formDiv.remove();
+};
+
+
+function startReminderBtn(){
+    // this function creates ui for reminder with some reminder functionality.
+    const remindDiv = document.createElement("div");
+     remindDiv.className = "remindDiv";
+    const selectReminders = document.createElement("select");
+      selectReminders.name = "reminders"; 
+      const r = document.createElement("option");
+      r.value = 0;
+      r.textContent = "Default";
+      r.id = "reminder";
+      
+    const r1 = document.createElement("option");
+      r1.value = 50000;
+      r1.textContent = "In 5 miniutes";
+      r1.id = "reminder";
+        
+    const r2 = document.createElement("option");
+      r2.value = 300000;
+      r2.textContent = "In 30 miniutes";
+      r2.id = "reminder";
+       
+    const r3 = document.createElement("option");
+      r3.value = 600000;
+      r3.textContent = "In 1 hour";
+      r3.id = "reminder";
+       
+    if(selectReminders.selected === r1){
+        setTimeout( ()=>{ alert("it's time to do your tasks");
+           return r1.textContent, r1.value})
+    } else if(selectReminders.selected === r2){
+      ()=>{ alert("it's time to do your tasks")
+        return r2.textContent, r2.value}
+    } else if(selectReminders.selected === r3){
+      ()=>{ alert("it's time to do your tasks");
+         return r3.textContent, r3.value}
+    }else {selectReminders.selected = "default";
+      return;
+
+    }
+     
+    selectReminders.append(r, r1,r2,r3);
+    remindDiv.append(selectReminders);
+    formDiv.appendChild(remindDiv);
+
+      remindDiv.addEventListener("mouseleave",()=>{
+         formDiv.removeChild(remindDiv);
+       })
+    
+      
+};
+
+function getNotes(){
+    let content ;
+    const noteDiv = document.createElement("div");
+          noteDiv.className = "notesDiv";
+    const notetitle = document.createElement("h5");
+          notetitle.className = "notetitle";
+          notetitle.textContent = "Add notes or comments."
+    const noteP = document.createElement("p");
+          noteP.className = "noteP";
+    const noteText = document.createElement("textarea");
+          noteText.placeholder= "I think we should launch that campaign.";
+          noteText.rows = "10";
+          noteText.cols = "30";
+    noteP.appendChild(noteText);
+    const add = document.createElement("button");
+       add.id = "addNotes";
+       add.type = "submit";
+       add.textContent = "Submit";
+     
+    noteDiv.append(notetitle,noteP,add);
+    formDiv.append(noteDiv);
+
+    add.addEventListener("click", ()=>{
+        content = noteText.textContent;
+        formDiv.removeChild(noteDiv);
+        return content;
+    });   
+
+   return content;
+};
+
+    form.append(inputDiv, itemsDiv, formHr,buttonDiv);
+    formDiv.textContent="";
+    formDiv.appendChild(form);
+    monthModal.appendChild(formDiv);
+    
+     
+   
+    handleCLickEvent(inboxBtn, startSend);
+    handleCLickEvent(cancelBtn, startCancelBtn);
+    handleCLickEvent(addBtn, startAddTask);
+    handleCLickEvent(div2, ()=>{ priority = startPriorityBtn()});
+    handleCLickEvent(div3, startReminderBtn);
+    handleCLickEvent(div1, ()=>{  dueDate= startRescheduleBtn()});
+    handleCLickEvent(options, ()=>{ notes = getNotes()});
+   
+ };
+
+ function displayMonthPage(){
+
+ };
   container.append(header,div);
  pagediv.lastChild.replaceWith(container);
  console.log("Monthly display created!")

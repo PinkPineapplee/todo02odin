@@ -587,10 +587,13 @@ color: gray;
  }
 
  .calendarDiv li{
-   height: 2rem ;
-   width: 2rem;
+   height: 3rem ;
+   width: 3rem;
  }
 
+ .calendarDiv li:hover{
+ background-color: rgb(240, 248, 255);
+ }
  .dayHeaderDiv{
     list-style: none;
     text-align: center;
