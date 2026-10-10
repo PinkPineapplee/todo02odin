@@ -270,8 +270,9 @@ function clearLocal(){
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){
-        allTodos = localStorage.getItem(localStorage.key(JSON.parse(i)));
+        allTodos.push(localStorage.getItem(localStorage.key(JSON.parse(i))));
     };
+   
     return allTodos;
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )

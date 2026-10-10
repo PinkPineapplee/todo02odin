@@ -585,8 +585,8 @@ function startReminderBtn(){
     } else if(selectReminders.selected === r3){
       ()=>{ alert("it's time to do your tasks");
          return r3.textContent, r3.value}
-    }else {selectReminders.selected = "default";
-      return;
+    }else {
+      selectReminders.selected = "default";
 
     }
      
