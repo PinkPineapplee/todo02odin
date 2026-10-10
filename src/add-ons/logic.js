@@ -250,11 +250,10 @@ function setTodoStorage(id,todo){
        
 };
 
-function getTodoStorage(task, id, clas){
-  
-     let savedTodo = (JSON.parse(task));
+function getTodo(task, id, clas){
+  //  let savedTodo = (JSON.parse(task));
 
-         return savedTodo;
+       //  return savedTodo;
 };
 
 function removeStorageItem(task){   
@@ -270,7 +269,7 @@ function clearLocal(){
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){
-        allTodos.push(localStorage.getItem(localStorage.key(JSON.parse(i))));
+        allTodos.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
     };
    
     return allTodos;
