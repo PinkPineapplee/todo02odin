@@ -9,8 +9,7 @@ console.log("I am logic.js");
 
 let isClicked = false;
 const projectBox = [];
-let allStorageTodos = getAllStorage();
-export class Project{
+ export class Project{
 
     constructor(name, date){
      this.name = name || "General";
@@ -208,7 +207,7 @@ export class Todo extends Project{
         const relem = document.querySelector("#todos");
         const dayContainerul = document.querySelectorAll(".ul");
         const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
-        
+
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
@@ -244,15 +243,16 @@ export class Todo extends Project{
 
 
 function setTodoStorage(id,todo){
+    
      localStorage.setItem(id, JSON.stringify(todo));
       
        console.log (id, " had been stored safely in localStorage.");
        
 };
 
-function getTodoStorage(task){
-   
-     let savedTodo = localStorage.getItem(JSON.parse(task));
+function getTodoStorage(task, id, clas){
+  
+     let savedTodo = (JSON.parse(task));
 
          return savedTodo;
 };
@@ -270,13 +270,15 @@ function clearLocal(){
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){
-        allTodos = localStorage.getItem(localStorage.key(i));
+        allTodos = localStorage.getItem(localStorage.key(JSON.parse(i)));
     };
     return allTodos;
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
 // console.log(newTask);
+let allStorageTodos = getAllStorage();
+   console.log(allStorageTodos);
 
 
 
