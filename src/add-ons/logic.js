@@ -9,7 +9,7 @@ console.log("I am logic.js");
 
 let isClicked = false;
 const projectBox = [];
-
+let allStorageTodos = getAllStorage();
 export class Project{
 
     constructor(name, date){
@@ -128,8 +128,8 @@ export class Project{
         
         function startRescheduleBtn(){      
             // this function creates ui for reschdule icon.and adds date to todos.
-             const rescheduleDiv = document.createElement("div");
-                 rescheduleDiv.className = "rescheduleDiv";
+            const rescheduleDiv = document.createElement("div");
+            rescheduleDiv.className = "rescheduleDiv";
             const dateNow = document.createElement("p");
             dateNow.textContent = Date.now();
             const hr = document.createElement("hr");
@@ -208,6 +208,7 @@ export class Todo extends Project{
         const relem = document.querySelector("#todos");
         const dayContainerul = document.querySelectorAll(".ul");
         const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
+        
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
      const todoItem = document.createElement("li");
@@ -226,36 +227,6 @@ export class Todo extends Project{
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
              relem.after(todoItem);          
-// dayContainerul.forEach((ul)=>{
-//     dayContainerBtn.forEach((button)=>{
-//         button.addEventListener("click",(e)=>{
-//           let btn = e.target;
-//           let btnid = btn.id;
-//           return btnid;
-//         })
-//         return btnid;
-//     })
-       
-//        if (ul.id === "Monday" && btnid === "Monday"){
-//               ul.after(todoItem);  
-//           } else if (ul.id === "Tuesday" && btnid === "Tuesday"){
-//              ul.after(todoItem); 
-//           } else if (ul.id === "Wednesday" && btnid === "Wednesday"){
-//               ul.after(todoItem); 
-//           } else if (ul.id === "Thursday" && btnid === "Thursday"){
-//               ul.after(todoItem); 
-//           }else if (ul.id === "Friday" && btnid === "Friday"){
-//               ul.after(todoItem);
-//           }else if (ul.id === "Saturday" && btnid === "Saturday"){
-//               ul.after(todoItem);  
-//           }else if (ul.id === "Sunday" && btnid === "Sunday"){
-//               ul.after(todoItem);
-//           }else{
-            
-//             console.log("I found no matches")
-//             return;
-//           }   
-//     })
 
          
 }  
@@ -282,7 +253,6 @@ function setTodoStorage(id,todo){
 function getTodoStorage(task){
    
      let savedTodo = localStorage.getItem(JSON.parse(task));
-         Project.todos.push(savedTodo);
 
          return savedTodo;
 };
@@ -295,13 +265,14 @@ localStorage.removeItem(task);
    
 function clearLocal(){
     localStorage.clear();
-}clearLocal();
+}
 
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){
         allTodos = localStorage.getItem(localStorage.key(i));
-    }
+    };
+    return allTodos;
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
