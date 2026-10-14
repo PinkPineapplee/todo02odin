@@ -14,19 +14,26 @@ const projectBox = [];
     constructor(name, date){
      this.name = name || "General";
      this.date = date;
-     this.todos = [];
      this.isCompleted = false;
-     this.id = "projects";
-     
+     this.id = "projects";   
     }
 
-    saveProject(obj){
-        projectBox.push(obj);
+    saveProject(obj, id){
+        localStorage.setItem(id, JSON.stringify(obj));
                                                                                                                        
     };
     
-    getData(project){
-        getTodoStorage(project.name);
+    getData( id, date){
+        let projects = allStorageTodos.filter((id, date)=>{ 
+
+            obj.todos = [];
+
+
+            return obj
+        
+        });
+       
+        getTodoStorage(obj.name);
     };
     
     createPage(counter, task, obj){        
@@ -179,7 +186,7 @@ const projectBox = [];
 // build a large todo class
 export class Todo extends Project{
 
-    constructor(title ,description ,dueDate ,priority , notes, projects){
+    constructor(title ,description ,dueDate ,priority , notes, project){
         super();
         this.id = self.crypto.randomUUID();
         this.title = title;
@@ -188,7 +195,8 @@ export class Todo extends Project{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = notes;
-        this.checkList = false;
+        this.project = project;
+        this.checkList = "false";
     }
 
     printTodo(title, due, check){
@@ -204,7 +212,7 @@ export class Todo extends Project{
         let getTask = todo;
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
         
-        const relem = document.querySelector("#todos");
+        const relem = document.querySelectorAll("#todos");
         const dayContainerul = document.querySelectorAll(".ul");
         const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
 
@@ -225,7 +233,12 @@ export class Todo extends Project{
             dateElem.textContent = todo.dueDate;
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
-             relem.after(todoItem);          
+
+            if (relem.id === todoItem.id){
+                relem.after(todoItem);   
+            }
+
+                  
 
          
 }  
@@ -250,9 +263,15 @@ function setTodoStorage(id,todo){
        
 };
 
-function getTodo(task, id, clas){
-  //  let savedTodo = (JSON.parse(task));
-
+function getTodo(task, id, date){
+    //Use the filter method to sort the todos.
+     let todo = allStorageTodos.filter;
+     
+     function filterByDateClass(item){
+        if(item.id && item.dueDate){
+            
+        }
+     }
        //  return savedTodo;
 };
 

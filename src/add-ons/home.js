@@ -541,7 +541,7 @@ function startAddTask(){
      let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
        task.addNew(task);
        let newProject = new Project(task.Project,task.dueDate);
-       newProject.todos.push(task);
+       newProject.todos = [task];
        newProject.saveProject(newProject);
        console.log(task);
 
