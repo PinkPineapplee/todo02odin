@@ -241,9 +241,7 @@ export class Todo extends Project{
          
 }  
 
- addOld(todos){
-
- }
+ 
 
     //create new todos 
     addNew(todo){
@@ -268,13 +266,12 @@ export function setTodoStorage(id,todo){
 
  export function getTodo( id, date){
 
-    // console.log(newTask);
 let allStorageTodos = getAllStorage();
    console.log(allStorageTodos);
 
     //Use the filter method to sort the todos.
      let todo = allStorageTodos.filter(u => u.id === id);
-      console.log(todo);
+      
      
         return todo;
 };
@@ -299,7 +296,19 @@ function getAllStorage(){
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
-
+function getOldTodos(){
+    let allStorageTodos = getAllStorage();
+  let todayTodos = allStorageTodos.filter(u => u.id === "today")
+  let mondayTodos =allStorageTodos.filter(u => u.id === "monday")
+  let tuesdayTodos = allStorageTodos.filter(u => u.id === "tuesday")
+  let wednesdayTodos =allStorageTodos.filter(u => u.id === "wednesday")
+  let thursdayTodos =allStorageTodos.filter(u => u.id === "thursday")
+  let fridayTodos =allStorageTodos.filter(u => u.id === "friday")
+  let satTodos =allStorageTodos.filter(u => u.id === "saturday")
+  let sunTodos =allStorageTodos.filter(u => u.id === "sunday")
+  let projectTodos =allStorageTodos.filter(u => u.project === "today")
+  let monthTodos =allStorageTodos.filter(u => u.dueDate === date)
+ }
 
 
 
