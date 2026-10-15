@@ -14,6 +14,7 @@ const projectBox = [];
     constructor(name, date){
      this.name = name || "General";
      this.date = date;
+     this.id = self.crypto.randomUUID();
      this.isCompleted = false;
      this.id = "projects";   
     }
@@ -237,17 +238,19 @@ export class Todo extends Project{
             if (relem.id === todoItem.id){
                 relem.after(todoItem);   
             }
-
-                  
-
          
 }  
+
+ addOld(todos){
+
+ }
 
     //create new todos 
     addNew(todo){
        setTodoStorage(todo.id,todo);
         let savedTask = getTodo(todo.id,todo.dueDate);
        console.log(getTodo(todo.id,todo.dueDate));
+       todo.updateTodoUI(savedTask);
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -255,7 +258,7 @@ export class Todo extends Project{
 };
 
 
-function setTodoStorage(id,todo){
+export function setTodoStorage(id,todo){
     
      localStorage.setItem(id, JSON.stringify(todo));
       
@@ -263,16 +266,16 @@ function setTodoStorage(id,todo){
        
 };
 
-function getTodo(task, id, date){
+ export function getTodo( id, date){
+
+    // console.log(newTask);
+let allStorageTodos = getAllStorage();
+   console.log(allStorageTodos);
+
     //Use the filter method to sort the todos.
-     let todo = allStorageTodos.filter(filterByDateClass);
+     let todo = allStorageTodos.filter(u => u.id === id);
+      console.log(todo);
      
-     function filterByDateClass(item){
-        if(item.id && item.dueDate){
-            return item
-        };
-        return item
-     }
         return todo;
 };
 
@@ -296,9 +299,6 @@ function getAllStorage(){
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
-// console.log(newTask);
-let allStorageTodos = getAllStorage();
-   console.log(allStorageTodos);
 
 
 

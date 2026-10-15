@@ -1,7 +1,7 @@
 console.log("I am home.js");
 
 import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
-import {Todo, Project} from "./logic.js";
+import {Todo, Project, getTodo, setTodoStorage} from "./logic.js";
 
 
 
@@ -540,12 +540,12 @@ function startAddTask(){
     
      let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
        task.addNew(task);
-       let newProject = new Project(task.Project,task.dueDate);
-       newProject.todos = [task];
-       newProject.saveProject(newProject);
-       console.log(task);
+      //  let newProject = new Project(task.Project,task.dueDate);
+      //  newProject.todos = [task];
+      //  newProject.saveProject(newProject);
+      //  console.log(task);
 
-      task.updateTodoUI(task);
+      task.updateTodoUI(getTodo(task.id, task.dueDate));
       formDiv.remove();
 };
 
