@@ -246,8 +246,8 @@ export class Todo extends Project{
     //create new todos 
     addNew(todo){
        setTodoStorage(todo.id,todo);
-        let savedTask = getTodoStorage(todo.id);
-       console.log(getTodoStorage(todo.id));
+        let savedTask = getTodo(todo.id,todo.dueDate);
+       console.log(getTodo(todo.id,todo.dueDate));
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -265,14 +265,15 @@ function setTodoStorage(id,todo){
 
 function getTodo(task, id, date){
     //Use the filter method to sort the todos.
-     let todo = allStorageTodos.filter;
+     let todo = allStorageTodos.filter(filterByDateClass);
      
      function filterByDateClass(item){
         if(item.id && item.dueDate){
-            
-        }
+            return item
+        };
+        return item
      }
-       //  return savedTodo;
+        return todo;
 };
 
 function removeStorageItem(task){   
