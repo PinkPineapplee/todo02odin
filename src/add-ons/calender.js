@@ -125,7 +125,7 @@ for(let i = 0; i <= 6; i++){
         dayTues.className = "dayDivs";
         dayTues.textContent = y;
         tuesdayList.push(y);
-        weekNum[2].append(dayTues)
+        weekNum[2].append(dayTues);
         console.log("hi I am tuesday");
 
        } else if(isDayWednesday === true){
@@ -134,7 +134,7 @@ for(let i = 0; i <= 6; i++){
         dayWed.className = "dayDivs";
         dayWed.textContent = y; 
         wednesdayList.push(y);
-        weekNum[3].append(dayWed)
+        weekNum[3].append(dayWed);
         console.log("hi I am wednesday");
        } else if(isDayThursday === true){
 
@@ -142,7 +142,7 @@ for(let i = 0; i <= 6; i++){
         dayThurs.className = "dayDivs";
         dayThurs.textContent = y;
         thursdayList.push(y);
-        weekNum[4].append(dayThurs)
+        weekNum[4].append(dayThurs);
         console.log("hi I am thursday");
        } else if(isDayFriday === true){
 

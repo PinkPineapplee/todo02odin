@@ -1,5 +1,6 @@
 //import {compareAsc, format} from "date-fns";
- import { dateForThings } from "./calender.js";
+import { format, startOfDay , isToday, isTomorrow, isYesterday, isSunday, isMonday, isTuesday, isWednesday, isThursday, isFriday, isSaturday} from "date-fns";
+import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
 
  import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
 
@@ -192,6 +193,7 @@ export class Todo extends Project{
         this.id = self.crypto.randomUUID();
         this.title = title;
         this.class = "todos";
+        this.day = this.day;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
@@ -209,64 +211,7 @@ export class Todo extends Project{
 
     
 
-    updateTodoUI(todo,id){
-
-        let getTask = todo;
-        this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
-        
-        const todayUl = document.querySelector("ul#today");
-        const mondayUl = document.querySelector("ul#monday.ul");
-        const tuesdayUl = document.querySelector("ul#tuesday.ul");
-        const wednesdayUl = document.querySelector("ul#wednesday.ul");
-        const thursdayUl = document.querySelector("ul#thursday.ul");
-        const fridayUl = document.querySelector("ul#friday.ul");
-        const satUl = document.querySelector("ul#saturday.ul");
-        const sunUl = document.querySelector("ul#sunday.ul");
-
-        const dayContainerul = document.querySelectorAll(".ul");
-        const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
-
-       // this function creates a new list ui for a newgetTask and add it to the page. 
-     const Hr1 = document.createElement("hr"); 
-     let todoItem = document.createElement("li");
-       todoItem.className = "todos";
-       const radioBtn = document.createElement("span");
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
-        
-     const listBox = document.createElement("div");
-        let list = document.createElement("p");
-            list.textContent = todo.title;
-        let listDes = document.createElement("p"); 
-            listDes.textContent = todo.description;
-        let dateElem = document.createElement("p");
-            dateElem.textContent = todo.dueDate;
-            listBox.append(list,listDes, dateElem);
-            todoItem.append(Hr1, radioBtn,listBox);
-
-                if (todo.id === "monday"){
-                mondayUl.after(todoItem);
-            } else if (todo.id === "tuesday"){
-                tuesdayUl.after(todoItem);
-            }else if (todo.id === "wednesday"){
-                wednesdayUl.after(todoItem);
-            }else if (todo.id === "thursday"){
-                thursdayUl.after(todoItem);
-            }else if (todo.id === "friday"){
-                fridayUl.after(todoItem);
-            }else if (todo.id === "saturday"){
-                satUl.after(todoItem);
-            }else if (todo.id === "sun"){
-                sundayUl.after(todoItem);
-            }else if (todo.id === "today"){
-                todayUl.after(todoItem);
-            }
-      
-              
-        
-         
-}  
-
+   
  
 
     //create new todos 
@@ -274,7 +219,8 @@ export class Todo extends Project{
        setTodoStorage(todo.id,todo);
         let savedTask = getTodo(todo.id,todo.dueDate);
        console.log(savedTask);
-       todo.updateTodoUI(savedTask);
+       
+       updateTodoUI(savedTask, savedTask.id);
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -320,35 +266,101 @@ function getAllStorage(){
    
     return allTodos;
 }
-// let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
+// let newTask = new Todo("rjemain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
 function getOldTodos(date, progect){
-
+//arrange days of the week
+    // let isDaySunday = isSunday(new Date(year, month, y));
+    // let isDayMonday = isMonday(new Date(year, month, y));
+    // let isDayTuesday = isTuesday(new Date(year, month, y));
+    // let isDayWednesday = isWednesday(new Date(year, month, y));
+    // let isDayThursday = isThursday(new Date(year, month, y));
+    // let isDayFriday = isFriday(new Date(year, month, y));
+    // let isDaySaturday = isSaturday(new Date(year, month, y));
    
     let allStorageTodos = getAllStorage();
-  let todayTodos = allStorageTodos.filter(u => u.id === "today");
-  let mondayTodos = allStorageTodos.filter(u => u.id === "monday");
-  let tuesdayTodos = allStorageTodos.filter(u => u.id === "tuesday");
-  let wednesdayTodos = allStorageTodos.filter(u => u.id === "wednesday");
-  let thursdayTodos = allStorageTodos.filter(u => u.id === "thursday");
-  let fridayTodos = allStorageTodos.filter(u => u.id === "friday");
-  let satTodos = allStorageTodos.filter(u => u.id === "saturday");
-  let sunTodos = allStorageTodos.filter(u => u.id === "sunday");
+  let todayTodos = allStorageTodos.filter(u => isToday(u.dueDate));
+  let mondayTodos = allStorageTodos.filter(u => isMonday(u.dueDate));
+  let tuesdayTodos = allStorageTodos.filter(u => isTuesday(u.dueDate));
+  let wednesdayTodos = allStorageTodos.filter(u =>  isWednesday(u.dueDate));
+  let thursdayTodos = allStorageTodos.filter(u =>  isThursday(u.dueDate));
+  let fridayTodos = allStorageTodos.filter(u =>  isFriday(u.dueDate));
+  let satTodos = allStorageTodos.filter(u =>  isSaturday(u.dueDate));
+  let sunTodos = allStorageTodos.filter(u =>  isSunday(u.dueDate));
  // let projectTodos = allStorageTodos.filter(u => u.project === project.name);
   //let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
 
- todayTodos.map(u => u.updateTodoUI(u, "today"));
- mondayTodos.map(u => u.updateTodoUI(u,"monday"));
- tuesdayTodos.map(u => u.updateTodoUI(u, "tuesday"));
- wednesdayTodos.map(u => u.updateTodoUI(u, "wednesday"));
- thursdayTodos.map(u => u.updateTodoUI(u, "thursday"));
- fridayTodos.map(u => u.updateTodoUI(u, "friday"));
- satTodos.map(u => u.updateTodoUI(u, "saturday"));
- sunTodos.map(u => u.updateTodoUI(u, "sunday"));
- //projectTodos.map(u => u.updateTodoUI(u));
-// monthTodos.map(u => u.updateTodoUI(u));
+ todayTodos.map(u => updateTodoUI(u, "today"));
+ mondayTodos.map(u => updateTodoUI(u,"monday"));
+ tuesdayTodos.map(u => updateTodoUI(u, "tuesday"));
+ wednesdayTodos.map(u => updateTodoUI(u, "wednesday"));
+ thursdayTodos.map(u => updateTodoUI(u, "thursday"));
+ fridayTodos.map(u => updateTodoUI(u, "friday"));
+ satTodos.map(u => updateTodoUI(u, "saturday"));
+ sunTodos.map(u => updateTodoUI(u, "sunday"));
+ //projectTodos.map(u => updateTodoUI(u));
+// monthTodos.map(u => updateTodoUI(u));
  }
 getOldTodos();
+
+
+ function updateTodoUI(todo,id){
+
+        let getTask = todo;
+       // todo.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
+        
+        const todayUl = document.querySelector("ul#today");
+        const mondaybutton = document.querySelector("button#Monday");
+        const tuesdaybutton = document.querySelector("button#Tuesday");
+        const wednesdaybutton = document.querySelector("button#Wednesday");
+        const thursdaybutton = document.querySelector("button#Thursday");
+        const fridaybutton = document.querySelector("button#Friday");
+        const satbutton = document.querySelector("button#Saturday");
+        const sunbutton = document.querySelector("button#Sunday");
+
+        const dayContainerul = document.querySelectorAll(".ul");
+        const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
+
+       // this function creates a new list ui for a newgetTask and add it to the page. 
+     const Hr1 = document.createElement("hr"); 
+     let todoItem = document.createElement("li");
+       todoItem.className = "todos";
+       const radioBtn = document.createElement("span");
+        radioBtn.className = "material-symbols-outlined";
+        radioBtn.textContent = "radio_button_unchecked";
+        
+     const listBox = document.createElement("div");
+        let list = document.createElement("p");
+            list.textContent = todo.title;
+        let listDes = document.createElement("p"); 
+            listDes.textContent = todo.description;
+        let dateElem = document.createElement("p");
+            dateElem.textContent = todo.dueDate;
+            listBox.append(list,listDes, dateElem);
+            todoItem.append(Hr1, radioBtn,listBox);
+
+                if (todo.class === "monday"){
+                mondayUl.after(todoItem);
+            } else if (todo.class === "tuesday"){
+                tuesdayUl.after(todoItem);
+            }else if (todo.class === "wednesday"){
+                wednesdayUl.after(todoItem);
+            }else if (todo.class === "thursday"){
+                thursdayUl.after(todoItem);
+            }else if (todo.class === "friday"){
+                fridayUl.after(todoItem);
+            }else if (todo.class === "saturday"){
+                satUl.after(todoItem);
+            }else if (todo.class === "sunday"){
+                sundayUl.after(todoItem);
+            }else {
+                todayUl.after(todoItem);
+            }
+      
+              
+        
+         
+}  
 
 
 console.log("this the end of logic.js");
