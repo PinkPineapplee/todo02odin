@@ -544,8 +544,6 @@ function startAddTask(){
       //  newProject.todos = [task];
       //  newProject.saveProject(newProject);
       //  console.log(task);
-
-      task.updateTodoUI(getTodo(task.id, task.dueDate));
       formDiv.remove();
 };
 
@@ -677,6 +675,7 @@ export function createToday(){
         count.append(span,`${counter + " "+ text7.textContent }` );
        
  const ul = document.createElement("ul");
+    ul.id = "today";
  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";

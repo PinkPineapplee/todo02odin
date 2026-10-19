@@ -209,17 +209,26 @@ export class Todo extends Project{
 
     
 
-    updateTodoUI(todo){
+    updateTodoUI(todo,id){
+
         let getTask = todo;
         this.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
         
-        const relem = document.querySelectorAll("#todos");
+        const todayUl = document.querySelector("ul#today");
+        const mondayUl = document.querySelector("ul#monday.ul");
+        const tuesdayUl = document.querySelector("ul#tuesday.ul");
+        const wednesdayUl = document.querySelector("ul#wednesday.ul");
+        const thursdayUl = document.querySelector("ul#thursday.ul");
+        const fridayUl = document.querySelector("ul#friday.ul");
+        const satUl = document.querySelector("ul#saturday.ul");
+        const sunUl = document.querySelector("ul#sunday.ul");
+
         const dayContainerul = document.querySelectorAll(".ul");
         const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
 
        // this function creates a new list ui for a newgetTask and add it to the page. 
      const Hr1 = document.createElement("hr"); 
-     const todoItem = document.createElement("li");
+     let todoItem = document.createElement("li");
        todoItem.className = "todos";
        const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
@@ -235,9 +244,26 @@ export class Todo extends Project{
             listBox.append(list,listDes, dateElem);
             todoItem.append(Hr1, radioBtn,listBox);
 
-            if (relem.id === todoItem.id){
-                relem.after(todoItem);   
+                if (todo.id === "monday"){
+                mondayUl.after(todoItem);
+            } else if (todo.id === "tuesday"){
+                tuesdayUl.after(todoItem);
+            }else if (todo.id === "wednesday"){
+                wednesdayUl.after(todoItem);
+            }else if (todo.id === "thursday"){
+                thursdayUl.after(todoItem);
+            }else if (todo.id === "friday"){
+                fridayUl.after(todoItem);
+            }else if (todo.id === "saturday"){
+                satUl.after(todoItem);
+            }else if (todo.id === "sun"){
+                sundayUl.after(todoItem);
+            }else if (todo.id === "today"){
+                todayUl.after(todoItem);
             }
+      
+              
+        
          
 }  
 
@@ -247,7 +273,7 @@ export class Todo extends Project{
     addNew(todo){
        setTodoStorage(todo.id,todo);
         let savedTask = getTodo(todo.id,todo.dueDate);
-       console.log(getTodo(todo.id,todo.dueDate));
+       console.log(savedTask);
        todo.updateTodoUI(savedTask);
         console.log("added new todo in localStorage!")
         return savedTask;
@@ -267,7 +293,7 @@ export function setTodoStorage(id,todo){
  export function getTodo( id, date){
 
 let allStorageTodos = getAllStorage();
-   console.log(allStorageTodos);
+   
 
     //Use the filter method to sort the todos.
      let todo = allStorageTodos.filter(u => u.id === id);
@@ -296,20 +322,33 @@ function getAllStorage(){
 }
 // let newTask = new Todo("remain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
-function getOldTodos(){
-    let allStorageTodos = getAllStorage();
-  let todayTodos = allStorageTodos.filter(u => u.id === "today")
-  let mondayTodos =allStorageTodos.filter(u => u.id === "monday")
-  let tuesdayTodos = allStorageTodos.filter(u => u.id === "tuesday")
-  let wednesdayTodos =allStorageTodos.filter(u => u.id === "wednesday")
-  let thursdayTodos =allStorageTodos.filter(u => u.id === "thursday")
-  let fridayTodos =allStorageTodos.filter(u => u.id === "friday")
-  let satTodos =allStorageTodos.filter(u => u.id === "saturday")
-  let sunTodos =allStorageTodos.filter(u => u.id === "sunday")
-  let projectTodos =allStorageTodos.filter(u => u.project === "today")
-  let monthTodos =allStorageTodos.filter(u => u.dueDate === date)
- }
+function getOldTodos(date, progect){
 
+   
+    let allStorageTodos = getAllStorage();
+  let todayTodos = allStorageTodos.filter(u => u.id === "today");
+  let mondayTodos = allStorageTodos.filter(u => u.id === "monday");
+  let tuesdayTodos = allStorageTodos.filter(u => u.id === "tuesday");
+  let wednesdayTodos = allStorageTodos.filter(u => u.id === "wednesday");
+  let thursdayTodos = allStorageTodos.filter(u => u.id === "thursday");
+  let fridayTodos = allStorageTodos.filter(u => u.id === "friday");
+  let satTodos = allStorageTodos.filter(u => u.id === "saturday");
+  let sunTodos = allStorageTodos.filter(u => u.id === "sunday");
+ // let projectTodos = allStorageTodos.filter(u => u.project === project.name);
+  //let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
+
+ todayTodos.map(u => u.updateTodoUI(u, "today"));
+ mondayTodos.map(u => u.updateTodoUI(u,"monday"));
+ tuesdayTodos.map(u => u.updateTodoUI(u, "tuesday"));
+ wednesdayTodos.map(u => u.updateTodoUI(u, "wednesday"));
+ thursdayTodos.map(u => u.updateTodoUI(u, "thursday"));
+ fridayTodos.map(u => u.updateTodoUI(u, "friday"));
+ satTodos.map(u => u.updateTodoUI(u, "saturday"));
+ sunTodos.map(u => u.updateTodoUI(u, "sunday"));
+ //projectTodos.map(u => u.updateTodoUI(u));
+// monthTodos.map(u => u.updateTodoUI(u));
+ }
+getOldTodos();
 
 
 console.log("this the end of logic.js");
