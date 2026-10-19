@@ -663,8 +663,11 @@ export function createToday(){
        bookicon.src = book;
        bookicon.className = "book-icon";
         let text6 = document.createElement("h1");
-        text6.textContent = "Today"
-        header.append(bookicon, text6);
+        text6.textContent = "Today";
+
+        let text6i = document.createElement("p");
+        text6i.textContent= dayNum + month + yearNum;
+        header.append(bookicon, text6, text6i);
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
@@ -974,7 +977,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
    days.forEach((div)=>{
     div.addEventListener("click", function(e){
       let day = e.target;
-      handleCLickEvent(day, displayMonthPage(new Date(day.textContent)));
+      handleCLickEvent(day, displayMonthPage(new Date(number(day.textContent), month, year)));
       console.log("HEY YOU JUST CLICKED A MONTH DAY")
     })
    })
