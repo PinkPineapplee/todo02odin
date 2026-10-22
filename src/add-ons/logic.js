@@ -37,152 +37,15 @@ const projectBox = [];
        
         getTodoStorage(obj.name);
     };
-    
-    createPage(counter, task, obj){        
-          const container = document.createElement("div");
-              container.className = "todayContainer";
-          const header = document.createElement("div");
-              header.className = "todayHeaderdiv";
-        
-          const bookicon = document.createElement("img");
-               bookicon.src = book;
-               bookicon.className = "book-icon";
-                let text6 = document.createElement("h1");
-                text6.textContent = this.name;
-                header.append(bookicon, text6);
-          const count = document.createElement("p");
-             const span = document.createElement("span");
-                span.className = "material-symbols-outlined";
-                span.textContent = "check_circle";
-                
-            let text7 = document.createElement("p");
-                text7.textContent= "tasks";
-                count.append(span,`${counter + " "+ text7.textContent }` );
-               
-         const ul = document.createElement("ul");
-         const dropDown = document.createElement("span");
-                dropDown.className = "material-symbols-outlined";
-                dropDown.id = "dropDown";
-                dropDown.textContent = "stat_minus_1";
-                
-                 let text8 = document.createElement("p");
-                  text8.textContent= "Overdue";
-                  text8.id = "overdue";
-                  let text9 = document.createElement("p");
-                  text9.textContent= "Reschedule"; 
-                  text9.style.color = "orangered";
-                   
-                  ul.append(dropDown, text8, text9);
-           
-               const todayHr1 = document.createElement("hr"); 
-               const todoItem = document.createElement("li");
-               todoItem.id = "todos";
-               const radioBtn = document.createElement("span");
-                radioBtn.className = "material-symbols-outlined";
-                radioBtn.textContent = "radio_button_unchecked";
-                
-                let text10 = document.createElement("p");
-                  text10.textContent= (task || " Edit Videos and post by 3pm.");
-                  todoItem.append(radioBtn,text10);
-               
-                 const addTaskBtn = document.createElement("button");
-                 addTaskBtn.className = "addTaskBtn";
-            const plusIcon = document.createElement("span");
-                plusIcon.className = "material-symbols-outlined";
-                plusIcon.id = "plusIcon";
-                plusIcon.textContent = "add_2"; 
-                
-                let text11 = document.createElement("p");
-                  text11.textContent= "Add task";
-                  addTaskBtn.append(plusIcon , text11);
-            const todayHr = document.createElement("hr") ;   
-             container.textContent="";
-             container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
-             
-             let numb = pagediv.childElementCount; console.log(numb)
-             if (numb > 1){
-                 pagediv.lastChild.replaceWith(container);
-             }else {
-               pagediv.append(container);
-             }
-              
-            function pressRadioBtn(){
-            // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-            const rabbiticon = document.createElement("img");
-               rabbiticon.src = rabbit;
-               rabbiticon.className = "rabbit-icon";
-               radioBtn.replaceWith(rabbiticon);
-               Todo.checkList = true;
-        };
-        
-              function collapsibleDropdown(){
-            // this function handles todolist ui collasping effects.
-            const dropRight = document.createElement("span");
-                dropRight.className = "material-symbols-outlined";
-                dropRight.id = "dropRight";
-                dropRight.textContent = "chevron_right";
-           
-                container.removeChild(todoItem);
-                container.removeChild(todayHr);
-                dropDown.replaceWith(dropRight);
-        
-                dropRight.addEventListener("click" , ()=>{
-                container.removeChild(addTaskBtn);
-                container.append(todoItem, todayHr, addTaskBtn);
-        
-                 dropRight.replaceWith(dropDown);
-            })
-        };
-        
-        function startRescheduleBtn(){      
-            // this function creates ui for reschdule icon.and adds date to todos.
-            const rescheduleDiv = document.createElement("div");
-            rescheduleDiv.className = "rescheduleDiv";
-            const dateNow = document.createElement("p");
-            dateNow.textContent = Date.now();
-            const hr = document.createElement("hr");
-            const selectreschedulers = document.createElement("select");
-              selectreschedulers.name = "rescheduleers"; 
-            const r1 = document.createElement("option");
-              r1.value = "tomorrow";
-              r1.textContent = "Tomorrow";
-            const r2 = document.createElement("option");
-            r2.value = "2 days";
-            r2.textContent = "In 2 days";
-            const r3 = document.createElement("option");
-            r3.value = "1 week";
-            r3.textContent = "In 1 Week";
-            const r4 = document.createElement("option");
-            r1.value = " ";
-            r4.textContent = createCalendar();
-        
-            const time = document.createElement("button");
-             time.id = "time-btn";
-             time.textContent= "time";
-            const repeat = document.createElement("button");
-             repeat.id = "repeat-btn";
-             repeat.textContent= "Repeat";
-            selectreschedulers.append(r1,r2,r3,r4);
-            rescheduleDiv.appendChild(dateNow, hr, selectreschedulers, time, repeat);
-            pagediv.append(rescheduleDiv);
-            
-        };
-        
-              handleCLickEvent(radioBtn, pressRadioBtn);
-              handleCLickEvent(addTaskBtn, creatNewTodoForm);
-              handleCLickEvent(text9, startRescheduleBtn);
-              handleCLickEvent(dropDown, collasibleDropdown);
-            
-          console.log("New Project page created!");
-        
-        
-    }
-    isProjectFinished(project){
+
+     isProjectFinished(project){
         if (project.isCompleted === true){
          let index = projectBox.findIndex(project);
          projectBox.pop[index];
         }
-    }
+    };
+    
+    
 };
 
 // build a large todo class
@@ -357,6 +220,191 @@ function getOldTodos(date, progect){
         
          
 }  
+
+export function createPage(counter, task, obj){ 
+
+    
+        let [formattedDate, todayFullDate] = dateForThings();
+      let splitDate = formattedDate.split("-");
+      console.log(splitDate, formattedDate, todayFullDate);
+      
+      
+        const container = document.createElement("div");
+            container.className = "todayContainer";
+        const header = document.createElement("div");
+            header.className = "todayHeaderdiv";
+      
+        const bookicon = document.createElement("img");
+             bookicon.src = book;
+             bookicon.className = "book-icon";
+              let text6 = document.createElement("h1");
+              text6.textContent = "Today";
+      
+               let text6i = document.createElement("p");
+               text6i.textContent= todayFullDate;
+              header.append(bookicon, text6, text6i);
+        const count = document.createElement("p");
+           const span = document.createElement("span");
+              span.className = "material-symbols-outlined";
+              span.textContent = "check_circle";
+              
+          let text7 = document.createElement("p");
+              text7.textContent= "tasks";
+              count.append(span,`${counter + " "+ text7.textContent }` );
+             
+       const ul = document.createElement("ul");
+          ul.id = "today";
+       const dropDown = document.createElement("span");
+              dropDown.className = "material-symbols-outlined";
+              dropDown.id = "dropDown";
+              dropDown.textContent = "stat_minus_1";
+              
+               let text8 = document.createElement("p");
+                text8.textContent= "Overdue";
+                text8.id = "overdue";
+                let text9 = document.createElement("p");
+                text9.textContent= "Reschedule"; 
+                text9.style.color = "orangered";
+                 
+                ul.append(dropDown, text8, text9);
+         
+             const todayHr1 = document.createElement("hr"); 
+             const todoItem = document.createElement("li");
+             todoItem.id = "todos";
+             const radioBtn = document.createElement("span");
+              radioBtn.className = "material-symbols-outlined";
+              radioBtn.textContent = "radio_button_unchecked";
+              
+              let text10 = document.createElement("p");
+                text10.textContent= ( " Edit Videos and post by 3pm.");
+                todoItem.append(radioBtn,text10);
+             
+               const addTaskBtn = document.createElement("button");
+               addTaskBtn.className = "addTaskBtn";
+          const plusIcon = document.createElement("span");
+              plusIcon.className = "material-symbols-outlined";
+              plusIcon.id = "plusIcon";
+              plusIcon.textContent = "add_2"; 
+              
+              let text11 = document.createElement("p");
+                text11.textContent= "Add task";
+                addTaskBtn.append(plusIcon , text11);
+          const todayHr = document.createElement("hr") ;   
+           container.textContent="";
+           container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
+           
+           let numb = pagediv.childElementCount; console.log(numb)
+           if (numb > 1){
+               pagediv.lastChild.replaceWith(container);
+           }else {
+             pagediv.append(container);
+           };
+           
+          function pressRadioBtn(){
+          // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+          const rabbiticon = document.createElement("img");
+             rabbiticon.src = rabbit;
+             rabbiticon.className = "rabbit-icon";
+             radioBtn.replaceWith(rabbiticon);
+             Todo.checkList = true;
+      };
+      
+            function collapsibleDropdown(){
+          // this function handles todolist ui collasping effects.
+          const dropRight = document.createElement("span");
+              dropRight.className = "material-symbols-outlined";
+              dropRight.id = "dropRight";
+              dropRight.textContent = "chevron_right";
+         
+              container.removeChild(todoItem);
+              container.removeChild(todayHr);
+              dropDown.replaceWith(dropRight);
+      
+              dropRight.addEventListener("click" , ()=>{
+              container.removeChild(addTaskBtn);
+              container.append(todoItem, todayHr, addTaskBtn);
+      
+               dropRight.replaceWith(dropDown);
+          })
+      };
+      
+      function startRescheduleBtn(){
+          const today = new Date();
+          const tomorrow = new Date(today);
+          tomorrow.setDate(today.getDate() + 1);
+      
+          const twoDays = new Date(today);
+          twoDays.setDate(today.getDate() + 2);
+      
+           const oneWeek = new Date(today);
+          oneWeek.setDate(today.getDate() + 7);
+        
+          // this function creates ui for reschdule icon.and adds date to todos.
+           const rescheduleDiv = document.createElement("div");
+               rescheduleDiv.className = "rescheduleDiv";
+          const dateNow = document.createElement("p");
+             dateNow.className = "formatDateNow"
+              dateNow.textContent = formattedDate;
+          const hr = document.createElement("hr");
+          const selectreschedulers = document.createElement("select");
+            selectreschedulers.className = "rescheduleers"; 
+            selectreschedulers.name = "rescheduleers"; 
+          const r1 = document.createElement("option");
+            r1.value = "tomorrow";
+            r1.textContent = "Tomorrow";
+          const r2 = document.createElement("option");
+          r2.value = "2 days";
+          r2.textContent = "In 2 days";
+          const r3 = document.createElement("option");
+          r3.value = "1 week";
+          r3.textContent = "In 1 Week";
+          const hr4 = document.createElement("hr");
+      
+          
+           
+          const calendarDiv = document.createElement("div");
+          calendarDiv.className = "rescheduleCalendar"
+            calendarDiv.append(createCalendar(8));
+           
+          const time = document.createElement("button");
+           time.id = "time-btn";
+           time.textContent= "time";
+          const repeat = document.createElement("button");
+           repeat.id = "repeat-btn";
+           repeat.textContent= "Repeat";
+           selectreschedulers.append(r1,r2,r3);
+           rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
+           container.append(rescheduleDiv);
+          
+           
+             rescheduleDiv.addEventListener("mouseleave",()=>{
+               container.removeChild(rescheduleDiv);
+             })
+            
+        if (selectreschedulers.value === "tomorrow"){
+          return tomorrow;
+        } else if (selectreschedulers.value === "2 days"){
+         return twoDays;
+        }else if (selectreschedulers.value === "1 week"){
+         return oneWeek;
+        }else{
+          return today;
+        }
+      
+      };
+      
+            handleCLickEvent(radioBtn, pressRadioBtn);
+            handleCLickEvent(addTaskBtn, creatNewTodoForm);
+            handleCLickEvent(text9, startRescheduleBtn);
+            handleCLickEvent(dropDown, collapsibleDropdown);
+          
+        console.log("Today Bar created!");
+      
+      
+
+ 
+
+ };
 
 
 console.log("this the end of logic.js");

@@ -162,8 +162,13 @@ for(let i = 0; i <= 6; i++){
         weekNum[6].append(daySat)
         console.log("hi I am saturday");
 
-       } else{
-         return;
+       } else if(isDaySunday === false){
+         let blankDiv = document.createElement(li);
+         blankDiv.className = "dayDivs";
+         blankDiv.textContent = "blank";
+         weekNum[0].append(blankDiv);
+        
+         
        } 
        
     };
