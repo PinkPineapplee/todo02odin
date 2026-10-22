@@ -208,10 +208,6 @@ export class Todo extends Project{
     }else{
          console.log( due ,title);
     }};
-
-    
-
-   
  
 
     //create new todos 
@@ -220,7 +216,7 @@ export class Todo extends Project{
         let savedTask = getTodo(todo.id,todo.dueDate);
        console.log(savedTask);
        
-       updateTodoUI(savedTask, savedTask.id);
+       updateTodoUI(savedTask);
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -301,10 +297,10 @@ function getOldTodos(date, progect){
  //projectTodos.map(u => updateTodoUI(u));
 // monthTodos.map(u => updateTodoUI(u));
  }
-getOldTodos();
+//getOldTodos();
 
 
- function updateTodoUI(todo,id){
+ function updateTodoUI(todo){
 
         let getTask = todo;
        // todo.printTodo(getTask.title,getTask.dueDate,getTask.checkList);

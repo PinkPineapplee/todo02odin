@@ -9,11 +9,11 @@ export function dateForThings(){
 const today = new Date();
 let month = today.getMonth();
 
-let formattedDate = format(new Date(), "yyyy-MM-dd");
+let formattedDate = format(today, "yyyy-MM-dd");
 
-let todayStarts = startOfDay(new Date());
+let todayStarts = startOfDay(today);
 
-return todayStarts;
+return [formattedDate, today];
 };
 
 
@@ -73,7 +73,7 @@ for(let i = 0; i <= 6; i++){
    return container;
 }  
       
-  // return createCalendarUI(numOfdays,todayDate,month, thisYear);
+  
    return createCalendarUI(numOfdays,todayDate,monthNum, thisYear);
 };
 

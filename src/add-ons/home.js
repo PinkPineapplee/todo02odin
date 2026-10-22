@@ -412,7 +412,7 @@ function startSend(){
 };
 
 
-  let formattedDate= dateForThings();
+  let [formattedDate,date ]= dateForThings();
    console.log(formattedDate);
 
 function startRescheduleBtn(){
@@ -651,8 +651,10 @@ console.log("I am making a beautiful todo form!")
 
 export function createToday(){ 
   let counter = 1;
-  let formattedDate= dateForThings();
-  
+  let [formattedDate, todayFullDate] = dateForThings();
+let splitDate = formattedDate.split("-");
+console.log(splitDate, formattedDate, todayFullDate);
+
 
   const container = document.createElement("div");
       container.className = "todayContainer";
@@ -665,8 +667,8 @@ export function createToday(){
         let text6 = document.createElement("h1");
         text6.textContent = "Today";
 
-        let text6i = document.createElement("p");
-        text6i.textContent= dayNum + month + yearNum;
+         let text6i = document.createElement("p");
+         text6i.textContent= todayFullDate;
         header.append(bookicon, text6, text6i);
   const count = document.createElement("p");
      const span = document.createElement("span");
