@@ -221,7 +221,7 @@ function getOldTodos(date, progect){
          
 }  
 
-export function createPage(counter, task, obj){ 
+export function createPage(counter, task){ 
 
     
         let [formattedDate, todayFullDate] = dateForThings();
@@ -230,9 +230,9 @@ export function createPage(counter, task, obj){
       
       
         const container = document.createElement("div");
-            container.className = "todayContainer";
+            container.className = "dayContainer";
         const header = document.createElement("div");
-            header.className = "todayHeaderdiv";
+            header.className = "dayHeaderdiv";
       
         const bookicon = document.createElement("img");
              bookicon.src = book;

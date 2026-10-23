@@ -92,6 +92,8 @@ for(let i = 0; i <= 6; i++){
     // make day divs
     for(let y = 1 ; y <= num; y++){
 
+     
+
     //arrange days of the week
     let isDaySunday = isSunday(new Date(year, month, y));
     let isDayMonday = isMonday(new Date(year, month, y));
@@ -102,6 +104,8 @@ for(let i = 0; i <= 6; i++){
     let isDaySaturday = isSaturday(new Date(year, month, y));
 
    
+
+
        if(isDaySunday === true){
         let daySun = document.createElement("li");
         daySun.className = "dayDivs";
@@ -162,14 +166,18 @@ for(let i = 0; i <= 6; i++){
         weekNum[6].append(daySat)
         console.log("hi I am saturday");
 
-       } else if(isDaySunday === false){
-         let blankDiv = document.createElement(li);
-         blankDiv.className = "dayDivs";
-         blankDiv.textContent = "blank";
-         weekNum[0].append(blankDiv);
-        
-         
-       } 
+       } else {
+          let dayDiv= document.createElement("li");
+      dayDiv.className = "dayDivs";
+      dayDiv.textContent ="BLANK";
+      weekNum[0].append(dayDiv);
+       weekNum[1].append(dayDiv);
+        weekNum[2].append(dayDiv);
+         weekNum[3].append(dayDiv);
+          weekNum[4].append(dayDiv);
+           weekNum[5].append(dayDiv);
+            weekNum[6].append(dayDiv);
+       }
        
     };
      

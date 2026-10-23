@@ -279,10 +279,16 @@ export function makeDisplayBar(){
 
 //Create for task form
 export function creatNewTodoForm(){
+
    let dueDate;
    let priority;
    let notes;
    let reminder;
+
+    let [formattedDate, todayFullDate] = dateForThings();
+let splitDate = formattedDate.split("-");
+console.log(splitDate, formattedDate, todayFullDate);
+
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
 
@@ -412,9 +418,6 @@ function startSend(){
 };
 
 
-  let [formattedDate,date ]= dateForThings();
-   console.log(formattedDate);
-
 function startRescheduleBtn(){
     const today = new Date();
     const tomorrow = new Date(today);
@@ -431,11 +434,14 @@ function startRescheduleBtn(){
          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
        dateNow.className = "formatDateNow"
-        dateNow.textContent = formattedDate;
+        dateNow.textContent = dueDate;
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
       selectreschedulers.className = "rescheduleers"; 
       selectreschedulers.name = "rescheduleers"; 
+      const r = document.createElement("option");
+      r.value = "today";
+      r.textContent = "Today";
     const r1 = document.createElement("option");
       r1.value = "tomorrow";
       r1.textContent = "Tomorrow";
@@ -446,12 +452,19 @@ function startRescheduleBtn(){
     r3.value = "1 week";
     r3.textContent = "In 1 Week";
     const hr4 = document.createElement("hr");
-
     
-     
+
+// add eventlistener to choose options for date.
+ handleCLickEvent(r , ()=>{ selectreschedulers.value = "today"});
+  handleCLickEvent(r1 , ()=>{ selectreschedulers.value = "tomorrow"});
+   handleCLickEvent(r2 , ()=>{ selectreschedulers.value = "2 days"});
+    handleCLickEvent(r3 , ()=>{ selectreschedulers.value = "1 week"});
+
+
+
     const calendarDiv = document.createElement("div");
     calendarDiv.className = "rescheduleCalendar"
-      calendarDiv.append(createCalendar(8));
+      calendarDiv.append(createCalendar(new Date().getMonth()));
      
     const time = document.createElement("button");
      time.id = "time-btn";
@@ -459,7 +472,7 @@ function startRescheduleBtn(){
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
-     selectreschedulers.append(r1,r2,r3);
+     selectreschedulers.append(r,r1,r2,r3);
      rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
      formDiv.append(rescheduleDiv);
     
@@ -468,16 +481,24 @@ function startRescheduleBtn(){
          formDiv.removeChild(rescheduleDiv);
        })
       
+    
+    //The condition to work around the chosen option from user.
+    //if option is clicked the corresponding variable is used to set the dueDate.
+   
   if (selectreschedulers.value === "tomorrow"){
-    return tomorrow;
+  dueDate = tomorrow;
+   
   } else if (selectreschedulers.value === "2 days"){
-   return twoDays;
+    dueDate = twoDays;
+   
   }else if (selectreschedulers.value === "1 week"){
-   return oneWeek;
+    dueDate = oneWeek;
+   
   }else{
-    return today;
+    dueDate = today;
+    
   }
-
+console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
 };
 
 function startPriorityBtn(){
@@ -651,10 +672,7 @@ console.log("I am making a beautiful todo form!")
 
 export function createToday(){ 
   let counter = 1;
-  let [formattedDate, todayFullDate] = dateForThings();
-let splitDate = formattedDate.split("-");
-console.log(splitDate, formattedDate, todayFullDate);
-
+ 
 
   const container = document.createElement("div");
       container.className = "todayContainer";
@@ -667,9 +685,9 @@ console.log(splitDate, formattedDate, todayFullDate);
         let text6 = document.createElement("h1");
         text6.textContent = "Today";
 
-         let text6i = document.createElement("p");
-         text6i.textContent= todayFullDate;
-        header.append(bookicon, text6, text6i);
+        //  let text6i = document.createElement("p");
+        //  text6i.textContent= todayFullDate;
+        header.append(bookicon, text6);
   const count = document.createElement("p");
      const span = document.createElement("span");
         span.className = "material-symbols-outlined";
@@ -831,7 +849,10 @@ function startRescheduleBtn(){
 
 export function createWeekly(month,num,day,counter,task){
 //    pagediv.removeChild(pagediv.lastChild);
-      console.log("hey!, I am inside weekly func." )
+      console.log("hey!, I am inside weekly func." );
+
+    //  const weekDate = new Date().getWeek();
+     // console.log("week: ", weekDate);
   
     // tasks will be seperated by days of the week.  
     const container = document.createElement("div");
@@ -988,7 +1009,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
  function displayMonthPage(date){
      let counter = 1;
-  let formattedDate= dateForThings();
+  let [formattedDate, todayFullDate]= dateForThings();
   
 
   const container = document.createElement("div");
@@ -1000,7 +1021,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
        bookicon.src = book;
        bookicon.className = "book-icon";
         let text6 = document.createElement("h1");
-        text6.textContent = "month"
+        text6.textContent = date;
         header.append(bookicon, text6);
   const count = document.createElement("p");
      const span = document.createElement("span");
