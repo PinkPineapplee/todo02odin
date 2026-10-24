@@ -435,21 +435,21 @@ function startRescheduleBtn(){
     const twoDays = new Date(today);
     twoDays.setDate(today.getDate() + 2);
 
-     const oneWeek = new Date(today);
+    const oneWeek = new Date(today);
     oneWeek.setDate(today.getDate() + 7);
   
     // this function creates ui for reschdule icon.and adds date to todos.
-     const rescheduleDiv = document.createElement("div");
-         rescheduleDiv.className = "rescheduleDiv";
+    const rescheduleDiv = document.createElement("div");
+          rescheduleDiv.className = "rescheduleDiv";
     const dateNow = document.createElement("p");
-       dateNow.className = "formatDateNow"
-        dateNow.textContent = dueDate;
+         dateNow.className = "formatDateNow"
+         dateNow.textContent = dueDate;
     const hr = document.createElement("hr");
     const selectreschedulers = document.createElement("select");
-      selectreschedulers.className = "rescheduleers"; 
-      selectreschedulers.name = "rescheduleers"; 
-      selectreschedulers.placeholder="Select new date";
-      const r = document.createElement("option");
+          selectreschedulers.className = "rescheduleers"; 
+          selectreschedulers.name = "rescheduleers"; 
+          selectreschedulers.placeholder = "Select new date";
+    const r = document.createElement("option");
       r.value = "today";
       r.textContent = "Today";
     const r1 = document.createElement("option");
@@ -463,19 +463,21 @@ function startRescheduleBtn(){
     r3.textContent = "In 1 Week";
     const hr4 = document.createElement("hr");
     
- //The condition to work around the chosen option from user.
+    //The condition to work around the chosen option from user.
     //if option is clicked the corresponding variable is used to set the dueDate.
-// add eventlistener to choose options for date.
- handleCLickEvent(r , ()=>{
-   selectreschedulers.value = "today";
+    // add eventlistener to choose options for date.
+    handleCLickEvent(r , ()=>{
+    selectreschedulers.value = "today";
     dueDate = today;
     console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
- });
-  handleCLickEvent(r1 , ()=>{ selectreschedulers.value = "tomorrow";
-   dueDate = tomorrow;
-   console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+   });
+  handleCLickEvent(r1 , ()=>{ 
+    
+   console.log("selected Option :",selectreschedulers.value,
+               "dueDate: ", dueDate);
   });
-   handleCLickEvent(r2 , ()=>{ selectreschedulers.value = "2 days";
+   handleCLickEvent(r2 , ()=>{ 
+    selectreschedulers.value = "2 days";
     dueDate = twoDays;
     console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
    });
@@ -933,7 +935,7 @@ console.log("list of all week dates: ",week);
 
         container.append(header,count);
 
-    const days = [["Monday", mondayBg],["Tuesday", tuesdayBg],["Wednesday", wednesdayBg],["Thursday", thursdayBg],["Friday", fridayBg],["Saturday", saturdayBg],["Sunday", sundayBg]];
+    const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
     for (let i = 0; i <= days.length - 1; i++){
        
       const dayContainer = document.createElement("div");
