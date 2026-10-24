@@ -9,7 +9,16 @@ import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thu
 console.log("I am logic.js");
 
 let isClicked = false;
-const projectBox = [];
+const projectBox = [general];
+const general = {
+    name :"General",
+    date : new Date(),
+    id : 100,
+    isCompleted = false,
+    todos : [],
+    
+
+}
  export class Project{
 
     constructor(name, date){

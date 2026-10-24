@@ -439,6 +439,7 @@ function startRescheduleBtn(){
     const selectreschedulers = document.createElement("select");
       selectreschedulers.className = "rescheduleers"; 
       selectreschedulers.name = "rescheduleers"; 
+      selectreschedulers.placeholder="Select new date";
       const r = document.createElement("option");
       r.value = "today";
       r.textContent = "Today";
@@ -453,12 +454,26 @@ function startRescheduleBtn(){
     r3.textContent = "In 1 Week";
     const hr4 = document.createElement("hr");
     
-
+ //The condition to work around the chosen option from user.
+    //if option is clicked the corresponding variable is used to set the dueDate.
 // add eventlistener to choose options for date.
- handleCLickEvent(r , ()=>{ selectreschedulers.value = "today"});
-  handleCLickEvent(r1 , ()=>{ selectreschedulers.value = "tomorrow"});
-   handleCLickEvent(r2 , ()=>{ selectreschedulers.value = "2 days"});
-    handleCLickEvent(r3 , ()=>{ selectreschedulers.value = "1 week"});
+ handleCLickEvent(r , ()=>{
+   selectreschedulers.value = "today";
+    dueDate = today;
+    console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+ });
+  handleCLickEvent(r1 , ()=>{ selectreschedulers.value = "tomorrow";
+   dueDate = tomorrow;
+   console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+  });
+   handleCLickEvent(r2 , ()=>{ selectreschedulers.value = "2 days";
+    dueDate = twoDays;
+    console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+   });
+    handleCLickEvent(r3 , ()=>{ selectreschedulers.value = "1 week";
+      dueDate = oneWeek;
+      console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+    });
 
 
 
@@ -482,34 +497,32 @@ function startRescheduleBtn(){
        })
       
     
-    //The condition to work around the chosen option from user.
-    //if option is clicked the corresponding variable is used to set the dueDate.
    
-  if (selectreschedulers.value === "tomorrow"){
-  dueDate = tomorrow;
    
-  } else if (selectreschedulers.value === "2 days"){
-    dueDate = twoDays;
+  // if (selectreschedulers.value === "tomorrow"){
+  
    
-  }else if (selectreschedulers.value === "1 week"){
-    dueDate = oneWeek;
-   
-  }else{
-    dueDate = today;
+  // } else if (selectreschedulers.value === "2 days"){
     
-  }
-console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+   
+  // }else if (selectreschedulers.value === "1 week"){
+    
+   
+  // }else{
+    
+    
+  // }
+
 };
 
 function startPriorityBtn(){
    
-
     // this function creates ui for priority bar and updates todo objects.
 
      const priorityDiv = document.createElement("div");
     priorityDiv.className = "priorityDiv";
 
-    let div = document.createElement("div");
+ let div = document.createElement("div");
          const highP= document.createElement("p");
             
           const high = document.createElement("input");
@@ -534,7 +547,7 @@ function startPriorityBtn(){
             mediumP.textContent="Medium";
             div1.append(medium, mediumP);
       
-             let div2 = document.createElement("div");
+ let div2 = document.createElement("div");
             const lowP= document.createElement("p");
            const low = document.createElement("input");
             low.name = "priority";
@@ -550,23 +563,18 @@ function startPriorityBtn(){
 
             formDiv.appendChild(priorityDiv);
 
-      
+      // condition that adds pirority to todos
+      handleCLickEvent(highP, ()=>{ priority = highP.textContent});
+      handleCLickEvent(mediumP, ()=>{ priority = mediumP.textContent});
+      handleCLickEvent(lowP, ()=>{ priority = lowP.textContent});
+
        priorityDiv.addEventListener("mouseleave",()=>{
          formDiv.removeChild(priorityDiv);
        })
 
 };
 
-function startAddTask(){
-    
-     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes,"general");
-       task.addNew(task);
-      //  let newProject = new Project(task.Project,task.dueDate);
-      //  newProject.todos = [task];
-      //  newProject.saveProject(newProject);
-      //  console.log(task);
-      formDiv.remove();
-};
+
 
 
 function startReminderBtn(){
@@ -596,14 +604,19 @@ function startReminderBtn(){
       r3.id = "reminder";
        
     if(selectReminders.selected === r1){
-        setTimeout( ()=>{ alert("it's time to do your tasks");
+        setTimeout( ()=>{ 
+          alert("it's time to do your tasks");
+          reminder = r1.value;
            return r1.textContent, r1.value})
     } else if(selectReminders.selected === r2){
-      ()=>{ alert("it's time to do your tasks")
-        return r2.textContent, r2.value}
+     setTimeout(()=>{ 
+        
+        alert("it's time to do your tasks");
+        reminder = r2.value;
+        return r2.textContent, r2.value})
     } else if(selectReminders.selected === r3){
-      ()=>{ alert("it's time to do your tasks");
-         return r3.textContent, r3.value}
+      setTimeout(()=>{ alert("it's time to do your tasks");
+         return r3.textContent, r3.value})
     }else {
       selectReminders.selected = "default";
 
@@ -644,15 +657,24 @@ function getNotes(){
 
     add.addEventListener("click", ()=>{
         content = noteText.textContent;
+        notes = content;
         formDiv.removeChild(noteDiv);
         return content;
     });   
 
-   return content;
+  
+};
+
+
+function startAddTask(){
+    
+     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes, projects.name = "General");
+       task.addNew(task);
+      formDiv.remove();
 };
 
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
-    formDiv.textContent="";
+   
     formDiv.appendChild(form);
     pagediv.appendChild(formDiv);
     
