@@ -9,16 +9,17 @@ import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thu
 console.log("I am logic.js");
 
 let isClicked = false;
-const projectBox = [general];
-const general = {
+const projectBox = [];
+let general = {
     name :"General",
     date : new Date(),
     id : 100,
-    isCompleted = false,
-    todos : [],
-    
+    id : "projects",
+    isCompleted : false,
+    todos : []
+};
 
-}
+projectBox.push(general)
  export class Project{
 
     constructor(name, date){
@@ -89,6 +90,7 @@ export class Todo extends Project{
        console.log(savedTask);
        
        updateTodoUI(savedTask);
+       todo.project.todos.push(savedTask);
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -125,7 +127,7 @@ localStorage.removeItem(task);
 function clearLocal(){
     localStorage.clear();
 }
-
+clearLocal();
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){

@@ -683,10 +683,10 @@ function startAddTask(){
     handleCLickEvent(inboxBtn, startSend);
     handleCLickEvent(cancelBtn, startCancelBtn);
     handleCLickEvent(addBtn, startAddTask);
-    handleCLickEvent(div2, ()=>{ priority = startPriorityBtn()});
+    handleCLickEvent(div2, startPriorityBtn);
     handleCLickEvent(div3, startReminderBtn);
-    handleCLickEvent(div1, ()=>{  dueDate= startRescheduleBtn()});
-    handleCLickEvent(options, ()=>{ notes = getNotes()});
+    handleCLickEvent(div1, startRescheduleBtn);
+    handleCLickEvent(options, getNotes);
    
 console.log("I am making a beautiful todo form!")
 }
@@ -748,6 +748,7 @@ export function createToday(){
        
          const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
+         addTaskBtn.id = "today";
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
