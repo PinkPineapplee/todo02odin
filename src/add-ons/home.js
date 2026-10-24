@@ -285,9 +285,18 @@ export function creatNewTodoForm(){
    let notes;
    let reminder;
 
+   let todayBtn = document.querySelector("#today");
+   let mondayBtn = document.querySelector("#monday");
+   let tuesdayBtn = document.querySelector("#tuesday");
+   let wednesdayBtn = document.querySelector("#wednesday");
+   let thursdayBtn = document.querySelector("#thursday");
+   let fridayBtn = document.querySelector("#friday");
+   let saturdayBtn = document.querySelector("#saturday");
+   let sundayBtn = document.querySelector("#sunday");
+
     let [formattedDate, todayFullDate] = dateForThings();
-let splitDate = formattedDate.split("-");
-console.log(splitDate, formattedDate, todayFullDate);
+    let splitDate = formattedDate.split("-");
+        console.log(splitDate, formattedDate, todayFullDate);
 
     const formDiv = document.createElement("div");
     formDiv.className ="formDiv";
@@ -495,24 +504,12 @@ function startRescheduleBtn(){
        rescheduleDiv.addEventListener("mouseleave",()=>{
          formDiv.removeChild(rescheduleDiv);
        })
-      
-    
-   
-   
-  // if (selectreschedulers.value === "tomorrow"){
-  
-   
-  // } else if (selectreschedulers.value === "2 days"){
-    
-   
-  // }else if (selectreschedulers.value === "1 week"){
-    
-   
-  // }else{
-    
-    
-  // }
-
+        
+  // if (selectreschedulers.value === "tomorrow"){ 
+  // } else if (selectreschedulers.value === "2 days"){  
+  // }else if (selectreschedulers.value === "1 week"){  
+  // }else{    
+  // };
 };
 
 function startPriorityBtn(){
@@ -676,7 +673,7 @@ function startAddTask(){
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
    
     formDiv.appendChild(form);
-    pagediv.appendChild(formDiv);
+    // pagediv.appendChild(formDiv);
     
      
    
@@ -687,7 +684,33 @@ function startAddTask(){
     handleCLickEvent(div3, startReminderBtn);
     handleCLickEvent(div1, startRescheduleBtn);
     handleCLickEvent(options, getNotes);
-   
+ 
+ //condition to add todoform to the right divs   
+    if (todayBtn.clicked == true){
+      formDiv.id = today;
+      todayBtn.after(formDiv);
+      } else if (sundayBtn.clicked = true){
+        formDiv.id = "sunday";
+        sundayBtn.after(formDiv);
+      } else if (mondayBtn.clicked = true){
+        formDiv.id = "monday";
+        mondayBtn.after(formDiv);
+      }else if (tuesdayBtn.clicked = true){
+        formDiv.id = "tuesday";
+        tuesdayBtn.after(formDiv);
+      }else if (wednesdayBtn.clicked = true){
+        formDiv.id = "wednesday";
+        wednesdayBtn.after(formDiv);
+      }else if (thursdayBtn.clicked = true){
+        formDiv.id = "thursday";
+        thursdayBtn.after(formDiv);
+      }else if (fridayBtn.clicked = true){
+        formDiv.id = "friday";
+        fridayBtn.after(formDiv);
+      }else if (saturdayBtn.clicked = true){
+        formDiv.id = "saturday";
+        saturdayBtn.after(formDiv);
+      }
 console.log("I am making a beautiful todo form!")
 }
 
@@ -874,6 +897,11 @@ export function createWeekly(month,num,day,counter,task){
 //    pagediv.removeChild(pagediv.lastChild);
       console.log("hey!, I am inside weekly func." );
 
+  // Source - https://stackoverflow.com/a/70074156
+// Posted by Joel
+// Retrieved 2026-10-24, License - CC BY-SA 4.0
+const week = Array.from(Array(7).keys()).map((idx) => {const d = new Date(); d.setDate(d.getDate() - d.getDay() + idx); return d; });
+console.log("list of all week dates: ",week);
     //  const weekDate = new Date().getWeek();
      // console.log("week: ", weekDate);
   
