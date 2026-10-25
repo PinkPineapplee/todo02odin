@@ -938,34 +938,38 @@ console.log("list of all week dates: ",week);
     const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
     for (let i = 0; i <= days.length - 1; i++){
        
-      const dayContainer = document.createElement("div");
-        dayContainer.className= "dayContainer"; 
-         dayContainer.id = days[i][0];
+    const dayContainer = document.createElement("div");
+        dayContainer.className = "dayContainer"; 
+        dayContainer.id = days[i][0];
+
     const dayName = document.createElement("h3"); 
-    dayName.className = "dayName";
-    dayName.textContent = days[i][0]; 
+        dayName.className = "dayName";
+        dayName.textContent = days[i][0]; 
     
-     const banner = document.createElement("img");
+    const banner = document.createElement("img");
         banner.className = "weekBanner";
         banner.src = days[i][1];
       
 
-     const div = document.createElement("div");
-          div.className= "dayDiv";
-         div.style.backgroundColor = banner;
-          div.append(dayName,banner);  
+    const div = document.createElement("div");
+        div.className= "dayDiv";
+        div.style.backgroundColor = banner;
+        div.append(dayName,banner); 
+
     const ul = document.createElement("ul");
         ul.className= "ul";
-        ul.id = days[i][0];
+        ul.id = days[i][2];
+
     const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "stat_minus_1";
         
-         let text8 = document.createElement("p");
+      let text8 = document.createElement("p");
           text8.textContent= "Overdue";
           text8.id = "text8";
-          let text9 = document.createElement("p");
+
+      let text9 = document.createElement("p");
           text9.textContent = "Reschedule"; 
           text9.id= "text9";
           text9.style.color = "orangered";
@@ -975,7 +979,7 @@ console.log("list of all week dates: ",week);
     const todoItem = document.createElement("li");
        todoItem.id = "todos";
        
-         const radio = document.createElement("span"); 
+    const radio = document.createElement("span"); 
         radio.className = "material-symbols-outlined";
         radio.textContent = "radio_button_unchecked";
         
@@ -986,14 +990,16 @@ console.log("list of all week dates: ",week);
     const taskBtn = document.createElement("button");
         taskBtn.className = "addTaskBtn";
         taskBtn.id = days[i][0];
+
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2";    
         taskBtn.append(plusIcon , "Add task");
+
     const dayHr = document.createElement("hr");  
-    dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
-    container.append( dayContainer);
+        dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
+        container.append( dayContainer);
 
       handleCLickEvent(radio, pressRadioBtn);
       handleCLickEvent(taskBtn, creatNewTodoForm);
@@ -1002,6 +1008,7 @@ console.log("list of all week dates: ",week);
 };
 
    function pressRadioBtn(){
+    
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
     const rabbiticon = document.createElement("img");
        rabbiticon.src = rabbit;
