@@ -278,9 +278,9 @@ export function makeDisplayBar(){
 
 
 //Create for task form
-export function creatNewTodoForm(){
+export function creatNewTodoForm(date){
 
-   let dueDate;
+   let dueDate = date;
    let priority;
    let notes;
    let reminder;
@@ -896,23 +896,29 @@ function startRescheduleBtn(){
 
 
 export function createWeekly(month,num,day,counter,task){
-//    pagediv.removeChild(pagediv.lastChild);
+
       console.log("hey!, I am inside weekly func." );
 
-  // Source - https://stackoverflow.com/a/70074156
-// Posted by Joel
-// Retrieved 2026-10-24, License - CC BY-SA 4.0
-const week = Array.from(Array(7).keys()).map((idx) => {const d = new Date(); d.setDate(d.getDate() - d.getDay() + idx); return d; });
-console.log("list of all week dates: ",week);
-    //  const weekDate = new Date().getWeek();
-     // console.log("week: ", weekDate);
-  
+         // Source - https://stackoverflow.com/a/70074156
+         // Posted by Joel
+         // Retrieved 2026-10-24, License - CC BY-SA 4.0
+   const week = Array.from(Array(7).keys()).map((idx) => {const d = new Date(); d.setDate(d.getDate() - d.getDay() + idx); return d; });
+      console.log("list of all week dates: ", week);
+
+
+   let mondayBtn = document.querySelector("#monday");
+   let tuesdayBtn = document.querySelector("#tuesday");
+   let wednesdayBtn = document.querySelector("#wednesday");
+   let thursdayBtn = document.querySelector("#thursday");
+   let fridayBtn = document.querySelector("#friday");
+   let saturdayBtn = document.querySelector("#saturday");
+   let sundayBtn = document.querySelector("#sunday");
     // tasks will be seperated by days of the week.  
     const container = document.createElement("div");
-      container.className = "weekContainer";
+        container.className = "weekContainer";
     const header = document.createElement("h2");
-      header.className = "week";
-      header.append(month," Week ", num );
+        header.className = "week";
+        header.append(month," Week ", num );
 
       const count = document.createElement("p");
       const span1 = document.createElement("span");
@@ -930,12 +936,10 @@ console.log("list of all week dates: ",week);
         span3.textContent = "last_page";    
         span3.style.display = "none";
         count.append(span1, span2, span3);
-        
-
-
         container.append(header,count);
 
     const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
+
     for (let i = 0; i <= days.length - 1; i++){
        
     const dayContainer = document.createElement("div");
@@ -950,7 +954,6 @@ console.log("list of all week dates: ",week);
         banner.className = "weekBanner";
         banner.src = days[i][1];
       
-
     const div = document.createElement("div");
         div.className= "dayDiv";
         div.style.backgroundColor = banner;
@@ -1008,7 +1011,7 @@ console.log("list of all week dates: ",week);
 };
 
    function pressRadioBtn(){
-    
+
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
     const rabbiticon = document.createElement("img");
        rabbiticon.src = rabbit;
@@ -1023,7 +1026,15 @@ console.log("list of all week dates: ",week);
        pagediv.append(container);
      }
    
-    
+    handleCLickEvent(sundayBtn, creatNewTodoForm(week[0]));       
+      handleCLickEvent(mondayBtn, creatNewTodoForm(week[1]));
+       handleCLickEvent(tuesdayBtn, creatNewTodoForm(week[2]));
+        handleCLickEvent(wednesdayBtnBtn, creatNewTodoForm(week[3]));
+         handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
+          handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
+           handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
+           
+            
     console.log("Weekly display created!");
 };
 
@@ -1068,10 +1079,9 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 
  function displayMonthPage(date){
-     let counter = 1;
-  let [formattedDate, todayFullDate]= dateForThings();
+  let counter = 1;
+  let [formattedDate, todayFullDate] = dateForThings();
   
-
   const container = document.createElement("div");
       container.className = "monthContainer";
   const header = document.createElement("div");
@@ -1083,17 +1093,18 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
         let text6 = document.createElement("h1");
         text6.textContent = date;
         header.append(bookicon, text6);
+
   const count = document.createElement("p");
-     const span = document.createElement("span");
+  const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
         
-    let text7 = document.createElement("p");
+  let text7 = document.createElement("p");
         text7.textContent= "tasks";
         count.append(span,`${counter + " "+ text7.textContent }` );
        
- const ul = document.createElement("ul");
- const dropDown = document.createElement("span");
+  const ul = document.createElement("ul");
+  const dropDown = document.createElement("span");
         dropDown.className = "material-symbols-outlined";
         dropDown.id = "dropDown";
         dropDown.textContent = "stat_minus_1";
@@ -1107,25 +1118,25 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
            
           ul.append(dropDown, text8, text9);
    
-       const monthHr1 = document.createElement("hr"); 
-       const todoItem = document.createElement("li");
+  const monthHr1 = document.createElement("hr"); 
+  const todoItem = document.createElement("li");
        todoItem.id = "todos";
-       const radioBtn = document.createElement("span");
+  const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
-        let text10 = document.createElement("p");
+    let text10 = document.createElement("p");
           text10.textContent= ( " Edit Videos and post by 3pm.");
           todoItem.append(radioBtn,text10);
        
-         const addTaskBtn = document.createElement("button");
+    const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
         plusIcon.id = "plusIcon";
         plusIcon.textContent = "add_2"; 
         
-        let text11 = document.createElement("p");
+    let text11 = document.createElement("p");
           text11.textContent= "Add task";
           addTaskBtn.append(plusIcon , text11);
     const monthHr = document.createElement("hr") ;   
