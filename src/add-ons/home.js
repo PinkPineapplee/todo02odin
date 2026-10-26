@@ -687,14 +687,17 @@ function startAddTask(){
     handleCLickEvent(div1, startRescheduleBtn);
     handleCLickEvent(options, getNotes);
  
- //condition to add todoform to the right divs   
-    if (todayBtn.clicked == true){
+ //condition to add todoform to the right divs
+ //use target.id to target addtaskbtn so it can be add to condition.  
+ let clicked = false;
+ let clickedBtn = e.target.id 
+    if (clicked == true){
       formDiv.id = today;
       todayBtn.after(formDiv);
-      } else if (sundayBtn.clicked = true){
+      } else if (clicked = true){
         formDiv.id = "sunday";
         sundayBtn.after(formDiv);
-      } else if (mondayBtn.clicked = true){
+      } else if (clicked = true){
         formDiv.id = "monday";
         mondayBtn.after(formDiv);
       }else if (tuesdayBtn.clicked = true){
