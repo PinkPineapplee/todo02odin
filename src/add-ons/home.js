@@ -982,7 +982,7 @@ export function createWeekly(month,num,day,counter,task){
         container.append( dayContainer);
 
       handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(taskBtn, creatNewTodoForm);
+     
       handleCLickEvent(text9, createCalendar);
  
 };
@@ -1011,35 +1011,39 @@ export function createWeekly(month,num,day,counter,task){
     //      handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
     //       handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
     //        handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
-       
+     //  handleCLickEvent(taskBtn, creatNewTodoForm); 
     const taskBtns = document.querySelectorAll(".addTaskBtn");
     taskBtns.forEach( (btn)=>{btn.addEventListener("click", (e)=>{
     let clicked = e.target;
 
-   if (clicked.id === "Today"){
-      formDiv.id = today;
-      clicked.after(formDiv);
-      } else if (clicked.id === "Sunday"){
-        formDiv.id = "sunday";
-        clicked.after(formDiv);
+      if (clicked.id === "Sunday"){
+        console.log("yellow sunday")
+       // formDiv.id = "sunday";
+        clicked.after(creatNewTodoForm());
       } else if (clicked.id === "Monday"){
-        formDiv.id = "monday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "monday";
+        clicked.after(creatNewTodoForm());
       }else if (clicked.id === "Tuesday"){
-        formDiv.id = "tuesday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "tuesday";
+        clicked.after(creatNewTodoForm());
       }else if (clicked.id === "Wednesday"){
-        formDiv.id = "wednesday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "wednesday";
+        clicked.after(creatNewTodoForm());
       }else if (clicked.id === "Thursday"){
-        formDiv.id = "thursday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "thursday";
+        clicked.after(creatNewTodoForm());
       }else if (clicked.id === "Friday"){
-        formDiv.id = "friday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "friday";
+        clicked.after(creatNewTodoForm());
       }else if (clicked.id === "Saturday"){
-        formDiv.id = "saturday";
-        clicked.after(formDiv);
+         console.log("yellow sunday")
+        //formDiv.id = "saturday";
+        clicked.after(creatNewTodoForm());
       }       
     })}
      
