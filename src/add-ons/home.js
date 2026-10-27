@@ -696,7 +696,7 @@ console.log("I am making a beautiful todo form!")
 
 export function createToday(){ 
   let counter = 1;
- 
+  const today = new Date();
 
   const container = document.createElement("div");
       container.className = "todayContainer";
@@ -799,7 +799,7 @@ export function createToday(){
 };
 
 function startRescheduleBtn(){
-    const today = new Date();
+   
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
 
@@ -959,17 +959,17 @@ export function createWeekly(month,num,day,counter,task){
     const todoItem = document.createElement("li");
        todoItem.id = "todos";
        
-    const radio = document.createElement("span"); 
-        radio.className = "material-symbols-outlined";
-        radio.textContent = "radio_button_unchecked";
+    const radioBtn = document.createElement("span"); 
+        radioBtn.className = "material-symbols-outlined";
+        radioBtn.textContent = "radio_button_unchecked";
         
        
-        todoItem.append(radio , (task || "Edit Videos and post by 3pm."));
+        todoItem.append(radioBtn , (task || "Edit Videos and post by 3pm."));
         ul.appendChild(todoItem);
 
     const taskBtn = document.createElement("button");
         taskBtn.className = "addTaskBtn";
-        taskBtn.id = days[i][2];
+        taskBtn.id = days[i][0];
 
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
@@ -981,14 +981,17 @@ export function createWeekly(month,num,day,counter,task){
         dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
         container.append( dayContainer);
 
-     
+      handleCLickEvent(radioBtn, pressRadioBtn);
+      handleCLickEvent(taskBtn, creatNewTodoForm);
+      handleCLickEvent(text9, createCalendar);
  
 };
 
-   function pressRadioBtn(){
+   function pressRadioBtn(event){
 
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
     const rabbiticon = document.createElement("img");
+    const radioBtn = event.currentTarget;
        rabbiticon.src = rabbit;
        rabbiticon.className = "rabbit-icon";
        radioBtn.replaceWith(rabbiticon);
@@ -1000,17 +1003,48 @@ export function createWeekly(month,num,day,counter,task){
      }else {
        pagediv.append(container);
      }
-    handleCLickEvent(radio, pressRadioBtn);
-    handleCLickEvent(taskBtn, creatNewTodoForm);
-    handleCLickEvent(text9, createCalendar);
-    handleCLickEvent(sundayBtn, creatNewTodoForm(week[0]));       
-    handleCLickEvent(mondayBtn, creatNewTodoForm(week[1]));
-    handleCLickEvent(tuesdayBtn, creatNewTodoForm(week[2]));
-    handleCLickEvent(wednesdayBtnBtn, creatNewTodoForm(week[3]));
-    handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
-    handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
-    handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
-           
+   
+    // handleCLickEvent(sundayBtn, creatNewTodoForm(week[0]));       
+    //   handleCLickEvent(mondayBtn, creatNewTodoForm(week[1]));
+    //    handleCLickEvent(tuesdayBtn, creatNewTodoForm(week[2]));
+    //     handleCLickEvent(wednesdayBtnBtn, creatNewTodoForm(week[3]));
+    //      handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
+    //       handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
+    //        handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
+       
+    const taskBtns = document.querySelectorAll(".addTaskBtn");
+    taskBtns.forEach( (btn)=>{btn.addEventListener("click", (e)=>{
+    let clicked = e.target;
+
+   if (clicked.id === "Today"){
+      formDiv.id = today;
+      clicked.after(formDiv);
+      } else if (clicked.id === "Sunday"){
+        formDiv.id = "sunday";
+        clicked.after(formDiv);
+      } else if (clicked.id === "Monday"){
+        formDiv.id = "monday";
+        clicked.after(formDiv);
+      }else if (clicked.id === "Tuesday"){
+        formDiv.id = "tuesday";
+        clicked.after(formDiv);
+      }else if (clicked.id === "Wednesday"){
+        formDiv.id = "wednesday";
+        clicked.after(formDiv);
+      }else if (clicked.id === "Thursday"){
+        formDiv.id = "thursday";
+        clicked.after(formDiv);
+      }else if (clicked.id === "Friday"){
+        formDiv.id = "friday";
+        clicked.after(formDiv);
+      }else if (clicked.id === "Saturday"){
+        formDiv.id = "saturday";
+        clicked.after(formDiv);
+      }       
+    })}
+     
+    );
+      
     
     console.log("Weekly display created!");
 };
