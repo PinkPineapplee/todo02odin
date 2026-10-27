@@ -689,33 +689,7 @@ function startAddTask(){
  
  //condition to add todoform to the right divs
  //use target.id to target addtaskbtn so it can be add to condition.  
- let clicked = false;
- let clickedBtn = e.target.id 
-    if (clicked == true){
-      formDiv.id = today;
-      todayBtn.after(formDiv);
-      } else if (clicked = true){
-        formDiv.id = "sunday";
-        sundayBtn.after(formDiv);
-      } else if (clicked = true){
-        formDiv.id = "monday";
-        mondayBtn.after(formDiv);
-      }else if (tuesdayBtn.clicked = true){
-        formDiv.id = "tuesday";
-        tuesdayBtn.after(formDiv);
-      }else if (wednesdayBtn.clicked = true){
-        formDiv.id = "wednesday";
-        wednesdayBtn.after(formDiv);
-      }else if (thursdayBtn.clicked = true){
-        formDiv.id = "thursday";
-        thursdayBtn.after(formDiv);
-      }else if (fridayBtn.clicked = true){
-        formDiv.id = "friday";
-        fridayBtn.after(formDiv);
-      }else if (saturdayBtn.clicked = true){
-        formDiv.id = "saturday";
-        saturdayBtn.after(formDiv);
-      }
+
 console.log("I am making a beautiful todo form!")
 }
 
@@ -995,7 +969,7 @@ export function createWeekly(month,num,day,counter,task){
 
     const taskBtn = document.createElement("button");
         taskBtn.className = "addTaskBtn";
-        taskBtn.id = days[i][0];
+        taskBtn.id = days[i][2];
 
     const plusIcon = document.createElement("span");
         plusIcon.className = "material-symbols-outlined";
@@ -1007,9 +981,7 @@ export function createWeekly(month,num,day,counter,task){
         dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
         container.append( dayContainer);
 
-      handleCLickEvent(radio, pressRadioBtn);
-      handleCLickEvent(taskBtn, creatNewTodoForm);
-      handleCLickEvent(text9, createCalendar);
+     
  
 };
 
@@ -1028,16 +1000,18 @@ export function createWeekly(month,num,day,counter,task){
      }else {
        pagediv.append(container);
      }
-   
+    handleCLickEvent(radio, pressRadioBtn);
+    handleCLickEvent(taskBtn, creatNewTodoForm);
+    handleCLickEvent(text9, createCalendar);
     handleCLickEvent(sundayBtn, creatNewTodoForm(week[0]));       
-      handleCLickEvent(mondayBtn, creatNewTodoForm(week[1]));
-       handleCLickEvent(tuesdayBtn, creatNewTodoForm(week[2]));
-        handleCLickEvent(wednesdayBtnBtn, creatNewTodoForm(week[3]));
-         handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
-          handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
-           handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
+    handleCLickEvent(mondayBtn, creatNewTodoForm(week[1]));
+    handleCLickEvent(tuesdayBtn, creatNewTodoForm(week[2]));
+    handleCLickEvent(wednesdayBtnBtn, creatNewTodoForm(week[3]));
+    handleCLickEvent(thursdayBtn, creatNewTodoForm(week[4]));
+    handleCLickEven(fridayBtn, creatNewTodoForm(week[5]));
+    handleCLickEvent(saturdayBtn, creatNewTodoForm(week[6]));
            
-            
+    
     console.log("Weekly display created!");
 };
 
