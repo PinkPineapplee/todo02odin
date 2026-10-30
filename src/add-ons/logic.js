@@ -195,11 +195,11 @@ function getOldTodos(date, progect){
      const Hr1 = document.createElement("hr"); 
      let todoItem = document.createElement("li");
        todoItem.className = "todos";
-       const radioBtn = document.createElement("span");
+    const radioBtn = document.createElement("span");
         radioBtn.className = "material-symbols-outlined";
         radioBtn.textContent = "radio_button_unchecked";
         
-     const listBox = document.createElement("div");
+    const listBox = document.createElement("div");
         let list = document.createElement("p");
             list.textContent = todo.title;
         let listDes = document.createElement("p"); 
@@ -225,10 +225,7 @@ function getOldTodos(date, progect){
                 sundayUl.after(todoItem);
             }else {
                 todayUl.after(todoItem);
-            }
-      
-              
-        
+            }       
          
 }  
 

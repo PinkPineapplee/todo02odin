@@ -416,7 +416,7 @@ export function creatNewTodoForm(date){
      function startCancelBtn(){
         // This function removes todoform from webpage.
         form.reset();
-        addBtn.removeChild(formDiv);
+        formDiv.remove();
     };
 
 function startSend(){
@@ -495,7 +495,7 @@ function startRescheduleBtn(){
      time.textContent= "time";
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
-     repeat.textContent= "Repeat";
+     repeat.textContent = "Repeat";
      selectreschedulers.append(r,r1,r2,r3);
      rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
      formDiv.append(rescheduleDiv);
@@ -505,18 +505,12 @@ function startRescheduleBtn(){
          formDiv.removeChild(rescheduleDiv);
        })
         
-  // if (selectreschedulers.value === "tomorrow"){ 
-  // } else if (selectreschedulers.value === "2 days"){  
-  // }else if (selectreschedulers.value === "1 week"){  
-  // }else{    
-  // };
 };
 
 function startPriorityBtn(){
    
     // this function creates ui for priority bar and updates todo objects.
-
-     const priorityDiv = document.createElement("div");
+    const priorityDiv = document.createElement("div");
     priorityDiv.className = "priorityDiv";
 
  let div = document.createElement("div");
@@ -673,16 +667,8 @@ function startAddTask(){
     form.append(inputDiv, itemsDiv, formHr,buttonDiv);
    
     formDiv.appendChild(form);
-    pagediv.append(formDiv); 
-
-    // const taskBtns = document.querySelectorAll(".addTaskBtn");
-    // taskBtns.forEach((taskBtn)=>{
-    //     taskBtn.addEventListener("click", (e)=>{
-    //      let taskBtn = e.target;
-    //     taskBtn.after(formDiv);
-    //   })
-    // }  
-    // )
+    formDiv.style.display = "none";
+ 
    
     
      
@@ -694,7 +680,7 @@ function startAddTask(){
     handleCLickEvent(div3, startReminderBtn);
     handleCLickEvent(div1, startRescheduleBtn);
     handleCLickEvent(options, getNotes);
- 
+ return formDiv;
  //condition to add todoform to the right divs
  //use target.id to target addtaskbtn so it can be add to condition.  
 
@@ -705,23 +691,22 @@ console.log("I am making a beautiful todo form!")
 export function createToday(){ 
   let counter = 1;
   const today = new Date();
-
+  const formDiv = creatNewTodoForm();
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
       header.className = "todayHeaderdiv";
 
   const bookicon = document.createElement("img");
-       bookicon.src = book;
-       bookicon.className = "book-icon";
-        let text6 = document.createElement("h1");
-        text6.textContent = "Today";
+      bookicon.src = book;
+      bookicon.className = "book-icon";
 
-        //  let text6i = document.createElement("p");
-        //  text6i.textContent= todayFullDate;
-        header.append(bookicon, text6);
+  let text6 = document.createElement("h1");
+      text6.textContent = "Today";
+      header.append(bookicon, text6);
+
   const count = document.createElement("p");
-     const span = document.createElement("span");
+  const span = document.createElement("span");
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
         
@@ -747,10 +732,10 @@ export function createToday(){
    
        const todayHr1 = document.createElement("hr"); 
        const todoItem = document.createElement("li");
-       todoItem.id = "todos";
+          todoItem.id = "todos";
        const radioBtn = document.createElement("span");
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
+          radioBtn.className = "material-symbols-outlined";
+          radioBtn.textContent = "radio_button_unchecked";
         
         let text10 = document.createElement("p");
           text10.textContent= ( " Edit Videos and post by 3pm.");
@@ -760,18 +745,20 @@ export function createToday(){
          addTaskBtn.className = "addTaskBtn";
          addTaskBtn.id = "today";
     const plusIcon = document.createElement("span");
-        plusIcon.className = "material-symbols-outlined";
-        plusIcon.id = "plusIcon";
-        plusIcon.textContent = "add_2"; 
+         plusIcon.className = "material-symbols-outlined";
+         plusIcon.id = "plusIcon";
+         plusIcon.textContent = "add_2"; 
         
         let text11 = document.createElement("p");
           text11.textContent= "Add task";
           addTaskBtn.append(plusIcon , text11);
+
     const todayHr = document.createElement("hr") ;   
-     container.textContent="";
-     container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
-     
-     let numb = pagediv.childElementCount; console.log(numb)
+          container.textContent = "";
+          container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn, formDiv);
+          
+     let numb = pagediv.childElementCount;
+      console.log(numb);
      if (numb > 1){
          pagediv.lastChild.replaceWith(container);
      }else {
@@ -802,7 +789,7 @@ export function createToday(){
         container.removeChild(addTaskBtn);
         container.append(todoItem, todayHr, addTaskBtn);
 
-         dropRight.replaceWith(dropDown);
+        dropRight.replaceWith(dropDown);
     })
 };
 
@@ -819,42 +806,46 @@ function startRescheduleBtn(){
   
     // this function creates ui for reschdule icon.and adds date to todos.
      const rescheduleDiv = document.createElement("div");
-         rescheduleDiv.className = "rescheduleDiv";
+      rescheduleDiv.className = "rescheduleDiv";
+
     const dateNow = document.createElement("p");
-       dateNow.className = "formatDateNow"
-        dateNow.textContent = formattedDate;
+      dateNow.className = "formatDateNow";
+      dateNow.textContent = formattedDate;
+
     const hr = document.createElement("hr");
+
     const selectreschedulers = document.createElement("select");
       selectreschedulers.className = "rescheduleers"; 
       selectreschedulers.name = "rescheduleers"; 
+
     const r1 = document.createElement("option");
       r1.value = "tomorrow";
       r1.textContent = "Tomorrow";
+
     const r2 = document.createElement("option");
     r2.value = "2 days";
     r2.textContent = "In 2 days";
+
     const r3 = document.createElement("option");
     r3.value = "1 week";
     r3.textContent = "In 1 Week";
-    const hr4 = document.createElement("hr");
 
-    
-     
+    const hr4 = document.createElement("hr");  
     const calendarDiv = document.createElement("div");
-    calendarDiv.className = "rescheduleCalendar"
+      calendarDiv.className = "rescheduleCalendar";
       calendarDiv.append(createCalendar(8));
      
     const time = document.createElement("button");
      time.id = "time-btn";
      time.textContent= "time";
+
     const repeat = document.createElement("button");
      repeat.id = "repeat-btn";
      repeat.textContent= "Repeat";
      selectreschedulers.append(r1,r2,r3);
      rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
      container.append(rescheduleDiv);
-    
-     
+      
        rescheduleDiv.addEventListener("mouseleave",()=>{
          container.removeChild(rescheduleDiv);
        })
@@ -872,7 +863,7 @@ function startRescheduleBtn(){
 };
 
       handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(addTaskBtn, creatNewTodoForm);
+      handleCLickEvent(addTaskBtn, ()=>{formDiv.style.display = "block"});
       handleCLickEvent(text9, startRescheduleBtn);
       handleCLickEvent(dropDown, collapsibleDropdown);
     
@@ -898,15 +889,19 @@ export function createWeekly(month,num,day,counter,task){
    let fridayBtn = document.querySelector("#friday");
    let saturdayBtn = document.querySelector("#saturday");
    let sundayBtn = document.querySelector("#sunday");
+  
+
+
     // tasks will be seperated by days of the week.  
     const container = document.createElement("div");
         container.className = "weekContainer";
+
     const header = document.createElement("h2");
         header.className = "week";
         header.append(month," Week ", num );
 
-      const count = document.createElement("p");
-      const span1 = document.createElement("span");
+    const count = document.createElement("p");
+    const span1 = document.createElement("span");
         span1.className = "material-symbols-outlined";
         span1.textContent = "first_page";
         span1.style.display = "none";
@@ -923,10 +918,13 @@ export function createWeekly(month,num,day,counter,task){
         count.append(span1, span2, span3);
         container.append(header,count);
 
-    const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
+    const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],
+                  ["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],
+                  ["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
 
+      
     for (let i = 0; i <= days.length - 1; i++){
-       
+    let formDiv;  
     const dayContainer = document.createElement("div");
         dayContainer.className = "dayContainer"; 
         dayContainer.id = days[i][0];
@@ -986,46 +984,12 @@ export function createWeekly(month,num,day,counter,task){
         taskBtn.append(plusIcon , "Add task");
 
     const dayHr = document.createElement("hr");  
-        dayContainer.append(div,ul,day1Hr,todoItem,dayHr, taskBtn)   
+        dayContainer.append(div, ul, day1Hr, todoItem,dayHr, taskBtn, creatNewTodoForm(days[i][2]));   
         container.append( dayContainer);
 
-      handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(text9, createCalendar);
-      handleCLickEvent ( taskBtn , (e)=>{
-
-        let clicked = e.target;
-
-        if (clicked.id === "Sunday"){
-        console.log("yellow sunday")
-      
-        creatNewTodoForm(week[0], "Sunday");
-      } else if (clicked.id === "Monday"){
-         console.log("yellow mon")
-       
-        creatNewTodoForm(week[1]);
-      }else if (clicked.id === "Tuesday"){
-         console.log("yellow tues")
-        //formDiv.id = "tuesday";
-        creatNewTodoForm(week[2]);
-      }else if (clicked.id === "Wednesday"){
-         console.log("yellow wed")
-        //formDiv.id = "wednesday";
-        creatNewTodoForm(week[3]);
-      }else if (clicked.id === "Thursday"){
-         console.log("yellow thurs")
-        //formDiv.id = "thursday";
-        creatNewTodoForm(week[4]);
-      }else if (clicked.id === "Friday"){
-         console.log("yellow friday")
-        //formDiv.id = "friday";
-        creatNewTodoForm(week[5]);
-      }else if (clicked.id === "Saturday"){
-         console.log("yellow saturday")
-        //formDiv.id = "saturday";
-        creatNewTodoForm(week[6]);
-      }       
-      })
- 
+     handleCLickEvent(radioBtn, pressRadioBtn);
+     handleCLickEvent(text9, createCalendar);
+     handleCLickEvent(taskBtn, ()=>{ formDiv.style.display = "block";})
 };
 
    function pressRadioBtn(event){
