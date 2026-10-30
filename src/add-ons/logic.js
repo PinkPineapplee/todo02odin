@@ -127,7 +127,7 @@ localStorage.removeItem(task);
 function clearLocal(){
     localStorage.clear();
 }
-clearLocal();
+
 function getAllStorage(){
     let allTodos = [];
     for (var i = 0 ; i<localStorage.length; i++){
@@ -138,17 +138,10 @@ function getAllStorage(){
 }
 // let newTask = new Todo("rjemain in the saloon till 1:30am", "seasons greetings", "medium", 34/3/23, "wish upon a star.", "tribute" )
 
-function getOldTodos(date, progect){
+function getOldTodos(){
 //arrange days of the week
-    // let isDaySunday = isSunday(new Date(year, month, y));
-    // let isDayMonday = isMonday(new Date(year, month, y));
-    // let isDayTuesday = isTuesday(new Date(year, month, y));
-    // let isDayWednesday = isWednesday(new Date(year, month, y));
-    // let isDayThursday = isThursday(new Date(year, month, y));
-    // let isDayFriday = isFriday(new Date(year, month, y));
-    // let isDaySaturday = isSaturday(new Date(year, month, y));
-   
-    let allStorageTodos = getAllStorage();
+  let allStorageTodos = getAllStorage();
+
   let todayTodos = allStorageTodos.filter(u => isToday(u.dueDate));
   let mondayTodos = allStorageTodos.filter(u => isMonday(u.dueDate));
   let tuesdayTodos = allStorageTodos.filter(u => isTuesday(u.dueDate));
@@ -157,8 +150,8 @@ function getOldTodos(date, progect){
   let fridayTodos = allStorageTodos.filter(u =>  isFriday(u.dueDate));
   let satTodos = allStorageTodos.filter(u =>  isSaturday(u.dueDate));
   let sunTodos = allStorageTodos.filter(u =>  isSunday(u.dueDate));
- // let projectTodos = allStorageTodos.filter(u => u.project === project.name);
-  //let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
+  let projectTodos = allStorageTodos.filter(u => u.project === project.name);
+  let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
 
  todayTodos.map(u => updateTodoUI(u, "today"));
  mondayTodos.map(u => updateTodoUI(u,"monday"));
@@ -168,10 +161,10 @@ function getOldTodos(date, progect){
  fridayTodos.map(u => updateTodoUI(u, "friday"));
  satTodos.map(u => updateTodoUI(u, "saturday"));
  sunTodos.map(u => updateTodoUI(u, "sunday"));
- //projectTodos.map(u => updateTodoUI(u));
-// monthTodos.map(u => updateTodoUI(u));
+ projectTodos.map(u => updateTodoUI(u));
+ monthTodos.map(u => updateTodoUI(u));
  }
-//getOldTodos();
+getOldTodos();
 
 
  function updateTodoUI(todo){
