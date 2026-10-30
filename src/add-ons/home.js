@@ -984,7 +984,7 @@ export function createWeekly(month,num,day,counter,task){
         taskBtn.append(plusIcon , "Add task");
 
     const dayHr = document.createElement("hr");  
-        dayContainer.append(div, ul, day1Hr, todoItem,dayHr, taskBtn, creatNewTodoForm(days[i][2]));   
+        dayContainer.append(div, ul, day1Hr, todoItem,dayHr, taskBtn, formDiv=creatNewTodoForm(days[i][2]));   
         container.append( dayContainer);
 
      handleCLickEvent(radioBtn, pressRadioBtn);
