@@ -659,7 +659,7 @@ function getNotes(){
 
 function startAddTask(){
     
-     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes, projects.name = "General");
+     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes, "General");
        task.addNew(task);
       formDiv.remove();
 };
@@ -710,21 +710,23 @@ export function createToday(){
         span.className = "material-symbols-outlined";
         span.textContent = "check_circle";
         
-    let text7 = document.createElement("p");
-        text7.textContent= "tasks";
-        count.append(span,`${counter + " "+ text7.textContent }` );
+  let text7 = document.createElement("p");
+      text7.textContent= "tasks";
+      count.append(span,`${counter + " "+ text7.textContent}`);
        
  const ul = document.createElement("ul");
-    ul.id = "today";
+       ul.id = "today";
+
  const dropDown = document.createElement("span");
-        dropDown.className = "material-symbols-outlined";
-        dropDown.id = "dropDown";
-        dropDown.textContent = "stat_minus_1";
+       dropDown.className = "material-symbols-outlined";
+       dropDown.id = "dropDown";
+       dropDown.textContent = "stat_minus_1";
         
-         let text8 = document.createElement("p");
+ let text8 = document.createElement("p");
           text8.textContent= "Overdue";
           text8.id = "overdue";
-          let text9 = document.createElement("p");
+
+ let text9 = document.createElement("p");
           text9.textContent= "Reschedule"; 
           text9.style.color = "orangered";
            
@@ -760,7 +762,7 @@ export function createToday(){
      let numb = pagediv.childElementCount;
       console.log(numb);
      if (numb > 1){
-         pagediv.lastChild.replaceWith(container);
+       pagediv.lastChild.replaceWith(container);
      }else {
        pagediv.append(container);
      };
@@ -875,9 +877,9 @@ export function createWeekly(month,num,day,counter,task){
 
       console.log("hey!, I am inside weekly func." );
 
-         // Source - https://stackoverflow.com/a/70074156
-         // Posted by Joel
-         // Retrieved 2026-10-24, License - CC BY-SA 4.0
+        // Source - https://stackoverflow.com/a/70074156
+        // Posted by Joel
+        // Retrieved 2026-10-24, License - CC BY-SA 4.0
    const week = Array.from(Array(7).keys()).map((idx) => {const d = new Date(); d.setDate(d.getDate() - d.getDay() + idx); return d; });
       console.log("list of all week dates: ", week);
 
@@ -1013,7 +1015,7 @@ export function createWeekly(month,num,day,counter,task){
 };
 
 
-export function  createMonthly(){
+export function createMonthly(){
   
 // tasks will be separated calendar format.
     const container = document.createElement("div");
@@ -1105,23 +1107,25 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
        
     const addTaskBtn = document.createElement("button");
          addTaskBtn.className = "addTaskBtn";
+
     const plusIcon = document.createElement("span");
-        plusIcon.className = "material-symbols-outlined";
-        plusIcon.id = "plusIcon";
-        plusIcon.textContent = "add_2"; 
+         plusIcon.className = "material-symbols-outlined";
+         plusIcon.id = "plusIcon";
+         plusIcon.textContent = "add_2"; 
         
     let text11 = document.createElement("p");
           text11.textContent= "Add task";
           addTaskBtn.append(plusIcon , text11);
-    const monthHr = document.createElement("hr") ;   
-     container.textContent="";
+
+    const monthHr = document.createElement("hr");   
+     container.textContent = "";
      container.append(header, count, ul, monthHr1,todoItem, monthHr, addTaskBtn);
      
      let numb = pagediv.childElementCount; console.log(numb)
      if (numb > 1){
          pagediv.lastChild.replaceWith(container);
      }else {
-       pagediv.append(container);
+         pagediv.append(container);
      };
      
     function pressRadioBtn(){
@@ -1148,7 +1152,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
         container.removeChild(addTaskBtn);
         container.append(todoItem, monthHr, addTaskBtn);
 
-         dropRight.replaceWith(dropDown);
+        dropRight.replaceWith(dropDown);
     })
 };
 
@@ -1256,9 +1260,10 @@ export function createSearch(){
 
 
         function findSearchItem(){
+
        // this function executes search that sort though todo array.
-      const todoSearch = document.querySelector(".searchBtn");
-       todoSearch.addEventListener("click", ()=>{
+        const todoSearch = document.querySelector(".searchBtn");
+        todoSearch.addEventListener("click", ()=>{
         let currentValue = searchInput.value.toLocaleLowerCase();
         console.log(currentValue);
         let todos = document.querySelectorAll("#todo");
@@ -1271,7 +1276,7 @@ export function createSearch(){
         })
        })
       }   
- form.append(searchIcon, searchInput,searchBtn)
+ form.append(searchIcon, searchInput, searchBtn)
   container.append(form);
 
   pagediv.appendChild(container);

@@ -61,7 +61,7 @@ projectBox.push(general)
 // build a large todo class
 export class Todo extends Project{
 
-    constructor(title ,description ,dueDate ,priority , notes, project){
+    constructor(title, description, dueDate, priority, notes, project){
         super();
         this.id = self.crypto.randomUUID();
         this.title = title;
@@ -87,10 +87,10 @@ export class Todo extends Project{
     addNew(todo){
        setTodoStorage(todo.id,todo);
         let savedTask = getTodo(todo.id,todo.dueDate);
-       console.log(savedTask);
+       console.log(savedTask[0]);
        
-       updateTodoUI(savedTask);
-       todo.project.todos.push(savedTask);
+       updateTodoUI(savedTask[0]);
+      general.todos.push(savedTask[0]);
         console.log("added new todo in localStorage!")
         return savedTask;
     }; 
@@ -150,36 +150,39 @@ function getOldTodos(){
   let fridayTodos = allStorageTodos.filter(u =>  isFriday(u.dueDate));
   let satTodos = allStorageTodos.filter(u =>  isSaturday(u.dueDate));
   let sunTodos = allStorageTodos.filter(u =>  isSunday(u.dueDate));
-  let projectTodos = allStorageTodos.filter(u => u.project === project.name);
-  let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
+ // let projectTodos = allStorageTodos.filter(u => u.project === project.name);
+ // let monthTodos = allStorageTodos.filter(u => u.dueDate === date);
 
- todayTodos.map(u => updateTodoUI(u, "today"));
- mondayTodos.map(u => updateTodoUI(u,"monday"));
- tuesdayTodos.map(u => updateTodoUI(u, "tuesday"));
- wednesdayTodos.map(u => updateTodoUI(u, "wednesday"));
- thursdayTodos.map(u => updateTodoUI(u, "thursday"));
- fridayTodos.map(u => updateTodoUI(u, "friday"));
- satTodos.map(u => updateTodoUI(u, "saturday"));
- sunTodos.map(u => updateTodoUI(u, "sunday"));
- projectTodos.map(u => updateTodoUI(u));
- monthTodos.map(u => updateTodoUI(u));
+ todayTodos.map(u => updateTodoUI(u));
+ mondayTodos.map(u => updateTodoUI(u));
+ tuesdayTodos.map(u => updateTodoUI(u));
+ wednesdayTodos.map(u => updateTodoUI(u));
+ thursdayTodos.map(u => updateTodoUI(u));
+ fridayTodos.map(u => updateTodoUI(u));
+ satTodos.map(u => updateTodoUI(u));
+ sunTodos.map(u => updateTodoUI(u));
+ //projectTodos.map(u => updateTodoUI(u));
+// monthTodos.map(u => updateTodoUI(u));
  }
 getOldTodos();
 
 
  function updateTodoUI(todo){
 
+  console.log("you've entered updateTodo function.");
+  console.log(todo.title);
+
         let getTask = todo;
-       // todo.printTodo(getTask.title,getTask.dueDate,getTask.checkList);
-        
+
+       // todo.printTodo(getTask.title,getTask.dueDate,getTask.checkList); 
         const todayUl = document.querySelector("ul#today");
-        const mondaybutton = document.querySelector("button#Monday");
-        const tuesdaybutton = document.querySelector("button#Tuesday");
-        const wednesdaybutton = document.querySelector("button#Wednesday");
-        const thursdaybutton = document.querySelector("button#Thursday");
-        const fridaybutton = document.querySelector("button#Friday");
-        const satbutton = document.querySelector("button#Saturday");
-        const sunbutton = document.querySelector("button#Sunday");
+        const mondayUl = document.querySelector("ul#Monday");
+        const tuesdayUl = document.querySelector("ul#Tuesday");
+        const wednesdayUl = document.querySelector("ul#Wednesday");
+        const thursdayUl = document.querySelector("ul#Thursday");
+        const fridayUl = document.querySelector("ul#Friday");
+        const satUl = document.querySelector("ul#Saturday");
+        const sunUl = document.querySelector("ul#Sunday");
 
         const dayContainerul = document.querySelectorAll(".ul");
         const dayContainerBtn = document.querySelectorAll(".addTaskBtn");
