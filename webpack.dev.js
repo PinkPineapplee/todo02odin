@@ -1,11 +1,10 @@
- import { merge } from 'webpack-merge';
- import common from './webpack.common.js';
+import { merge } from 'webpack-merge';
+import common from './webpack.common.js';
 
- export default merge(common, {
-   mode: 'development',
-   devtool: "eval-source-map",
-      devServer: {   
-      watchFiles: ["./src/**.*"], // i can remain the files and it won't break.
-      },
-  
- });
+export default merge(common, {
+  mode: 'development',
+  devtool: 'eval-source-map',
+  devServer: {
+    watchFiles: ['./src/**.*'], // i can remain the files and it won't break.
+  },
+});

@@ -1,431 +1,414 @@
-console.log("I am home.js");
+console.log('I am home.js');
 
-import {dateForThings, createCalendar , mondayList,tuesdayList,wednesdayList,thursdayList,fridayList,saturdayList,sundayList } from "./calender.js";
-import {Todo, Project, getTodo, setTodoStorage} from "./logic.js";
+import {
+  dateForThings,
+  createCalendar,
+  mondayList,
+  tuesdayList,
+  wednesdayList,
+  thursdayList,
+  fridayList,
+  saturdayList,
+  sundayList,
+} from './calender.js';
+import { Todo, Project, getTodo, setTodoStorage } from './logic.js';
 
+import book from '../images/round-icons-bnjMklTnCyc-unsplash.jpg';
+import logoIcon from '../images/Adobe Express - file.png';
+import mondayBg from '../images/simple-wallpapers-XPNNqo23w5o-unsplash.jpg';
+import tuesdayBg from '../images/simple-wallpapers-Y9Di8fHq83A-unsplash.jpg';
+import wednesdayBg from '../images/pragati-choudhari-sdpeC-aZq9Q-unsplash.jpg';
+import thursdayBg from '../images/anna-magenta-mmlznoUSZwQ-unsplash.jpg';
+import fridayBg from '../images/silali-banerjee-5MTWsd0p8bo-unsplash.jpg';
+import saturdayBg from '../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg';
+import sundayBg from '../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg';
+import monthBg from '../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg';
+import formBg from '../images/vectorelements-pWXhy2pjXkg-unsplash.jpg';
+import rabbit from '../images/bunny_1469155.png';
+import { daysInWeek } from 'date-fns/constants';
 
+let isDuplicate = 0;
+const div = document.querySelector('.page-layout');
+const pagediv = document.createElement('div');
+pagediv.className = 'pagedivider';
 
-import book from "../images/round-icons-bnjMklTnCyc-unsplash.jpg";
-import logoIcon from "../images/Adobe Express - file.png";
-import mondayBg from "../images/simple-wallpapers-XPNNqo23w5o-unsplash.jpg";
-import tuesdayBg from "../images/simple-wallpapers-Y9Di8fHq83A-unsplash.jpg";
-import wednesdayBg from "../images/pragati-choudhari-sdpeC-aZq9Q-unsplash.jpg";
-import thursdayBg from "../images/anna-magenta-mmlznoUSZwQ-unsplash.jpg";
-import fridayBg from "../images/silali-banerjee-5MTWsd0p8bo-unsplash.jpg";
-import saturdayBg from "../images/nidhi-shah-PL75tbZt9q8-unsplash.jpg";
-import sundayBg from "../images/simple-wallpapers-_CeV6pk8c2c-unsplash.jpg";
-import monthBg from "../images/tasha-kostyuk-RvZXcLdU2v0-unsplash.jpg";
-import formBg from "../images/vectorelements-pWXhy2pjXkg-unsplash.jpg";
-import rabbit from "../images/bunny_1469155.png";
-import { daysInWeek } from "date-fns/constants";
+export function makeNavBar() {
+  const container = document.querySelector('.page-layout');
+  const div = document.createElement('div');
+  div.className = 'navBox';
+  const nav = document.createElement('nav');
+  nav.className = 'nav-container';
 
+  const ul1 = document.createElement('ul');
+  ul1.className = 'profile';
+  const profilediv = document.createElement('div');
+  profilediv.className = 'profilediv';
 
+  const profileIcon = document.createElement('span');
+  profileIcon.className = 'material-symbols-outlined';
+  profileIcon.textContent = 'man_3';
 
- let isDuplicate = 0;
-const div = document.querySelector(".page-layout");
-const pagediv = document.createElement("div");
-     pagediv.className = "pagedivider";
+  let text = document.createElement('h3');
+  text.textContent = 'Profile';
+  const sideIcon = document.createElement('span');
+  sideIcon.className = 'material-symbols-outlined';
+  sideIcon.textContent = 'side_navigation';
+  profilediv.append(profileIcon, text, sideIcon);
 
-export function makeNavBar(){
-     const container = document.querySelector(".page-layout");
-    const div = document.createElement("div");
-        div.className = "navBox";
-    const nav = document.createElement("nav");
-        nav.className = "nav-container";
+  const l1 = document.createElement('li');
+  l1.className = 'Add';
+  const addIcon = document.createElement('span');
+  addIcon.className = 'material-symbols-outlined';
+  addIcon.textContent = 'add_circle';
 
-    const ul1 = document.createElement("ul");
-        ul1.className = "profile";
-        const profilediv = document.createElement("div");
-        profilediv.className= "profilediv";
-        
-        const profileIcon = document.createElement("span");
-        profileIcon.className = "material-symbols-outlined";
-        profileIcon.textContent = "man_3";
-    
-         let text = document.createElement("h3");
-          text.textContent= "Profile";
-        const sideIcon = document.createElement("span");
-        sideIcon.className = "material-symbols-outlined";
-        sideIcon.textContent = "side_navigation";
-        profilediv.append(profileIcon, text, sideIcon);
+  let text1 = document.createElement('p');
+  text1.textContent = 'Add Task';
+  l1.append(addIcon, text1);
 
-    const l1 = document.createElement("li");
-        l1.className = "Add";
-        const addIcon = document.createElement("span");
-        addIcon.className = "material-symbols-outlined";
-        addIcon.textContent = "add_circle";
-        
-        let text1 = document.createElement("p");
-          text1.textContent= "Add Task";
-          l1.append(addIcon, text1);
+  const l2 = document.createElement('li');
+  l2.className = 'search';
+  const searchIcon = document.createElement('span');
+  searchIcon.className = 'material-symbols-outlined';
+  searchIcon.textContent = 'search';
 
-    const l2 = document.createElement("li");
-        l2.className = "search";
-        const searchIcon = document.createElement("span");
-        searchIcon.className = "material-symbols-outlined";
-        searchIcon.textContent = "search";
-        
-        let text2 = document.createElement("p");
-          text2.textContent= "Search";
-          l2.append(searchIcon, text2);
+  let text2 = document.createElement('p');
+  text2.textContent = 'Search';
+  l2.append(searchIcon, text2);
 
-    const l3 = document.createElement("li");
-        l3.className = "today";
-        const todayIcon = document.createElement("span");
-        todayIcon.className = "material-symbols-outlined";
-        todayIcon.textContent = "today";
-        
-        let text3 = document.createElement("p");
-          text3.textContent= "Today";
-          l3.append(todayIcon, text3);
+  const l3 = document.createElement('li');
+  l3.className = 'today';
+  const todayIcon = document.createElement('span');
+  todayIcon.className = 'material-symbols-outlined';
+  todayIcon.textContent = 'today';
 
-    const l4 = document.createElement("li");
-        l4.className = "week";
-        const weekIcon = document.createElement("span");
-        weekIcon.className = "material-symbols-outlined";
-        weekIcon.textContent = "routine";
-        
-        let text4 = document.createElement("p");
-          text4.textContent= "Weekly";
-          l4.append(weekIcon, text4);
+  let text3 = document.createElement('p');
+  text3.textContent = 'Today';
+  l3.append(todayIcon, text3);
 
-    const l5 = document.createElement("li");
-        l5.className = "monthly";
-        const monthIcon = document.createElement("span");
-        monthIcon.className = "material-symbols-outlined";
-        monthIcon.textContent = "calendar_month";
-        
-        let text5 = document.createElement("p");
-          text5.textContent= "Monthly";
-          l5.append(monthIcon, text5);
+  const l4 = document.createElement('li');
+  l4.className = 'week';
+  const weekIcon = document.createElement('span');
+  weekIcon.className = 'material-symbols-outlined';
+  weekIcon.textContent = 'routine';
 
-        const plus = document.createElement("span");
-                    plus.className= "material-symbols-outlined";
-                    plus.textContent = "add_2";
-                    plus.id = "project-plus";
+  let text4 = document.createElement('p');
+  text4.textContent = 'Weekly';
+  l4.append(weekIcon, text4);
 
-         const ul2 = document.createElement("ul");
-        ul2.className = "myProjects";
-        ul2.append(` #  Projects` , plus);
-        
+  const l5 = document.createElement('li');
+  l5.className = 'monthly';
+  const monthIcon = document.createElement('span');
+  monthIcon.className = 'material-symbols-outlined';
+  monthIcon.textContent = 'calendar_month';
 
-       
-            
-        ul1.append(profilediv,l1,l2,l3,l4,l5);
-        nav.append(ul1,ul2);
-        div.appendChild(nav);
-        container.appendChild(div);
+  let text5 = document.createElement('p');
+  text5.textContent = 'Monthly';
+  l5.append(monthIcon, text5);
 
+  const plus = document.createElement('span');
+  plus.className = 'material-symbols-outlined';
+  plus.textContent = 'add_2';
+  plus.id = 'project-plus';
 
-        //handle click event
-        const navEvents ={
-            events:[l1,l2,l3,l4,l5],
-            func :[creatNewTodoForm, createSearch, createToday, createWeekly, createMonthly]
-      
-          };
+  const ul2 = document.createElement('ul');
+  ul2.className = 'myProjects';
+  ul2.append(` #  Projects`, plus);
 
-function removeSideBar(){
-      
-       delete window.makeNavBar;
-       console.log("navbar was removed.")
-    };
+  ul1.append(profilediv, l1, l2, l3, l4, l5);
+  nav.append(ul1, ul2);
+  div.appendChild(nav);
+  container.appendChild(div);
 
+  //handle click event
+  const navEvents = {
+    events: [l1, l2, l3, l4, l5],
+    func: [
+      creatNewTodoForm,
+      createSearch,
+      createToday,
+      createWeekly,
+      createMonthly,
+    ],
+  };
 
-function startNewProject(){
-   // this function creates ui for new projects and adds projects objects.
-    const displayModal = document.createElement("modal");
-    displayModal.className="projectModal";
-    const form = document.createElement("form");
-    form.action = " ";
-    form.method = "post";
-    const title = document.createElement("h2");
-      title.textContent="Start New Project."
+  function removeSideBar() {
+    delete window.makeNavBar;
+    console.log('navbar was removed.');
+  }
 
-    const inputDiv = document.createElement("div");
-           inputDiv.className = "newProjectDiv";
-    const nameInput = document.createElement("input");
-            nameInput.type = 'text';
-            nameInput.name = 'name';
-            nameInput.placeholder = "Lake House Construction Plans";
-            nameInput.required = true; // Boolean attributes take true/false
-            nameInput.id = 'title';
+  function startNewProject() {
+    // this function creates ui for new projects and adds projects objects.
+    const displayModal = document.createElement('modal');
+    displayModal.className = 'projectModal';
+    const form = document.createElement('form');
+    form.action = ' ';
+    form.method = 'post';
+    const title = document.createElement('h2');
+    title.textContent = 'Start New Project.';
 
+    const inputDiv = document.createElement('div');
+    inputDiv.className = 'newProjectDiv';
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.name = 'name';
+    nameInput.placeholder = 'Lake House Construction Plans';
+    nameInput.required = true; // Boolean attributes take true/false
+    nameInput.id = 'title';
 
-    const date = document.createElement("input");
-            date.type = 'number';
-            date.name = 'date';
-            date.placeholder = "dd/mm/yy";
-            date.required = false; // Boolean attributes take true/false
-            date.id = 'date';
-         inputDiv.append(nameInput,date);
+    const date = document.createElement('input');
+    date.type = 'number';
+    date.name = 'date';
+    date.placeholder = 'dd/mm/yy';
+    date.required = false; // Boolean attributes take true/false
+    date.id = 'date';
+    inputDiv.append(nameInput, date);
 
-    const cancelBtn = document.createElement("button");
-          cancelBtn.type = "reset";
-          cancelBtn.className = "cancelProject";
-          cancelBtn.textContent =" Cancel ";
-    
-          
+    const cancelBtn = document.createElement('button');
+    cancelBtn.type = 'reset';
+    cancelBtn.className = 'cancelProject';
+    cancelBtn.textContent = ' Cancel ';
 
-    const addBtn = document.createElement("button");
-          addBtn.type = "submit";
-          addBtn.className = "addProject";
-          addBtn.textContent = " Add Project ";
+    const addBtn = document.createElement('button');
+    addBtn.type = 'submit';
+    addBtn.className = 'addProject';
+    addBtn.textContent = ' Add Project ';
 
-   function startCancelBtn(){
-   // This function removes todoform from webpage.
-   form.reset();
-   pagediv.removeChild(displayModal);
-   };
+    function startCancelBtn() {
+      // This function removes todoform from webpage.
+      form.reset();
+      pagediv.removeChild(displayModal);
+    }
 
-         handleCLickEvent(cancelBtn, startCancelBtn);
-         handleCLickEvent(addBtn, ()=>{ 
-             let projectLi = document.createElement("li");
-               projectLi.id = "projects";
-               
-               ul2.append(projectLi);
-                 let project = new Project(nameInput.value,date.value);
-                 project.saveProject();
-               
-                 const projectImg = document.createElement("img");
-                 projectImg.src = book;
+    handleCLickEvent(cancelBtn, startCancelBtn);
+    handleCLickEvent(addBtn, () => {
+      let projectLi = document.createElement('li');
+      projectLi.id = 'projects';
 
-                 projectLi.textContent= projectImg + project.name;
+      ul2.append(projectLi);
+      let project = new Project(nameInput.value, date.value);
+      project.saveProject();
 
-                  const projectPage = document.querySelector("#projects");
-                 handleCLickEvent(projectPage, projectPage.createPage())
-                 projectPage.isProjectFinished();
-                }
-        );
-          form.append(title,inputDiv,cancelBtn,addBtn);
-          displayModal.appendChild(form);
-          pagediv.appendChild(displayModal);
-};
-        
-        handleCLickEvent(l1, creatNewTodoForm);
-        handleCLickEvent(l2, createSearch);
-        handleCLickEvent(l3, createToday);
-        handleCLickEvent(l4, ()=>{ createWeekly()});
-        handleCLickEvent(l5, createMonthly);
-        handleCLickEvent(plus, startNewProject);
-        handleCLickEvent(sideIcon, removeSideBar);
+      const projectImg = document.createElement('img');
+      projectImg.src = book;
 
-       
-  return ul2; 
-console.log("I am making a beautiful nav bar!")
+      projectLi.textContent = projectImg + project.name;
+
+      const projectPage = document.querySelector('#projects');
+      handleCLickEvent(projectPage, projectPage.createPage());
+      projectPage.isProjectFinished();
+    });
+    form.append(title, inputDiv, cancelBtn, addBtn);
+    displayModal.appendChild(form);
+    pagediv.appendChild(displayModal);
+  }
+
+  handleCLickEvent(l1, creatNewTodoForm);
+  handleCLickEvent(l2, createSearch);
+  handleCLickEvent(l3, createToday);
+  handleCLickEvent(l4, () => {
+    createWeekly();
+  });
+  handleCLickEvent(l5, createMonthly);
+  handleCLickEvent(plus, startNewProject);
+  handleCLickEvent(sideIcon, removeSideBar);
+
+  return ul2;
+  console.log('I am making a beautiful nav bar!');
 }
 
-export function makeDisplayBar(){
-              
-    const headerDiv = document.createElement("div");
-        headerDiv.className = "headerDiv";
-        const sideIcon = document.createElement("span");
-        sideIcon.className = "material-symbols-outlined";
-        sideIcon.textContent = "side_navigation";
-       
-        const hdiv = document.createElement("div");
-        
-        const logo = document.createElement("img");
-        logo.src = logoIcon;
-        logo.className= "logo";
-    const headerText = document.createElement("h3");
-         headerText.className = "headerText";
-         headerText.textContent = "Todo Bunny";
-         hdiv.append(logo,headerText);
-    const darkMode = document.createElement("span");
-        darkMode.className = "material-symbols-outlined";
-        darkMode.textContent = "bedtime";
-        headerDiv.append(sideIcon,hdiv,darkMode);
+export function makeDisplayBar() {
+  const headerDiv = document.createElement('div');
+  headerDiv.className = 'headerDiv';
+  const sideIcon = document.createElement('span');
+  sideIcon.className = 'material-symbols-outlined';
+  sideIcon.textContent = 'side_navigation';
 
-    function makeSideBar(){
-      
-        if (window.makeNavBar === false){
-            makeNavBar();
-        }else{
-         
-           sideIcon.display= "hidden";
-        }
-    };
-         
-    function startDarkMode(){
-     const body= document.querySelector("body");
-     let mode = "dark";
-    
-    const lightMode = document.createElement("span");
-        lightMode.className = "material-symbols-outlined";
-        lightMode.textContent = "light_mode";
-        lightMode.style.color = "white";
+  const hdiv = document.createElement('div');
 
-         // this function handles all darkmode operations for app.
-             body.style.backgroundColor = "black";
-            darkMode.replaceWith(lightMode);
-       
-      lightMode.addEventListener("click",()=>{
-       body.style.backgroundColor = "";
-       mode="light";
-       lightMode.replaceWith(darkMode);
-      });
-         
+  const logo = document.createElement('img');
+  logo.src = logoIcon;
+  logo.className = 'logo';
+  const headerText = document.createElement('h3');
+  headerText.className = 'headerText';
+  headerText.textContent = 'Todo Bunny';
+  hdiv.append(logo, headerText);
+  const darkMode = document.createElement('span');
+  darkMode.className = 'material-symbols-outlined';
+  darkMode.textContent = 'bedtime';
+  headerDiv.append(sideIcon, hdiv, darkMode);
+
+  function makeSideBar() {
+    if (window.makeNavBar === false) {
+      makeNavBar();
+    } else {
+      sideIcon.display = 'hidden';
+    }
+  }
+
+  function startDarkMode() {
+    const body = document.querySelector('body');
+    let mode = 'dark';
+
+    const lightMode = document.createElement('span');
+    lightMode.className = 'material-symbols-outlined';
+    lightMode.textContent = 'light_mode';
+    lightMode.style.color = 'white';
+
+    // this function handles all darkmode operations for app.
+    body.style.backgroundColor = 'black';
+    darkMode.replaceWith(lightMode);
+
+    lightMode.addEventListener('click', () => {
+      body.style.backgroundColor = '';
+      mode = 'light';
+      lightMode.replaceWith(darkMode);
+    });
+  }
+
+  pagediv.append(headerDiv);
+  div.appendChild(pagediv);
+  createToday();
+  handleCLickEvent(sideIcon, makeSideBar);
+  handleCLickEvent(darkMode, startDarkMode);
+
+  console.log('I am making a neat display!');
 }
- 
-    pagediv.append(headerDiv);   
-    div.appendChild(pagediv);
-     createToday();
-     handleCLickEvent(sideIcon, makeSideBar);
-     handleCLickEvent(darkMode, startDarkMode);
-    
-   console.log("I am making a neat display!");
-}
-
 
 //Create for task form
-export function creatNewTodoForm(date){
+export function creatNewTodoForm(date) {
+  let dueDate = date;
+  let priority;
+  let notes;
+  let reminder;
 
-   let dueDate = date;
-   let priority;
-   let notes;
-   let reminder;
+  let todayBtn = document.querySelector('#today');
+  let mondayBtn = document.querySelector('#monday');
+  let tuesdayBtn = document.querySelector('#tuesday');
+  let wednesdayBtn = document.querySelector('#wednesday');
+  let thursdayBtn = document.querySelector('#thursday');
+  let fridayBtn = document.querySelector('#friday');
+  let saturdayBtn = document.querySelector('#saturday');
+  let sundayBtn = document.querySelector('#sunday');
 
-   let todayBtn = document.querySelector("#today");
-   let mondayBtn = document.querySelector("#monday");
-   let tuesdayBtn = document.querySelector("#tuesday");
-   let wednesdayBtn = document.querySelector("#wednesday");
-   let thursdayBtn = document.querySelector("#thursday");
-   let fridayBtn = document.querySelector("#friday");
-   let saturdayBtn = document.querySelector("#saturday");
-   let sundayBtn = document.querySelector("#sunday");
+  let [formattedDate, todayFullDate] = dateForThings();
+  let splitDate = formattedDate.split('-');
+  console.log(splitDate, formattedDate, todayFullDate);
 
-    let [formattedDate, todayFullDate] = dateForThings();
-    let splitDate = formattedDate.split("-");
-        console.log(splitDate, formattedDate, todayFullDate);
+  const formDiv = document.createElement('div');
+  formDiv.className = 'formDiv';
 
-    const formDiv = document.createElement("div");
-    formDiv.className ="formDiv";
+  const formImg = document.createElement('img');
+  formImg.src = formBg;
+  formDiv.style.backgroundColor = 'white';
 
-    const formImg = document.createElement("img");
-    formImg.src = formBg;
-    formDiv.style.backgroundColor = "white";
+  const form = document.createElement('form');
+  form.action = ' ';
+  form.method = 'post';
 
-    const form = document.createElement("form");
-        form.action = " ";
-        form.method = "post";
+  const inputDiv = document.createElement('div');
+  inputDiv.className = 'inputDiv';
 
-   const inputDiv = document.createElement("div");
-          inputDiv.className = "inputDiv";
-          
-    const titleInput = document.createElement("input");
-            titleInput.type = 'text';
-            titleInput.name = 'title';
-            titleInput.placeholder = "Attend Mr Steven's anulguration ceremony";
-            titleInput.required = true; // Boolean attributes take true/false
-            titleInput.id = 'title';
+  const titleInput = document.createElement('input');
+  titleInput.type = 'text';
+  titleInput.name = 'title';
+  titleInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+  titleInput.required = true; // Boolean attributes take true/false
+  titleInput.id = 'title';
 
+  const description = document.createElement('input');
+  description.type = 'text';
+  description.name = 'description';
+  description.placeholder = 'Description';
+  description.required = false; // Boolean attributes take true/false
+  description.id = 'description';
+  inputDiv.append(titleInput, description);
 
-    const description = document.createElement("input");
-            description.type = 'text';
-            description.name = 'description';
-            description.placeholder = "Description";
-            description.required = false; // Boolean attributes take true/false
-            description.id = 'description';
-         inputDiv.append(titleInput,description);
+  const itemsDiv = document.createElement('div');
+  itemsDiv.className = 'itemsDiv';
 
-    const itemsDiv = document.createElement("div");
-          itemsDiv.className="itemsDiv";
+  const div1 = document.createElement('div');
+  div1.className = 'div1';
 
+  const icon = document.createElement('span');
+  icon.className = 'material-symbols-outlined';
+  icon.textContent = 'Today';
 
-          const div1 = document.createElement("div");
-          div1.className = "div1";
-          
-           const icon = document.createElement("span");
-          icon.className = "material-symbols-outlined";
-          icon.textContent = "Today";
+  let label = document.createElement('p');
+  label.style.fontWeight = 'bold';
+  label.textContent = 'Today';
+  div1.append(icon, label);
 
-          let label = document.createElement("p");
-           label.style.fontWeight = "bold";
-           label.textContent= "Today";
-          div1.append(icon, label);
+  const div2 = document.createElement('div');
+  div2.className = 'div2';
 
-    const div2 = document.createElement("div");
-          div2.className = "div2";
-          
-           const ribbonIcon = document.createElement("span");
-          ribbonIcon.className = "material-symbols-outlined";
-          ribbonIcon.textContent = "book_ribbon";
+  const ribbonIcon = document.createElement('span');
+  ribbonIcon.className = 'material-symbols-outlined';
+  ribbonIcon.textContent = 'book_ribbon';
 
-          let label1 = document.createElement("p");
-           label1.style.fontWeight = "bold";
-           label1.textContent= "Priority";
-          div2.append(ribbonIcon, label1);
+  let label1 = document.createElement('p');
+  label1.style.fontWeight = 'bold';
+  label1.textContent = 'Priority';
+  div2.append(ribbonIcon, label1);
 
-   
-           
+  const div3 = document.createElement('div');
+  div3.className = 'div3';
 
+  let label2 = document.createElement('p');
+  label2.style.fontWeight = 'bold';
+  label2.textContent = 'Reminder';
 
-    const div3 = document.createElement("div");
-          div3.className="div3"
-         
-          let label2 = document.createElement("p");
-           label2.style.fontWeight = "bold";
-           label2.textContent= "Reminder";
-          
-         
-    const alarmIcon = document.createElement("span");
-          alarmIcon.className = "material-symbols-outlined";
-          alarmIcon.textContent = "alarm";
-          div3.append(alarmIcon, label2);
-    
-    const options = document.createElement("span");
-          options.textContent= "more_horiz";
-          options.className= "material-symbols-outlined";
-          options.id = "optionsIcon"
-    const optionsDiv = document.createElement("div");
-          options.appendChild(optionsDiv);
-        const select = document.createElement("select");
-            let selectOptions = document.createElement("option");
-              selectOptions.value = handleCLickEvent(selectOptions, getNotes)
-              selectOptions.text = "notes";
-        itemsDiv.append(div1,div2,div3,options)  
-    const formHr = document.createElement("hr");
+  const alarmIcon = document.createElement('span');
+  alarmIcon.className = 'material-symbols-outlined';
+  alarmIcon.textContent = 'alarm';
+  div3.append(alarmIcon, label2);
 
-    const inboxBtn = document.createElement("button");
-          inboxBtn.type = "button";
-          inboxBtn.className = "inboxBtn";
-          inboxBtn.textContent =" Inbox ";
-          const inboxIcon = document.createElement("span");
-          inboxIcon.textContent= "inbox_text";
-          inboxIcon.className= "material-symbols-outlined";
-          inboxBtn.append(inboxIcon);
-    const cancelBtn = document.createElement("button");
-          cancelBtn.type = "reset";
-          cancelBtn.className = "cancelBtn";
-          cancelBtn.textContent =" Cancel ";
-    
-          
+  const options = document.createElement('span');
+  options.textContent = 'more_horiz';
+  options.className = 'material-symbols-outlined';
+  options.id = 'optionsIcon';
+  const optionsDiv = document.createElement('div');
+  options.appendChild(optionsDiv);
+  const select = document.createElement('select');
+  let selectOptions = document.createElement('option');
+  selectOptions.value = handleCLickEvent(selectOptions, getNotes);
+  selectOptions.text = 'notes';
+  itemsDiv.append(div1, div2, div3, options);
+  const formHr = document.createElement('hr');
 
-    const addBtn = document.createElement("button");
-          addBtn.type = "button";
-          addBtn.id = "submit";
-          addBtn.className = "addBtn";
-          addBtn.textContent = " Add Task ";
+  const inboxBtn = document.createElement('button');
+  inboxBtn.type = 'button';
+  inboxBtn.className = 'inboxBtn';
+  inboxBtn.textContent = ' Inbox ';
+  const inboxIcon = document.createElement('span');
+  inboxIcon.textContent = 'inbox_text';
+  inboxIcon.className = 'material-symbols-outlined';
+  inboxBtn.append(inboxIcon);
+  const cancelBtn = document.createElement('button');
+  cancelBtn.type = 'reset';
+  cancelBtn.className = 'cancelBtn';
+  cancelBtn.textContent = ' Cancel ';
 
+  const addBtn = document.createElement('button');
+  addBtn.type = 'button';
+  addBtn.id = 'submit';
+  addBtn.className = 'addBtn';
+  addBtn.textContent = ' Add Task ';
 
-    const buttonDiv = document.createElement("div");
-         buttonDiv.className = "buttonDiv";
-         buttonDiv.append(inboxBtn, cancelBtn, addBtn);
+  const buttonDiv = document.createElement('div');
+  buttonDiv.className = 'buttonDiv';
+  buttonDiv.append(inboxBtn, cancelBtn, addBtn);
 
+  function startCancelBtn() {
+    // This function removes todoform from webpage.
+    form.reset();
+    formDiv.remove();
+  }
 
-     function startCancelBtn(){
-        // This function removes todoform from webpage.
-        form.reset();
-        formDiv.remove();
-    };
+  function startSend() {
+    alert('Your tasks have been sent to email, Tuchuss!');
+  }
 
-function startSend(){
-   alert("Your tasks have been sent to email, Tuchuss!")
- 
-};
-
-
-function startRescheduleBtn(){
+  function startRescheduleBtn() {
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
@@ -435,940 +418,924 @@ function startRescheduleBtn(){
 
     const oneWeek = new Date(today);
     oneWeek.setDate(today.getDate() + 7);
-  
-// this function creates ui for reschdule icon.and adds date to todos.
-    const rescheduleDiv = document.createElement("div");
-          rescheduleDiv.className = "rescheduleDiv";
-    const dateNow = document.createElement("p");
-          dateNow.className = "formatDateNow"
-          dateNow.textContent = dueDate;
-    const hr = document.createElement("hr");
-    const selectreschedulers = document.createElement("select");
-          selectreschedulers.className = "rescheduleers"; 
-          selectreschedulers.name = "rescheduleers"; 
-          selectreschedulers.placeholder = "Select new date";
-    const r = document.createElement("option");
-          r.value = "today";
-          r.textContent = "Today";
-    const r1 = document.createElement("option");
-          r1.value = "tomorrow";
-          r1.textContent = "Tomorrow";
-    const r2 = document.createElement("option");
-          r2.value = "2 days";
-          r2.textContent = "In 2 days";
-    const r3 = document.createElement("option");
-          r3.value = "1 week";
-          r3.textContent = "In 1 Week";
-    const hr4 = document.createElement("hr");
-    
+
+    // this function creates ui for reschdule icon.and adds date to todos.
+    const rescheduleDiv = document.createElement('div');
+    rescheduleDiv.className = 'rescheduleDiv';
+    const dateNow = document.createElement('p');
+    dateNow.className = 'formatDateNow';
+    dateNow.textContent = dueDate;
+    const hr = document.createElement('hr');
+    const selectreschedulers = document.createElement('select');
+    selectreschedulers.className = 'rescheduleers';
+    selectreschedulers.name = 'rescheduleers';
+    selectreschedulers.placeholder = 'Select new date';
+    const r = document.createElement('option');
+    r.value = 'today';
+    r.textContent = 'Today';
+    const r1 = document.createElement('option');
+    r1.value = 'tomorrow';
+    r1.textContent = 'Tomorrow';
+    const r2 = document.createElement('option');
+    r2.value = '2 days';
+    r2.textContent = 'In 2 days';
+    const r3 = document.createElement('option');
+    r3.value = '1 week';
+    r3.textContent = 'In 1 Week';
+    const hr4 = document.createElement('hr');
+
     //The condition to work around the chosen option from user.
     //if option is clicked the corresponding variable is used to set the dueDate.
     // add eventlistener to choose options for date.
-    handleCLickEvent(r , ()=>{
-    selectreschedulers.value = "today";
-    dueDate = today;
-    console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
-   });
-  handleCLickEvent(r1 , ()=>{ 
-    
-        console.log("selected Option :",selectreschedulers.value,
-               "dueDate: ", dueDate);
-  });
-   handleCLickEvent(r2 , ()=>{ 
-    selectreschedulers.value = "2 days";
-    dueDate = twoDays;
-    console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
-   });
-    handleCLickEvent(r3 , ()=>{ selectreschedulers.value = "1 week";
+    handleCLickEvent(r, () => {
+      selectreschedulers.value = 'today';
+      dueDate = today;
+      console.log(
+        'selected Option :',
+        selectreschedulers.value,
+        'dueDate: ',
+        dueDate
+      );
+    });
+    handleCLickEvent(r1, () => {
+      console.log(
+        'selected Option :',
+        selectreschedulers.value,
+        'dueDate: ',
+        dueDate
+      );
+    });
+    handleCLickEvent(r2, () => {
+      selectreschedulers.value = '2 days';
+      dueDate = twoDays;
+      console.log(
+        'selected Option :',
+        selectreschedulers.value,
+        'dueDate: ',
+        dueDate
+      );
+    });
+    handleCLickEvent(r3, () => {
+      selectreschedulers.value = '1 week';
       dueDate = oneWeek;
-      console.log("selected Option :",selectreschedulers.value, "dueDate: ", dueDate);
+      console.log(
+        'selected Option :',
+        selectreschedulers.value,
+        'dueDate: ',
+        dueDate
+      );
     });
 
+    const calendarDiv = document.createElement('div');
+    calendarDiv.className = 'rescheduleCalendar';
+    calendarDiv.append(createCalendar(new Date().getMonth()));
 
+    const time = document.createElement('button');
+    time.id = 'time-btn';
+    time.textContent = 'time';
+    const repeat = document.createElement('button');
+    repeat.id = 'repeat-btn';
+    repeat.textContent = 'Repeat';
+    selectreschedulers.append(r, r1, r2, r3);
+    rescheduleDiv.append(
+      dateNow,
+      hr,
+      selectreschedulers,
+      hr4,
+      calendarDiv,
+      hr,
+      time,
+      repeat
+    );
+    formDiv.append(rescheduleDiv);
 
-    const calendarDiv = document.createElement("div");
-    calendarDiv.className = "rescheduleCalendar"
-      calendarDiv.append(createCalendar(new Date().getMonth()));
-     
-    const time = document.createElement("button");
-     time.id = "time-btn";
-     time.textContent= "time";
-    const repeat = document.createElement("button");
-     repeat.id = "repeat-btn";
-     repeat.textContent = "Repeat";
-     selectreschedulers.append(r,r1,r2,r3);
-     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
-     formDiv.append(rescheduleDiv);
-    
-     
-       rescheduleDiv.addEventListener("mouseleave",()=>{
-         formDiv.removeChild(rescheduleDiv);
-       })
-        
-};
+    rescheduleDiv.addEventListener('mouseleave', () => {
+      formDiv.removeChild(rescheduleDiv);
+    });
+  }
 
-function startPriorityBtn(){
-   
+  function startPriorityBtn() {
     // this function creates ui for priority bar and updates todo objects.
-    const priorityDiv = document.createElement("div");
-    priorityDiv.className = "priorityDiv";
+    const priorityDiv = document.createElement('div');
+    priorityDiv.className = 'priorityDiv';
 
- let div = document.createElement("div");
-         const highP= document.createElement("p");
-            
-          const high = document.createElement("input");
-            high.name = "priority";
-            high.id = "high";
-            high.type = "radio";
-            high.value = "high";
-            high.textContent = "High";
-            highP.append(high);
-            highP.textContent ="High";
-           div.append(high, highP);
-           
- let div1 = document.createElement("div");
-            const mediumP= document.createElement("p");
-           const medium = document.createElement("input");
-            medium.name = "priority";
-            medium.id = "medium";
-            medium.type = "radio";
-            medium.value = "medium";
-            medium.textContent = "Medium";
-             mediumP.append(medium);
-            mediumP.textContent="Medium";
-            div1.append(medium, mediumP);
-      
- let div2 = document.createElement("div");
-            const lowP= document.createElement("p");
-           const low = document.createElement("input");
-            low.name = "priority";
-            low.id = "low";
-            low.type = "radio";
-            low.value = "low"; 
-            low.textContent = "Low"; 
-            lowP.append(low);
-            lowP.textContent = "Low";
-            div2.append(low,lowP);
+    let div = document.createElement('div');
+    const highP = document.createElement('p');
 
-           priorityDiv.append(div,div1,div2);
+    const high = document.createElement('input');
+    high.name = 'priority';
+    high.id = 'high';
+    high.type = 'radio';
+    high.value = 'high';
+    high.textContent = 'High';
+    highP.append(high);
+    highP.textContent = 'High';
+    div.append(high, highP);
 
-            formDiv.appendChild(priorityDiv);
+    let div1 = document.createElement('div');
+    const mediumP = document.createElement('p');
+    const medium = document.createElement('input');
+    medium.name = 'priority';
+    medium.id = 'medium';
+    medium.type = 'radio';
+    medium.value = 'medium';
+    medium.textContent = 'Medium';
+    mediumP.append(medium);
+    mediumP.textContent = 'Medium';
+    div1.append(medium, mediumP);
 
-      // condition that adds pirority to todos
-      handleCLickEvent(highP, ()=>{ priority = highP.textContent});
-      handleCLickEvent(mediumP, ()=>{ priority = mediumP.textContent});
-      handleCLickEvent(lowP, ()=>{ priority = lowP.textContent});
+    let div2 = document.createElement('div');
+    const lowP = document.createElement('p');
+    const low = document.createElement('input');
+    low.name = 'priority';
+    low.id = 'low';
+    low.type = 'radio';
+    low.value = 'low';
+    low.textContent = 'Low';
+    lowP.append(low);
+    lowP.textContent = 'Low';
+    div2.append(low, lowP);
 
-       priorityDiv.addEventListener("mouseleave",()=>{
-         formDiv.removeChild(priorityDiv);
-       })
+    priorityDiv.append(div, div1, div2);
 
-};
+    formDiv.appendChild(priorityDiv);
 
+    // condition that adds pirority to todos
+    handleCLickEvent(highP, () => {
+      priority = highP.textContent;
+    });
+    handleCLickEvent(mediumP, () => {
+      priority = mediumP.textContent;
+    });
+    handleCLickEvent(lowP, () => {
+      priority = lowP.textContent;
+    });
 
+    priorityDiv.addEventListener('mouseleave', () => {
+      formDiv.removeChild(priorityDiv);
+    });
+  }
 
-
-function startReminderBtn(){
+  function startReminderBtn() {
     // this function creates ui for reminder with some reminder functionality.
-    const remindDiv = document.createElement("div");
-     remindDiv.className = "remindDiv";
-    const selectReminders = document.createElement("select");
-      selectReminders.name = "reminders"; 
-      const r = document.createElement("option");
-      r.value = 0;
-      r.textContent = "Default";
-      r.id = "reminder";
-      
-    const r1 = document.createElement("option");
-      r1.value = 50000;
-      r1.textContent = "In 5 miniutes";
-      r1.id = "reminder";
-        
-    const r2 = document.createElement("option");
-      r2.value = 300000;
-      r2.textContent = "In 30 miniutes";
-      r2.id = "reminder";
-       
-    const r3 = document.createElement("option");
-      r3.value = 600000;
-      r3.textContent = "In 1 hour";
-      r3.id = "reminder";
-       
-    if(selectReminders.selected === r1){
-        setTimeout( ()=>{ 
-          alert("it's time to do your tasks");
-          reminder = r1.value;
-           return r1.textContent, r1.value})
-    } else if(selectReminders.selected === r2){
-     setTimeout(()=>{ 
-        
+    const remindDiv = document.createElement('div');
+    remindDiv.className = 'remindDiv';
+    const selectReminders = document.createElement('select');
+    selectReminders.name = 'reminders';
+    const r = document.createElement('option');
+    r.value = 0;
+    r.textContent = 'Default';
+    r.id = 'reminder';
+
+    const r1 = document.createElement('option');
+    r1.value = 50000;
+    r1.textContent = 'In 5 miniutes';
+    r1.id = 'reminder';
+
+    const r2 = document.createElement('option');
+    r2.value = 300000;
+    r2.textContent = 'In 30 miniutes';
+    r2.id = 'reminder';
+
+    const r3 = document.createElement('option');
+    r3.value = 600000;
+    r3.textContent = 'In 1 hour';
+    r3.id = 'reminder';
+
+    if (selectReminders.selected === r1) {
+      setTimeout(() => {
+        alert("it's time to do your tasks");
+        reminder = r1.value;
+        return (r1.textContent, r1.value);
+      });
+    } else if (selectReminders.selected === r2) {
+      setTimeout(() => {
         alert("it's time to do your tasks");
         reminder = r2.value;
-        return r2.textContent, r2.value})
-    } else if(selectReminders.selected === r3){
-      setTimeout(()=>{ alert("it's time to do your tasks");
-         return r3.textContent, r3.value})
-    }else {
-      selectReminders.selected = "default";
-
+        return (r2.textContent, r2.value);
+      });
+    } else if (selectReminders.selected === r3) {
+      setTimeout(() => {
+        alert("it's time to do your tasks");
+        return (r3.textContent, r3.value);
+      });
+    } else {
+      selectReminders.selected = 'default';
     }
-     
-    selectReminders.append(r, r1,r2,r3);
+
+    selectReminders.append(r, r1, r2, r3);
     remindDiv.append(selectReminders);
     formDiv.appendChild(remindDiv);
 
-      remindDiv.addEventListener("mouseleave",()=>{
-         formDiv.removeChild(remindDiv);
-       })
-    
-      
-};
+    remindDiv.addEventListener('mouseleave', () => {
+      formDiv.removeChild(remindDiv);
+    });
+  }
 
-function getNotes(){
-    let content ;
-    const noteDiv = document.createElement("div");
-          noteDiv.className = "notesDiv";
-    const notetitle = document.createElement("h5");
-          notetitle.className = "notetitle";
-          notetitle.textContent = "Add notes or comments."
-    const noteP = document.createElement("p");
-          noteP.className = "noteP";
-    const noteText = document.createElement("textarea");
-          noteText.placeholder= "I think we should launch that campaign.";
-          noteText.rows = "10";
-          noteText.cols = "30";
+  function getNotes() {
+    let content;
+    const noteDiv = document.createElement('div');
+    noteDiv.className = 'notesDiv';
+    const notetitle = document.createElement('h5');
+    notetitle.className = 'notetitle';
+    notetitle.textContent = 'Add notes or comments.';
+    const noteP = document.createElement('p');
+    noteP.className = 'noteP';
+    const noteText = document.createElement('textarea');
+    noteText.placeholder = 'I think we should launch that campaign.';
+    noteText.rows = '10';
+    noteText.cols = '30';
     noteP.appendChild(noteText);
-    const add = document.createElement("button");
-       add.id = "addNotes";
-       add.type = "submit";
-       add.textContent = "Submit";
-     
-    noteDiv.append(notetitle,noteP,add);
+    const add = document.createElement('button');
+    add.id = 'addNotes';
+    add.type = 'submit';
+    add.textContent = 'Submit';
+
+    noteDiv.append(notetitle, noteP, add);
     formDiv.append(noteDiv);
 
-    add.addEventListener("click", ()=>{
-        content = noteText.textContent;
-        notes = content;
-        formDiv.removeChild(noteDiv);
-        return content;
-    });   
+    add.addEventListener('click', () => {
+      content = noteText.textContent;
+      notes = content;
+      formDiv.removeChild(noteDiv);
+      return content;
+    });
+  }
 
-  
-};
+  function startAddTask() {
+    let task = new Todo(
+      titleInput.value,
+      description.value,
+      dueDate,
+      priority,
+      reminder,
+      notes,
+      'General'
+    );
+    task.addNew(task);
+    formDiv.remove();
+  }
 
+  form.append(inputDiv, itemsDiv, formHr, buttonDiv);
 
-function startAddTask(){
-    
-     let task = new Todo(titleInput.value,description.value,dueDate,priority,reminder,notes, "General");
-       task.addNew(task);
-      formDiv.remove();
-};
+  formDiv.appendChild(form);
+  formDiv.style.display = 'none';
 
-    form.append(inputDiv, itemsDiv, formHr,buttonDiv);
-   
-    formDiv.appendChild(form);
-    formDiv.style.display = "none";
- 
-   
-    
-     
-   
-    handleCLickEvent(inboxBtn, startSend);
-    handleCLickEvent(cancelBtn, startCancelBtn);
-    handleCLickEvent(addBtn, startAddTask);
-    handleCLickEvent(div2, startPriorityBtn);
-    handleCLickEvent(div3, startReminderBtn);
-    handleCLickEvent(div1, startRescheduleBtn);
-    handleCLickEvent(options, getNotes);
- return formDiv;
- //condition to add todoform to the right divs
- //use target.id to target addtaskbtn so it can be add to condition.  
+  handleCLickEvent(inboxBtn, startSend);
+  handleCLickEvent(cancelBtn, startCancelBtn);
+  handleCLickEvent(addBtn, startAddTask);
+  handleCLickEvent(div2, startPriorityBtn);
+  handleCLickEvent(div3, startReminderBtn);
+  handleCLickEvent(div1, startRescheduleBtn);
+  handleCLickEvent(options, getNotes);
+  return formDiv;
+  //condition to add todoform to the right divs
+  //use target.id to target addtaskbtn so it can be add to condition.
 
-console.log("I am making a beautiful todo form!")
+  console.log('I am making a beautiful todo form!');
 }
 
-
-export function createToday(){ 
+export function createToday() {
   let counter = 1;
   const today = new Date();
 
-  const container = document.createElement("div");
-      container.className = "todayContainer";
-  const header = document.createElement("div");
-      header.className = "todayHeaderdiv";
+  const container = document.createElement('div');
+  container.className = 'todayContainer';
+  const header = document.createElement('div');
+  header.className = 'todayHeaderdiv';
 
-  const bookicon = document.createElement("img");
-      bookicon.src = book;
-      bookicon.className = "book-icon";
+  const bookicon = document.createElement('img');
+  bookicon.src = book;
+  bookicon.className = 'book-icon';
 
-  let text6 = document.createElement("h1");
-      text6.textContent = "Today";
-      header.append(bookicon, text6);
+  let text6 = document.createElement('h1');
+  text6.textContent = 'Today';
+  header.append(bookicon, text6);
 
-  const count = document.createElement("p");
-  const span = document.createElement("span");
-        span.className = "material-symbols-outlined";
-        span.textContent = "check_circle";
-        
-  let text7 = document.createElement("p");
-      text7.textContent= "tasks";
-      count.append(span,`${counter + " "+ text7.textContent}`);
-       
- const ul = document.createElement("ul");
-       ul.id = "today";
+  const count = document.createElement('p');
+  const span = document.createElement('span');
+  span.className = 'material-symbols-outlined';
+  span.textContent = 'check_circle';
 
- const dropDown = document.createElement("span");
-       dropDown.className = "material-symbols-outlined";
-       dropDown.id = "dropDown";
-       dropDown.textContent = "stat_minus_1";
-        
- let text8 = document.createElement("p");
-          text8.textContent= "Overdue";
-          text8.id = "overdue";
+  let text7 = document.createElement('p');
+  text7.textContent = 'tasks';
+  count.append(span, `${counter + ' ' + text7.textContent}`);
 
- let text9 = document.createElement("p");
-          text9.textContent= "Reschedule"; 
-          text9.style.color = "orangered";
-           
-          ul.append(dropDown, text8, text9);
-   
-       const todayHr1 = document.createElement("hr"); 
-       const todoItem = document.createElement("li");
-          todoItem.id = "todos";
-       const radioBtn = document.createElement("span");
-          radioBtn.className = "material-symbols-outlined";
-          radioBtn.textContent = "radio_button_unchecked";
-        
-        let text10 = document.createElement("p");
-          text10.textContent= ( " Edit Videos and post by 3pm.");
-          todoItem.append(radioBtn,text10);
-       
-         const addTaskBtn = document.createElement("button");
-         addTaskBtn.className = "addTaskBtn";
-         addTaskBtn.id = "today";
-    const plusIcon = document.createElement("span");
-         plusIcon.className = "material-symbols-outlined";
-         plusIcon.id = "plusIcon";
-         plusIcon.textContent = "add_2"; 
-        
-        let text11 = document.createElement("p");
-          text11.textContent= "Add task";
-          addTaskBtn.append(plusIcon , text11);
+  const ul = document.createElement('ul');
+  ul.id = 'today';
 
-    const todayHr = document.createElement("hr") ;   
-          container.textContent = "";
-          container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
-          
-     let numb = pagediv.childElementCount;
-      console.log(numb);
-     if (numb > 1){
-       pagediv.lastChild.replaceWith(container);
-     }else {
-       pagediv.append(container);
-     };
-     
-    function pressRadioBtn(){
+  const dropDown = document.createElement('span');
+  dropDown.className = 'material-symbols-outlined';
+  dropDown.id = 'dropDown';
+  dropDown.textContent = 'stat_minus_1';
+
+  let text8 = document.createElement('p');
+  text8.textContent = 'Overdue';
+  text8.id = 'overdue';
+
+  let text9 = document.createElement('p');
+  text9.textContent = 'Reschedule';
+  text9.style.color = 'orangered';
+
+  ul.append(dropDown, text8, text9);
+
+  const todayHr1 = document.createElement('hr');
+  const todoItem = document.createElement('li');
+  todoItem.id = 'todos';
+  const radioBtn = document.createElement('span');
+  radioBtn.className = 'material-symbols-outlined';
+  radioBtn.textContent = 'radio_button_unchecked';
+
+  let text10 = document.createElement('p');
+  text10.textContent = ' Edit Videos and post by 3pm.';
+  todoItem.append(radioBtn, text10);
+
+  const addTaskBtn = document.createElement('button');
+  addTaskBtn.className = 'addTaskBtn';
+  addTaskBtn.id = 'today';
+  const plusIcon = document.createElement('span');
+  plusIcon.className = 'material-symbols-outlined';
+  plusIcon.id = 'plusIcon';
+  plusIcon.textContent = 'add_2';
+
+  let text11 = document.createElement('p');
+  text11.textContent = 'Add task';
+  addTaskBtn.append(plusIcon, text11);
+
+  const todayHr = document.createElement('hr');
+  container.textContent = '';
+  container.append(header, count, ul, todayHr1, todoItem, todayHr, addTaskBtn);
+
+  let numb = pagediv.childElementCount;
+  console.log(numb);
+  if (numb > 1) {
+    pagediv.lastChild.replaceWith(container);
+  } else {
+    pagediv.append(container);
+  }
+
+  function pressRadioBtn() {
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-    const rabbiticon = document.createElement("img");
-       rabbiticon.src = rabbit;
-       rabbiticon.className = "rabbit-icon";
-       radioBtn.replaceWith(rabbiticon);
-       Todo.checkList = true;
-};
+    const rabbiticon = document.createElement('img');
+    rabbiticon.src = rabbit;
+    rabbiticon.className = 'rabbit-icon';
+    radioBtn.replaceWith(rabbiticon);
+    Todo.checkList = true;
+  }
 
-      function collapsibleDropdown(){
+  function collapsibleDropdown() {
     // this function handles todolist ui collasping effects.
-    const dropRight = document.createElement("span");
-        dropRight.className = "material-symbols-outlined";
-        dropRight.id = "dropRight";
-        dropRight.textContent = "chevron_right";
-   
-        container.removeChild(todoItem);
-        container.removeChild(todayHr);
-        dropDown.replaceWith(dropRight);
+    const dropRight = document.createElement('span');
+    dropRight.className = 'material-symbols-outlined';
+    dropRight.id = 'dropRight';
+    dropRight.textContent = 'chevron_right';
 
-        dropRight.addEventListener("click" , ()=>{
-        container.removeChild(addTaskBtn);
-        container.append(todoItem, todayHr, addTaskBtn);
+    container.removeChild(todoItem);
+    container.removeChild(todayHr);
+    dropDown.replaceWith(dropRight);
 
-        dropRight.replaceWith(dropDown);
-    })
-};
+    dropRight.addEventListener('click', () => {
+      container.removeChild(addTaskBtn);
+      container.append(todoItem, todayHr, addTaskBtn);
 
-function startRescheduleBtn(){
-   
+      dropRight.replaceWith(dropDown);
+    });
+  }
+
+  function startRescheduleBtn() {
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
 
     const twoDays = new Date(today);
     twoDays.setDate(today.getDate() + 2);
 
-     const oneWeek = new Date(today);
+    const oneWeek = new Date(today);
     oneWeek.setDate(today.getDate() + 7);
-  
+
     // this function creates ui for reschdule icon.and adds date to todos.
-     const rescheduleDiv = document.createElement("div");
-      rescheduleDiv.className = "rescheduleDiv";
+    const rescheduleDiv = document.createElement('div');
+    rescheduleDiv.className = 'rescheduleDiv';
 
-    const dateNow = document.createElement("p");
-      dateNow.className = "formatDateNow";
-      dateNow.textContent = formattedDate;
+    const dateNow = document.createElement('p');
+    dateNow.className = 'formatDateNow';
+    dateNow.textContent = formattedDate;
 
-    const hr = document.createElement("hr");
+    const hr = document.createElement('hr');
 
-    const selectreschedulers = document.createElement("select");
-      selectreschedulers.className = "rescheduleers"; 
-      selectreschedulers.name = "rescheduleers"; 
+    const selectreschedulers = document.createElement('select');
+    selectreschedulers.className = 'rescheduleers';
+    selectreschedulers.name = 'rescheduleers';
 
-    const r1 = document.createElement("option");
-      r1.value = "tomorrow";
-      r1.textContent = "Tomorrow";
+    const r1 = document.createElement('option');
+    r1.value = 'tomorrow';
+    r1.textContent = 'Tomorrow';
 
-    const r2 = document.createElement("option");
-    r2.value = "2 days";
-    r2.textContent = "In 2 days";
+    const r2 = document.createElement('option');
+    r2.value = '2 days';
+    r2.textContent = 'In 2 days';
 
-    const r3 = document.createElement("option");
-    r3.value = "1 week";
-    r3.textContent = "In 1 Week";
+    const r3 = document.createElement('option');
+    r3.value = '1 week';
+    r3.textContent = 'In 1 Week';
 
-    const hr4 = document.createElement("hr");  
-    const calendarDiv = document.createElement("div");
-      calendarDiv.className = "rescheduleCalendar";
-      calendarDiv.append(createCalendar(8));
-     
-    const time = document.createElement("button");
-     time.id = "time-btn";
-     time.textContent= "time";
+    const hr4 = document.createElement('hr');
+    const calendarDiv = document.createElement('div');
+    calendarDiv.className = 'rescheduleCalendar';
+    calendarDiv.append(createCalendar(8));
 
-    const repeat = document.createElement("button");
-     repeat.id = "repeat-btn";
-     repeat.textContent= "Repeat";
-     selectreschedulers.append(r1,r2,r3);
-     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
-     container.append(rescheduleDiv);
-      
-       rescheduleDiv.addEventListener("mouseleave",()=>{
-         container.removeChild(rescheduleDiv);
-       })
-      
-  if (selectreschedulers.value === "tomorrow"){
-    return tomorrow;
-  } else if (selectreschedulers.value === "2 days"){
-   return twoDays;
-  }else if (selectreschedulers.value === "1 week"){
-   return oneWeek;
-  }else{
-    return today;
+    const time = document.createElement('button');
+    time.id = 'time-btn';
+    time.textContent = 'time';
+
+    const repeat = document.createElement('button');
+    repeat.id = 'repeat-btn';
+    repeat.textContent = 'Repeat';
+    selectreschedulers.append(r1, r2, r3);
+    rescheduleDiv.append(
+      dateNow,
+      hr,
+      selectreschedulers,
+      hr4,
+      calendarDiv,
+      hr,
+      time,
+      repeat
+    );
+    container.append(rescheduleDiv);
+
+    rescheduleDiv.addEventListener('mouseleave', () => {
+      container.removeChild(rescheduleDiv);
+    });
+
+    if (selectreschedulers.value === 'tomorrow') {
+      return tomorrow;
+    } else if (selectreschedulers.value === '2 days') {
+      return twoDays;
+    } else if (selectreschedulers.value === '1 week') {
+      return oneWeek;
+    } else {
+      return today;
+    }
   }
 
-};
+  handleCLickEvent(radioBtn, pressRadioBtn);
+  handleCLickEvent(addTaskBtn, () => {
+    const formDiv = creatNewTodoForm();
+    formDiv.style.display = 'block';
+    pagediv.append(formDiv);
+  });
+  handleCLickEvent(text9, startRescheduleBtn);
+  handleCLickEvent(dropDown, collapsibleDropdown);
 
-      handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(addTaskBtn, ()=>{ 
-        const formDiv =creatNewTodoForm();
-        formDiv.style.display = "block";
-        pagediv.append(formDiv)}
-        )
-      handleCLickEvent(text9, startRescheduleBtn);
-      handleCLickEvent(dropDown, collapsibleDropdown);
-    
-  console.log("Today Bar created!");
-};
+  console.log('Today Bar created!');
+}
 
+export function createWeekly(month, num, day, counter, task) {
+  console.log('hey!, I am inside weekly func.');
 
-export function createWeekly(month,num,day,counter,task){
+  // Source - https://stackoverflow.com/a/70074156
+  // Posted by Joel
+  // Retrieved 2026-10-24, License - CC BY-SA 4.0
+  const week = Array.from(Array(7).keys()).map((idx) => {
+    const d = new Date();
+    d.setDate(d.getDate() - d.getDay() + idx);
+    return d;
+  });
+  console.log('list of all week dates: ', week);
 
-      console.log("hey!, I am inside weekly func." );
+  let mondayBtn = document.querySelector('#monday');
+  let tuesdayBtn = document.querySelector('#tuesday');
+  let wednesdayBtn = document.querySelector('#wednesday');
+  let thursdayBtn = document.querySelector('#thursday');
+  let fridayBtn = document.querySelector('#friday');
+  let saturdayBtn = document.querySelector('#saturday');
+  let sundayBtn = document.querySelector('#sunday');
 
-        // Source - https://stackoverflow.com/a/70074156
-        // Posted by Joel
-        // Retrieved 2026-10-24, License - CC BY-SA 4.0
-   const week = Array.from(Array(7).keys()).map((idx) => {const d = new Date(); d.setDate(d.getDate() - d.getDay() + idx); return d; });
-      console.log("list of all week dates: ", week);
+  // tasks will be seperated by days of the week.
+  const container = document.createElement('div');
+  container.className = 'weekContainer';
 
+  const header = document.createElement('h2');
+  header.className = 'week';
+  header.append(month, ' Week ', num);
 
-   let mondayBtn = document.querySelector("#monday");
-   let tuesdayBtn = document.querySelector("#tuesday");
-   let wednesdayBtn = document.querySelector("#wednesday");
-   let thursdayBtn = document.querySelector("#thursday");
-   let fridayBtn = document.querySelector("#friday");
-   let saturdayBtn = document.querySelector("#saturday");
-   let sundayBtn = document.querySelector("#sunday");
-  
+  const count = document.createElement('p');
+  const span1 = document.createElement('span');
+  span1.className = 'material-symbols-outlined';
+  span1.textContent = 'first_page';
+  span1.style.display = 'none';
 
+  const span2 = document.createElement('span');
+  span2.className = 'material-symbols-outlined';
+  span2.textContent = 'cruelty_free';
 
-    // tasks will be seperated by days of the week.  
-    const container = document.createElement("div");
-        container.className = "weekContainer";
+  const span3 = document.createElement('span');
+  span3.className = 'material-symbols-outlined';
+  span3.textContent = 'last_page';
+  span3.style.display = 'none';
+  count.append(span1, span2, span3);
+  container.append(header, count);
 
-    const header = document.createElement("h2");
-        header.className = "week";
-        header.append(month," Week ", num );
+  const days = [
+    ['Monday', mondayBg, week[1]],
+    ['Tuesday', tuesdayBg, week[2]],
+    ['Wednesday', wednesdayBg, week[3]],
+    ['Thursday', thursdayBg, week[4]],
+    ['Friday', fridayBg, week[5]],
+    ['Saturday', saturdayBg, week[6]],
+    ['Sunday', sundayBg, week[0]],
+  ];
 
-    const count = document.createElement("p");
-    const span1 = document.createElement("span");
-        span1.className = "material-symbols-outlined";
-        span1.textContent = "first_page";
-        span1.style.display = "none";
-     
-     const span2 = document.createElement("span");
-        span2.className = "material-symbols-outlined";
-        span2.textContent = "cruelty_free";
-       
-       
-     const span3 = document.createElement("span");
-        span3.className = "material-symbols-outlined";
-        span3.textContent = "last_page";    
-        span3.style.display = "none";
-        count.append(span1, span2, span3);
-        container.append(header,count);
+  for (let i = 0; i <= days.length - 1; i++) {
+    let formDiv;
+    const dayContainer = document.createElement('div');
+    dayContainer.className = 'dayContainer';
+    dayContainer.id = days[i][0];
 
-    const days = [["Monday", mondayBg, week[1]],["Tuesday", tuesdayBg, week[2]],
-                  ["Wednesday", wednesdayBg, week[3]],["Thursday", thursdayBg, week[4]],
-                  ["Friday", fridayBg, week[5]],["Saturday", saturdayBg, week[6]],["Sunday", sundayBg, week[0]]];
+    const dayName = document.createElement('h3');
+    dayName.className = 'dayName';
+    dayName.textContent = days[i][0];
 
-      
-    for (let i = 0; i <= days.length - 1; i++){
-    let formDiv;  
-    const dayContainer = document.createElement("div");
-        dayContainer.className = "dayContainer"; 
-        dayContainer.id = days[i][0];
+    const banner = document.createElement('img');
+    banner.className = 'weekBanner';
+    banner.src = days[i][1];
 
-    const dayName = document.createElement("h3"); 
-        dayName.className = "dayName";
-        dayName.textContent = days[i][0]; 
-    
-    const banner = document.createElement("img");
-        banner.className = "weekBanner";
-        banner.src = days[i][1];
-      
-    const div = document.createElement("div");
-        div.className= "dayDiv";
-        div.style.backgroundColor = banner;
-        div.append(dayName,banner); 
+    const div = document.createElement('div');
+    div.className = 'dayDiv';
+    div.style.backgroundColor = banner;
+    div.append(dayName, banner);
 
-    const ul = document.createElement("ul");
-        ul.className= "ul";
-        ul.id = days[i][2];
+    const ul = document.createElement('ul');
+    ul.className = 'ul';
+    ul.id = days[i][2];
 
-    const dropDown = document.createElement("span");
-        dropDown.className = "material-symbols-outlined";
-        dropDown.id = "dropDown";
-        dropDown.textContent = "stat_minus_1";
-        
-      let text8 = document.createElement("p");
-          text8.textContent= "Overdue";
-          text8.id = "text8";
+    const dropDown = document.createElement('span');
+    dropDown.className = 'material-symbols-outlined';
+    dropDown.id = 'dropDown';
+    dropDown.textContent = 'stat_minus_1';
 
-      let text9 = document.createElement("p");
-          text9.textContent = "Reschedule"; 
-          text9.id= "text9";
-          text9.style.color = "orangered";
-           
-          ul.append(dropDown, text8, text9);
-    const day1Hr = document.createElement("hr") ; 
-    const todoItem = document.createElement("li");
-       todoItem.id = "todos";
-       
-    const radioBtn = document.createElement("span"); 
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
-        
-       
-        todoItem.append(radioBtn , (task || "Edit Videos and post by 3pm."));
-        ul.appendChild(todoItem);
+    let text8 = document.createElement('p');
+    text8.textContent = 'Overdue';
+    text8.id = 'text8';
 
-    const taskBtn = document.createElement("button");
-        taskBtn.className = "addTaskBtn";
-        taskBtn.id = days[i][0];
+    let text9 = document.createElement('p');
+    text9.textContent = 'Reschedule';
+    text9.id = 'text9';
+    text9.style.color = 'orangered';
 
-    const plusIcon = document.createElement("span");
-        plusIcon.className = "material-symbols-outlined";
-        plusIcon.id = "plusIcon";
-        plusIcon.textContent = "add_2";    
-        taskBtn.append(plusIcon , "Add task");
+    ul.append(dropDown, text8, text9);
+    const day1Hr = document.createElement('hr');
+    const todoItem = document.createElement('li');
+    todoItem.id = 'todos';
 
-    const dayHr = document.createElement("hr");  
-        dayContainer.append(div, ul, day1Hr, todoItem,dayHr, taskBtn, formDiv=creatNewTodoForm(days[i][2]));   
-        container.append( dayContainer);
+    const radioBtn = document.createElement('span');
+    radioBtn.className = 'material-symbols-outlined';
+    radioBtn.textContent = 'radio_button_unchecked';
 
-     handleCLickEvent(radioBtn, pressRadioBtn);
-     handleCLickEvent(text9, createCalendar);
-     handleCLickEvent(taskBtn, ()=>{ formDiv.style.display = "block";})
-};
+    todoItem.append(radioBtn, task || 'Edit Videos and post by 3pm.');
+    ul.appendChild(todoItem);
 
-   function pressRadioBtn(event){
+    const taskBtn = document.createElement('button');
+    taskBtn.className = 'addTaskBtn';
+    taskBtn.id = days[i][0];
 
+    const plusIcon = document.createElement('span');
+    plusIcon.className = 'material-symbols-outlined';
+    plusIcon.id = 'plusIcon';
+    plusIcon.textContent = 'add_2';
+    taskBtn.append(plusIcon, 'Add task');
+
+    const dayHr = document.createElement('hr');
+    dayContainer.append(
+      div,
+      ul,
+      day1Hr,
+      todoItem,
+      dayHr,
+      taskBtn,
+      (formDiv = creatNewTodoForm(days[i][2]))
+    );
+    container.append(dayContainer);
+
+    handleCLickEvent(radioBtn, pressRadioBtn);
+    handleCLickEvent(text9, createCalendar);
+    handleCLickEvent(taskBtn, () => {
+      formDiv.style.display = 'block';
+    });
+  }
+
+  function pressRadioBtn(event) {
     // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-    const rabbiticon = document.createElement("img");
+    const rabbiticon = document.createElement('img');
     const radioBtn = event.currentTarget;
-       rabbiticon.src = rabbit;
-       rabbiticon.className = "rabbit-icon";
-       radioBtn.replaceWith(rabbiticon);
-       Todo.checkList = true;
-};
-     let numb = pagediv.childElementCount; console.log(numb)
-     if (numb > 1){
-         pagediv.lastChild.replaceWith(container);
-     }else {
-       pagediv.append(container);
-     }
-  
-    console.log("Weekly display created!");
-};
+    rabbiticon.src = rabbit;
+    rabbiticon.className = 'rabbit-icon';
+    radioBtn.replaceWith(rabbiticon);
+    Todo.checkList = true;
+  }
+  let numb = pagediv.childElementCount;
+  console.log(numb);
+  if (numb > 1) {
+    pagediv.lastChild.replaceWith(container);
+  } else {
+    pagediv.append(container);
+  }
 
+  console.log('Weekly display created!');
+}
 
-export function createMonthly(){
-  
-// tasks will be separated calendar format.
-    const container = document.createElement("div");
-    container.className = "monthlyContainer";
-    const header = document.createElement("h1");
-    const div = document.createElement("div");
-   
-    // checks the month and how many days it has.
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+export function createMonthly() {
+  // tasks will be separated calendar format.
+  const container = document.createElement('div');
+  container.className = 'monthlyContainer';
+  const header = document.createElement('h1');
+  const div = document.createElement('div');
 
+  // checks the month and how many days it has.
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
- for(let i= 0 ; i <= 11; i++){
-    const monthBox = document.createElement("div");
-    monthBox.className = "monthBox";
-    const monthDiv = document.createElement("div");
-    monthDiv.className= "monthDiv";
-    const monthImg = document.createElement("img");
+  for (let i = 0; i <= 11; i++) {
+    const monthBox = document.createElement('div');
+    monthBox.className = 'monthBox';
+    const monthDiv = document.createElement('div');
+    monthDiv.className = 'monthDiv';
+    const monthImg = document.createElement('img');
     monthImg.src = monthBg;
-    const monthHeader = document.createElement("h2");
-    monthHeader.className = "header";
-    monthHeader.textContent= months[i];
+    const monthHeader = document.createElement('h2');
+    monthHeader.className = 'header';
+    monthHeader.textContent = months[i];
     monthDiv.append(monthImg, monthHeader);
     monthBox.append(monthDiv);
-   div.append(monthBox,createCalendar(i));
- }
+    div.append(monthBox, createCalendar(i));
+  }
 
- const days = document.querySelectorAll(".dayDivs");
+  const days = document.querySelectorAll('.dayDivs');
 
-   days.forEach((div)=>{
-    div.addEventListener("click", function(e){
+  days.forEach((div) => {
+    div.addEventListener('click', function (e) {
       let day = e.target;
-      handleCLickEvent(day, displayMonthPage(new Date(number(day.textContent), month, year)));
-      console.log("HEY YOU JUST CLICKED A MONTH DAY")
-    })
-   })
+      handleCLickEvent(
+        day,
+        displayMonthPage(new Date(number(day.textContent), month, year))
+      );
+      console.log('HEY YOU JUST CLICKED A MONTH DAY');
+    });
+  });
 
+  function displayMonthPage(date) {
+    let counter = 1;
+    let [formattedDate, todayFullDate] = dateForThings();
 
+    const container = document.createElement('div');
+    container.className = 'monthContainer';
+    const header = document.createElement('div');
+    header.className = 'monthHeaderdiv';
 
- function displayMonthPage(date){
-  let counter = 1;
-  let [formattedDate, todayFullDate] = dateForThings();
-  
-  const container = document.createElement("div");
-      container.className = "monthContainer";
-  const header = document.createElement("div");
-      header.className = "monthHeaderdiv";
+    const bookicon = document.createElement('img');
+    bookicon.src = book;
+    bookicon.className = 'book-icon';
+    let text6 = document.createElement('h1');
+    text6.textContent = date;
+    header.append(bookicon, text6);
 
-  const bookicon = document.createElement("img");
-       bookicon.src = book;
-       bookicon.className = "book-icon";
-        let text6 = document.createElement("h1");
-        text6.textContent = date;
-        header.append(bookicon, text6);
+    const count = document.createElement('p');
+    const span = document.createElement('span');
+    span.className = 'material-symbols-outlined';
+    span.textContent = 'check_circle';
 
-  const count = document.createElement("p");
-  const span = document.createElement("span");
-        span.className = "material-symbols-outlined";
-        span.textContent = "check_circle";
-        
-  let text7 = document.createElement("p");
-        text7.textContent= "tasks";
-        count.append(span,`${counter + " "+ text7.textContent }` );
-       
-  const ul = document.createElement("ul");
-  const dropDown = document.createElement("span");
-        dropDown.className = "material-symbols-outlined";
-        dropDown.id = "dropDown";
-        dropDown.textContent = "stat_minus_1";
-        
-         let text8 = document.createElement("p");
-          text8.textContent= "Overdue";
-          text8.id = "overdue";
-          let text9 = document.createElement("p");
-          text9.textContent= "Reschedule"; 
-          text9.style.color = "orangered";
-           
-          ul.append(dropDown, text8, text9);
-   
-  const monthHr1 = document.createElement("hr"); 
-  const todoItem = document.createElement("li");
-       todoItem.id = "todos";
-  const radioBtn = document.createElement("span");
-        radioBtn.className = "material-symbols-outlined";
-        radioBtn.textContent = "radio_button_unchecked";
-        
-    let text10 = document.createElement("p");
-          text10.textContent= ( " Edit Videos and post by 3pm.");
-          todoItem.append(radioBtn,text10);
-       
-    const addTaskBtn = document.createElement("button");
-         addTaskBtn.className = "addTaskBtn";
+    let text7 = document.createElement('p');
+    text7.textContent = 'tasks';
+    count.append(span, `${counter + ' ' + text7.textContent}`);
 
-    const plusIcon = document.createElement("span");
-         plusIcon.className = "material-symbols-outlined";
-         plusIcon.id = "plusIcon";
-         plusIcon.textContent = "add_2"; 
-        
-    let text11 = document.createElement("p");
-          text11.textContent= "Add task";
-          addTaskBtn.append(plusIcon , text11);
+    const ul = document.createElement('ul');
+    const dropDown = document.createElement('span');
+    dropDown.className = 'material-symbols-outlined';
+    dropDown.id = 'dropDown';
+    dropDown.textContent = 'stat_minus_1';
 
-    const monthHr = document.createElement("hr");   
-     container.textContent = "";
-     container.append(header, count, ul, monthHr1,todoItem, monthHr, addTaskBtn);
-     
-     let numb = pagediv.childElementCount; console.log(numb)
-     if (numb > 1){
-         pagediv.lastChild.replaceWith(container);
-     }else {
-         pagediv.append(container);
-     };
-     
-    function pressRadioBtn(){
-    // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
-    const rabbiticon = document.createElement("img");
-       rabbiticon.src = rabbit;
-       rabbiticon.className = "rabbit-icon";
-       radioBtn.replaceWith(rabbiticon);
-       Todo.checkList = true;
-};
+    let text8 = document.createElement('p');
+    text8.textContent = 'Overdue';
+    text8.id = 'overdue';
+    let text9 = document.createElement('p');
+    text9.textContent = 'Reschedule';
+    text9.style.color = 'orangered';
 
-      function collapsibleDropdown(){
-    // this function handles todolist ui collasping effects.
-    const dropRight = document.createElement("span");
-        dropRight.className = "material-symbols-outlined";
-        dropRight.id = "dropRight";
-        dropRight.textContent = "chevron_right";
-   
-        container.removeChild(todoItem);
-        container.removeChild(monthHr);
-        dropDown.replaceWith(dropRight);
+    ul.append(dropDown, text8, text9);
 
-        dropRight.addEventListener("click" , ()=>{
+    const monthHr1 = document.createElement('hr');
+    const todoItem = document.createElement('li');
+    todoItem.id = 'todos';
+    const radioBtn = document.createElement('span');
+    radioBtn.className = 'material-symbols-outlined';
+    radioBtn.textContent = 'radio_button_unchecked';
+
+    let text10 = document.createElement('p');
+    text10.textContent = ' Edit Videos and post by 3pm.';
+    todoItem.append(radioBtn, text10);
+
+    const addTaskBtn = document.createElement('button');
+    addTaskBtn.className = 'addTaskBtn';
+
+    const plusIcon = document.createElement('span');
+    plusIcon.className = 'material-symbols-outlined';
+    plusIcon.id = 'plusIcon';
+    plusIcon.textContent = 'add_2';
+
+    let text11 = document.createElement('p');
+    text11.textContent = 'Add task';
+    addTaskBtn.append(plusIcon, text11);
+
+    const monthHr = document.createElement('hr');
+    container.textContent = '';
+    container.append(
+      header,
+      count,
+      ul,
+      monthHr1,
+      todoItem,
+      monthHr,
+      addTaskBtn
+    );
+
+    let numb = pagediv.childElementCount;
+    console.log(numb);
+    if (numb > 1) {
+      pagediv.lastChild.replaceWith(container);
+    } else {
+      pagediv.append(container);
+    }
+
+    function pressRadioBtn() {
+      // this function replaces radio icons for raddit icon when tasks are completed. updates todo.iscomplete objects.
+      const rabbiticon = document.createElement('img');
+      rabbiticon.src = rabbit;
+      rabbiticon.className = 'rabbit-icon';
+      radioBtn.replaceWith(rabbiticon);
+      Todo.checkList = true;
+    }
+
+    function collapsibleDropdown() {
+      // this function handles todolist ui collasping effects.
+      const dropRight = document.createElement('span');
+      dropRight.className = 'material-symbols-outlined';
+      dropRight.id = 'dropRight';
+      dropRight.textContent = 'chevron_right';
+
+      container.removeChild(todoItem);
+      container.removeChild(monthHr);
+      dropDown.replaceWith(dropRight);
+
+      dropRight.addEventListener('click', () => {
         container.removeChild(addTaskBtn);
         container.append(todoItem, monthHr, addTaskBtn);
 
         dropRight.replaceWith(dropDown);
-    })
-};
+      });
+    }
 
-function startRescheduleBtn(){
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
+    function startRescheduleBtn() {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
 
-    const twoDays = new Date(month);
-    twoDays.setDate(today.getDate() + 2);
+      const twoDays = new Date(month);
+      twoDays.setDate(today.getDate() + 2);
 
-     const oneWeek = new Date(today);
-    oneWeek.setDate(today.getDate() + 7);
-  
-    // this function creates ui for reschdule icon.and adds date to todos.
-     const rescheduleDiv = document.createElement("div");
-         rescheduleDiv.className = "rescheduleDiv";
-    const dateNow = document.createElement("p");
-       dateNow.className = "formatDateNow"
-        dateNow.textContent = formattedDate;
-    const hr = document.createElement("hr");
-    const selectreschedulers = document.createElement("select");
-      selectreschedulers.className = "rescheduleers"; 
-      selectreschedulers.name = "rescheduleers"; 
-    const r1 = document.createElement("option");
-      r1.value = "tomorrow";
-      r1.textContent = "Tomorrow";
-    const r2 = document.createElement("option");
-    r2.value = "2 days";
-    r2.textContent = "In 2 days";
-    const r3 = document.createElement("option");
-    r3.value = "1 week";
-    r3.textContent = "In 1 Week";
-    const hr4 = document.createElement("hr");
+      const oneWeek = new Date(today);
+      oneWeek.setDate(today.getDate() + 7);
 
-    
-     
-    const calendarDiv = document.createElement("div");
-    calendarDiv.className = "rescheduleCalendar"
+      // this function creates ui for reschdule icon.and adds date to todos.
+      const rescheduleDiv = document.createElement('div');
+      rescheduleDiv.className = 'rescheduleDiv';
+      const dateNow = document.createElement('p');
+      dateNow.className = 'formatDateNow';
+      dateNow.textContent = formattedDate;
+      const hr = document.createElement('hr');
+      const selectreschedulers = document.createElement('select');
+      selectreschedulers.className = 'rescheduleers';
+      selectreschedulers.name = 'rescheduleers';
+      const r1 = document.createElement('option');
+      r1.value = 'tomorrow';
+      r1.textContent = 'Tomorrow';
+      const r2 = document.createElement('option');
+      r2.value = '2 days';
+      r2.textContent = 'In 2 days';
+      const r3 = document.createElement('option');
+      r3.value = '1 week';
+      r3.textContent = 'In 1 Week';
+      const hr4 = document.createElement('hr');
+
+      const calendarDiv = document.createElement('div');
+      calendarDiv.className = 'rescheduleCalendar';
       calendarDiv.append(createCalendar(8));
-     
-    const time = document.createElement("button");
-     time.id = "time-btn";
-     time.textContent= "time";
-    const repeat = document.createElement("button");
-     repeat.id = "repeat-btn";
-     repeat.textContent= "Repeat";
-     selectreschedulers.append(r1,r2,r3);
-     rescheduleDiv.append(dateNow, hr, selectreschedulers, hr4 ,calendarDiv,hr, time, repeat);
-     container.append(rescheduleDiv);
-    
-     
-       rescheduleDiv.addEventListener("mouseleave",()=>{
-         container.removeChild(rescheduleDiv);
-       })
-      
-  if (selectreschedulers.value === "tomorrow"){
-    return tomorrow;
-  } else if (selectreschedulers.value === "2 days"){
-   return twoDays;
-  }else if (selectreschedulers.value === "1 week"){
-   return oneWeek;
-  }else{
-    return today;
-  }
 
-};
-      handleCLickEvent(dayDivs, displayMonthPage);
-      handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(addTaskBtn, creatNewTodoForm);
-      handleCLickEvent(text9, startRescheduleBtn);
-      handleCLickEvent(dropDown, collapsibleDropdown);
-    
- };
-  container.append(header,div);
- pagediv.lastChild.replaceWith(container);
- console.log("Monthly display created!")
+      const time = document.createElement('button');
+      time.id = 'time-btn';
+      time.textContent = 'time';
+      const repeat = document.createElement('button');
+      repeat.id = 'repeat-btn';
+      repeat.textContent = 'Repeat';
+      selectreschedulers.append(r1, r2, r3);
+      rescheduleDiv.append(
+        dateNow,
+        hr,
+        selectreschedulers,
+        hr4,
+        calendarDiv,
+        hr,
+        time,
+        repeat
+      );
+      container.append(rescheduleDiv);
+
+      rescheduleDiv.addEventListener('mouseleave', () => {
+        container.removeChild(rescheduleDiv);
+      });
+
+      if (selectreschedulers.value === 'tomorrow') {
+        return tomorrow;
+      } else if (selectreschedulers.value === '2 days') {
+        return twoDays;
+      } else if (selectreschedulers.value === '1 week') {
+        return oneWeek;
+      } else {
+        return today;
+      }
+    }
+    handleCLickEvent(dayDivs, displayMonthPage);
+    handleCLickEvent(radioBtn, pressRadioBtn);
+    handleCLickEvent(addTaskBtn, creatNewTodoForm);
+    handleCLickEvent(text9, startRescheduleBtn);
+    handleCLickEvent(dropDown, collapsibleDropdown);
+  }
+  container.append(header, div);
+  pagediv.lastChild.replaceWith(container);
+  console.log('Monthly display created!');
 }
 
+export function createSearch() {
+  const container = document.createElement('modal');
+  container.className = 'searchModal';
+  const form = document.createElement('form');
+  const searchIcon = document.createElement('span');
+  searchIcon.className = 'material-symbols-outlined';
+  searchIcon.id = 'searchIcon';
+  searchIcon.textContent = 'search';
 
-export function createSearch(){
-  
-    const container = document.createElement("modal");
-    container.className= "searchModal";
-    const form = document.createElement("form");
-    const searchIcon = document.createElement("span");
-        searchIcon.className = "material-symbols-outlined";
-        searchIcon.id = "searchIcon";
-        searchIcon.textContent = "search";
-        
-    const searchInput = document.createElement("input");
-        searchInput.type = 'search';
-        searchInput.name = 'search';
-        searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
-        searchInput.required = true; // Boolean attributes take true/false
-        searchInput.id = 'search';
+  const searchInput = document.createElement('input');
+  searchInput.type = 'search';
+  searchInput.name = 'search';
+  searchInput.placeholder = "Attend Mr Steven's anulguration ceremony";
+  searchInput.required = true; // Boolean attributes take true/false
+  searchInput.id = 'search';
 
-        const searchBtn = document.createElement("button");
-           searchBtn.type ="submit";
-           searchBtn.className="searchBtn";
-           searchBtn.textContent = "Search";
+  const searchBtn = document.createElement('button');
+  searchBtn.type = 'submit';
+  searchBtn.className = 'searchBtn';
+  searchBtn.textContent = 'Search';
 
-
-
-
-
-        function findSearchItem(){
-
-       // this function executes search that sort though todo array.
-        const todoSearch = document.querySelector(".searchBtn");
-        todoSearch.addEventListener("click", ()=>{
-        let currentValue = searchInput.value.toLocaleLowerCase();
-        console.log(currentValue);
-        let todos = document.querySelectorAll("#todo");
-        todos.forEach(todo =>{
-            if(todo.textContent.toLocaleLowerCase().includes(currentValue)){
-                todo.parentNode.parentNode.style.display = "block";
-            }else{
-                 todo.parentNode.parentNode.style.display = "none";
-            }
-        })
-       })
-      }   
- form.append(searchIcon, searchInput, searchBtn)
+  function findSearchItem() {
+    // this function executes search that sort though todo array.
+    const todoSearch = document.querySelector('.searchBtn');
+    todoSearch.addEventListener('click', () => {
+      let currentValue = searchInput.value.toLocaleLowerCase();
+      console.log(currentValue);
+      let todos = document.querySelectorAll('#todo');
+      todos.forEach((todo) => {
+        if (todo.textContent.toLocaleLowerCase().includes(currentValue)) {
+          todo.parentNode.parentNode.style.display = 'block';
+        } else {
+          todo.parentNode.parentNode.style.display = 'none';
+        }
+      });
+    });
+  }
+  form.append(searchIcon, searchInput, searchBtn);
   container.append(form);
 
   pagediv.appendChild(container);
- 
 
-console.log("Search Bar created!")
+  console.log('Search Bar created!');
 }
 
-
-function handleCLickEvent(elem, func,arg){
-   
-    elem.addEventListener("click", func);
-   if(elem.isClicked === true ){
-     return func(arg);       
-   }
+function handleCLickEvent(elem, func, arg) {
+  elem.addEventListener('click', func);
+  if (elem.isClicked === true) {
+    return func(arg);
+  }
 }
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-console.log("I am the end to home.js");
+console.log('I am the end to home.js');

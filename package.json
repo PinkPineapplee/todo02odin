@@ -10,7 +10,7 @@
     "dev": "webpack serve",
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "lint": "eslint .",
-     "format": "prettier --write .",
+    "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "repository": {
