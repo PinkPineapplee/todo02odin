@@ -691,7 +691,7 @@ console.log("I am making a beautiful todo form!")
 export function createToday(){ 
   let counter = 1;
   const today = new Date();
-  const formDiv = creatNewTodoForm();
+
   const container = document.createElement("div");
       container.className = "todayContainer";
   const header = document.createElement("div");
@@ -757,7 +757,7 @@ export function createToday(){
 
     const todayHr = document.createElement("hr") ;   
           container.textContent = "";
-          container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn, formDiv);
+          container.append(header, count, ul, todayHr1,todoItem, todayHr, addTaskBtn);
           
      let numb = pagediv.childElementCount;
       console.log(numb);
@@ -865,7 +865,11 @@ function startRescheduleBtn(){
 };
 
       handleCLickEvent(radioBtn, pressRadioBtn);
-      handleCLickEvent(addTaskBtn, ()=>{formDiv.style.display = "block"});
+      handleCLickEvent(addTaskBtn, ()=>{ 
+        const formDiv =creatNewTodoForm();
+        formDiv.style.display = "block";
+        pagediv.append(formDiv)}
+        )
       handleCLickEvent(text9, startRescheduleBtn);
       handleCLickEvent(dropDown, collapsibleDropdown);
     

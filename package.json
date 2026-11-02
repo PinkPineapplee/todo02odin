@@ -8,7 +8,10 @@
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "lint": "eslint .",
+     "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -23,9 +26,13 @@
   },
   "homepage": "https://github.com/PinkPineapplee/todo02odin#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "css-loader": "^7.1.4",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.7",
+    "prettier": "^3.9.10",
     "style-loader": "^4.0.0",
     "webpack": "^5.108.3",
     "webpack-cli": "^7.1.0",
